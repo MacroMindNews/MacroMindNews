@@ -145,15 +145,26 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 .flinks a:hover{color:#c00;}
 
 /* ── HAMBURGER ── */
-.hbtn{display:flex;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hbtn{display:flex;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px;margin-left:12px;}
 .hbtn span{display:block;width:24px;height:2px;background:#111;border-radius:2px;transition:all .25s;}
 .hbtn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hbtn.open span:nth-child(2){opacity:0;}
 .hbtn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.drawer{display:none;position:fixed;top:54px;left:0;right:0;background:#fff;border-bottom:2px solid #c00;z-index:99;max-height:0;overflow:hidden;transition:max-height .3s;}
-.drawer.open{max-height:400px;}
-.drawer a{display:block;padding:13px 20px;font-size:.93rem;font-weight:600;color:#222;border-bottom:1px solid #f0f0f0;cursor:pointer;}
-.drawer a:hover{background:#fafafa;color:#c00;}
+.drawer{display:block;position:fixed;top:60px;right:0;left:auto;width:45%;min-width:280px;background:#fff;border-left:1px solid #e0e0e0;border-bottom:2px solid #c00;z-index:99;max-height:0;overflow:hidden;transition:max-height .3s;overflow-y:auto;box-shadow:-4px 4px 20px rgba(0,0,0,.1);overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
+.drawer.open{max-height:85vh;}
+.drawer-inner{padding:8px 0 16px;}
+.drawer-group-title{font-family:'Merriweather',serif;font-size:.78rem;font-weight:900;color:#111;text-transform:uppercase;letter-spacing:.5px;padding:14px 20px 6px;display:block;}
+.drawer-section a{display:block;padding:9px 20px;font-size:.93rem;font-weight:600;color:#333;cursor:pointer;}
+.drawer-section a:hover{color:#c00;background:#fafafa;}
+.drawer-sep{border-top:1px solid #e0e0e0;margin:8px 0;}
+.drawer-redes{display:flex;gap:10px;padding:10px 20px 14px;flex-wrap:wrap;}
+.drawer-redes a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:4px;transition:transform .15s;}
+.drawer-redes a:hover{transform:translateY(-2px);}
+.drawer-redes a.xi{background:#000;}.drawer-redes a.yti{background:#f00;}.drawer-redes a.wai{background:#25d366;}
+.drawer-redes a.tki{background:#000;}.drawer-redes a.igi{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);}
+.drawer-redes svg{width:16px;height:16px;fill:#fff;}
+.drawer-sub{display:none;margin:12px auto;background:#c00;color:#fff;text-align:center;padding:11px 20px;border-radius:3px;font-size:.85rem;font-weight:700;cursor:pointer;letter-spacing:.05em;width:calc(100% - 40px);box-sizing:border-box;}
+.drawer-sub:hover{background:#a00;}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
@@ -175,7 +186,7 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
   .ft{grid-template-columns:1fr;}
   .fb-bot{flex-direction:column;gap:10px;text-align:center;}
   .flinks{flex-wrap:wrap;justify-content:center;}
-  .drawer{top:54px;width:100%;left:0;border-left:none;}
+  .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
   .drawer-sub{display:block;}
 }
   </style>
