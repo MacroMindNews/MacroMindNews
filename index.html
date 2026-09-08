@@ -223,6 +223,8 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
     <div class="drawer-group-title">Otras Secciones</div>
     <div class="drawer-section">
       <a href="deportes.html" onclick="closeDrawer()">Deportes</a>
+      <a href="judiciales.html" onclick="closeDrawer()">Judiciales</a>
+      <a href="iglesia.html" onclick="closeDrawer()">Iglesia</a>
     </div>
     <div class="drawer-sep"></div>
     <div class="drawer-group-title">Legal</div>
@@ -258,6 +260,9 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
     <div class="block"><div class="block-title"><a href="politica.html">Política</a></div><div id="h-politica"><div class="loading"><div class="spinner"></div></div></div></div>
     <div class="block"><div class="block-title"><a href="finanzas.html">Finanzas</a></div><div id="h-finanzas"><div class="loading"><div class="spinner"></div></div></div></div>
     <div class="block"><div class="block-title"><a href="internacional.html">Internacional</a></div><div id="h-internacional"><div class="loading"><div class="spinner"></div></div></div></div>
+    <div class="block"><div class="block-title"><a href="deportes.html">Deportes</a></div><div id="h-deportes"><div class="loading"><div class="spinner"></div></div></div></div>
+    <div class="block"><div class="block-title"><a href="judiciales.html">Judiciales</a></div><div id="h-judiciales"><div class="loading"><div class="spinner"></div></div></div></div>
+    <div class="block"><div class="block-title"><a href="iglesia.html">Iglesia</a></div><div id="h-iglesia"><div class="loading"><div class="spinner"></div></div></div></div>
   </div>
 </div>
 
@@ -288,6 +293,9 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
       <li><a href="finanzas.html">Finanzas</a></li>
       <li><a href="politica.html">Política</a></li>
       <li><a href="internacional.html">Internacional</a></li>
+      <li><a href="deportes.html">Deportes</a></li>
+      <li><a href="judiciales.html">Judiciales</a></li>
+      <li><a href="iglesia.html">Iglesia</a></li>
     </ul></div>
     <div class="fc"><h4>Legal</h4><ul>
       <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
@@ -327,8 +335,8 @@ const app = initializeApp({
 const db = getFirestore(app);
 
 // ── HELPERS ──
-const catLabel = c => ({Economia:'ECONOMÍA',Politica:'POLÍTICA',Finanzas:'FINANZAS',Internacional:'INTERNACIONAL'}[c]||c.toUpperCase());
-const catPage  = c => ({Economia:'economia',Politica:'politica',Finanzas:'finanzas',Internacional:'internacional'}[c]||c.toLowerCase());
+const catLabel = c => ({Economia:'ECONOMÍA',Politica:'POLÍTICA',Finanzas:'FINANZAS',Internacional:'INTERNACIONAL',Deportes:'DEPORTES',Judiciales:'JUDICIALES',Iglesia:'IGLESIA'}[c]||c.toUpperCase());
+const catPage  = c => ({Economia:'economia',Politica:'politica',Finanzas:'finanzas',Internacional:'internacional',Deportes:'deportes',Judiciales:'judiciales',Iglesia:'iglesia'}[c]||c.toLowerCase());
 const imgFb    = () => `onerror="this.style.background='#ddd';this.removeAttribute('src');"`;
 
 // ── RENDER HOME ──
@@ -387,6 +395,9 @@ async function cargarNoticias() {
   renderHome(todas.filter(n=>n.categoria==='Politica').slice(0,7), 'h-politica');
   renderHome(todas.filter(n=>n.categoria==='Finanzas').slice(0,7), 'h-finanzas');
   renderHome(todas.filter(n=>n.categoria==='Internacional').slice(0,7), 'h-internacional');
+  renderHome(todas.filter(n=>n.categoria==='Deportes').slice(0,7), 'h-deportes');
+  renderHome(todas.filter(n=>n.categoria==='Judiciales').slice(0,7), 'h-judiciales');
+  renderHome(todas.filter(n=>n.categoria==='Iglesia').slice(0,7), 'h-iglesia');
 }
 
 // ── NAVEGACIÓN ──
