@@ -88,6 +88,7 @@
     <div class="tabs">
       <div class="tab active" onclick="showTab('tabNew',this)">📝 Nueva Noticia</div>
       <div class="tab" onclick="showTab('tabList',this)">📋 Publicadas (<span id="totalCount">0</span>)</div>
+      <div class="tab" onclick="showTab('tabTemas',this)">🏷️ Temas</div>
     </div>
 
     <!-- NUEVA NOTICIA -->
@@ -121,11 +122,37 @@
           </div>
           <div id="aBody" contenteditable="true" style="width:100%;min-height:180px;padding:12px 13px;border:1px solid #ddd;border-radius:0 0 4px 4px;font-size:.92rem;font-family:'Source Sans 3',sans-serif;color:#111;outline:none;line-height:1.6;"></div>
         </div>
+        <div id="temaCheck" style="display:none;margin-bottom:12px;padding:12px;background:#fff8f8;border:1px solid #f5c0c0;border-radius:4px;">
+          <label style="display:flex;align-items:center;gap:8px;font-weight:700;cursor:pointer;">
+            <input type="checkbox" id="addToTema" style="width:16px;height:16px;accent-color:#c00;">
+            <span id="temaCheckLabel">¿Agregar a tema?</span>
+          </label>
+        </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <button class="btn" id="pubBtn" onclick="publicar()">Publicar Noticia</button>
           <button class="btn btn-sec" onclick="limpiar()">Limpiar</button>
         </div>
         <div id="pubMsg"></div>
+      </div>
+    </div>
+
+
+    <!-- TEMAS -->
+    <div id="tabTemas" style="display:none;">
+      <div class="card">
+        <h2>🏷️ Gestión de Temas</h2>
+
+        <!-- Crear tema -->
+        <div style="background:#f8f8f8;border:1px solid #ddd;border-radius:6px;padding:16px;margin-bottom:24px;">
+          <h3 style="font-size:.95rem;font-weight:700;margin-bottom:12px;color:#111;">Crear nuevo tema</h3>
+          <div class="field"><label>Nombre del tema *</label><input type="text" id="tNombre" placeholder="Ej: Cuestión Malvinas"/></div>
+          <div class="field"><label>Imagen decorativa (opcional)</label><input type="text" id="tImagen" placeholder="img/malvinas-deco.webp"/><p class="hint">Aparece a los lados del título en el sitio.</p></div>
+          <button class="btn" onclick="crearTema()">Crear Tema</button>
+          <div id="temaMsg" style="margin-top:8px;font-size:.83rem;"></div>
+        </div>
+
+        <!-- Listado de temas -->
+        <div id="temaLista"><p style="color:#aaa;font-size:.88rem;">Cargando temas...</p></div>
       </div>
     </div>
 
@@ -221,7 +248,7 @@
 
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, serverTimestamp, where, arrayUnion, arrayRemove } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
 const app = initializeApp({
@@ -383,9 +410,10 @@ window.publicar = async function() {
     const htmlContent = generarHTMLNoticia(noticia);
     
     // Guardar en Firebase
-    await addDoc(collection(db,'noticias'), {
+    const docRef = await addDoc(collection(db,'noticias'), {
       titulo:t, copete:c, categoria:cat, fecha:f, imagen:img, cuerpo:body, slug, filename, timestamp:serverTimestamp()
     });
+    await agregarATema(slug);;
 
     msg.innerHTML='<div class="msg info">⏳ Subiendo a GitHub...</div>';
 
@@ -440,11 +468,13 @@ window.eliminar = async function(id, filename) {
 };
 
 window.showTab = function(tabId, el) {
-  document.getElementById('tabNew').style.display  = tabId==='tabNew'  ? 'block':'none';
-  document.getElementById('tabList').style.display = tabId==='tabList' ? 'block':'none';
+  document.getElementById('tabNew').style.display   = tabId==='tabNew'   ? 'block':'none';
+  document.getElementById('tabList').style.display  = tabId==='tabList'  ? 'block':'none';
+  document.getElementById('tabTemas').style.display = tabId==='tabTemas' ? 'block':'none';
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
   if(tabId==='tabList') cargarLista();
+  if(tabId==='tabTemas') cargarTemas();
 };
 
 window.abrirEditar = async function(id) {
@@ -806,6 +836,149 @@ document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.conta
 </body>
 </html>`;
 }
+
+// ── TEMAS ──
+let _temaActivo = null;
+
+async function cargarTemaActivo() {
+  try {
+    const snap = await getDocs(query(collection(db,'temas'), where('activo','==',true)));
+    if (!snap.empty) {
+      _temaActivo = { id: snap.docs[0].id, ...snap.docs[0].data() };
+      const chk = document.getElementById('temaCheck');
+      const lbl = document.getElementById('temaCheckLabel');
+      if (chk && lbl) {
+        lbl.textContent = `¿Agregar a tema "${_temaActivo.nombre}"?`;
+        chk.style.display = 'block';
+      }
+    }
+  } catch(e) { console.error(e); }
+}
+
+async function crearTema() {
+  const nombre = document.getElementById('tNombre').value.trim();
+  const imagen = document.getElementById('tImagen').value.trim();
+  const msg = document.getElementById('temaMsg');
+  if (!nombre) { msg.textContent = '⚠️ El nombre es obligatorio.'; msg.style.color='#c00'; return; }
+  try {
+    await addDoc(collection(db,'temas'), { nombre, imagen: imagen||'', activo: false, noticias: [], timestamp: serverTimestamp() });
+    msg.textContent = '✅ Tema creado.'; msg.style.color='#1a8c3a';
+    document.getElementById('tNombre').value = '';
+    document.getElementById('tImagen').value = '';
+    setTimeout(() => { msg.textContent = ''; cargarTemas(); }, 1200);
+  } catch(e) { msg.textContent = '❌ Error: ' + e.message; msg.style.color='#c00'; }
+}
+window.crearTema = crearTema;
+
+async function cargarTemas() {
+  const el = document.getElementById('temaLista');
+  el.innerHTML = '<p style="color:#aaa;font-size:.88rem;">Cargando...</p>';
+  try {
+    const snap = await getDocs(query(collection(db,'temas'), orderBy('timestamp','desc')));
+    const nSnap = await getDocs(query(collection(db,'noticias'), orderBy('timestamp','desc')));
+    const todasNoticias = [];
+    nSnap.forEach(d => todasNoticias.push({ id: d.id, ...d.data() }));
+
+    if (snap.empty) { el.innerHTML = '<p style="color:#aaa;font-size:.88rem;">No hay temas creados aún.</p>'; return; }
+
+    let html = '';
+    snap.forEach(d => {
+      const t = { id: d.id, ...d.data() };
+      const cantN = (t.noticias||[]).length;
+      html += `<div style="border:1px solid #ddd;border-radius:6px;padding:14px;margin-bottom:14px;background:#fff;">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <div>
+            <span style="font-family:'Merriweather',serif;font-weight:900;font-size:1rem;">${t.nombre}</span>
+            ${t.activo ? '<span style="margin-left:10px;background:#1a8c3a;color:#fff;font-size:.68rem;font-weight:700;padding:2px 7px;border-radius:3px;">ACTIVO</span>' : '<span style="margin-left:10px;background:#eee;color:#888;font-size:.68rem;font-weight:700;padding:2px 7px;border-radius:3px;">INACTIVO</span>'}
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <button class="btn btn-sec" style="padding:5px 12px;font-size:.78rem;" onclick="toggleTema('${t.id}',${t.activo})">${t.activo ? 'Desactivar' : 'Activar'}</button>
+            <button class="btn btn-sec" style="padding:5px 12px;font-size:.78rem;" onclick="verNoticiasT('${t.id}','${t.nombre.replace(/'/g,"\'")}')">Noticias (${cantN})</button>
+            <button class="btn" style="padding:5px 12px;font-size:.78rem;background:#c00;" onclick="eliminarTema('${t.id}','${t.nombre.replace(/'/g,"\'")}')">Eliminar tema</button>
+          </div>
+        </div>
+        <div id="noticias-tema-${t.id}" style="display:none;margin-top:12px;border-top:1px solid #eee;padding-top:12px;"></div>
+      </div>`;
+    });
+    el.innerHTML = html;
+    window._todasNoticias = todasNoticias;
+  } catch(e) { el.innerHTML = '<p style="color:#c00;">Error cargando temas.</p>'; console.error(e); }
+}
+window.cargarTemas = cargarTemas;
+
+async function toggleTema(id, activo) {
+  try {
+    if (!activo) {
+      // Desactivar todos primero
+      const snap = await getDocs(query(collection(db,'temas'), where('activo','==',true)));
+      for (const d of snap.docs) await updateDoc(doc(db,'temas',d.id), { activo: false });
+    }
+    await updateDoc(doc(db,'temas',id), { activo: !activo });
+    cargarTemas();
+    cargarTemaActivo();
+  } catch(e) { alert('Error: ' + e.message); }
+}
+window.toggleTema = toggleTema;
+
+async function eliminarTema(id, nombre) {
+  if (!confirm(`¿Eliminar el tema "${nombre}"? Esto no elimina las noticias.`)) return;
+  try {
+    await deleteDoc(doc(db,'temas',id));
+    cargarTemas();
+  } catch(e) { alert('Error: ' + e.message); }
+}
+window.eliminarTema = eliminarTema;
+
+function verNoticiasT(temaId, temaNombre) {
+  const el = document.getElementById('noticias-tema-' + temaId);
+  if (el.style.display !== 'none') { el.style.display = 'none'; return; }
+
+  // Buscar el tema para obtener sus slugs
+  getDocs(query(collection(db,'temas'))).then(snap => {
+    const t = snap.docs.find(d => d.id === temaId);
+    if (!t) return;
+    const slugs = t.data().noticias || [];
+    const todas = window._todasNoticias || [];
+    const ns = todas.filter(n => slugs.includes(n.slug)).sort((a,b) => {
+      return (b.timestamp?.seconds||0) - (a.timestamp?.seconds||0);
+    });
+
+    if (!ns.length) { el.innerHTML = '<p style="color:#aaa;font-size:.83rem;">No hay noticias en este tema.</p>'; el.style.display='block'; return; }
+
+    let html = `<p style="font-size:.8rem;color:#888;margin-bottom:8px;">Noticias en este tema (más reciente primero):</p>`;
+    ns.forEach(n => {
+      html += `<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #f0f0f0;gap:8px;">
+        <span style="font-size:.83rem;font-weight:600;color:#111;flex:1;">${n.titulo}</span>
+        <span style="font-size:.75rem;color:#aaa;white-space:nowrap;">${n.fecha||''}</span>
+        <button class="btn btn-sec" style="padding:3px 10px;font-size:.75rem;white-space:nowrap;" onclick="quitarDeT('${temaId}','${n.slug}')">Quitar</button>
+      </div>`;
+    });
+    el.innerHTML = html;
+    el.style.display = 'block';
+  });
+}
+window.verNoticiasT = verNoticiasT;
+
+async function quitarDeT(temaId, slug) {
+  if (!confirm('¿Quitar esta noticia del tema?')) return;
+  try {
+    await updateDoc(doc(db,'temas',temaId), { noticias: arrayRemove(slug) });
+    cargarTemas();
+  } catch(e) { alert('Error: ' + e.message); }
+}
+window.quitarDeT = quitarDeT;
+
+// Agregar noticia al tema activo al publicar
+async function agregarATema(slug) {
+  if (!_temaActivo) return;
+  const chk = document.getElementById('addToTema');
+  if (!chk || !chk.checked) return;
+  try {
+    await updateDoc(doc(db,'temas',_temaActivo.id), { noticias: arrayUnion(slug) });
+  } catch(e) { console.error('Error agregando al tema:', e); }
+}
+
+cargarTemaActivo();
 </script>
 </body>
 </html>
