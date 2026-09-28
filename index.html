@@ -200,7 +200,7 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 .tema-main-img{flex:0 0 52%;cursor:pointer;}
 .tema-main-img img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#eee;display:block;}
 .tema-main-info{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;}
-.tema-main-info .cat{display:inline-block;background:#c00;color:#fff;font-size:.62rem;font-weight:700;padding:2px 7px;text-transform:uppercase;letter-spacing:.6px;}
+.tema-main-info .cat{display:inline-block;background:#c00;color:#fff;font-size:.62rem;font-weight:700;padding:2px 7px;text-transform:uppercase;letter-spacing:.6px;align-self:flex-start;width:fit-content;}
 .tema-main-info .live-badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;color:#c00;margin-bottom:2px;}
 .tema-main-info .live-dot{width:8px;height:8px;background:#c00;border-radius:50%;animation:pulse 1.2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
@@ -516,12 +516,15 @@ async function cargarTema() {
     const tema = { id: tSnap.docs[0].id, ...tSnap.docs[0].data() };
     if (!tema.noticias || !tema.noticias.length) return;
 
-    const todas = window._noticias || [];
+    // Cargar noticias directamente de Firebase para asegurar que estén disponibles
     const slugsSet = new Set(tema.noticias);
-    const ns = todas.filter(n => slugsSet.has(n.slug)).sort((a,b)=>{
-      const ta = a.timestamp?.seconds||0, tb = b.timestamp?.seconds||0;
-      return tb - ta;
+    const nSnap = await gd2(col2(db,'noticias'));
+    const ns = [];
+    nSnap.forEach(d => {
+      const n = { id: d.id, ...d.data() };
+      if (slugsSet.has(n.slug)) ns.push(n);
     });
+    ns.sort((a,b) => (b.timestamp?.seconds||0) - (a.timestamp?.seconds||0));
     if (!ns.length) return;
 
     const [principal, ...relacionadas] = ns;
