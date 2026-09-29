@@ -89,6 +89,7 @@
       <div class="tab active" onclick="showTab('tabNew',this)">📝 Nueva Noticia</div>
       <div class="tab" onclick="showTab('tabList',this)">📋 Publicadas (<span id="totalCount">0</span>)</div>
       <div class="tab" onclick="showTab('tabTemas',this)">🏷️ Temas</div>
+      <div class="tab" onclick="showTab('tabLive',this)">🔴 En vivo</div>
     </div>
 
     <!-- NUEVA NOTICIA -->
@@ -156,10 +157,44 @@
       </div>
     </div>
 
+
+    <!-- EN VIVO -->
+    <div id="tabLive" style="display:none;">
+      <div class="card">
+        <h2>🔴 En vivo</h2>
+        <div style="background:#f8f8f8;border:1px solid #ddd;border-radius:6px;padding:16px;">
+          <div class="field">
+            <label style="display:flex;align-items:center;gap:10px;font-weight:700;cursor:pointer;">
+              <input type="checkbox" id="liveCheck" style="width:16px;height:16px;accent-color:#c00;" onchange="toggleLiveLink()">
+              ¿En vivo ahora?
+            </label>
+          </div>
+          <div id="liveLinkWrap" style="display:none;margin-top:10px;">
+            <div class="field">
+              <label>Link del directo</label>
+              <input type="text" id="liveUrl" placeholder="https://www.youtube.com/live/..."/>
+            </div>
+          </div>
+          <button class="btn" onclick="guardarLive()" style="margin-top:8px;">Guardar</button>
+          <div id="liveMsg" style="margin-top:8px;font-size:.83rem;"></div>
+        </div>
+        <div id="liveStatus" style="margin-top:16px;font-size:.85rem;color:#555;"></div>
+      </div>
+    </div>
+
     <!-- LISTA -->
     <div id="tabList" style="display:none;">
       <div class="card">
         <h2>📋 Noticias publicadas</h2>
+        <div style="margin-bottom:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <button class="btn" onclick="actualizarTodo()" id="btnActualizar">🔄 Actualizar todo</button>
+          <div id="progWrap" style="display:none;flex:1;min-width:180px;">
+            <div style="background:#eee;border-radius:4px;height:8px;overflow:hidden;">
+              <div id="progBar" style="background:#c00;height:8px;width:0%;transition:width .2s;"></div>
+            </div>
+            <div id="progText" style="font-size:.78rem;color:#555;margin-top:4px;"></div>
+          </div>
+        </div>
         <div id="adminList"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
       </div>
     </div>
@@ -471,10 +506,12 @@ window.showTab = function(tabId, el) {
   document.getElementById('tabNew').style.display   = tabId==='tabNew'   ? 'block':'none';
   document.getElementById('tabList').style.display  = tabId==='tabList'  ? 'block':'none';
   document.getElementById('tabTemas').style.display = tabId==='tabTemas' ? 'block':'none';
+  document.getElementById('tabLive').style.display  = tabId==='tabLive'  ? 'block':'none';
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
   if(tabId==='tabList') cargarLista();
   if(tabId==='tabTemas') cargarTemas();
+  if(tabId==='tabLive') cargarLiveStatus();
 };
 
 window.abrirEditar = async function(id) {
@@ -978,7 +1015,96 @@ async function agregarATema(slug) {
   } catch(e) { console.error('Error agregando al tema:', e); }
 }
 
+// ── ACTUALIZAR TODO ──
+async function actualizarTodo() {
+  const btn = document.getElementById('btnActualizar');
+  const progWrap = document.getElementById('progWrap');
+  const progBar = document.getElementById('progBar');
+  const progText = document.getElementById('progText');
+
+  if (!confirm('¿Actualizar el HTML de todas las noticias publicadas? Puede tardar varios minutos.')) return;
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Actualizando...';
+  progWrap.style.display = 'flex';
+
+  const q = query(collection(db,'noticias'), orderBy('timestamp','desc'));
+  const snap = await getDocs(q);
+  const ns = [];
+  snap.forEach(d => ns.push({ id: d.id, ...d.data() }));
+
+  let ok = 0, err = 0;
+  for (let i = 0; i < ns.length; i++) {
+    const n = ns[i];
+    const pct = Math.round(((i+1)/ns.length)*100);
+    progBar.style.width = pct + '%';
+    progText.textContent = `${i+1} de ${ns.length} — ${n.titulo?.substring(0,50)}...`;
+
+    try {
+      // Obtener SHA actual del archivo en GitHub
+      const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${n.filename}`;
+      const getRes = await fetch(url, { headers: { 'Authorization': `token ${GH_TOKEN}` } });
+      let sha = null;
+      if (getRes.ok) { const d = await getRes.json(); sha = d.sha; }
+
+      // Regenerar HTML con template actual
+      const htmlContent = generarHTMLNoticia(n);
+      await subirAGitHub(n.filename, htmlContent, `Actualizar diseño: ${n.titulo}`, sha);
+      ok++;
+    } catch(e) {
+      err++;
+      console.error('Error actualizando', n.titulo, e);
+    }
+
+    // Pequeña pausa para no saturar la API de GitHub
+    await new Promise(r => setTimeout(r, 300));
+  }
+
+  btn.disabled = false;
+  btn.textContent = '🔄 Actualizar todo';
+  progText.textContent = `✅ Listo: ${ok} actualizadas${err ? `, ❌ ${err} con error` : ''}.`;
+  setTimeout(() => { progWrap.style.display = 'none'; progBar.style.width = '0%'; }, 5000);
+}
+window.actualizarTodo = actualizarTodo;
+
+// ── EN VIVO ──
+function toggleLiveLink() {
+  const chk = document.getElementById('liveCheck');
+  document.getElementById('liveLinkWrap').style.display = chk.checked ? 'block' : 'none';
+}
+window.toggleLiveLink = toggleLiveLink;
+
+async function cargarLiveStatus() {
+  try {
+    const snap = await getDocs(collection(db,'config'));
+    const cfg = {};
+    snap.forEach(d => { if (d.id === 'live') Object.assign(cfg, d.data()); });
+    const chk = document.getElementById('liveCheck');
+    const urlEl = document.getElementById('liveUrl');
+    const st = document.getElementById('liveStatus');
+    if (chk) chk.checked = cfg.activo || false;
+    if (urlEl) urlEl.value = cfg.url || '';
+    if (chk) toggleLiveLink();
+    if (st) st.textContent = cfg.activo ? `🔴 En vivo activo → ${cfg.url}` : '⚫ Sin directo activo.';
+  } catch(e) { console.error(e); }
+}
+
+async function guardarLive() {
+  const activo = document.getElementById('liveCheck').checked;
+  const url = document.getElementById('liveUrl').value.trim();
+  const msg = document.getElementById('liveMsg');
+  if (activo && !url) { msg.textContent = '⚠️ Ingresá el link del directo.'; msg.style.color='#c00'; return; }
+  try {
+    const { setDoc, doc: docFn } = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+    await setDoc(docFn(db,'config','live'), { activo, url: activo ? url : '' });
+    msg.textContent = '✅ Guardado.'; msg.style.color='#1a8c3a';
+    setTimeout(() => { msg.textContent = ''; cargarLiveStatus(); }, 1200);
+  } catch(e) { msg.textContent = '❌ Error: ' + e.message; msg.style.color='#c00'; }
+}
+window.guardarLive = guardarLive;
+
 cargarTemaActivo();
+cargarLiveStatus();
 </script>
 </body>
 </html>
