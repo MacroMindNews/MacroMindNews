@@ -233,9 +233,10 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 
 
 /* ── EN VIVO BADGE ── */
-.live-badge-header{display:none;align-items:center;gap:6px;cursor:pointer;text-decoration:none;margin-left:10px;vertical-align:middle;}
+.logo-wrap{display:flex;align-items:center;gap:10px;}
+.live-badge-header{display:none;align-items:center;gap:6px;cursor:pointer;text-decoration:none;}
 .live-badge-header .live-dot{width:9px;height:9px;background:#c00;border-radius:50%;animation:livePulse 2.2s infinite;}
-@keyframes livePulse{0%{opacity:1;box-shadow:0 0 0 0 rgba(204,0,0,.5);}70%{opacity:.9;box-shadow:0 0 0 7px rgba(204,0,0,0);}100%{opacity:1;box-shadow:0 0 0 0 rgba(204,0,0,0);}}
+@keyframes livePulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(204,0,0,.4);}50%{opacity:.8;box-shadow:0 0 0 5px rgba(204,0,0,0);}}
 .live-badge-header span{font-family:'Source Sans 3',sans-serif;font-size:.75rem;font-weight:700;color:#c00;text-transform:uppercase;letter-spacing:.5px;}
 
 </style>
@@ -244,7 +245,11 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 
 <!-- HEADER -->
 <header>
-  <a href="index.html" class="logo">MacroMind News<a class="live-badge-header" id="liveBadge" href="#" target="_blank"><div class="live-dot"></div><span>En vivo</span></a></a>
+  <div class="logo-wrap">
+  <a href="index.html" class="logo">MacroMind News</a>
+  <span class="live-badge-header" id="liveBadge" onclick="window.open(document.getElementById('liveBadge').dataset.url,'_blank')" style="display:none;"><div class="live-dot"></div><span>En vivo</span></span>
+</div>
+  <a class="live-badge-header" id="liveBadge" href="#" target="_blank"><div class="live-dot"></div><span>En vivo</span></a>
   <nav>
     <a href="index.html">Inicio</a>
     <a href="economia.html">Economía</a>
@@ -334,7 +339,11 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 <footer>
   <div class="ft">
     <div class="fb-brand">
-      <a href="index.html" class="logo">MacroMind News<a class="live-badge-header" id="liveBadge" href="#" target="_blank"><div class="live-dot"></div><span>En vivo</span></a></a>
+      <div class="logo-wrap">
+  <a href="index.html" class="logo">MacroMind News</a>
+  <span class="live-badge-header" id="liveBadge" onclick="window.open(document.getElementById('liveBadge').dataset.url,'_blank')" style="display:none;"><div class="live-dot"></div><span>En vivo</span></span>
+</div>
+  <a class="live-badge-header" id="liveBadge" href="#" target="_blank"><div class="live-dot"></div><span>En vivo</span></a>
       <p>Un medio de análisis e información que conecta la economía, las finanzas, la política y el escenario internacional.</p>
         </div>
         <div class="fc"><h4>Categorías</h4><ul>
@@ -600,8 +609,8 @@ async function cargarLive() {
     snap.forEach(d => { if(d.id==='live') cfg = d.data(); });
     const badge = document.getElementById('liveBadge');
     if (badge && cfg.activo && cfg.url) {
-      badge.href = cfg.url;
-      badge.style.display = 'flex';
+      badge.dataset.url = cfg.url;
+      badge.style.display = 'inline-flex';
     }
   } catch(e) { console.error('Error cargando live:', e); }
 }
