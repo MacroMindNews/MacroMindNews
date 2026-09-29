@@ -200,7 +200,7 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 .tema-main-img{flex:0 0 52%;cursor:pointer;}
 .tema-main-img img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#eee;display:block;}
 .tema-main-info{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;}
-.tema-main-info .cat{display:inline-block;background:#c00;color:#fff;font-size:.62rem;font-weight:700;padding:2px 7px;text-transform:uppercase;letter-spacing:.6px;align-self:flex-start;width:fit-content;}
+.tema-main-info .cat{display:inline-block;background:#c00;color:#fff;font-size:.62rem;font-weight:700;padding:2px 7px;text-transform:uppercase;letter-spacing:.6px;}
 .tema-main-info .live-badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;color:#c00;margin-bottom:2px;}
 .tema-main-info .live-dot{width:8px;height:8px;background:#c00;border-radius:50%;animation:pulse 1.2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
@@ -231,6 +231,13 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
   .tema-arr{display:none;}
 }
 
+
+/* ── EN VIVO BADGE ── */
+.live-badge-header{display:none;align-items:center;gap:6px;cursor:pointer;text-decoration:none;margin-left:12px;}
+.live-badge-header .live-dot{width:9px;height:9px;background:#c00;border-radius:50%;animation:livePulse 1.2s infinite;}
+@keyframes livePulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(204,0,0,.4);}50%{opacity:.8;box-shadow:0 0 0 5px rgba(204,0,0,0);}}
+.live-badge-header span{font-family:'Source Sans 3',sans-serif;font-size:.75rem;font-weight:700;color:#c00;text-transform:uppercase;letter-spacing:.5px;}
+
 </style>
 </head>
 <body>
@@ -238,6 +245,7 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 <!-- HEADER -->
 <header>
   <a href="index.html" class="logo">MacroMind News</a>
+  <a class="live-badge-header" id="liveBadge" href="#" target="_blank"><div class="live-dot"></div><span>En vivo</span></a>
   <nav>
     <a href="index.html">Inicio</a>
     <a href="economia.html">Economía</a>
@@ -328,6 +336,7 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
   <div class="ft">
     <div class="fb-brand">
       <a href="index.html" class="logo">MacroMind News</a>
+  <a class="live-badge-header" id="liveBadge" href="#" target="_blank"><div class="live-dot"></div><span>En vivo</span></a>
       <p>Un medio de análisis e información que conecta la economía, las finanzas, la política y el escenario internacional.</p>
         </div>
         <div class="fc"><h4>Categorías</h4><ul>
@@ -516,15 +525,12 @@ async function cargarTema() {
     const tema = { id: tSnap.docs[0].id, ...tSnap.docs[0].data() };
     if (!tema.noticias || !tema.noticias.length) return;
 
-    // Cargar noticias directamente de Firebase para asegurar que estén disponibles
+    const todas = window._noticias || [];
     const slugsSet = new Set(tema.noticias);
-    const nSnap = await gd2(col2(db,'noticias'));
-    const ns = [];
-    nSnap.forEach(d => {
-      const n = { id: d.id, ...d.data() };
-      if (slugsSet.has(n.slug)) ns.push(n);
+    const ns = todas.filter(n => slugsSet.has(n.slug)).sort((a,b)=>{
+      const ta = a.timestamp?.seconds||0, tb = b.timestamp?.seconds||0;
+      return tb - ta;
     });
-    ns.sort((a,b) => (b.timestamp?.seconds||0) - (a.timestamp?.seconds||0));
     if (!ns.length) return;
 
     const [principal, ...relacionadas] = ns;
@@ -586,7 +592,24 @@ async function cargarTema() {
   } catch(e) { console.error('Error cargando tema:', e); }
 }
 
+
+// ── EN VIVO ──
+async function cargarLive() {
+  try {
+    const { collection: col2, getDocs: gd2 } = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+    const snap = await gd2(col2(db,'config'));
+    let cfg = {};
+    snap.forEach(d => { if(d.id==='live') cfg = d.data(); });
+    const badge = document.getElementById('liveBadge');
+    if (badge && cfg.activo && cfg.url) {
+      badge.href = cfg.url;
+      badge.style.display = 'flex';
+    }
+  } catch(e) { console.error('Error cargando live:', e); }
+}
+
 cargarNoticias().then(() => cargarTema());
+cargarLive();
 loadTicker();
 setInterval(loadTicker, 5*60*1000);
 </script>
