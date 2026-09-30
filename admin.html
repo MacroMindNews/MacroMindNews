@@ -656,13 +656,39 @@ document.getElementById('tweetModal').addEventListener('click', e=>{
   if(e.target===document.getElementById('tweetModal')) cerrarModalTweet();
 });
 
+// Convierte "29 de Septiembre, 2026" / "29/09/2026" / "2026-09-29" a ISO 8601 (YYYY-MM-DD)
+function fechaAISO(fecha, ts) {
+  const pad = x => String(x).padStart(2, '0');
+  const txt = String(fecha || '').trim();
+  const meses = {enero:1,febrero:2,marzo:3,abril:4,mayo:5,junio:6,julio:7,agosto:8,septiembre:9,setiembre:9,octubre:10,noviembre:11,diciembre:12};
+
+  // Ya viene en ISO
+  let m = txt.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) return `${m[1]}-${m[2]}-${m[3]}`;
+
+  // 29/09/2026 o 29-09-2026
+  m = txt.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{4})$/);
+  if (m) return `${m[3]}-${pad(m[2])}-${pad(m[1])}`;
+
+  // 29 de Septiembre, 2026 / 29 de septiembre de 2026
+  const norm = txt.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  m = norm.match(/(\d{1,2})\s*(?:de)?\s*([a-z]+)\s*(?:de|,)?\s*,?\s*(\d{4})/);
+  if (m && meses[m[2]]) return `${m[3]}-${pad(meses[m[2]])}-${pad(m[1])}`;
+
+  // Fallback: timestamp de Firestore (hora Argentina) o fecha actual
+  const d = ts && ts.seconds ? new Date(ts.seconds * 1000) : new Date();
+  const ar = new Date(d.getTime() - 3 * 3600 * 1000);
+  return `${ar.getUTCFullYear()}-${pad(ar.getUTCMonth() + 1)}-${pad(ar.getUTCDate())}`;
+}
+
 function generarHTMLNoticia(n) {
+  const fechaISO = fechaAISO(n.fecha, n.timestamp);
   const cuerpoHtml = t2h(n.cuerpo||'');
   const titulo = (n.titulo||'').replace(/`/g,"'");
   const copete = (n.copete||'').replace(/`/g,"'");
   console.log('EN GENERARHTML - CUERPO ORIGINAL:', n.cuerpo);
   console.log('EN GENERARHTML - CUERPO HTML:', cuerpoHtml);
-  const schemaJson = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":${JSON.stringify(titulo)},"description":${JSON.stringify(copete)},"image":["https://macromindnews.com.ar/${n.imagen||''}"],"datePublished":"${n.fecha||''}T00:00:00-03:00","dateModified":"${n.fecha||''}T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/${n.slug}.html"}}<\/script>`;
+  const schemaJson = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":${JSON.stringify(titulo)},"description":${JSON.stringify(copete)},"image":["https://macromindnews.com.ar/${n.imagen||''}"],"datePublished":"${fechaISO}T00:00:00-03:00","dateModified":"${fechaISO}T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/${n.slug}.html"}}<\/script>`;
   return `<!DOCTYPE html>
 <html lang="es">
 <head>
