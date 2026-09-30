@@ -662,6 +662,7 @@ function generarHTMLNoticia(n) {
   const copete = (n.copete||'').replace(/`/g,"'");
   console.log('EN GENERARHTML - CUERPO ORIGINAL:', n.cuerpo);
   console.log('EN GENERARHTML - CUERPO HTML:', cuerpoHtml);
+  const schemaJson = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":${JSON.stringify(titulo)},"description":${JSON.stringify(copete)},"image":["https://macromindnews.com.ar/${n.imagen||''}"],"datePublished":"${n.fecha||''}T00:00:00-03:00","dateModified":"${n.fecha||''}T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/${n.slug}.html"}}<\/script>`;
   return `<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -756,34 +757,7 @@ function generarHTMLNoticia(n) {
       .drawer-sub{display:block;}
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
-    "headline": "${titulo}",
-    "description": "${copete}",
-    "image": ["https://macromindnews.com.ar/${imagen}"],
-    "datePublished": "${fecha}T00:00:00-03:00",
-    "dateModified": "${fecha}T00:00:00-03:00",
-    "author": [{
-      "@type": "Organization",
-      "name": "MacroMind News",
-      "url": "https://macromindnews.com.ar"
-    }],
-    "publisher": {
-      "@type": "Organization",
-      "name": "MacroMind News",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://macromindnews.com.ar/img/logo.png"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://macromindnews.com.ar/${slug}.html"
-    }
-  }
-  </script>
+  ${schemaJson}
 </head>
 <body>
 <header>
