@@ -220,7 +220,7 @@
   <div class="modal-box" style="max-width:460px;">
     <button class="modal-close-btn" onclick="cerrarModalTweet()">×</button>
     <h2>𝕏 Incrustar Tweet</h2>
-    <div class="field"><label>URL del tweet</label><input type="text" id="tweetUrl" placeholder="https://x.com/usuario/status/123456"/></div>
+    <div class="field"><label>URL del tweet</label><input type="text" id="tweetUrl" placeholder="Pegá el link del post (https://x.com/usuario/status/123456)"/></div>
     <div style="display:flex;gap:8px;margin-top:16px;">
       <button class="btn" onclick="insertarTweet()">Incrustar</button>
       <button class="btn btn-sec" onclick="cerrarModalTweet()">Cancelar</button>
@@ -315,7 +315,7 @@ function slugify(str) {
 function t2h(t) {
   if (!t) return '';
   if (/<[a-z][\s\S]*>/i.test(t)) {
-    return t.replace(/class="[^"]*"/g, '');
+    return t.replace(/class="([^"]*)"/g, (m, c) => /\btwitter-tweet\b/.test(c) ? 'class="twitter-tweet"' : '');
   }
   return t.split(/\n\n+/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('');
 }
@@ -639,12 +639,15 @@ window.cerrarModalTweet = function() {
 };
 
 window.insertarTweet = function() {
-  const url = document.getElementById('tweetUrl').value.trim();
-  if (!url.includes('x.com') && !url.includes('twitter.com')) { alert('Ingresá un link válido de X.'); return; }
-  const tweetId = url.split('/').pop();
+  const raw = document.getElementById('tweetUrl').value.trim();
+  // Acepta el link solo o el código de inserción completo de X: extrae la URL del post
+  const m = raw.match(/https?:\/\/(?:www\.|mobile\.)?(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+)/i);
+  if (!m) { alert('No encontré un link válido de un post de X. Debe verse así: https://x.com/usuario/status/123456'); return; }
+  const url = `https://twitter.com/${m[1]}/status/${m[2]}`;
   const editor = document.getElementById(_editorTarget);
   editor.focus();
-  document.execCommand('insertHTML', false, `<blockquote class="twitter-tweet"><a href="${url}">Tweet</a></blockquote><script async src="https://platform.x.com/widgets.js"><\/script>`);
+  // Solo el blockquote: el script de X (widgets.js) se agrega solo al generar la noticia
+  document.execCommand('insertHTML', false, `<blockquote class="twitter-tweet"><a href="${url}">Ver publicación en X</a></blockquote><p><br></p>`);
   cerrarModalTweet();
 };
 
@@ -898,6 +901,7 @@ const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 <\/script>
+${cuerpoHtml.includes('twitter-tweet') ? '<script async src="https://platform.x.com/widgets.js" charset="utf-8"><\/script>' : ''}
 </body>
 </html>`;
 }
