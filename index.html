@@ -67,6 +67,12 @@ nav a.active{border-bottom:2px solid #c00;padding-bottom:2px;}
 .n-large img{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:12px;background:#eee;cursor:pointer;}
 .n-large p{font-size:.88rem;line-height:1.55;color:#333;}
 
+/* cobertura en vivo destacada */
+.live-hero{display:flex;align-items:center;gap:11px;margin-bottom:8px;cursor:pointer;}
+.live-hero i{width:22px;height:22px;border-radius:50%;background:#e00000;display:inline-block;flex:0 0 auto;animation:heroBeat 1.2s ease-in-out infinite;}
+.live-hero span{font-family:'Merriweather',serif;font-size:1.5rem;font-weight:400;color:#111;line-height:1;}
+@keyframes heroBeat{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(224,0,0,.55);}50%{transform:scale(1.18);box-shadow:0 0 0 9px rgba(224,0,0,0);}}
+
 /* noticia chica (4) */
 .n-small{padding:8px 10px 8px 10px;border-right:1px solid #ddd;}
 .n-small:nth-child(even){border-right:none;}
@@ -411,7 +417,7 @@ function renderHome(ns, id) {
   let h = `<div class="grid7">
     <div class="g7-left">
       <div class="n-large">
-        <span class="cat">${catLabel(n1.categoria)}</span>
+        ${n1.live ? `<div class="live-hero" onclick="location.href='${n1.slug}.html'"><i></i><span>En vivo</span></div>` : `<span class="cat">${catLabel(n1.categoria)}</span>`}
         <h2 onclick="location.href='${n1.slug}.html'">${n1.titulo}</h2>
         <img src="${n1.imagen||''}" alt="${n1.titulo}" ${imgFb()} onclick="location.href='${n1.slug}.html'">
         <p>${n1.copete}</p>
@@ -442,14 +448,30 @@ function renderHome(ns, id) {
 }
 
 // ── CARGAR DESDE FIREBASE ──
+// Cobertura en vivo activa (la más reciente). Si falla o no hay ninguna, devuelve null.
+async function cargarCoberturaActiva() {
+  try {
+    const snap = await getDocs(query(collection(db,'envivo'), where('activo','==',true)));
+    const cs = [];
+    snap.forEach(d => cs.push({id:d.id,...d.data()}));
+    cs.sort((a,b) => ((b.timestamp&&b.timestamp.seconds)||0) - ((a.timestamp&&a.timestamp.seconds)||0));
+    return cs[0] || null;
+  } catch(e) { console.warn('Cobertura en vivo:', e); return null; }
+}
+
 async function cargarNoticias() {
   const q = query(collection(db,'noticias'), orderBy('timestamp','desc'));
-  const snap = await getDocs(q);
+  const [snap, cob] = await Promise.all([getDocs(q), cargarCoberturaActiva()]);
   const todas = [];
   snap.forEach(d => todas.push({id:d.id,...d.data()}));
   window._noticias = todas;
 
-  renderHome(todas.slice(0,7), 'h-todas');
+  if (cob) {
+    const liveItem = {live:true, slug:cob.slug, titulo:cob.titulo, imagen:cob.imagen, copete:cob.bajada, categoria:cob.categoria};
+    renderHome([liveItem, ...todas.slice(0,6)], 'h-todas');
+  } else {
+    renderHome(todas.slice(0,7), 'h-todas');
+  }
   renderHome(todas.filter(n=>n.categoria==='Economia').slice(0,7), 'h-economia');
   renderHome(todas.filter(n=>n.categoria==='Politica').slice(0,7), 'h-politica');
   renderHome(todas.filter(n=>n.categoria==='Finanzas').slice(0,7), 'h-finanzas');
