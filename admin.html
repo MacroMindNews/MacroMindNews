@@ -40,7 +40,7 @@
     .modal-box h2{font-family:'Merriweather',serif;font-size:1.15rem;font-weight:900;margin-bottom:20px;}
     .modal-close-btn{float:right;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;margin-top:-4px;}
     .modal-close-btn:hover{color:#c00;}
-    .tabs{display:flex;gap:0;border-bottom:2px solid #eee;margin-bottom:20px;}
+    .tabs{display:flex;flex-wrap:wrap;gap:0;border-bottom:2px solid #eee;margin-bottom:20px;}
     .tab{padding:9px 20px;font-size:.85rem;font-weight:700;cursor:pointer;color:#888;border-bottom:2px solid transparent;margin-bottom:-2px;}
     .tab:hover{color:#c00;}
     .tab.active{color:#c00;border-bottom-color:#c00;}
@@ -89,6 +89,7 @@
       <div class="tab active" onclick="showTab('tabNew',this)">📝 Nueva Noticia</div>
       <div class="tab" onclick="showTab('tabList',this)">📋 Publicadas (<span id="totalCount">0</span>)</div>
       <div class="tab" onclick="showTab('tabTemas',this)">🏷️ Temas</div>
+      <div class="tab" onclick="showTab('tabCob',this)">📡 Cobertura</div>
       <div class="tab" onclick="showTab('tabLive',this)">🔴 En vivo</div>
     </div>
 
@@ -157,6 +158,66 @@
       </div>
     </div>
 
+
+    <!-- COBERTURA EN VIVO -->
+    <div id="tabCob" style="display:none;">
+      <div class="card">
+        <h2>📡 Cobertura en vivo</h2>
+        <p style="font-size:.85rem;color:#666;margin-bottom:16px;">Creá la cobertura una vez y después sumá subnoticias. Los lectores las ven en tiempo real, sin recargar.</p>
+        <h3 id="cvFormTitulo" style="font-size:.95rem;font-weight:700;margin-bottom:12px;color:#111;">Nueva cobertura en vivo</h3>
+        <div class="field"><label>Título *</label><input type="text" id="cvT" placeholder="Ej: Elecciones en Brasil 2026: seguí el balotaje minuto a minuto"/></div>
+        <div class="field"><label>Bajada *</label><input type="text" id="cvB" placeholder="Resumen en 1-2 oraciones"/></div>
+        <div class="field">
+          <label>Categoría *</label>
+          <select id="cvCat">
+            <option value="">— Seleccioná —</option>
+            <option value="Economia">Economía</option>
+            <option value="Politica">Política</option>
+            <option value="Finanzas">Finanzas</option>
+            <option value="Internacional">Internacional</option>
+            <option value="Deportes">Deportes</option>
+            <option value="Judiciales">Judiciales</option>
+            <option value="Iglesia">Iglesia</option>
+          </select>
+        </div>
+        <div class="field"><label>Imagen</label><input type="text" id="cvImg" placeholder="img/nombre.jpg"/><p class="hint">Subí a /img en GitHub primero</p></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn" id="cvBtn" onclick="guardarCobertura()">Crear cobertura y publicar</button>
+          <button class="btn btn-sec" id="cvCancelBtn" style="display:none;" onclick="cancelarEdicionCobertura()">Cancelar</button>
+        </div>
+        <div id="cvMsg"></div>
+      </div>
+
+      <!-- REDACCIÓN DE SUBNOTICIAS -->
+      <div class="card" id="cvRedac" style="display:none;border-color:#c00;">
+        <h2>✍️ Subnoticias</h2>
+        <p style="font-size:.85rem;color:#555;margin-bottom:16px;">Cobertura: <b id="cvRedacTitulo"></b> <a onclick="cerrarRedaccion()" style="color:#c00;cursor:pointer;font-weight:700;margin-left:8px;">Cerrar</a></p>
+        <div class="field"><label>Título de la subnoticia *</label><input type="text" id="pT" placeholder="Ej: Lula da Silva se impuso en un reñido balotaje"/></div>
+        <div class="field"><label>Redactó</label><input type="text" id="pAutor" value="MacroMind News"/><p class="hint">Se muestra con el logo de MacroMind News</p></div>
+        <div class="field"><label>Cuerpo *</label>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;padding:8px;background:#f8f8f8;border:1px solid #ddd;border-bottom:none;border-radius:4px 4px 0 0;">
+            <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="efmtP('bold')" title="Negrita"><b>B</b></button>
+            <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="efmtP('h2')" title="Subtítulo">H2</button>
+            <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="efmtP('insertUnorderedList')" title="Items">•</button>
+            <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="abrirModalImg('pBody')" title="Insertar imagen">🖼</button>
+            <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="abrirModalTweet('pBody')" title="Post de X">𝕏</button>
+          </div>
+          <div id="pBody" contenteditable="true" style="width:100%;min-height:160px;padding:12px 13px;border:1px solid #ddd;border-radius:0 0 4px 4px;font-size:.92rem;font-family:'Source Sans 3',sans-serif;color:#111;outline:none;"></div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn" id="pBtn" onclick="publicarPost()">Publicar subnoticia</button>
+          <button class="btn btn-sec" id="pCancelBtn" style="display:none;" onclick="cancelarEdicionPost()">Cancelar edición</button>
+        </div>
+        <div id="pMsg"></div>
+        <h3 style="font-size:.95rem;font-weight:700;margin:24px 0 10px;color:#111;">Publicadas (más reciente primero)</h3>
+        <div id="cvPosts"></div>
+      </div>
+
+      <div class="card">
+        <h2>📚 Coberturas</h2>
+        <div id="cvLista"><p style="color:#aaa;font-size:.88rem;">Cargando...</p></div>
+      </div>
+    </div>
 
     <!-- EN VIVO -->
     <div id="tabLive" style="display:none;">
@@ -283,7 +344,7 @@
 
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, serverTimestamp, where, arrayUnion, arrayRemove } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, serverTimestamp, where, arrayUnion, arrayRemove, getDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
 const app = initializeApp({
@@ -507,11 +568,13 @@ window.showTab = function(tabId, el) {
   document.getElementById('tabList').style.display  = tabId==='tabList'  ? 'block':'none';
   document.getElementById('tabTemas').style.display = tabId==='tabTemas' ? 'block':'none';
   document.getElementById('tabLive').style.display  = tabId==='tabLive'  ? 'block':'none';
+  document.getElementById('tabCob').style.display   = tabId==='tabCob'   ? 'block':'none';
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
   if(tabId==='tabList') cargarLista();
   if(tabId==='tabTemas') cargarTemas();
   if(tabId==='tabLive') cargarLiveStatus();
+  if(tabId==='tabCob') cargarCoberturas();
 };
 
 window.abrirEditar = async function(id) {
@@ -1135,6 +1198,411 @@ async function guardarLive() {
   } catch(e) { msg.textContent = '❌ Error: ' + e.message; msg.style.color='#c00'; }
 }
 window.guardarLive = guardarLive;
+
+// ── COBERTURA EN VIVO (noticia en vivo con subnoticias en tiempo real) ──
+const FIREBASE_CFG = {
+  apiKey:"AIzaSyAMJAYYWwVE0fnNuFV5TFJ5tYfhvbMG3lw",
+  authDomain:"macromindnews.firebaseapp.com",
+  projectId:"macromindnews",
+  storageBucket:"macromindnews.firebasestorage.app",
+  messagingSenderId:"737656477515",
+  appId:"1:737656477515:web:d75386f60de67d11193ace"
+};
+let _covActual = null;   // cobertura abierta en el panel de redacción
+let _covEditId = null;   // cobertura cuyos datos se están editando
+let _postEditId = null;  // subnoticia que se está editando
+let _unsubPosts = null;  // listener en tiempo real de la lista de subnoticias
+let _postsCache = {};
+
+// Estas 4 funciones también se copian dentro de la página pública de la cobertura
+function escLive(s) {
+  return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function fmtFechaLive(ms) {
+  const p = new Intl.DateTimeFormat('es-AR', {timeZone:'America/Argentina/Buenos_Aires', day:'numeric', month:'long', hour:'2-digit', minute:'2-digit', hourCycle:'h23'}).formatToParts(new Date(ms));
+  const g = t => (p.find(x => x.type === t) || {value:''}).value;
+  const mes = g('month');
+  return g('day') + ' de ' + mes.charAt(0).toUpperCase() + mes.slice(1) + ' - ' + g('hour') + ':' + g('minute') + ' hs';
+}
+function livePostHTML(p) {
+  return '<article class="lv-card" data-id="' + escLive(p.id) + '">'
+    + '<h3 class="lv-t">' + escLive(p.titulo) + '</h3>'
+    + '<div class="lv-time">' + fmtFechaLive(p.ms) + '</div>'
+    + '<div class="lv-author"><img src="img/logo.png" alt="MacroMind News"><span>' + escLive(p.autor || 'MacroMind News') + '</span></div>'
+    + '<div class="lv-body">' + (p.cuerpo || '') + '</div>'
+    + '</article>';
+}
+async function liveClient(CFG) {
+  const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js');
+  const { getFirestore, doc, collection, query, orderBy, onSnapshot } = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+  const db = getFirestore(initializeApp(CFG.firebase));
+  const feed = document.getElementById('lvFeed');
+  const badge = document.getElementById('lvBadge');
+  const empty = document.getElementById('lvEmpty');
+  function limpiar(html) {
+    const t = document.createElement('template');
+    t.innerHTML = html;
+    t.content.querySelectorAll('script').forEach(s => s.remove());
+    return t.innerHTML;
+  }
+  onSnapshot(doc(db, 'envivo', CFG.id), snap => {
+    if (!snap.exists()) return;
+    const activo = !!snap.data().activo;
+    badge.className = 'lv-badge' + (activo ? '' : ' lv-off');
+    badge.innerHTML = activo ? '<i></i>EN VIVO' : 'COBERTURA FINALIZADA';
+  }, err => console.error(err));
+  onSnapshot(query(collection(db, 'envivo', CFG.id, 'posts'), orderBy('timestamp', 'desc')), snap => {
+    const ids = new Set(snap.docs.map(d => d.id));
+    feed.querySelectorAll('[data-id]').forEach(e => { if (!ids.has(e.getAttribute('data-id'))) e.remove(); });
+    snap.docChanges().forEach(ch => {
+      const id = ch.doc.id;
+      const prev = feed.querySelector('[data-id="' + id + '"]');
+      if (ch.type === 'removed') { if (prev) prev.remove(); return; }
+      const d = ch.doc.data({serverTimestamps: 'estimate'});
+      const ms = d.timestamp ? d.timestamp.toMillis() : Date.now();
+      const holder = document.createElement('div');
+      holder.innerHTML = livePostHTML({id: id, titulo: d.titulo, autor: d.autor, cuerpo: limpiar(d.cuerpo || ''), ms: ms});
+      const el = holder.firstElementChild;
+      if (prev) prev.remove();
+      feed.insertBefore(el, feed.children[ch.newIndex] || null);
+      if (window.twttr && window.twttr.widgets) window.twttr.widgets.load(el);
+    });
+    empty.style.display = feed.children.length ? 'none' : 'block';
+  }, err => console.error(err));
+}
+
+function fechaHoyAR() {
+  const p = new Intl.DateTimeFormat('es-AR', {timeZone:'America/Argentina/Buenos_Aires', day:'numeric', month:'long', year:'numeric'}).formatToParts(new Date());
+  const g = t => p.find(x => x.type === t).value;
+  const mes = g('month');
+  return g('day') + ' de ' + mes.charAt(0).toUpperCase() + mes.slice(1) + ', ' + g('year');
+}
+
+function generarHTMLEnVivo(c, posts) {
+  posts = posts || [];
+  const url = 'https://macromindnews.com.ar/' + c.filename;
+  const imgAbs = 'https://macromindnews.com.ar/' + (c.imagen || 'img/logo.png');
+  const ultimo = posts.length ? Math.max.apply(null, posts.map(p => p.ms)) : null;
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LiveBlogPosting',
+    'headline': c.titulo,
+    'description': c.bajada,
+    'image': [imgAbs],
+    'coverageStartTime': c.inicioISO,
+    'datePublished': c.inicioISO,
+    'dateModified': ultimo ? new Date(ultimo).toISOString() : c.inicioISO,
+    'author': [{'@type': 'Organization', 'name': 'MacroMind News', 'url': 'https://macromindnews.com.ar/'}],
+    'publisher': {'@type': 'Organization', 'name': 'MacroMind News', 'logo': {'@type': 'ImageObject', 'url': 'https://macromindnews.com.ar/img/logo.png'}},
+    'mainEntityOfPage': {'@type': 'WebPage', '@id': url},
+    'liveBlogUpdate': posts.map(p => ({
+      '@type': 'BlogPosting',
+      'headline': p.titulo,
+      'datePublished': new Date(p.ms).toISOString(),
+      'articleBody': String(p.cuerpo || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim(),
+      'author': {'@type': 'Organization', 'name': p.autor || 'MacroMind News'}
+    }))
+  };
+  if (!c.activo && c.finISO) schema.coverageEndTime = c.finISO;
+  const schemaTag = '<script type="application/ld+json">' + JSON.stringify(schema).replace(/</g, '\\u003c') + '<\/script>';
+
+  const css = `
+    .lv-wrap { max-width: 780px; }
+    .lv-badge { display: inline-flex; align-items: center; gap: 7px; margin-left: 10px; font-size: .72rem; font-weight: 700; letter-spacing: .4px; color: #c00; vertical-align: middle; }
+    .lv-badge i { width: 12px; height: 12px; border-radius: 50%; background: #e00000; display: inline-block; animation: lvpulse 1.2s ease-in-out infinite; }
+    .lv-badge.lv-off { color: #777; }
+    @keyframes lvpulse { 0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(224,0,0,.55); } 50% { transform: scale(1.2); box-shadow: 0 0 0 7px rgba(224,0,0,0); } }
+    .lv-hero { width: 100%; display: block; margin-bottom: 28px; }
+    .lv-feed { display: flex; flex-direction: column; gap: 26px; }
+    .lv-card { background: #fff; border-radius: 28px; box-shadow: 0 10px 36px rgba(0,0,0,.13); border: 1px solid #f0f0f0; padding: 26px 26px 24px; }
+    .lv-t { font-family: 'Merriweather', serif; font-size: 1.15rem; font-weight: 900; line-height: 1.4; margin-bottom: 8px; }
+    .lv-time { font-size: .8rem; color: #666; margin-bottom: 12px; }
+    .lv-author { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .lv-author img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
+    .lv-author span { font-weight: 700; font-size: 1rem; }
+    .lv-body { font-size: 1.05rem; line-height: 1.7; color: #222; }
+    .lv-body p { margin-bottom: 14px; }
+    .lv-body ul { margin: 0 0 14px 22px; }
+    .lv-body h2 { font-size: 1.2rem; font-weight: 900; margin: 18px 0 10px; }
+    .lv-body img { max-width: 100%; height: auto; display: block; margin: 12px 0; border-radius: 8px; }
+    .lv-body .twitter-tweet { margin: 12px auto !important; }
+    .lv-empty { text-align: center; color: #888; padding: 30px 0; }
+    @media (max-width: 600px) { .lv-card { padding: 20px 16px; border-radius: 22px; } }`;
+
+  const main = `<main class="art-wrap lv-wrap">
+  <span class="art-cat">${escLive(catLabel(c.categoria))}</span><span class="lv-badge${c.activo ? '' : ' lv-off'}" id="lvBadge">${c.activo ? '<i></i>EN VIVO' : 'COBERTURA FINALIZADA'}</span>
+  <h1 class="art-title">${escLive(c.titulo)}</h1>
+  <p class="art-excerpt">${escLive(c.bajada)}</p>
+  <div class="art-meta">${escLive(c.fecha)}</div>
+  ${c.imagen ? '<img class="lv-hero" src="' + escLive(c.imagen) + '" alt="' + escLive(c.titulo) + '" onerror="this.style.background=\'#ddd\';"/>' : ''}
+  <div class="lv-empty" id="lvEmpty" style="display:${posts.length ? 'none' : 'block'};">Todavía no hay novedades. Esta página se actualiza sola.</div>
+  <section class="lv-feed" id="lvFeed">${posts.map(livePostHTML).join('')}</section>
+</main>`;
+
+  const clientJs = [escLive, fmtFechaLive, livePostHTML, liveClient].map(f => f.toString()).join('\n');
+  const script = '<script type="module">\n' + clientJs + '\nliveClient(' + JSON.stringify({id: c.id, firebase: FIREBASE_CFG}) + ');\n<\/script>\n<script async src="https://platform.x.com/widgets.js" charset="utf-8"><\/script>';
+
+  // Reutiliza el encabezado, menú y pie de las noticias y cambia solo lo propio de la cobertura
+  let html = generarHTMLNoticia({titulo: c.titulo, copete: c.bajada, categoria: c.categoria, fecha: c.fecha, imagen: c.imagen, cuerpo: '', slug: c.slug});
+  html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, () => schemaTag);
+  html = html.replace(/<main class="art-wrap">[\s\S]*?<\/main>/, () => main);
+  html = html.replace('</style>', () => css + '\n  </style>');
+  html = html.replace('</body>', () => script + '\n</body>');
+  html = html.replace('<head>', () => '<head>\n  <link rel="canonical" href="' + url + '"/>');
+  return html;
+}
+
+async function borrarDeGitHub(filename) {
+  const sha = await obtenerSHA(filename);
+  if (!sha) return;
+  const res = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filename}`, {
+    method: 'DELETE',
+    headers: {'Authorization': `token ${GH_TOKEN}`, 'Content-Type': 'application/json'},
+    body: JSON.stringify({message: `Eliminar: ${filename}`, sha, branch: 'main'})
+  });
+  if (!res.ok) { const d = await res.json(); throw new Error(d.message || ('Error ' + res.status)); }
+}
+
+async function leerPosts(id) {
+  const snap = await getDocs(query(collection(db, 'envivo', id, 'posts'), orderBy('timestamp', 'desc')));
+  return snap.docs.map(d => {
+    const x = d.data();
+    return {id: d.id, titulo: x.titulo, autor: x.autor, cuerpo: x.cuerpo, ms: x.timestamp ? x.timestamp.toMillis() : Date.now()};
+  });
+}
+
+async function leerCobertura(id) {
+  const s = await getDoc(doc(db, 'envivo', id));
+  return s.exists() ? {id: s.id, ...s.data()} : null;
+}
+
+async function publicarPaginaCobertura(c) {
+  const posts = await leerPosts(c.id);
+  const html = generarHTMLEnVivo(c, posts);
+  const sha = await obtenerSHA(c.filename);
+  await subirAGitHub(c.filename, html, `En vivo: ${c.titulo}`, sha);
+}
+
+function cvMsg(txt, tipo) {
+  document.getElementById('cvMsg').innerHTML = txt ? `<div class="msg ${tipo}">${txt}</div>` : '';
+}
+
+window.guardarCobertura = async function() {
+  const t   = document.getElementById('cvT').value.trim();
+  const b   = document.getElementById('cvB').value.trim();
+  const cat = document.getElementById('cvCat').value;
+  const img = document.getElementById('cvImg').value.trim();
+  const btn = document.getElementById('cvBtn');
+  if (!t || !b || !cat) { cvMsg('Completá título, bajada y categoría.', 'err'); return; }
+  if (!GH_TOKEN) { cvMsg('Token de GitHub no configurado. Recargá la página.', 'err'); return; }
+  btn.disabled = true;
+  cvMsg('⏳ Guardando y publicando la página...', 'info');
+  try {
+    if (_covEditId) {
+      await updateDoc(doc(db, 'envivo', _covEditId), {titulo: t, bajada: b, categoria: cat, imagen: img});
+      await publicarPaginaCobertura(await leerCobertura(_covEditId));
+      cvMsg('✅ Datos actualizados.', 'ok');
+      cancelarEdicionCobertura(true);
+    } else {
+      const slug = 'en-vivo-' + slugify(t).substring(0, 230);
+      const filename = slug + '.html';
+      const data = {titulo: t, bajada: b, categoria: cat, imagen: img, slug, filename, fecha: fechaHoyAR(), activo: true, inicioISO: new Date().toISOString(), finISO: '', timestamp: serverTimestamp()};
+      const ref = await addDoc(collection(db, 'envivo'), data);
+      await publicarPaginaCobertura({id: ref.id, ...data});
+      cvMsg('✅ Cobertura creada: macromindnews.com.ar/' + filename, 'ok');
+      limpiarFormCobertura();
+      await cargarCoberturas();
+      abrirRedaccion(ref.id);
+    }
+    cargarCoberturas();
+  } catch (e) {
+    cvMsg('Error: ' + e.message, 'err');
+  }
+  btn.disabled = false;
+};
+
+function limpiarFormCobertura() {
+  ['cvT', 'cvB', 'cvImg'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('cvCat').value = '';
+}
+
+window.cancelarEdicionCobertura = function(silencioso) {
+  _covEditId = null;
+  limpiarFormCobertura();
+  document.getElementById('cvBtn').textContent = 'Crear cobertura y publicar';
+  document.getElementById('cvCancelBtn').style.display = 'none';
+  document.getElementById('cvFormTitulo').textContent = 'Nueva cobertura en vivo';
+  if (silencioso !== true) cvMsg('', '');
+};
+
+window.editarCobertura = async function(id) {
+  const c = await leerCobertura(id);
+  if (!c) return;
+  _covEditId = id;
+  document.getElementById('cvT').value = c.titulo;
+  document.getElementById('cvB').value = c.bajada;
+  document.getElementById('cvCat').value = c.categoria;
+  document.getElementById('cvImg').value = c.imagen || '';
+  document.getElementById('cvBtn').textContent = 'Guardar cambios';
+  document.getElementById('cvCancelBtn').style.display = 'inline-block';
+  document.getElementById('cvFormTitulo').textContent = 'Editando datos de la cobertura';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+};
+
+async function cargarCoberturas() {
+  const el = document.getElementById('cvLista');
+  try {
+    const snap = await getDocs(query(collection(db, 'envivo'), orderBy('timestamp', 'desc')));
+    if (snap.empty) { el.innerHTML = '<p style="color:#aaa;font-size:.88rem;">Todavía no hay coberturas.</p>'; return; }
+    el.innerHTML = snap.docs.map(d => {
+      const c = d.data();
+      const est = c.activo ? '<span style="color:#c00;font-weight:700;">🔴 En vivo</span>' : '<span style="color:#777;font-weight:700;">⚫ Finalizada</span>';
+      return `<div style="border:1px solid #e0e0e0;border-radius:6px;padding:14px;margin-bottom:12px;background:#fff;">
+        <div style="font-size:.78rem;margin-bottom:4px;">${est} · ${escLive(c.fecha || '')}</div>
+        <div style="font-weight:700;margin-bottom:10px;">${escLive(c.titulo)}</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <button class="btn" style="padding:5px 12px;font-size:.78rem;" onclick="abrirRedaccion('${d.id}')">✍️ Redactar subnoticias</button>
+          <button class="btn btn-sec" style="padding:5px 12px;font-size:.78rem;margin-left:0;" onclick="toggleCobertura('${d.id}')">${c.activo ? 'Finalizar' : 'Reactivar'}</button>
+          <button class="btn btn-sec" style="padding:5px 12px;font-size:.78rem;margin-left:0;" onclick="editarCobertura('${d.id}')">Editar datos</button>
+          <button class="btn btn-sec" style="padding:5px 12px;font-size:.78rem;margin-left:0;" onclick="regenerarCobertura('${d.id}')">🔄 Actualizar página</button>
+          <a class="btn btn-sec" style="padding:5px 12px;font-size:.78rem;margin-left:0;text-decoration:none;" href="${escLive(c.filename)}" target="_blank">Ver página</a>
+          <button class="btn" style="padding:5px 12px;font-size:.78rem;background:#900;" onclick="eliminarCobertura('${d.id}')">Eliminar</button>
+        </div>
+      </div>`;
+    }).join('');
+  } catch (e) {
+    el.innerHTML = '<p style="color:#c00;">Error cargando coberturas.</p>';
+    console.error(e);
+  }
+}
+window.cargarCoberturas = cargarCoberturas;
+
+window.toggleCobertura = async function(id) {
+  if (!GH_TOKEN) { alert('Token de GitHub no configurado. Recargá la página.'); return; }
+  try {
+    const c = await leerCobertura(id);
+    const nuevo = !c.activo;
+    const cambios = {activo: nuevo, finISO: nuevo ? '' : new Date().toISOString()};
+    await updateDoc(doc(db, 'envivo', id), cambios);
+    await publicarPaginaCobertura({...c, ...cambios});
+    cargarCoberturas();
+  } catch (e) { alert('Error: ' + e.message); }
+};
+
+window.regenerarCobertura = async function(id) {
+  if (!GH_TOKEN) { alert('Token de GitHub no configurado. Recargá la página.'); return; }
+  try {
+    await publicarPaginaCobertura(await leerCobertura(id));
+    alert('✅ Página actualizada con las subnoticias actuales.');
+  } catch (e) { alert('Error: ' + e.message); }
+};
+
+window.eliminarCobertura = async function(id) {
+  if (!confirm('¿Eliminar la cobertura, todas sus subnoticias y su página? No se puede deshacer.')) return;
+  if (!GH_TOKEN) { alert('Token de GitHub no configurado. Recargá la página.'); return; }
+  try {
+    const c = await leerCobertura(id);
+    const ps = await getDocs(collection(db, 'envivo', id, 'posts'));
+    for (const p of ps.docs) await deleteDoc(p.ref);
+    await deleteDoc(doc(db, 'envivo', id));
+    if (c && c.filename) await borrarDeGitHub(c.filename);
+    if (_covActual && _covActual.id === id) cerrarRedaccion();
+    cargarCoberturas();
+  } catch (e) { alert('Error: ' + e.message); }
+};
+
+// ── Redacción de subnoticias ──
+window.abrirRedaccion = async function(id) {
+  const c = await leerCobertura(id);
+  if (!c) return;
+  _covActual = c;
+  cancelarEdicionPost();
+  document.getElementById('cvRedac').style.display = 'block';
+  document.getElementById('cvRedacTitulo').textContent = c.titulo;
+  if (_unsubPosts) _unsubPosts();
+  _unsubPosts = onSnapshot(query(collection(db, 'envivo', id, 'posts'), orderBy('timestamp', 'desc')), snap => {
+    _postsCache = {};
+    const el = document.getElementById('cvPosts');
+    if (snap.empty) { el.innerHTML = '<p style="color:#aaa;font-size:.85rem;">Todavía no publicaste subnoticias.</p>'; return; }
+    el.innerHTML = snap.docs.map(d => {
+      const x = d.data({serverTimestamps: 'estimate'});
+      _postsCache[d.id] = x;
+      const ms = x.timestamp ? x.timestamp.toMillis() : Date.now();
+      return `<div style="border:1px solid #e0e0e0;border-radius:6px;padding:10px 12px;margin-bottom:8px;background:#fafafa;">
+        <div style="font-size:.74rem;color:#888;">${fmtFechaLive(ms)}</div>
+        <div style="font-weight:700;margin:2px 0 8px;">${escLive(x.titulo)}</div>
+        <button class="btn btn-sec" style="padding:3px 10px;font-size:.75rem;margin-left:0;" onclick="editarPost('${d.id}')">Editar</button>
+        <button class="btn" style="padding:3px 10px;font-size:.75rem;background:#900;" onclick="eliminarPost('${d.id}')">Eliminar</button>
+      </div>`;
+    }).join('');
+  });
+  document.getElementById('cvRedac').scrollIntoView({behavior: 'smooth'});
+};
+
+window.cerrarRedaccion = function() {
+  if (_unsubPosts) { _unsubPosts(); _unsubPosts = null; }
+  _covActual = null;
+  document.getElementById('cvRedac').style.display = 'none';
+};
+
+window.efmtP = function(cmd) {
+  document.getElementById('pBody').focus();
+  if (cmd === 'h2') document.execCommand('formatBlock', false, 'h2');
+  else document.execCommand(cmd, false, null);
+};
+
+window.cancelarEdicionPost = function() {
+  _postEditId = null;
+  document.getElementById('pT').value = '';
+  document.getElementById('pBody').innerHTML = '';
+  document.getElementById('pBtn').textContent = 'Publicar subnoticia';
+  document.getElementById('pCancelBtn').style.display = 'none';
+  document.getElementById('pMsg').innerHTML = '';
+};
+
+window.editarPost = function(pid) {
+  const x = _postsCache[pid];
+  if (!x) return;
+  _postEditId = pid;
+  document.getElementById('pT').value = x.titulo || '';
+  document.getElementById('pAutor').value = x.autor || 'MacroMind News';
+  document.getElementById('pBody').innerHTML = x.cuerpo || '';
+  document.getElementById('pBtn').textContent = 'Guardar cambios';
+  document.getElementById('pCancelBtn').style.display = 'inline-block';
+  document.getElementById('pT').scrollIntoView({behavior: 'smooth'});
+};
+
+window.eliminarPost = async function(pid) {
+  if (!_covActual || !confirm('¿Eliminar esta subnoticia?')) return;
+  try {
+    await deleteDoc(doc(db, 'envivo', _covActual.id, 'posts', pid));
+    if (_postEditId === pid) cancelarEdicionPost();
+  } catch (e) { alert('Error: ' + e.message); }
+};
+
+window.publicarPost = async function() {
+  if (!_covActual) return;
+  const titulo = document.getElementById('pT').value.trim();
+  const autor  = document.getElementById('pAutor').value.trim() || 'MacroMind News';
+  const cuerpo = document.getElementById('pBody').innerHTML.trim();
+  const msg = document.getElementById('pMsg');
+  const btn = document.getElementById('pBtn');
+  if (!titulo || !cuerpo || cuerpo === '<br>') { msg.innerHTML = '<div class="msg err">Completá el título y el cuerpo.</div>'; return; }
+  btn.disabled = true;
+  try {
+    if (_postEditId) {
+      await updateDoc(doc(db, 'envivo', _covActual.id, 'posts', _postEditId), {titulo, autor, cuerpo});
+    } else {
+      await addDoc(collection(db, 'envivo', _covActual.id, 'posts'), {titulo, autor, cuerpo, timestamp: serverTimestamp()});
+    }
+    cancelarEdicionPost();
+    msg.innerHTML = '<div class="msg ok">✅ Publicada. Ya la ven los lectores en tiempo real.</div>';
+    setTimeout(() => { msg.innerHTML = ''; }, 3000);
+  } catch (e) {
+    msg.innerHTML = '<div class="msg err">Error: ' + e.message + '</div>';
+  }
+  btn.disabled = false;
+};
 
 cargarTemaActivo();
 cargarLiveStatus();
