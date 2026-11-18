@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Crisis en PAMI: Protestas y movilización","description":"El instituto que cubre a seis millones de adultos mayores atraviesa su peor crisis en años: paro médico nacional, deuda millonaria con farmacias y recorte del vademécum gratuito generaron una ola de protestas en todo el país.","image":["https://macromindnews.com.ar/img/pami.jpg"],"datePublished":"2026-04-16T00:00:00-03:00","dateModified":"2026-04-16T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/crisis-en-pami-protestas-y-movilizacion.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Crisis en PAMI: Protestas y movilización</h1>
   <p class="art-excerpt">El instituto que cubre a seis millones de adultos mayores atraviesa su peor crisis en años: paro médico nacional, deuda millonaria con farmacias y recorte del vademécum gratuito generaron una ola de protestas en todo el país.</p>
   <div class="art-meta">16 de Abril, 2026</div>
-  <img src="img/pami.jpg" alt="Crisis en PAMI: Protestas y movilización" onerror="this.style.background='#ddd';"/>
+  <img src="img/pami.jpg" alt="Crisis en PAMI: Protestas y movilización" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/crisis-en-pami-protestas-y-movilizacion.html&text=Crisis%20en%20PAMI%3A%20Protestas%20y%20movilizaci%C3%B3n" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El PAMI enfrenta en abril de 2026 una tormenta institucional sin precedentes. La publicación de la Resolución 1107/2026, que eliminó todos los adicionales variables del sistema de pago a médicos de cabecera para pasar a una "cápita unificada" de $2.100 por afiliado, fue la gota que rebalsó el vaso. La Asociación de Profesionales del PAMI (APPAMIA) declaró un paro nacional de 72 horas que comenzó el lunes 13 de abril, con atención limitada estrictamente a urgencias y emergencias oncológicas en los principales centros urbanos del país.<br><br>Los gremios médicos denuncian que el nuevo esquema representa una reducción de ingresos netos de entre el 40% y el 50%. Un profesional con una cartera estándar de 400 afiliados, que bajo el sistema anterior percibía hasta $1.650.000 mensuales sumando cápita y adicionales, ahora cobra $840.000, un monto que no alcanza para cubrir los costos básicos de un consultorio. La medida además elimina cualquier incentivo económico para la atención presencial, lo que según los profesionales derivará en una atención superficial y en derivaciones masivas a especialistas que ya tienen listas de espera de hasta cuatro meses.<br><br>En paralelo, el sector farmacéutico denuncia una deuda acumulada que forma parte de los $500.000 millones que el PAMI adeuda a sus prestadores. En localidades como Pehuajó y Mar del Plata, los farmacéuticos advirtieron que la atención es "a cuentagotas" y que, sin una inyección urgente de fondos, se verán obligados a suspender el servicio de forma total. Además, desde abril el organismo oficializó la quita de cobertura al 100% para 44 medicamentos —que incluyen 54 principios activos— entre los que figuran antibióticos de uso frecuente, analgésicos para el dolor crónico, antivirales y corticoides. Para acceder a la gratuidad, los afiliados deben ahora tramitar un "Subsidio Social" con requisitos patrimoniales estrictos, una barrera burocrática que excluye a cientos de miles de beneficiarios.<br><br>Las protestas del miércoles 15 de abril unificaron el reclamo gremial con la movilización de jubilados frente a sedes del organismo en todo el país. En Buenos Aires, trabajadores nucleados en ATE realizaron una olla popular frente a la sede central de Avenida Corrientes 655, mientras que en Córdoba el gobernador Martín Llaryora respaldó las movilizaciones y denunció la falta de envío de fondos nacionales. En Pehuajó, la situación es especialmente crítica: la agencia local lleva semanas sin un jefe designado, lo que obliga a que todos los trámites viajen a Mar del Plata o Buenos Aires, añadiendo semanas de demora a gestiones de vida o muerte. El Plenario de Trabajadores Jubilados convocó a una gran marcha nacional hacia el Congreso para finales de abril, exigiendo la restitución del vademécum gratuito y un aumento de emergencia de los haberes mínimos.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
