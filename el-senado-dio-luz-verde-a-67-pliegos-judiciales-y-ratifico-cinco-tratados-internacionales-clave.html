@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El Senado dio luz verde a 67 pliegos judiciales y ratificó cinco tratados internacionales clave","description":"El Senado de la Nación aprobó por amplia mayoría 67 pliegos para cargos en la Justicia federal y el Ministerio Público, incluyendo la ratificación de Pablo Bertuzzi en la Cámara Federal de Capital Federal. La sesión concluyó con la convalidación unánime de cinco tratados internacionales, destacándose el acuerdo de libre comercio entre el Mercosur y la AELC.","image":["https://macromindnews.com.ar/img/senadores-27-8-26.webp"],"datePublished":"2026-08-28T00:00:00-03:00","dateModified":"2026-08-28T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-senado-dio-luz-verde-a-67-pliegos-judiciales-y-ratifico-cinco-tratados-internacionales-clave.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El Senado dio luz verde a 67 pliegos judiciales y ratificó cinco tratados internacionales clave</h1>
   <p class="art-excerpt">El Senado de la Nación aprobó por amplia mayoría 67 pliegos para cargos en la Justicia federal y el Ministerio Público, incluyendo la ratificación de Pablo Bertuzzi en la Cámara Federal de Capital Federal. La sesión concluyó con la convalidación unánime de cinco tratados internacionales, destacándose el acuerdo de libre comercio entre el Mercosur y la AELC.</p>
   <div class="art-meta">28 de Agosto, 2026</div>
-  <img src="img/senadores-27-8-26.webp" alt="El Senado dio luz verde a 67 pliegos judiciales y ratificó cinco tratados internacionales clave" onerror="this.style.background='#ddd';"/>
+  <img src="img/senadores-27-8-26.webp" alt="El Senado dio luz verde a 67 pliegos judiciales y ratificó cinco tratados internacionales clave" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-senado-dio-luz-verde-a-67-pliegos-judiciales-y-ratifico-cinco-tratados-internacionales-clave.html&text=El%20Senado%20dio%20luz%20verde%20a%2067%20pliegos%20judiciales%20y%20ratific%C3%B3%20cinco%20tratados%20internacionales%20clave" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>En una productiva sesión ordinaria encabezada por la Vicepresidente de la Nación, Victoria Villarruel, la Cámara de Senadores destrabó una nutrida agenda institucional que tuvo como eje central la cobertura de vacantes en el Poder Judicial y el Ministerio Público, sumada a la aprobación unánime de convenios internacionales de integración comercial y cooperación penal.</div><div><br></div><div>La designación de los magistrados representó el tramo de mayor peso político en el recinto. Tras el dictamen favorable de comisión defendido por el Senador oficialista Juan Carlos Pagotto, el plano prestó acuerdo por unanimidad, con 66 votos afirmativos a la nómina general de postulantes remitida por el Poder Ejecutivo. El debate incluyó un apartado especial para la votación nominal del pliego del Dr. Pablo Bertuzzi como vocal de la Sala I de la Cámara Nacional de Apelaciones en lo Criminal y Correccional Federal de la Capital Federal, cuya designación quedó ratificada con 44 votos afirmativos y 23 votos en contra, luego de los reparos planteados por el interbloque justicialista.</div><img src="img/senadores-pablo-bertuzzi.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div><br></div><div>Durante una discusión sobre los nombramientos, el Senador catamarqueño Guillermo Andrada remarcó el impacto directo que tendrá la integración del Tribunal Oral de su provincia, destacando que el avance en las designaciones federales contribuye a revertir la brecha de género en los cargos de máxima judicial, donde la presencia femenina históricamente se mantenía en torno al 24%.</div><div><br></div><div>En el plano de la relaciones exteriores, la Cámara alta convalidó por 65 votos positivos cinco acuerdos internacionales estratégicos. Entre ellos sobre sale el tratado de libre comercio entre el MERCOSUR y los Estados de la Asociación Europea de Libre Comercio (AELC), integrada por Suiza, Noruega, Islandia y Liechtenstein, que concede preferencias arancelarias a más del 97% de las exportaciones del bloque regional y desgravación inmediata para productos como limones, cítricos, legumbres, miel y carnes, además de una cuota libre de aranceles de 55 mil hectolitros para el vino argentino y el reconocimiento de indicaciones geográficas protegidas.</div><div><br></div><div>El temario de convenios se completó con la ratificación del acuerdo de traslado de personas condenadas con Ucrania, el nuevo tratado de extradición con Chile para agilizar los trámites de entrega de requeridos por la justicia, la enmienda al Protocolo de Montevideo para liberalizar el comercio de servicios en el MERCOSUR y la adhesión al Tratado de Medellín mediante el uso de la plataforma Iber@ para la transmisión electrónica y encriptada de pedidos judiciales.</div><div><br></div><div>Hacia el cierre de la jornada legislativa, los senadores convirtieron en ley la Declaración de héroe Nacional a Don Bernabé Aráoz por su rol en la Batalla de Tucumán y la gesta independentista, junto al reconocimiento como Fiestas Nacionales para el Festival del Membrillo de Catamarca y la Fiesta del Mate y la Amistad de Corrientes.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
