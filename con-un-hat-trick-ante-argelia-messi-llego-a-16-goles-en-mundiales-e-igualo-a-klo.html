@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Con un hat-trick ante Argelia, Messi llegó a 16 goles en Mundiales e igualó a Klose como máximo goleador de la historia","description":"En el debut de Argentina en el Mundial 2026, Messi marcó a los 17', 60' y 76' minutos para sellar un 3-0 y alcanzar al alemán Miroslav Klose en lo más alto de la tabla histórica de goleadores de las Copas del Mundo.","image":["https://macromindnews.com.ar/img/messi-16-06-26.jpg"],"datePublished":"2026-06-16T00:00:00-03:00","dateModified":"2026-06-16T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/con-un-hat-trick-ante-argelia-messi-llego-a-16-goles-en-mundiales-e-igualo-a-klo.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Con un hat-trick ante Argelia, Messi llegó a 16 goles en Mundiales e igualó a Klose como máximo goleador de la historia</h1>
   <p class="art-excerpt">En el debut de Argentina en el Mundial 2026, Messi marcó a los 17', 60' y 76' minutos para sellar un 3-0 y alcanzar al alemán Miroslav Klose en lo más alto de la tabla histórica de goleadores de las Copas del Mundo.</p>
   <div class="art-meta">16 de Junio, 2026</div>
-  <img src="img/messi-16-06-26.jpg" alt="Con un hat-trick ante Argelia, Messi llegó a 16 goles en Mundiales e igualó a Klose como máximo goleador de la historia" onerror="this.style.background='#ddd';"/>
+  <img src="img/messi-16-06-26.jpg" alt="Con un hat-trick ante Argelia, Messi llegó a 16 goles en Mundiales e igualó a Klose como máximo goleador de la historia" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/con-un-hat-trick-ante-argelia-messi-llego-a-16-goles-en-mundiales-e-igualo-a-klo.html&text=Con%20un%20hat-trick%20ante%20Argelia%2C%20Messi%20lleg%C3%B3%20a%2016%20goles%20en%20Mundiales%20e%20igual%C3%B3%20a%20Klose%20como%20m%C3%A1ximo%20goleador%20de%20la%20historia" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Lionel Messi marcó tres goles en el primer partido del Mundial 2026 de Argentina ante Argelia y escribió una de las páginas más grandes de la historia del fútbol mundial. Con ese hat-trick llegó a 16 goles en toda la historia de la Copa del Mundo e igualó a Miroslav Klose como máximo goleador histórico del torneo.&nbsp;<div><br></div><h2>El partido</h2><div>Messi anotó a los 17 minutos, a los 60 y finalmente a los 76, sellando un triunfo 3-0 de Argentina sobre Argelia en el Estadio Kansas City.&nbsp; El conjunto albiceleste dominó de principio a fin y el capitán fue el gran protagonista de una noche histórica para el fútbol argentino y mundial.</div><div><br></div><h2>Un récord construido en seis Mundiales</h2><div>Messi llegó al torneo con 13 goles históricos y en 90 minutos sumó tres más para alcanzar los 16 de Klose.&nbsp;<span style="font-size: 0.92rem;">El camino comenzó en Alemania 2006, cuando marcó su primer gol mundialista con apenas 18 años, y se extendió por seis ediciones consecutivas hasta llegar a este martes en territorio norteamericano. Miroslav Klose había marcado sus 16 goles en cuatro ediciones entre 2002 y 2014, en 24 partidos disputados. Messi lo igualó en seis participaciones y con 27 partidos.</span></div><div><span style="font-size: 0.92rem;"><br></span></div><h2><span style="font-size: 0.92rem;">La tabla histórica actualizada</span></h2><div>Con 16 goles, Messi y Klose lideran la tabla histórica de goleadores de los Mundiales. Los siguen Ronaldo Nazário con 15, Gerd Müller con 14 y Just Fontaine con 13. A Argentina todavía le quedan dos partidos en la fase de grupos, ante Austria y Jordania, por lo que la marca de Messi podría crecer aún más y convertirse en un número que difícilmente alguien pueda superar en el futuro.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
