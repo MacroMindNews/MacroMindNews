@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Alerta por la represión en Irán: denuncian el asesinato de 33 pastores en medio de un éxodo religioso clandestino","description":"Un informe de organizaciones internacionales expuso la feroz ofensiva del régimen de Teherán contra las redes clandestinas de fe. Pese a las detenciones masivas y el hostigamiento estatal, se consolida una paradoja social que desconcierta a las autoridades locales.","image":["https://macromindnews.com.ar/img/iran-11-9-26.webp"],"datePublished":"2026-09-11T00:00:00-03:00","dateModified":"2026-09-11T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/alerta-por-la-represion-en-iran-denuncian-el-asesinato-de-33-pastores-en-medio-de-un-exodo-religioso-clandestino.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Alerta por la represión en Irán: denuncian el asesinato de 33 pastores en medio de un éxodo religioso clandestino</h1>
   <p class="art-excerpt">Un informe de organizaciones internacionales expuso la feroz ofensiva del régimen de Teherán contra las redes clandestinas de fe. Pese a las detenciones masivas y el hostigamiento estatal, se consolida una paradoja social que desconcierta a las autoridades locales.</p>
   <div class="art-meta">11 de Septiembre, 2026</div>
-  <img src="img/iran-11-9-26.webp" alt="Alerta por la represión en Irán: denuncian el asesinato de 33 pastores en medio de un éxodo religioso clandestino" onerror="this.style.background='#ddd';"/>
+  <img src="img/iran-11-9-26.webp" alt="Alerta por la represión en Irán: denuncian el asesinato de 33 pastores en medio de un éxodo religioso clandestino" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/alerta-por-la-represion-en-iran-denuncian-el-asesinato-de-33-pastores-en-medio-de-un-exodo-religioso-clandestino.html&text=Alerta%20por%20la%20represi%C3%B3n%20en%20Ir%C3%A1n%3A%20denuncian%20el%20asesinato%20de%2033%20pastores%20en%20medio%20de%20un%20%C3%A9xodo%20religioso%20clandestino" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La tensión religiosa y política en la República Islámica de Irán alcanzó un nuevo pico de gravedad institucional. En las últimas semanas, organizaciones de derechos humanos y ministerios internacionales denunciaron una ofensiva coordinada contra las comunidades cristianas no reconocidas por el Estado, con un saldo de al menos <b data-path-to-node="4" data-index-in-node="328">33 líderes eclesiásticos asesinados</b> y más de <b data-path-to-node="4" data-index-in-node="373">130 detenidos</b> por integrar redes de culto subterráneas.<div><br></div><div>El informe, encabezado por el ministerio internacional <b data-path-to-node="5" data-index-in-node="55">Iran Alive Ministries</b>, describe un endurecimiento de los controles de seguridad y espionaje interno sobre ciudadanos que deciden abandonar el islam, una práctica severamente castigada bajo el ordenamiento legal teocrático del país.</div><div><br></div><div><h2>La persecución de las iglesias subterráneas</h2>&nbsp;<span style="font-size: 0.92rem;">La represión oficial se focalizó principalmente en los templos hogareños y células clandestinas que operan sin autorización formal. Según denunció el titular de la entidad, </span><b data-path-to-node="7" data-index-in-node="173" style="font-size: 0.92rem;">Hormoz Shariat</b><span style="font-size: 0.92rem;">, la persecución judicial y los arrestos arbitrarios ya no se limitan a los principales centros urbanos como Teherán, sino que se extendieron a comunidades del interior donde la vigilancia policial se intensificó.</span></div><div><span style="font-size: 0.92rem;"><br></span></div><div>Frente a la prohibición estricta de prédica abierta en idioma persa, gran parte del intercambio comunitario se trasladó a espacios privados, transmisiones satelitales y canales digitales codificados, herramientas que hoy representan el principal canal de contacto exterior para estas comunidades bajo vigilancia.<span style="font-size: 0.92rem;"></span></div><div><br></div><h2>La paradoja de las conversiones en masas</h2><div>A pesar del endurecimiento de las penas y las amenazas de cárcel, los reportes registran un fenómeno que desconcierta a los sectores ultraconservadores del régimen: la hostilidad estatal no logró frenar el flujo de conversiones. Solo en lo que va del año, la organización constató <b data-path-to-node="11" data-index-in-node="281">5.849 registros formales de conversión</b>, una estadística que consideran parcial debido a que la gran mayoría de los creyentes opta por mantener su fe en estricto secreto para eludir castigos sociales o laborales.</div><div><br></div><div>Desde los movimientos clandestinos señalan que incluso dentro de las propias prisiones persisten los testimonios y la difusión del culto, interpretando la criminalización no como un factor de disuasión, sino como el reflejo de un distanciamiento social creciente entre amplios sectores de la población civil y el aparato clerical oficial.</div><div><br></div><h2>En el radar de vigilancia global</h2><div>La magnitud de este escenario volvió a colocar a la nación persa en el centro de las advertencias internacionales. En su última medición de la <b data-path-to-node="14" data-index-in-node="143">Lista Mundial de la Persecución</b>, la organización humanitaria <b data-path-to-node="14" data-index-in-node="204">Puertas Abiertas</b> ubicó a Irán en el <b data-path-to-node="14" data-index-in-node="240">puesto número 10</b> entre los países con mayor hostilidad hacia las minorías cristianas a nivel global.</div><div><br></div><div>El informe concluye que el régimen continúa catalogando las reuniones no autorizadas como amenazas contra la seguridad nacional, consolidando un esquema de opresión que, paradójicamente, convive con una de las transformaciones socio religiosas más dinámicas y subterráneas de Medio Oriente.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
