@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Santilli designó a Juan Pablo Limodio como nuevo titular de la Dirección Nacional Electoral","description":"El exfuncionario del PRO asume en el organismo clave para la implementación de la reforma electoral que impulsa el gobierno, en un movimiento que refuerza la alianza entre La Libertad Avanza y el macrismo.","image":["https://macromindnews.com.ar/img/santilli-2.jpg"],"datePublished":"2026-05-08T00:00:00-03:00","dateModified":"2026-05-08T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/santilli-designo-a-juan-pablo-limodio-como-nuevo-titular-de-la-direccion-naciona.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Santilli designó a Juan Pablo Limodio como nuevo titular de la Dirección Nacional Electoral</h1>
   <p class="art-excerpt">El exfuncionario del PRO asume en el organismo clave para la implementación de la reforma electoral que impulsa el gobierno, en un movimiento que refuerza la alianza entre La Libertad Avanza y el macrismo.</p>
   <div class="art-meta">8 de Mayo, 2026</div>
-  <img src="img/santilli-2.jpg" alt="Santilli designó a Juan Pablo Limodio como nuevo titular de la Dirección Nacional Electoral" onerror="this.style.background='#ddd';"/>
+  <img src="img/santilli-2.jpg" alt="Santilli designó a Juan Pablo Limodio como nuevo titular de la Dirección Nacional Electoral" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/santilli-designo-a-juan-pablo-limodio-como-nuevo-titular-de-la-direccion-naciona.html&text=Santilli%20design%C3%B3%20a%20Juan%20Pablo%20Limodio%20como%20nuevo%20titular%20de%20la%20Direcci%C3%B3n%20Nacional%20Electoral" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El ministro del Interior, Diego Santilli, designó a Juan Pablo Limodio como nuevo titular de la Dirección Nacional Electoral, el organismo técnico dependiente del Ministerio del Interior que tiene a su cargo la organización, coordinación y supervisión de los procesos electorales en el país. Limodio es un exfuncionario con trayectoria dentro del PRO y asume en un momento de alta sensibilidad institucional: el gobierno acaba de enviar al Congreso el proyecto de reforma electoral que incluye la eliminación de las PASO, cambios en el financiamiento de los partidos y la incorporación de Ficha Limpia. Que el nuevo conductor de la Dirección Electoral provenga de las filas del macrismo no es un dato menor en ese contexto.<br><br>La Dirección Nacional Electoral no es un organismo de alta visibilidad pública, pero tiene un rol técnico determinante en cualquier proceso de reforma del sistema electoral. Es el área que elabora los padrones, coordina con la Justicia Electoral, gestiona el escrutinio provisorio y administra el financiamiento público de las campañas. En el marco de la reforma que impulsa el gobierno, su conductor tendrá que traducir en protocolos y procedimientos concretos los cambios legislativos que eventualmente apruebe el Congreso, lo que convierte a esta designación en una pieza clave del engranaje electoral de cara a las legislativas de 2027.<br><br>La elección de un cuadro proveniente del PRO para ocupar ese cargo refleja la dinámica de la coalición gobernante. La Libertad Avanza necesita los votos del PRO y de la UCR para aprobar la reforma electoral en el Congreso, donde no tiene mayoría propia. Designar a un exfuncionario macrista en el organismo que conducirá técnicamente esa reforma es una señal de confianza hacia el PRO en un momento donde la negociación legislativa es intensa. Al mismo tiempo, pone sobre la mesa la pregunta de si la nueva conducción de la Dirección Electoral tendrá la autonomía técnica suficiente o si estará subordinada a los intereses políticos de la coalición en un año en que el mapa electoral se está redibujando.<br><br>La designación de Limodio se produce en el marco de una reorganización más amplia del Ministerio del Interior bajo la gestión de Santilli, quien llegó al cargo con el objetivo de ordenar la relación política del gobierno con las provincias y de conducir el proceso de reforma electoral. El nuevo titular de la Dirección Electoral tendrá que acreditar ante la Justicia y los partidos políticos que el organismo que conduce garantizará equidad y transparencia en los comicios de 2027, independientemente de las filiaciones partidarias de su conductor.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
