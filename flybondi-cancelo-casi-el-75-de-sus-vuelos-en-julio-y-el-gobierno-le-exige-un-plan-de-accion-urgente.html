@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Flybondi canceló casi el 75% de sus vuelos en julio y el Gobierno le exige un plan de acción urgente","description":"La aerolínea low cost canceló 308 vuelos en lo que va del mes y apenas operó 104 itinerarios. La ANAC aplicó multas por $54,7 millones e investiga otros 22 sumarios que podrían derivar en sanciones por más de $450 millones.","image":["https://macromindnews.com.ar/img/flybondi.webp"],"datePublished":"2026-07-30T00:00:00-03:00","dateModified":"2026-07-30T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/flybondi-cancelo-casi-el-75-de-sus-vuelos-en-julio-y-el-gobierno-le-exige-un-plan-de-accion-urgente.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Flybondi canceló casi el 75% de sus vuelos en julio y el Gobierno le exige un plan de acción urgente</h1>
   <p class="art-excerpt">La aerolínea low cost canceló 308 vuelos en lo que va del mes y apenas operó 104 itinerarios. La ANAC aplicó multas por $54,7 millones e investiga otros 22 sumarios que podrían derivar en sanciones por más de $450 millones.</p>
   <div class="art-meta">30 de Julio, 2026</div>
-  <img src="img/flybondi.webp" alt="Flybondi canceló casi el 75% de sus vuelos en julio y el Gobierno le exige un plan de acción urgente" onerror="this.style.background='#ddd';"/>
+  <img src="img/flybondi.webp" alt="Flybondi canceló casi el 75% de sus vuelos en julio y el Gobierno le exige un plan de acción urgente" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/flybondi-cancelo-casi-el-75-de-sus-vuelos-en-julio-y-el-gobierno-le-exige-un-plan-de-accion-urgente.html&text=Flybondi%20cancel%C3%B3%20casi%20el%2075%25%20de%20sus%20vuelos%20en%20julio%20y%20el%20Gobierno%20le%20exige%20un%20plan%20de%20acci%C3%B3n%20urgente" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>La operatividad de Flybondi atraviesa un momento crítico en medio de las vacaciones de invierno. Según datos del sector, la compañía aérea de bajo costo canceló un total de 308 vuelos durante el mes de julio, lo que representa un drástico 74,8% de las operaciones que tenía originalmente programadas para el período. De ese total, apenas 104 vuelos lograron despegar, generando serios inconvenientes y demoras de miles de pasajeros.</div><div><br></div><div>A pesar de las severas interrupciones en el servicio, la empresa continúa con la venta comercial de pasajes, situaciones que encendió las alarmas en el Gobierno nacional y en los organismos de control del transporte aéreo.</div><span style="font-family: Merriweather, serif; font-size: 1.15rem; font-weight: 900;"><div><span style="font-family: Merriweather, serif; font-size: 1.15rem; font-weight: 900;"><br></span></div>Las claves del conflicto y las sanciones:</span><div><ul><li><b>Exigencia oficial:</b>&nbsp;La Secretaría de Transporte y la Administración Nacional de Aviación Civil (ANAC) intimaron a la empresa a presentar un plan de acción urgente para regularizar su flota y normalizar las frecuencias.</li><li><b>Multas millonarias:</b>&nbsp;La ANAC ya le aplicó a la compañía sanciones económicas por $54.7 millones debido a los incumplimientos registrados.</li><li><b>Sumarios en curso:</b>&nbsp;El organismo mantiene 22 sumarios administrativos en trámite, cuyas penalizaciones acumuladas podrían superar los $450 millones.</li></ul><div><br></div></div><h2>Causa y respuesta institucional</h2><div>Las masivas cancelaciones de la compañía estarían vinculadas a problemas operativos, demorasen el mantenimiento de aeronaves y dificultades operativas para mantener activa la totalidad de su flota.</div><div><br></div><div>Ante esta situación, las autoridades aeronáuticas remarcaron que intensificarán las fiscalizaciones e inspecciones para garantizar los derechos de los usuarios, exigiendo que la aerolínea reubique a los pasajeros afectados, otorgue las compensaciones correspondientes y adecue su oferta de pasajes a su capacidad real de vuelo.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
