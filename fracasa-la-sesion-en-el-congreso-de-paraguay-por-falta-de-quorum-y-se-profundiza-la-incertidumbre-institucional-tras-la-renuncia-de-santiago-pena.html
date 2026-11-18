@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Fracasa la sesión en el Congreso de Paraguay por falta de quórum y se profundiza la incertidumbre institucional tras la renuncia de Santiago Peña","description":"La Asamblea legislativa en Asunción se levantó sin definiciones luego de que el oficialismo se retirara del recinto ante la falta de votos para aceptar la dimisión del mandatario. La oposición denunció una maniobra para blindar al expresidente con fueros parlamentarios y exigió que continúe el proceso de juicio político.","image":["https://macromindnews.com.ar/img/senado-paraguay-05-11-26.webp"],"datePublished":"2026-11-05T00:00:00-03:00","dateModified":"2026-11-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/fracasa-la-sesion-en-el-congreso-de-paraguay-por-falta-de-quorum-y-se-profundiza-la-incertidumbre-institucional-tras-la-renuncia-de-santiago-pena.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><blockquote class="twitter-tweet">La crisis institucional en Paraguay sumó un nuevo nivel de tensión política este miércoles luego de que fracasara por <b data-path-to-node="3" data-index-in-node="118">falta de quórum</b> la sesión conjunta del Congreso bicameral que debía tratar la aceptación de la renuncia del presidente <b data-path-to-node="3" data-index-in-node="237">Santiago Peña</b> y ordenar el mecanismo de sucesión a favor del vicepresidente Pedro Alliana.<div><br></div><div>La parálisis legislativa se produjo de manera abrupta cuando los legisladores oficialistas nucleados en el <b data-path-to-node="4" data-index-in-node="107">Partido Colorado</b> decidieron abandonar el recinto en plena deliberación. La jugada política se concretó tras constatar que no existían los consensos ni los votos suficientes para aprobar formalmente la dimisión del mandatario en los términos pretendidos por el oficialismo, en medio de un clima social caldeado por el colapso financiero de Ueno Bank y el masivo corralito que afecta a millones de ahorristas.</div></blockquote><blockquote class="twitter-tweet"><br></blockquote><h2>El trasfondo de la jugada oficialista y la advertencia opositora</h2><blockquote class="twitter-tweet">El portazo del oficialismo desató duras reacciones de los bloques opositores, que interpretaron la maniobra como un intento desesperado de proteger a la figura presidencial de responsabilidades penales y políticas directas.</blockquote><blockquote class="twitter-tweet"><br></blockquote><blockquote class="twitter-tweet">Durante los cruces verbales en el recinto, el senador liberal <b data-path-to-node="8" data-index-in-node="62">Líder Amarilla</b> cuestionó duramente la estrategia del partido gobernante y advirtió sobre las verdaderas intenciones detrás de la aceptación express de la renuncia:</blockquote><blockquote class="twitter-tweet"><br></blockquote><blockquote class="twitter-tweet"><a href="https://twitter.com/LiderAmarilla/status/2118414604804268446">Ver publicación en X</a></blockquote><blockquote class="twitter-tweet"><br></blockquote><blockquote class="twitter-tweet">Para la oposición, la prioridad institucional pasa por avanzar con el juicio político —cuyo trámite ya había sido aprobado por unanimidad en la Cámara de Diputados horas antes— para determinar responsabilidades políticas en el manejo de los fondos públicos comprometidos y los presuntos nexos normativos con el holding financiero caído.</blockquote><blockquote class="twitter-tweet"><br></blockquote><h2>Un escenario de acefalía y parálisis en el Estado</h2><blockquote class="twitter-tweet">Con el Congreso acéfalo de acuerdos y el oficialismo replegado, el Estado paraguayo entra en una zona gris de gobernabilidad. La negativa a tratar la salida formal de Peña deja al Ejecutivo en un limbo político, mientras continúan multiplicándose las protestas ciudadanas en las inmediaciones del Congreso y se multiplican las denuncias sobre el paradero del exmandatario y sus vínculos con la cúpula judicial y bancaria intervenida.</blockquote></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
