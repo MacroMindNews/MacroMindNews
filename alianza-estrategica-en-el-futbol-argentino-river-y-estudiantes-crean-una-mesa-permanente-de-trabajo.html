@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Alianza estratégica en el fútbol argentino: River y Estudiantes crean una mesa permanente de trabajo","description":"River Plate y Estudiantes de La Plata anunciaron la creación de una mesa de trabajo permanente para impulsar reformas económicas, deportivas e institucionales en el fútbol argentino, ratificando el modelo de asociaciones civiles sin fines de lucro.","image":["https://macromindnews.com.ar/img/river-estudiantes.webp"],"datePublished":"2026-10-13T00:00:00-03:00","dateModified":"2026-10-13T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/alianza-estrategica-en-el-futbol-argentino-river-y-estudiantes-crean-una-mesa-permanente-de-trabajo.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Alianza estratégica en el fútbol argentino: River y Estudiantes crean una mesa permanente de trabajo</h1>
   <p class="art-excerpt">River Plate y Estudiantes de La Plata anunciaron la creación de una mesa de trabajo permanente para impulsar reformas económicas, deportivas e institucionales en el fútbol argentino, ratificando el modelo de asociaciones civiles sin fines de lucro.</p>
   <div class="art-meta">13 de Octubre, 2026</div>
-  <img src="img/river-estudiantes.webp" alt="Alianza estratégica en el fútbol argentino: River y Estudiantes crean una mesa permanente de trabajo" onerror="this.style.background='#ddd';"/>
+  <img src="img/river-estudiantes.webp" alt="Alianza estratégica en el fútbol argentino: River y Estudiantes crean una mesa permanente de trabajo" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/alianza-estrategica-en-el-futbol-argentino-river-y-estudiantes-crean-una-mesa-permanente-de-trabajo.html&text=Alianza%20estrat%C3%A9gica%20en%20el%20f%C3%BAtbol%20argentino%3A%20River%20y%20Estudiantes%20crean%20una%20mesa%20permanente%20de%20trabajo" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">En una movida de fuerte impacto para el mapa institucional y político del fútbol nacional, River Plate y Estudiantes de La Plata formalizaron el establecimiento de una mesa permanente de trabajo orientada al desarrollo, la modernización y la mejora integral de las competencias en la Argentina. <span >El anuncio se hizo público tras un cónclave concretado este martes en la sala de sesiones Rafael Aragón Cabrera del Estadio Mâs Monumental.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c864141825=""><sup _ngcontent-ng-c864141825=""  data-turn-source-index="2"></sup></source-footnote></span><div><span ><br></span></div><div><span >En una movida de fuerte impacto para el mapa institucional y político del fútbol nacional, River Plate y Estudiantes de La Plata formalizaron el establecimiento de una mesa permanente de trabajo orientada al desarrollo, la modernización y la mejora integral de las competencias en la Argentina. <span >El anuncio se hizo público tras un cónclave concretado este martes en la sala de sesiones Rafael Aragón Cabrera del Estadio Mâs Monumental.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c864141825=""><sup _ngcontent-ng-c864141825=""  data-turn-source-index="2"></sup></source-footnote></span></span></div><div><span ><span ><br></span></span></div><h2><span ><span >Los ejes claves: generación de recursos y defensa de las operaciones civiles</span></span></h2><div><span ><span ><span >Entre los pilares debatidos por ambas dirigencias sobresale la urgente necesidad de diseñar nuevos esquemas de ingresos que fortalezcan la economía y el patrimonio de los clubes argentinos.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c864141825=""><sup _ngcontent-ng-c864141825=""  data-turn-source-index="3"><!----></sup></source-footnote></span> Tanto River como Estudiantes remarcaron que el crecimiento patrimonial resulta indispensable para elevar la competitividad de los planteles y dinamizar las infraestructuras de los estadios y predios de entrenamiento.</span></span></div><div><span ><span ><br></span></span></div><div><span ><span >A su vez, el documento conjunto ratificó una postura doctrinaria inequívoca respecto a la estructura legal de las instituciones:</span></span></div><div><ul><li><span ><span ><b data-path-to-node="7,0,0" data-index-in-node="0">Modelo social vigente:</b> <span >Reafirmación plena del esquema de Asociaciones Civiles sin fines de lucro como base fundacional del deporte argentino.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c864141825=""><sup _ngcontent-ng-c864141825=""  data-turn-source-index="4"></sup></source-footnote></span></span></span></li><li><span ><span ><span ><b data-path-to-node="7,1,0" data-index-in-node="0">Rol comunitario:</b> Ponderación de los clubes como espacios ineludibles de formación, contención social e inclusión de niños y jóvenes.</span></span></span></li><li><span ><span ><span ><b data-path-to-node="7,2,0" data-index-in-node="0">Agenda de reformas:</b> Elaboración coordinada de documentos técnicos sobre aspectos organizativos, reglamentarios y económicos que serán compartidos con el resto de los actores de la actividad.</span></span></span></li></ul><div><br></div></div><h2>Una mesa con proyección a largo plazo para incidir en el debate nacional</h2><div><span >Lejos de tratarse de un acercamiento coyuntural, los dirigentes subrayaron que este espacio mantendrá continuidad en el tiempo mediante reuniones periódicas e intercambio continuo de equipos técnicos.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c864141825=""><sup _ngcontent-ng-c864141825=""  data-turn-source-index="5"><!----></sup></source-footnote></span> <span >"Los clubes, como protagonistas centrales del fútbol argentino, tienen la responsabilidad de contribuir activamente a su fortalecimiento y de generar espacios de diálogo que permitan pensar colectivamente su futuro", concluyó el comunicado oficial.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c864141825=""><sup _ngcontent-ng-c864141825=""  data-turn-source-index="6"><!----></sup></source-footnote></span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c2254557856=""></sources-carousel-inline></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
