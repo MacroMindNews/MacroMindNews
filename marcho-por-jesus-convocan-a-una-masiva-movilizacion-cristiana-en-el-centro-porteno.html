@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"\"Marcho por Jesús\": convocan a una masiva movilización cristiana en el centro porteño","description":"Miles de fieles de distintas congregaciones e iglesias evangélicas de todo el país se congregarán este lunes 17 de agosto en Buenos Aires. La marcha unirá la Avenida de Mayo con el Congreso de la Nación en una jornada de oración, adoración y bendición por la Argentina y sus autoridades.","image":["https://macromindnews.com.ar/img/marcho-por-jesus.webp"],"datePublished":"2026-08-14T00:00:00-03:00","dateModified":"2026-08-14T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/marcho-por-jesus-convocan-a-una-masiva-movilizacion-cristiana-en-el-centro-porteno.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">"Marcho por Jesús": convocan a una masiva movilización cristiana en el centro porteño</h1>
   <p class="art-excerpt">Miles de fieles de distintas congregaciones e iglesias evangélicas de todo el país se congregarán este lunes 17 de agosto en Buenos Aires. La marcha unirá la Avenida de Mayo con el Congreso de la Nación en una jornada de oración, adoración y bendición por la Argentina y sus autoridades.</p>
   <div class="art-meta">14 de Agosto, 2026</div>
-  <img src="img/marcho-por-jesus.webp" alt=""Marcho por Jesús": convocan a una masiva movilización cristiana en el centro porteño" onerror="this.style.background='#ddd';"/>
+  <img src="img/marcho-por-jesus.webp" alt=""Marcho por Jesús": convocan a una masiva movilización cristiana en el centro porteño" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/marcho-por-jesus-convocan-a-una-masiva-movilizacion-cristiana-en-el-centro-porteno.html&text=%22Marcho%20por%20Jes%C3%BAs%22%3A%20convocan%20a%20una%20masiva%20movilizaci%C3%B3n%20cristiana%20en%20el%20centro%20porte%C3%B1o" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div><div _ngcontent-ng-c3276486403="" ><message-content _ngcontent-ng-c3276486403="" _nghost-ng-c418390028="" id="message-content-id-r_6c6ff1cbc7039ddd" ><div _ngcontent-ng-c418390028="" inline-copy-host=""  id="model-response-message-contentr_6c6ff1cbc7039ddd" aria-busy="false" aria-live="off" dir="ltr" style="--animation-duration: 400ms; --fade-animation-function: ease-out;"><p data-path-to-node="6">La Ciudad Autónoma de Buenos Aires será el epicentro este lunes 17 de agosto de una nueva edición de "Marcho por Jesús", una de las expresiones públicas de fe más multitudinarias del ámbito cristiano contemporáneo. Aprovechando el feriado nacional por el Paso a la Inmortalidad del General José de San Martín, miles de creyentes de diversas denominaciones y comunidades evangélicas de todo el país se movilizarán por las calles porteñas para compartir un mensaje de paz, unidad y esperanza.</p><p data-path-to-node="6"><br></p><p data-path-to-node="7">La convocatoria iniciará su concentración a las 13:00 en la intersección de Avenida de Mayo y Perú, en el casco histórico de la Ciudad. Desde allí, a partir de las 14:00, las delegaciones y familias marcharán en columna a lo largo de la Avenida de Mayo en dirección a la Plaza de los Dos Congresos, donde se llevará a cabo el acto central que incluirá momentos de alabanza, música en vivo y reflexiones a cargo de diversos oradores, deportistas y referentes de comunidades de fe.</p></div></message-content><!----></div></div><img src="img/marcho-por-jesus-instagram.png" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div><p data-path-to-node="8">El eje central del encuentro estará enfocado en la oración colectiva por la Argentina, el bienestar de sus habitantes y la bendición para las autoridades de gobierno, en un contexto donde los organizadores buscan visibilizar la unidad de la Iglesia y reforzar el impacto social y espiritual de los valores cristianos en la sociedad.</p><p data-path-to-node="8"><br></p><p data-path-to-node="9">El movimiento internacional "Marcho por Jesús" tuvo su origen en 1987 en Londres, promovido por organizaciones como Juventud con una Misión (Jucum), Pioneer e Ichthus Christian Fellowship, expandiéndose rápidamente a decenas de países. En la Argentina, la iniciativa cuenta con destacados antecedentes recientes, como la masiva reunión en el Monumento Nacional a la Bandera en Rosario en noviembre de 2024 y la emblemática concentración de 2017 en Buenos Aires en conmemoración de los 500 años de la Reforma Protestante, que convocó a más de 40.000 personas.</p></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
