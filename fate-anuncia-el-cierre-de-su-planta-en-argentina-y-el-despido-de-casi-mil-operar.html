@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Fate anuncia el cierre de su planta en Argentina y el despido de casi mil operarios","description":"Fate cierra su fábrica en Argentina, dejando a 920 empleados sin trabajo debido a los altos costos y la caída del consumo. Esta medida marca el fin de su producción local y genera una fuerte incertidumbre en el sector automotriz nacional.","image":["https://macromindnews.com.ar/img/fate.jpg"],"datePublished":"2026-02-18T00:00:00-03:00","dateModified":"2026-02-18T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/fate-anuncia-el-cierre-de-su-planta-en-argentina-y-el-despido-de-casi-mil-operar.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Fate anuncia el cierre de su planta en Argentina y el despido de casi mil operarios</h1>
   <p class="art-excerpt">Fate cierra su fábrica en Argentina, dejando a 920 empleados sin trabajo debido a los altos costos y la caída del consumo. Esta medida marca el fin de su producción local y genera una fuerte incertidumbre en el sector automotriz nacional.</p>
   <div class="art-meta">18 de Febrero, 2026</div>
-  <img src="img/fate.jpg" alt="Fate anuncia el cierre de su planta en Argentina y el despido de casi mil operarios" onerror="this.style.background='#ddd';"/>
+  <img src="img/fate.jpg" alt="Fate anuncia el cierre de su planta en Argentina y el despido de casi mil operarios" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/fate-anuncia-el-cierre-de-su-planta-en-argentina-y-el-despido-de-casi-mil-operar.html&text=Fate%20anuncia%20el%20cierre%20de%20su%20planta%20en%20Argentina%20y%20el%20despido%20de%20casi%20mil%20operarios" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La empresa fabricante de neumáticos Fate ha comunicado oficialmente el cese total de sus actividades productivas en su planta de Argentina, una decisión drástica que conlleva el despido directo de 920 trabajadores. Esta medida marca el fin de una era para una de las industrias más emblemáticas del sector automotriz en el país, dejando un vacío significativo en la cadena de suministros nacional.<br><br>El anuncio se produce en un contexto de profunda crisis para el sector, donde los altos costos de producción y la caída sostenida en el consumo interno han erosionado la sostenibilidad financiera de la compañía. Según informaron las autoridades de la firma, la imposibilidad de competir con productos importados y la falta de un horizonte de recuperación económica obligaron a tomar la determinación de cerrar definitivamente las puertas de la fábrica para evitar una mayor acumulación de deudas.<br><br>La noticia ha generado una enorme preocupación en la comunidad local y en el ámbito gremial, ya que el impacto social de casi mil despidos se sentirá de manera inmediata en las familias afectadas y en los comercios de la zona. Los representantes de los trabajadores han iniciado reuniones de urgencia para analizar el alcance de la medida y las condiciones de las indemnizaciones, mientras el clima de incertidumbre se extiende a otras empresas proveedoras que dependen directamente de la operación de esta planta.<br><br>A nivel industrial, el cierre de Fate representa un duro golpe para la soberanía productiva argentina en el rubro del caucho. Durante décadas, la fábrica fue un pilar en la creación de empleo especializado y en la exportación de bienes con valor agregado, pero los desafíos macroeconómicos actuales terminaron por sofocar su capacidad de operación. Con este desmantelamiento, el mercado local queda ahora más expuesto a la volatilidad de los precios internacionales y a la dependencia total de los neumáticos fabricados en el exterior.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
