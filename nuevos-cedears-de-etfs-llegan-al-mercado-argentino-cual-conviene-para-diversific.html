@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Nuevos CEDEARs de ETFs llegan al mercado argentino: ¿cuál conviene para diversificar tu cartera?","description":"La CNV habilitó cuatro nuevos CEDEARs de ETFs internacionales que permiten a los inversores argentinos acceder al S&P 500 igualitario, minería, energías limpias y la economía coreana desde el mercado local.","image":["https://macromindnews.com.ar/img/mercado.jpg"],"datePublished":"2026-04-16T00:00:00-03:00","dateModified":"2026-04-16T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/nuevos-cedears-de-etfs-llegan-al-mercado-argentino-cual-conviene-para-diversific.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Nuevos CEDEARs de ETFs llegan al mercado argentino: ¿cuál conviene para diversificar tu cartera?</h1>
   <p class="art-excerpt">La CNV habilitó cuatro nuevos CEDEARs de ETFs internacionales que permiten a los inversores argentinos acceder al S&P 500 igualitario, minería, energías limpias y la economía coreana desde el mercado local.</p>
   <div class="art-meta">16 de Abril, 2026</div>
-  <img src="img/mercado.jpg" alt="Nuevos CEDEARs de ETFs llegan al mercado argentino: ¿cuál conviene para diversificar tu cartera?" onerror="this.style.background='#ddd';"/>
+  <img src="img/mercado.jpg" alt="Nuevos CEDEARs de ETFs llegan al mercado argentino: ¿cuál conviene para diversificar tu cartera?" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/nuevos-cedears-de-etfs-llegan-al-mercado-argentino-cual-conviene-para-diversific.html&text=Nuevos%20CEDEARs%20de%20ETFs%20llegan%20al%20mercado%20argentino%3A%20%C2%BFcu%C3%A1l%20conviene%20para%20diversificar%20tu%20cartera%3F" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El mercado de capitales argentino suma nuevas herramientas para el inversor minorista. Cuatro ETFs internacionales de primer nivel ahora cotizan en formato CEDEAR en las bolsas locales, ampliando significativamente las opciones de diversificación disponibles en pesos y dólares MEP sin necesidad de operar en el exterior. Los nuevos instrumentos son el Invesco S&amp;P 500 Equal Weight ETF (RSP), el iShares MSCI South Korea ETF (EWY), el SPDR S&amp;P Metals &amp; Mining ETF (XME) y el iShares Global Clean Energy ETF (ICLN), y cada uno responde a una lógica de inversión bien diferenciada.<br><br>El RSP es quizás el más llamativo para quienes ya tienen exposición al S&amp;P 500 a través de SPY o IVV. A diferencia de esos fondos, donde Apple, Microsoft y Nvidia concentran una porción desproporcionada del índice, el RSP otorga el mismo peso a cada una de las 500 empresas del índice. Esto reduce la dependencia de la performance de la Big Tech y expone al inversor en mayor medida a sectores como consumo, salud e industria. Históricamente, en períodos de rotación sectorial o caída de valuaciones tecnológicas, el RSP tiende a tener un comportamiento más estable que sus pares de ponderación por capitalización.<br><br>El EWY abre la puerta a Corea del Sur, una economía desarrollada con un perfil exportador tecnológico y manufacturero muy particular. Sus principales posiciones incluyen gigantes como Samsung Electronics, SK Hynix e Hyundai, empresas con presencia global en semiconductores, automotriz y química. Para el inversor argentino que ya tiene posición en ETFs de EE.UU., sumar EWY implica diversificar geográficamente hacia Asia sin asumir el riesgo de mercados emergentes más volátiles como China o India. El XME, por su parte, es una apuesta directa al ciclo de commodities: sigue empresas de metales y minería listadas en EE.UU., con exposición a acero, carbón, cobre y aluminio, y funciona como cobertura natural ante escenarios de inflación global persistente o auge de inversión en infraestructura.<br><br>Finalmente, el ICLN representa una apuesta estructural de largo plazo a la transición energética global. Invierte en compañías de energías renovables de todo el mundo —solar, eólica, hidrógeno e hidroeléctrica— y es especialmente relevante en un contexto donde los gobiernos del G7 y la Unión Europea mantienen compromisos de descarbonización con horizontes de inversión que se miden en décadas. Para el inversor argentino, estos cuatro nuevos CEDEARs representan una oportunidad concreta de construir carteras más diversificadas, con cobertura cambiaria implícita, sin salir del mercado local.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
