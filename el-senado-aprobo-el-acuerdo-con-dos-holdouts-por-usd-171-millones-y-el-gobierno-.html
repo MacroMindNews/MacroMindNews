@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El Senado aprobó el acuerdo con dos holdouts por USD 171 millones y el Gobierno busca que Diputados lo vote antes de fin de mes","description":"Los fondos Bainbridge y Attestor aceptaron una quita superior al 30% sobre sentencias firmes en EE.UU. El acuerdo cierra los últimos litigios relevantes que le quedaban al país con acreedores externos y elimina los procesos de investigación sobre activos argentinos en el exterior.","image":["https://macromindnews.com.ar/img/senado-2.jpg"],"datePublished":"2026-06-05T00:00:00-03:00","dateModified":"2026-06-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-senado-aprobo-el-acuerdo-con-dos-holdouts-por-usd-171-millones-y-el-gobierno-.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El Senado aprobó el acuerdo con dos holdouts por USD 171 millones y el Gobierno busca que Diputados lo vote antes de fin de mes</h1>
   <p class="art-excerpt">Los fondos Bainbridge y Attestor aceptaron una quita superior al 30% sobre sentencias firmes en EE.UU. El acuerdo cierra los últimos litigios relevantes que le quedaban al país con acreedores externos y elimina los procesos de investigación sobre activos argentinos en el exterior.</p>
   <div class="art-meta">5 de Junio, 2026</div>
-  <img src="img/senado-2.jpg" alt="El Senado aprobó el acuerdo con dos holdouts por USD 171 millones y el Gobierno busca que Diputados lo vote antes de fin de mes" onerror="this.style.background='#ddd';"/>
+  <img src="img/senado-2.jpg" alt="El Senado aprobó el acuerdo con dos holdouts por USD 171 millones y el Gobierno busca que Diputados lo vote antes de fin de mes" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-senado-aprobo-el-acuerdo-con-dos-holdouts-por-usd-171-millones-y-el-gobierno-.html&text=El%20Senado%20aprob%C3%B3%20el%20acuerdo%20con%20dos%20holdouts%20por%20USD%20171%20millones%20y%20el%20Gobierno%20busca%20que%20Diputados%20lo%20vote%20antes%20de%20fin%20de%20mes" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -167,6 +178,21 @@
 <p >El senador libertario <b>Agustín Monteverde</b>, titular de la Comisión de Presupuesto y Hacienda, fue uno de los principales defensores del acuerdo y afirmó que se trata de extinguir los dos principales litigios pendientes del país, señalando que prácticamente no quedarán holdouts con sentencias favorables una vez cerrada esta operación. Su colega de bancada <b>Bruno Olivera Lucero</b> encuadró el acuerdo en términos históricos, sosteniendo que el default y el no pago de las deudas soberanas costaron al país aislamiento financiero, pérdida de acceso al crédito y un daño concreto sobre empresas y familias. Desde el kirchnerismo, <b>Jorge Capitanich</b> rechazó el proyecto y apuntó al nivel de endeudamiento de la administración libertaria, mientras que <b>Fernando Salino</b> argumentó que prefería priorizar el pago a provincias, universidades, jubilados y personas con discapacidad antes que a los fondos.</p><p ><br></p>
 <p >El acuerdo representa el cierre de un capítulo que se arrastra desde el default de 2001, cuando Argentina dejó de pagar su deuda externa y desencadenó más de dos décadas de litigios internacionales. El Gobierno de Milei ya había logrado en 2025 cerrar varios acuerdos con acreedores rezagados, y este nuevo convenio consolida ese proceso de normalización de los pasivos litigiosos externos. La aprobación en Diputados, que deberá ocurrir antes de fin de junio por los plazos acordados con los fondos, será el paso final para que el Estado pueda efectivizar los pagos y dar por cerrado el frente judicial en Estados Unidos.</p></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -208,6 +234,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
