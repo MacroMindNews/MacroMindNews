@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Nuevo aumento para los Senadores: Cobrarán $13 millones por mes tras el nuevo acuerdo paritario en el Congreso","description":"Las dietas de los senadores nacionales subirán a $13,1 millones brutos en enero de 2027 tras el acuerdo paritario del Congreso. El aumento, de casi el 7% en cuatro tramos, rige por enganche automático y abrió una nueva controversia política entre La Libertad Avanza, que donará el excedente, y el kirchnerismo, que lo cobrará completo.","image":["https://macromindnews.com.ar/img/senado-2-9-26.webp"],"datePublished":"2026-09-02T00:00:00-03:00","dateModified":"2026-09-02T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/nuevo-aumento-para-los-senadores-cobraran-13-millones-por-mes-tras-el-nuevo-acuerdo-paritario-en-el-congreso.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Nuevo aumento para los Senadores: Cobrarán $13 millones por mes tras el nuevo acuerdo paritario en el Congreso</h1>
   <p class="art-excerpt">Las dietas de los senadores nacionales subirán a $13,1 millones brutos en enero de 2027 tras el acuerdo paritario del Congreso. El aumento, de casi el 7% en cuatro tramos, rige por enganche automático y abrió una nueva controversia política entre La Libertad Avanza, que donará el excedente, y el kirchnerismo, que lo cobrará completo.</p>
   <div class="art-meta">2 de Septiembre, 2026</div>
-  <img src="img/senado-2-9-26.webp" alt="Nuevo aumento para los Senadores: Cobrarán $13 millones por mes tras el nuevo acuerdo paritario en el Congreso" onerror="this.style.background='#ddd';"/>
+  <img src="img/senado-2-9-26.webp" alt="Nuevo aumento para los Senadores: Cobrarán $13 millones por mes tras el nuevo acuerdo paritario en el Congreso" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/nuevo-aumento-para-los-senadores-cobraran-13-millones-por-mes-tras-el-nuevo-acuerdo-paritario-en-el-congreso.html&text=Nuevo%20aumento%20para%20los%20Senadores%3A%20Cobrar%C3%A1n%20%2413%20millones%20por%20mes%20tras%20el%20nuevo%20acuerdo%20paritario%20en%20el%20Congreso" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Las dietas brutas de los integrantes de la Cámara de Senadores de la Nación registrarán un nuevo incremento salarial que las llevará desde los actuales $12,3 millones hasta alcanzar los $13,1 millones a partir de enero de 2027. La suba, que representa un ajuste acumulado cercano al 7%, se implementará de manera escalonada a lo largo del último cuatrimestre del año tras el cierre de la paritaria con el personal legislativo.<div><br></div><h2>El enganche automático y el esquema en cuatro cuotas</h2><div>El incremento en los haberes de los legisladores no requirió una votación en el recinto debido al mecanismo de enganche automático vigente desde 2024, mediante el cual las dietas de la Cámara alta quedan directamente atadas a las variaciones acordadas para los empleados del Congreso de la Nación.</div><div><br></div><div>&nbsp;Bajo este esquema, la recomposición salarial se liquidará en cuatro tramos consecutivos entre septiembre y diciembre, completando el ciclo de actualización que impactará de lleno en los ingresos brutos a cobrar en el inicio de 2027.</div><div><br></div><h2>Cruces políticos por el cobro del incremento</h2><div>La oficialización de los nuevos montos reavivó de inmediato el debate y las diferencias metodológicas entre los distintos bloques parlamentarios respecto a la percepción de los haberes.</div><div><br></div><div>Desde el bloque de La Libertad Avanza ratificaron su postura habitual ante cada actualización paritaria y anticiparon que los legisladores oficialistas donarán la diferencia correspondiente al aumento a diversas entidades de bien público e instituciones provinciales. Por su parte, la bancada kirchnerista confirmó que percibirá la totalidad de las liquidaciones resultantes del nuevo esquema sin aplicar retenciones voluntarias.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
