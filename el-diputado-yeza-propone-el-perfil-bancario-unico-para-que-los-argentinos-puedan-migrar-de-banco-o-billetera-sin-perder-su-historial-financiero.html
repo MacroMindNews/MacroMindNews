@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El diputado Yeza propone el Perfil Bancario Único para que los argentinos puedan migrar de banco o billetera sin perder su historial financiero","description":"El proyecto, presentado en Diputados como expediente 1807-D-2026, busca centralizar en un solo perfil toda la información financiera del usuario y habilitarle la portabilidad entre entidades. El argentino promedio opera hoy con alrededor de ocho cuentas en distintos bancos y billeteras. La iniciativa se conecta con el Sistema de Finanzas Abiertas que el Gobierno ya puso en marcha mediante decreto en 2025.","image":["https://macromindnews.com.ar/img/perfil-bancario-unico.webp"],"datePublished":"2026-08-19T00:00:00-03:00","dateModified":"2026-08-19T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-diputado-yeza-propone-el-perfil-bancario-unico-para-que-los-argentinos-puedan-migrar-de-banco-o-billetera-sin-perder-su-historial-financiero.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El diputado Yeza propone el Perfil Bancario Único para que los argentinos puedan migrar de banco o billetera sin perder su historial financiero</h1>
   <p class="art-excerpt">El proyecto, presentado en Diputados como expediente 1807-D-2026, busca centralizar en un solo perfil toda la información financiera del usuario y habilitarle la portabilidad entre entidades. El argentino promedio opera hoy con alrededor de ocho cuentas en distintos bancos y billeteras. La iniciativa se conecta con el Sistema de Finanzas Abiertas que el Gobierno ya puso en marcha mediante decreto en 2025.</p>
   <div class="art-meta">19 de Agosto, 2026</div>
-  <img src="img/perfil-bancario-unico.webp" alt="El diputado Yeza propone el Perfil Bancario Único para que los argentinos puedan migrar de banco o billetera sin perder su historial financiero" onerror="this.style.background='#ddd';"/>
+  <img src="img/perfil-bancario-unico.webp" alt="El diputado Yeza propone el Perfil Bancario Único para que los argentinos puedan migrar de banco o billetera sin perder su historial financiero" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-diputado-yeza-propone-el-perfil-bancario-unico-para-que-los-argentinos-puedan-migrar-de-banco-o-billetera-sin-perder-su-historial-financiero.html&text=El%20diputado%20Yeza%20propone%20el%20Perfil%20Bancario%20%C3%9Anico%20para%20que%20los%20argentinos%20puedan%20migrar%20de%20banco%20o%20billetera%20sin%20perder%20su%20historial%20financiero" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -165,6 +176,21 @@
   <div class="art-body">El Diputado Nacional Martín Yeza presentó un proyecto de ley para crear el "Perfil Bancario Único" (PBU), una herramienta que permitirá a cada usuario acceder desde un solo lugar a toda su información financiera dispersa entre bancos, fintech y billeteras digitales, y llevársela consigo cuando decida cambiar de entidad. El proyecto fue girado a las comisiones de Finanzas y Legislación General de la Cámara de Diputados bajo el expediente 1807-D-2026.<div><br></div><div>El punto de partida que usa Yeza para justificar la iniciativa surge de datos del sistema de compensación COELSA, un organismo privado que procesa transferencias y pagos electrónicos en Argentino. Según esa información, el argentino promedio opera con alrededor de ocho cuentas en distintas entidades. Esa dispersión tiene una cara visible para el usuario: la fragmentación de sus información y la dificultad para moverse entre entidades sin tener que reconstruir desde cero su relación financiera. Y tiene una cara menos visible para el mercado, que es la ventaja que acumula la entidad que ya tiene al cliente: conoce su historial, sabe cómo gasta, cuánto paga y con que frecuencia. Ese conocimiento funciona como una barrera que dificulta el cambio y reduce la competencia real entre bancos y billeteras.</div><div><br></div><h2>Qué es concretamente el PBU y cómo funcionaría</h2><div>El Perfil Bancario Único no es una nueva billetera ni una app del Estado que reemplace a los bancos. La idea es más parecida a un pasaporte financiero: una capa de información que el usuario puede consultar, actualizar y autorizar a compartir, sin que esa información quede atada a una entidad en particular. Desde ese perfil, el usuario podría ver en un solo lugar sus cuentas, tarjetas, préstamos, historial crediticio y comportamiento de pago; autorizar a una entidad a recibir esa información cuando quiere contratar un nuevo producto o migrar su cuenta; y revocar esos permisos cuando quiera, sin necesidad de gestionar cada permiso de manera separada con cada banco.</div><div><br></div><div>Uno de los escenarios que plantea el proyecto es que ese perfil pueda integrarse con MiArgentina, la plataforma oficial que ya concentra documentación, trámites y servicios del Estado. En ese esquema, el Estado actuaría como capa de identificación y gestión de permisos, mientras que los datos financieros seguirían siendo de las entidades que los generan. El usuario solo decide que información comparte, con quién y durante cuánto tiempo.</div><div><br></div><h2>Portabilidad financiera: el cambio más concreto</h2><div>El impacto más tangible para el usuario sería la portabilidad del historial. Hoy, una persona que lleva diez años pagando sus cuotas en tiempo y forma en un banco pero decide cambiarse a otro tiene que empezar de cero en términos de confianza crediticia. Esa fricción beneficia a los bancos que ya tienen clientes y perjudica tanto a los usuarios como a los nuevos competidores que quieren captarlos. Con el PBU, un usuario podría autorizar a la nueva entidad a recibir su historial y así presentarse con sus credenciales financieras ya construidas.</div><div><br></div><div>Esto tiene efectos potencialmente significativos sobre el mercado de crédito. Un banco que puede ver con precisión el comportamiento financiero de un potencial cliente más elementos para evaluar su riesgo real en lugar de depender solo de la información que tiene disponible internamente. Para un usuario con buen historial, eso podría traducirse en más competencia entre entidades y mejores condiciones. Para el sistema en su conjunto, podría reducir el costo del crédito al mejorar la calidad de la información disponible.</div><div><br></div><h2>El antecedente que ya existe</h2><div><p dir="ltr">El PBU no llega en el vacío. En mayo de 2025, el Decreto 353/2025 creó el Sistema de Finanzas Abiertas, mediante el cual las personas y empresas pueden autorizar el intercambio de información con entidades del sistema financiero registradas ante el Banco Central. La norma establece que el BCRA es la autoridad de aplicación y que el intercambio debe realizarse con consentimiento expreso del usuario. El proyecto de Yeza puede leerse como una extensión legislativa de esa estrategia: pasar de permitir el intercambio de información a construir el mecanismo que permita usarla para cambiar de proveedor.</p><p dir="ltr"><br></p>
 <p dir="ltr">El desafío más evidente que plantea la mayor circulación de información financiera es la seguridad. Cuanto más información se comparte entre entidades, más importante se vuelve el sistema de autorizaciones, autenticación y protección de datos. El modelo de Finanzas Abiertas ya prevé que el intercambio ocurra por consentimiento del titular y que no se eliminen las obligaciones en materia de prevención de lavado de activos, pero la implementación concreta del PBU requerirá definir estándares técnicos rigurosos para evitar que una herramienta pensada para darle más poder al usuario termine generando nuevos riesgos de fraude o uso indebido de información.</p></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -206,6 +232,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
