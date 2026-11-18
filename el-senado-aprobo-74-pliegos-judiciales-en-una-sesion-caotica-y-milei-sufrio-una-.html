@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El Senado aprobó 74 pliegos judiciales en una sesión caótica y Milei sufrió una doble derrota","description":"La Cámara alta designó a 74 jueces federales en una votación que el oficialismo no pudo controlar. El pliego de Michelli fue el más polémico: aprobado con 44 votos, expuso la interna de La Libertad Avanza y dejó a Milei sin poder de veto sobre el Poder Judicial.","image":["https://macromindnews.com.ar/img/jueza-michelli.jpg"],"datePublished":"2026-06-04T00:00:00-03:00","dateModified":"2026-06-04T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-senado-aprobo-74-pliegos-judiciales-en-una-sesion-caotica-y-milei-sufrio-una-.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El Senado aprobó 74 pliegos judiciales en una sesión caótica y Milei sufrió una doble derrota</h1>
   <p class="art-excerpt">La Cámara alta designó a 74 jueces federales en una votación que el oficialismo no pudo controlar. El pliego de Michelli fue el más polémico: aprobado con 44 votos, expuso la interna de La Libertad Avanza y dejó a Milei sin poder de veto sobre el Poder Judicial.</p>
   <div class="art-meta">4 de Junio, 2026</div>
-  <img src="img/jueza-michelli.jpg" alt="El Senado aprobó 74 pliegos judiciales en una sesión caótica y Milei sufrió una doble derrota" onerror="this.style.background='#ddd';"/>
+  <img src="img/jueza-michelli.jpg" alt="El Senado aprobó 74 pliegos judiciales en una sesión caótica y Milei sufrió una doble derrota" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-senado-aprobo-74-pliegos-judiciales-en-una-sesion-caotica-y-milei-sufrio-una-.html&text=El%20Senado%20aprob%C3%B3%2074%20pliegos%20judiciales%20en%20una%20sesi%C3%B3n%20ca%C3%B3tica%20y%20Milei%20sufri%C3%B3%20una%20doble%20derrota" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -168,6 +179,21 @@
 <p >La interna que dejó al descubierto esta sesión tiene historia reciente. Bullrich ya había chocado con Karina Milei semanas atrás al pedir públicamente que el jefe de Gabinete explicara su situación patrimonial, y ofreció su renuncia como jefa de bloque, que el Presidente rechazó. El episodio de Michelli volvió a poner en escena esa tensión: una parte del espacio libertario que tiene sus propias convicciones republicanas y no está dispuesta a seguir todas las órdenes que bajan desde la conducción del partido. Con las elecciones legislativas de 2027 cada vez más presentes, estas fricciones internas empiezan a tener un costo político concreto.<br><br></p>
 <p >María Verónica Michelli tiene una trayectoria de más de tres décadas en el Poder Judicial. Ingresó a la Secretaría Electoral de La Plata el 24 de octubre de 1994 y desde el 12 de agosto de 2009 se desempeña como secretaria de Cámara del Tribunal Oral Federal N°1 de esa ciudad. Su formación académica es extensa: es Magíster Internacional en Derecho Penal por la Universidad de Sevilla, Especialista en Acceso a la Justicia y Derechos Humanos por la Universidad de Bolonia, y diplomada en derecho constitucional, litigación oral e innovación judicial tecnológica en varias universidades argentinas. En el ámbito académico es profesora adjunta en la Universidad Católica de La Plata y participa en un programa de mentoría jurídica para personas privadas de la libertad en la Unidad N°18 de Gorina. Su pliego había ingresado al Senado el 30 de marzo de 2026 y obtuvo dictamen con nueve firmas favorables el 13 de mayo, incluyendo votos de LLA, el PRO, la UCR y bloques provinciales.</p></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -209,6 +235,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
