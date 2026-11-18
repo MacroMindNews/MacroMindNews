@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Alerta en Centroamérica: un fuerte terremoto sacudió la frontera entre México y Guatemala","description":"El sismo activó los protocolos de emergencia en ambos países. Las autoridades evalúan daños estructurales y posibles víctimas en las zonas más cercanas al epicentro, mientras se registran escenas de pánico en los centros urbanos.","image":["https://macromindnews.com.ar/img/terremoto-mexico-y-guatemala.webp"],"datePublished":"2026-07-17T00:00:00-03:00","dateModified":"2026-07-17T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/alerta-en-centroamerica-un-fuerte-terremoto-sacudio-la-frontera-entre-mexico-y-guatemala.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Alerta en Centroamérica: un fuerte terremoto sacudió la frontera entre México y Guatemala</h1>
   <p class="art-excerpt">El sismo activó los protocolos de emergencia en ambos países. Las autoridades evalúan daños estructurales y posibles víctimas en las zonas más cercanas al epicentro, mientras se registran escenas de pánico en los centros urbanos.</p>
   <div class="art-meta">17 de Julio, 2026</div>
-  <img src="img/terremoto-mexico-y-guatemala.webp" alt="Alerta en Centroamérica: un fuerte terremoto sacudió la frontera entre México y Guatemala" onerror="this.style.background='#ddd';"/>
+  <img src="img/terremoto-mexico-y-guatemala.webp" alt="Alerta en Centroamérica: un fuerte terremoto sacudió la frontera entre México y Guatemala" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/alerta-en-centroamerica-un-fuerte-terremoto-sacudio-la-frontera-entre-mexico-y-guatemala.html&text=Alerta%20en%20Centroam%C3%A9rica%3A%20un%20fuerte%20terremoto%20sacudi%C3%B3%20la%20frontera%20entre%20M%C3%A9xico%20y%20Guatemala" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><p data-path-to-node="7">Un fuerte terremoto sacudió la región fronteriza entre México y Guatemala, encendiendo las alarmas de los sistemas de protección civil de ambos países. El temblor, que se sintió con gran intensidad en varias comunidades de Chiapas y en los departamentos occidentales guatemaltecos, provocó que miles de personas evacuaran de urgencia sus viviendas y lugares de trabajo hacia espacios abiertos para resguardarse de posibles derrumbes.</p><p data-path-to-node="7"><span style="font-size: 0.92rem;"><br></span></p><p data-path-to-node="7"><span style="font-size: 0.92rem;">Los primeros reportes indican magnitudes de 7,4 en Chiapas y 6,7 en Ocós localizando el epicentro en las cercanías de los límites internacionales terrestres. Inmediatamente después del movimiento principal, las fuerzas de seguridad y los cuerpos de bomberos activaron un despliegue operativo terrestre para recorrer las zonas críticas, evaluar las fachadas de los edificios y asistir a los ciudadanos afectados por crisis de nervios.</span></p><p data-path-to-node="8"><br></p><h2>Evaluación de daños y peligro de réplicas</h2><p data-path-to-node="11">Las autoridades gubernamentales de la región comenzaron a relevar el estado de la infraestructura pública, prestando especial atención a escuelas, hospitales y tendidos eléctricos que pudieran haber sufrido fisuras o cortes del suministro. Aunque todavía se están procesando los datos de las localidades más aisladas o de difícil acceso geográfico, ya se constató la caída de mampostería, desprendimientos de tierra en rutas de montaña y grietas en estructuras antiguas.</p><p data-path-to-node="11"><span style="font-size: 0.92rem;"><br></span></p><p data-path-to-node="11"><span style="font-size: 0.92rem;">La principal preocupación de los comités de emergencia radica ahora en la gestión de las réplicas, las cuales suelen suceder a eventos de esta escala y representan un peligro adicional para construcciones que ya hayan quedado debilitadas. Los organismos de defensa civil emitieron comunicados oficiales recomendando a la población mantener la calma, preparar mochilas de emergencia y evitar regresar a inmuebles que presenten fallas estructurales visibles hasta que los peritos técnicos habiliten su ingreso seguro.</span></p></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
