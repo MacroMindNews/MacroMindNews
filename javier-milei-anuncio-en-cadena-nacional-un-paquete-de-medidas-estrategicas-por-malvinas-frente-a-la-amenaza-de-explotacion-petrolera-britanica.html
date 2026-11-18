@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Javier Milei anunció en cadena nacional un paquete de medidas estratégicas por Malvinas frente a la amenaza de explotación petrolera británica","description":"En cadena nacional, el presidente Javier Milei presentó un plan integral de soberanía por Malvinas frente a la amenaza de extracción petrolera del proyecto Sea Lion. El paquete incluye decretos de inhabilitación a petroleras, la construcción de una base naval en Tierra del Fuego, el envío de la Ley de Defensa de la Soberanía con el Consejo de Seguridad Nacional y juicios en ausencia, y un llamado a la unidad política nacional.","image":["https://macromindnews.com.ar/img/cadena-nacional-3-9-26.webp"],"datePublished":"2026-09-03T00:00:00-03:00","dateModified":"2026-09-03T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/javier-milei-anuncio-en-cadena-nacional-un-paquete-de-medidas-estrategicas-por-malvinas-frente-a-la-amenaza-de-explotacion-petrolera-britanica.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Javier Milei anunció en cadena nacional un paquete de medidas estratégicas por Malvinas frente a la amenaza de explotación petrolera británica</h1>
   <p class="art-excerpt">En cadena nacional, el presidente Javier Milei presentó un plan integral de soberanía por Malvinas frente a la amenaza de extracción petrolera del proyecto Sea Lion. El paquete incluye decretos de inhabilitación a petroleras, la construcción de una base naval en Tierra del Fuego, el envío de la Ley de Defensa de la Soberanía con el Consejo de Seguridad Nacional y juicios en ausencia, y un llamado a la unidad política nacional.</p>
   <div class="art-meta">3 de Septiembre, 2026</div>
-  <img src="img/cadena-nacional-3-9-26.webp" alt="Javier Milei anunció en cadena nacional un paquete de medidas estratégicas por Malvinas frente a la amenaza de explotación petrolera británica" onerror="this.style.background='#ddd';"/>
+  <img src="img/cadena-nacional-3-9-26.webp" alt="Javier Milei anunció en cadena nacional un paquete de medidas estratégicas por Malvinas frente a la amenaza de explotación petrolera británica" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/javier-milei-anuncio-en-cadena-nacional-un-paquete-de-medidas-estrategicas-por-malvinas-frente-a-la-amenaza-de-explotacion-petrolera-britanica.html&text=Javier%20Milei%20anunci%C3%B3%20en%20cadena%20nacional%20un%20paquete%20de%20medidas%20estrat%C3%A9gicas%20por%20Malvinas%20frente%20a%20la%20amenaza%20de%20explotaci%C3%B3n%20petrolera%20brit%C3%A1nica" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>En una cadena nacional dirigida a todo el país, el presidente Javier Milei presentó una serie de medidas de alcance diplomático, legal, militar y económico destinadas a reforzar el ejercicio de la soberanía sobre las Islas Malvinas, Georgias del Sur, Sandwich del Sur y los espacios marítimos circundantes. El mandatario remarcó que las disposiciones son fruto de meses de trabajo interdisciplinario dentro del Estado nacional y ratificó la posición histórica argentina fundamentada en la Constitución Nacional: las islas integran el territorio patrio desde los orígenes de la república, la ocupación colonial impuesta por el Reino Unido en 1833 carece de legitimidad, los isleños constituyen una población implantada sin derecho a la autodeterminación y cualquier referéndum local resulta jurídicamente nulo.</div><div><br></div><div>Al contextualizar la situación en el marco del derecho internacional y las resoluciones de las Naciones Unidas que instan a una solución pacífica y bilateral sin acciones unilaterales, Milei enfatizó que durante su gestión el país alcanzó 18 resoluciones y declaraciones de foros internacionales en respaldo a los derechos argentinos, además de interponer más de 60 propuestas formales frente a actos unilaterales de Londres. El presidente encuadró este avance en un escenario geopolítico renovado, destacando que la Casa Blanca bajo la administración de Donald Trump se encuentra reevaluando su histórica postura en torno al conflicto, producto del posicionamiento de la Argentina como un aliado confiable de Occidente, con solvencia institucional y abundancia de recursos críticos, en contraposición al deterioro demográfico, económico y migratorio que atraviesa Gran Bretaña.</div><div><br></div><h2>La amenaza inminente del proyecto Sea Lion y el paquete de decretos</h2><div>El eje central del mensaje radicó en la denuncia formal de un peligro urgente: el inicio inminente de la explotación de hidrocarburos offshore a través del proyecto Sea Lion, operado por las firmas Navitas Petroleum y Rockhopper Exploration. Milei advirtió que en los próximos meses estas empresas tendrían la capacidad material de extraer el crudo del lecho marino austral, lo que sentaría un precedente inédito de apropiación ilegal y generaría incentivos para que el Reino Unido consolide la usurpación. Frente a esta situación, y tras el envío de cerca de 180 notas de desaliento a empresas y a más de 29 países involucrados en actividades no autorizadas, el Ejecutivo decidió responder con todo el andamiaje del Estado.</div><img src="img/proyecto-sea-lion.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div>En primer término, el presidente anunció la firma de un decreto para dotar de máxima celeridad a los procesos sancionatorios de la ley 26.659, fortaleciendo los mecanismos de detección temprana y cooperación de información para penar e inhabilitar de manera terminante a las compañías participantes, alcanzando directamente a sus directores, accionistas y proveedores, bajo la premisa de que no se puede mantener una operación ilegal en territorio disputado y a la vez pretender negocios seguros en el continente. En segundo lugar, mediante un Decreto de Necesidad y Urgencia, se dispuso la ampliación presupuestaria para el Ministerio de Defensa destinada a la construcción de una base naval integrada en Tierra del Fuego y a la mejora de la infraestructura en telecomunicaciones, con el objetivo de conformar el polo logístico más relevante del Atlántico Sur y asegurar la proyección hacia la Antártida.</div><div><br></div><h2>El proyecto de Ley de Defensa de la Soberanía Nacional</h2><div>Como complemento legislativo indispensable, el presidente informó el envío con carácter de urgencia al Congreso de la Nación del proyecto de Ley de Defensa de la Soberanía Nacional, estructurado en torno a tres objetivos centrales:</div><div><ul><li>Modificación de la ley 26.659 para endurecer las penas contra compañías vinculadas a operaciones no autorizadas, haciendo extensivas las mismas sanciones e inhabilitaciones a toda la cadena de proveedores, prohibiendo que contraten en territorio argentino con el sector público o privado, habilitando la aplicación del juicio en ausencia y extendiendo el régimen punitivo a cualquier otra actividad que vulnere los recursos naturales.</li><li>Creación del Consejo de Seguridad Nacional, organismo encargado de diseñar y coordinar una doctrina obligatoria y transversal para toda la administración pública mediante la articulación directa de Cancillería, Defensa, Inteligencia y Economía, fijando marcos de protección para la infraestructura crítica del país y el control de los espacios marítimo y aeroespacial.</li><li>Otorgamiento de facultades expresas al Consejo de Seguridad Nacional por parte del Congreso, permitiendo al Estado ejecutar respuestas inmediatas con herramientas económicas y diplomáticas frente a actores estatales o no estatales que atenten contra la seguridad nacional.</li></ul><div><br></div></div><h2>Prosperidad económica, defensa estratégica y el llamado a la unidad</h2><div>El mandatario conectó de forma directa la capacidad de defender la soberanía con el orden económico alcanzado, afirmando que el rescate financiero del país, la eliminación del cepo cambiario y el régimen de grandes inversiones permiten a la Argentina proyectarse como potencia exportadora de energía, alimentos y minerales. Bajo esa premisa, argumentó que un país empobrecido y con fuerzas armadas desmanteladas queda incapacitado para imponer costos a quienes vulneran sus derechos territoriales, redefiniendo la seguridad nacional como un concepto integral que involucra la solvencia monetaria, el desarrollo financiero, la inteligencia y la custodia de los activos frente a la futura disputa global por recursos en la era tecnológica.</div><div><br></div><div>Hacia el desenlace del mensaje, el mandatario apeló a una tregua política en el orden interno y convocó a toda la dirigencia de la oposición, así como a los sectores productivos y sociales, a cerrar filas y emitir una sola voz ante la comunidad internacional. Milei afirmó que se pueden debatir las formas o el rumbo de la política fiscal y cambiaria, pero remarcó que Malvinas constituye una causa nacional superior que exige deponer diferencias para definir si el país avanza hacia la recuperación de su grandeza y la defensa irrenunciable de sus derechos o si se resigna a un sendero de declive y sometimiento.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
