@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"\"El dolor es muy grande\": el emotivo posteo de Lionel Messi tras el subcampeonato en el Mundial 2026","description":"El capitán de la Selección Argentina rompió el silencio a través de sus redes sociales luego de la final ante España. Expresó el orgullo por el camino recorrido y destacó el valor de haber alcanzado dos finales del mundo consecutivas.","image":["https://macromindnews.com.ar/img/messi-20-07-26.webp"],"datePublished":"2026-07-20T00:00:00-03:00","dateModified":"2026-07-20T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-dolor-es-muy-grande-el-emotivo-posteo-de-lionel-messi-tras-el-subcampeonato-en-el-mundial-2026.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">"El dolor es muy grande": el emotivo posteo de Lionel Messi tras el subcampeonato en el Mundial 2026</h1>
   <p class="art-excerpt">El capitán de la Selección Argentina rompió el silencio a través de sus redes sociales luego de la final ante España. Expresó el orgullo por el camino recorrido y destacó el valor de haber alcanzado dos finales del mundo consecutivas.</p>
   <div class="art-meta">20 de Julio, 2026</div>
-  <img src="img/messi-20-07-26.webp" alt=""El dolor es muy grande": el emotivo posteo de Lionel Messi tras el subcampeonato en el Mundial 2026" onerror="this.style.background='#ddd';"/>
+  <img src="img/messi-20-07-26.webp" alt=""El dolor es muy grande": el emotivo posteo de Lionel Messi tras el subcampeonato en el Mundial 2026" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-dolor-es-muy-grande-el-emotivo-posteo-de-lionel-messi-tras-el-subcampeonato-en-el-mundial-2026.html&text=%22El%20dolor%20es%20muy%20grande%22%3A%20el%20emotivo%20posteo%20de%20Lionel%20Messi%20tras%20el%20subcampeonato%20en%20el%20Mundial%202026" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div><span data-path-to-node="2,0">Pocas horas después del cierre de la Copa del Mundo 2026 en Norteamérica, el capitán y máximo referente de la Selección Argentina, Lionel Messi, utilizó su cuenta oficial de Instagram para compartir una profunda y conmovedora reflexión con todos sus seguidores</span><span data-path-to-node="2,1"><sup _ngcontent-ng-c3698509682="" ></sup></span><span data-path-to-node="2,2">. En sus primeras palabras públicas tras la caída 1-0 frente a España en el encuentro decisivo, el astro rosarino no ocultó la frustración del resultado final, pero centró su mensaje en la resiliencia y la unión de todo el plantel argentino</span><span data-path-to-node="2,3"><sup _ngcontent-ng-c3698509682="" ></sup></span><span data-path-to-node="2,4">.</span></div><img src="img/messi-instagram.png" alt="Posteo de Messi post partido de la Final de Mundial 2026" style="max-width:100%;margin:12px 0;display:block;"><div><div><span data-path-to-node="2,4"><span data-path-to-node="3,0">"El dolor es muy grande y va a costar que cierre esta herida. Pero también me quedo con todo lo bueno...", inició el texto que acompañó a una postal suya con la medalla plateada colgada en el pecho</span><span data-path-to-node="3,1"><response-element  ng-version="0.0.0-PLACEHOLDER"><source-footnote _nghost-ng-c3698509682="" ><sup _ngcontent-ng-c3698509682="" ></sup></source-footnote></response-element></span><span data-path-to-node="3,2">. Messi hizo especial hincapié en la mística y el carácter competitivo del grupo, remarcando la épica de las instancias previas: "Con los partidos que dimos vuelta dejando todo y que quedarán para siempre en la memoria, con el apoyo de un país entero"</span><span data-path-to-node="3,3"><response-element  ng-version="0.0.0-PLACEHOLDER"><source-footnote _nghost-ng-c3698509682="" ><sup _ngcontent-ng-c3698509682="" ></sup></source-footnote></response-element></span><span data-path-to-node="3,4">.</span></span></div><div><span data-path-to-node="2,4"><br></span></div><div><span data-path-to-node="2,4"><span data-path-to-node="3,4"><span data-path-to-node="4,0">El descargo del capitán buscó poner en perspectiva histórica los logros recientes de esta generación de futbolistas</span><span data-path-to-node="4,1"><response-element  ng-version="0.0.0-PLACEHOLDER"><source-footnote _nghost-ng-c3698509682="" ><sup _ngcontent-ng-c3698509682="" ></sup></source-footnote></response-element></span><span data-path-to-node="4,2">. En un contexto donde la inmediatez de la derrota suele opacar los procesos a largo plazo, el '10' destacó el esfuerzo mancomunado entre el plantel, el cuerpo técnico y el público: "Con el trabajo y el esfuerzo de este grupo nos llevó a volver a estar, una vez más, entre los mejores del mundo. Hoy cuesta valorar lo que hicimos, pero este grupo llegó a dos finales consecutivas de la Copa del Mundo"</span><span data-path-to-node="4,3"><response-element  ng-version="0.0.0-PLACEHOLDER"><source-footnote _nghost-ng-c3698509682="" ><sup _ngcontent-ng-c3698509682="" ></sup></source-footnote></response-element></span><span data-path-to-node="4,4">.</span></span></span></div><div><span data-path-to-node="2,4"><br></span></div><div><span data-path-to-node="2,4"><span data-path-to-node="3,4"><span data-path-to-node="4,4"><span data-path-to-node="5,0">Hacia el cierre de su comunicado, el delantero agradeció el masivo apoyo de los hinchas que se movilizaron y alentaron desde cada rincón del planeta, afirmando que "una vez más logramos unirnos como país y estar todos juntos, compartiendo el inmenso orgullo de ser argentinos"</span><span data-path-to-node="5,1"><response-element  ng-version="0.0.0-PLACEHOLDER"><source-footnote _nghost-ng-c3698509682="" ><sup _ngcontent-ng-c3698509682="" ></sup></source-footnote></response-element></span><span data-path-to-node="5,2">. En un gesto de deportividad y respeto institucional que caracteriza su trayectoria, Messi concluyó sus líneas con un saludo formal hacia sus contrincantes de la jornada dominical: "También quiero felicitar a</span></span></span></span></div><div><span data-path-to-node="2,4"><span data-path-to-node="3,4"><span data-path-to-node="4,4"><span data-path-to-node="5,2">España por el campeonato"</span><span data-path-to-node="5,3"><response-element  ng-version="0.0.0-PLACEHOLDER"><source-footnote _nghost-ng-c3698509682="" ><sup _ngcontent-ng-c3698509682="" ></sup></source-footnote></response-element></span><span data-path-to-node="5,4">.</span></span></span></span></div></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
