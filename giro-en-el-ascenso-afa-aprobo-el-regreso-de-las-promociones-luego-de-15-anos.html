@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Giro en el ascenso: AFA aprobó el regreso de las promociones luego de 15 años","description":"El Comité Ejecutivo de la AFA aprobó el regreso de las promociones a partir de la próxima temporada. La medida se aplicará desde la Primera Nacional hacia las categorías inferiores para definir ascensos y descensos.","image":["https://macromindnews.com.ar/img/chiqui-tapia-22-10-26.webp"],"datePublished":"2026-10-22T00:00:00-03:00","dateModified":"2026-10-22T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/giro-en-el-ascenso-afa-aprobo-el-regreso-de-las-promociones-luego-de-15-anos.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Giro en el ascenso: AFA aprobó el regreso de las promociones luego de 15 años</h1>
   <p class="art-excerpt">El Comité Ejecutivo de la AFA aprobó el regreso de las promociones a partir de la próxima temporada. La medida se aplicará desde la Primera Nacional hacia las categorías inferiores para definir ascensos y descensos.</p>
   <div class="art-meta">22 de Octubre, 2026</div>
-  <img src="img/chiqui-tapia-22-10-26.webp" alt="Giro en el ascenso: AFA aprobó el regreso de las promociones luego de 15 años" onerror="this.style.background='#ddd';"/>
+  <img src="img/chiqui-tapia-22-10-26.webp" alt="Giro en el ascenso: AFA aprobó el regreso de las promociones luego de 15 años" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/giro-en-el-ascenso-afa-aprobo-el-regreso-de-las-promociones-luego-de-15-anos.html&text=Giro%20en%20el%20ascenso%3A%20AFA%20aprob%C3%B3%20el%20regreso%20de%20las%20promociones%20luego%20de%2015%20a%C3%B1os" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">En una resolución aprobada durante la última reunión del Comité Ejecutivo de la Asociación del Fútbol Argentino (AFA), la conducción del fútbol nacional oficializó una reestructuración de fondo para las categorías de ascenso. A partir de la próxima temporada, el sistema de promociones volverá a implementarse para definir ascensos y descensos en las divisiones inferiores, marcando el retorno de una modalidad eliminada en la temporada 2011/2012.<div><br></div><div>La reforma alcanzará exclusivamente a la estructura que abarca desde la Primera Nacional hacia abajo, sin impactar en el formato de competencia de la Liga Profesional. Con esta medida, la AFA busca elevar la competitividad en las etapas definitorias de los torneos, reintroduciendo las tradicionales series mano a mano entre equipos de diferentes divisiones.</div><div><br></div><h2>Cómo funcionará el nuevo esquema de descensos y promociones</h2><div>La reglamentación aprobada detalla un mecanismo diferenciado que contempla la filiación directa e indirecta de los clubes en la segunda división, así como cruces específicos en la tercera y cuarta categoría del fútbol argentino:</div><div><ul><li><b data-path-to-node="6,0,0" data-index-in-node="0">Primera Nacional (Descensos directos):</b> Perderán la categoría de forma directa los dos equipos que finalicen en los últimos puestos de cada una de las zonas.</li><li><b data-path-to-node="6,1,0" data-index-in-node="0">Primera Nacional vs. Primera B:</b> El antepenúltimo de la tabla entre los clubes directamente afiliados disputará una promoción ida y vuelta contra un representante de la Primera B Metropolitana.</li><li><b data-path-to-node="6,2,0" data-index-in-node="0">Primera Nacional vs. Torneo Federal A:</b> El antepenúltimo de los clubes indirectamente afiliados jugará la serie de promoción frente a un equipo proveniente del Torneo Federal A.</li><li><b data-path-to-node="6,3,0" data-index-in-node="0">Tercera y cuarta división (Primera B y Primera C):</b> Se disputará una serie de promoción tanto para definir ascensos como descensos, sumándose a los cupos directos otorgados por la tabla general de cada categoría.</li></ul><div><br></div></div><h2>Un formato con historia dentro del fútbol nacional</h2><div>Las promociones se disputaron de manera intermitente desde la temporada 1999/2000 hasta mediados de 2012. La dinámica histórica determinaba enfrentamientos a dos partidos, donde el equipo de la división superior definía la llave en condición de local y contaba con ventaja deportiva en caso de empate en el marcador global.</div><div><br></div><div>Durante sus doce años de vigencia previa, el formato dejó cruces memorables en el ámbito local, incluyendo las definiciones disputadas por Racing Club ante Belgrano en 2008, San Lorenzo frente a Instituto en 2012 y el histórico choque entre River Plate y Belgrano en 2011. Quince años después de su derogación, el sistema volverá a regir para definir la suerte deportiva de los clubes del ascenso.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
