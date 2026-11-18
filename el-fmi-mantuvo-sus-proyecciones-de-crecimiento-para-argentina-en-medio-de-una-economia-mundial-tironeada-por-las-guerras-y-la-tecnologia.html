@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El FMI mantuvo sus proyecciones de crecimiento para Argentina en medio de una economía mundial tironeada por las guerras y la tecnología","description":"En su última actualización global, el organismo ratificó que el país crecerá un 3,5% este año y un 4,0% en 2027. A nivel internacional, advierte que la inflación volvió a recalentarse por el conflicto en Oriente Medio","image":["https://macromindnews.com.ar/img/fmi-2.webp"],"datePublished":"2026-07-08T00:00:00-03:00","dateModified":"2026-07-08T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-fmi-mantuvo-sus-proyecciones-de-crecimiento-para-argentina-en-medio-de-una-economia-mundial-tironeada-por-las-guerras-y-la-tecnologia.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El FMI mantuvo sus proyecciones de crecimiento para Argentina en medio de una economía mundial tironeada por las guerras y la tecnología</h1>
   <p class="art-excerpt">En su última actualización global, el organismo ratificó que el país crecerá un 3,5% este año y un 4,0% en 2027. A nivel internacional, advierte que la inflación volvió a recalentarse por el conflicto en Oriente Medio</p>
   <div class="art-meta">8 de Julio, 2026</div>
-  <img src="img/fmi-2.webp" alt="El FMI mantuvo sus proyecciones de crecimiento para Argentina en medio de una economía mundial tironeada por las guerras y la tecnología" onerror="this.style.background='#ddd';"/>
+  <img src="img/fmi-2.webp" alt="El FMI mantuvo sus proyecciones de crecimiento para Argentina en medio de una economía mundial tironeada por las guerras y la tecnología" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-fmi-mantuvo-sus-proyecciones-de-crecimiento-para-argentina-en-medio-de-una-economia-mundial-tironeada-por-las-guerras-y-la-tecnologia.html&text=El%20FMI%20mantuvo%20sus%20proyecciones%20de%20crecimiento%20para%20Argentina%20en%20medio%20de%20una%20econom%C3%ADa%20mundial%20tironeada%20por%20las%20guerras%20y%20la%20tecnolog%C3%ADa" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><h2>Sin cambios en la hoja de ruta local</h2><div>El Fondo Monetario Internacional (FMI) presentó su actualización de Perspectiva de la Economía Mundial de julio de 2026, dejando intactas las cartas macroeconómicas para la Argentina. Según el documento técnico del organismo, el Producto Bruto Interno (PBI) de Argentina registrará una expansión del 3,5% para el cierre de este año. Esta cifra coincide plenamente con los cálculos previos de la entidad, lo que demuestra una llamativa estabilidad en el rumbo proyectado para la actividad nacional.</div><div><br></div><div>Para el año 2027, las estimaciones oficiales se mantienen firmes en un avance del 4%, consolidando una perspectiva de recuperación sostenida en el mediano plazo. El informe refleja que el organismo no ve alteraciones ni la necesidad de aplicar rebajar al potencial argentino respecto a sus informes del pasado mes de abril. De esta manera, el país logra esquivar las correcciones bruscas que sí sufrieron otras potencias de la región.</div><div><br></div><div>Esta estabilidad en las planillas del Fondo para la Argentina se da en un contexto donde los técnicos internacionales prefirieron la cautela. Así, la economía argentina se desmarca de los fuertes vaivenes de otros mercados, condicionados de manera directa por la inestabilidad geopolítica reinante. La ratificación de las metas le otorga un marco de previsibilidad técnica tanto al sector público como a las variables del sector privado.</div><div><img src="img/crecimiento-argentina.webp" alt="Imagen" style="font-size: 0.92rem; max-width: 100%; margin: 12px 0px; display: block;"></div><div><br></div><h2>Un mundo a dos velocidades: entre el petróleo y la IA</h2><div>La quietud de los números locales contrasta con un panorama global complejo, definido por el propio FMI como un escenario de "vientos cruzados". Por un lado, la prolongación de la guerra en Oriente Medio actúa como un duro freno de mano para la actividad general. Este conflicto bélico encareció con fuerza los costos de la energía (el petróleo crudo subió un 32% respecto al año pasado) y generó fuertes distorsiones en los fletes y las cadenas de suministros.</div><div><br></div><div>Por el otro lado, el fenomenal auge de la Inteligencia Artificial (IA) y la fuerte inversión corporativa en hardware actúa como un motor que acelera la economía. Las potencias avanzadas y los grandes productores de microchips, como Corea o China, lograron capitalizar este shock tecnológico positivo para contrarrestar los efectos de las crisis energéticas. Esta dualidad provoca que el crecimiento mundial estimado para este año se ubique en un moderado 3% a nivel global.</div><div><br></div><div>El gran dolor de cabeza para los mercados sigue siendo la inflación, cuyo proceso descenso continuo a nivel mundial sufrió una pausa. El FMI proyecta que la inflación subirá del 4,1% registrado en 2025 a un 4,7% en 2026 debido al encarecimiento de los combustibles, los fertilizantes y los alimentos. Por este motivo, se prevé que los principales bancos centrales del mundo mantengan sus tasas de interés elevadas por un período más prolongado para evitar un desborde de precios.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
