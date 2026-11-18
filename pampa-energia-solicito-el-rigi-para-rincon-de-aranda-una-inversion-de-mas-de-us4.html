@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Pampa Energía solicitó el RIGI para Rincón de Aranda: una inversión de más de US$4.500 millones que potencia Vaca Muerta","description":"La empresa Pampa Energía pidió adherirse al RIGI para desarrollar el upstream de su yacimiento Rincón de Aranda, en Vaca Muerta. El proyecto contempla más de US$4.500 millones en inversiones para producción de petróleo, plantas de tratamiento, oleoductos y gasoductos, y podría sumar más de 100 pozos adicionales al área.","image":["https://macromindnews.com.ar/img/pampa-energia-2.jpg"],"datePublished":"2026-03-09T00:00:00-03:00","dateModified":"2026-03-09T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/pampa-energia-solicito-el-rigi-para-rincon-de-aranda-una-inversion-de-mas-de-us4.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Pampa Energía solicitó el RIGI para Rincón de Aranda: una inversión de más de US$4.500 millones que potencia Vaca Muerta</h1>
   <p class="art-excerpt">La empresa Pampa Energía pidió adherirse al RIGI para desarrollar el upstream de su yacimiento Rincón de Aranda, en Vaca Muerta. El proyecto contempla más de US$4.500 millones en inversiones para producción de petróleo, plantas de tratamiento, oleoductos y gasoductos, y podría sumar más de 100 pozos adicionales al área.</p>
   <div class="art-meta">9 de Marzo, 2026</div>
-  <img src="img/pampa-energia-2.jpg" alt="Pampa Energía solicitó el RIGI para Rincón de Aranda: una inversión de más de US$4.500 millones que potencia Vaca Muerta" onerror="this.style.background='#ddd';"/>
+  <img src="img/pampa-energia-2.jpg" alt="Pampa Energía solicitó el RIGI para Rincón de Aranda: una inversión de más de US$4.500 millones que potencia Vaca Muerta" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/pampa-energia-solicito-el-rigi-para-rincon-de-aranda-una-inversion-de-mas-de-us4.html&text=Pampa%20Energ%C3%ADa%20solicit%C3%B3%20el%20RIGI%20para%20Rinc%C3%B3n%20de%20Aranda%3A%20una%20inversi%C3%B3n%20de%20m%C3%A1s%20de%20US%244.500%20millones%20que%20potencia%20Vaca%20Muerta" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Argentina sigue sumando fichas en su tablero energético. Pampa Energía, una de las principales compañías del sector energético en el país, solicitó formalmente adherirse al RIGI —el Régimen de Incentivo para Grandes Inversiones aprobado durante la gestión de Milei— para desarrollar el upstream de su yacimiento Rincón de Aranda, ubicado en la formación de Vaca Muerta. La novedad fue celebrada públicamente por el ministro de Economía, Luis Caputo, quien reposteó el anuncio en sus redes sociales, una señal clara del respaldo político que tiene este tipo de iniciativas desde el Gobierno nacional.<br><br>Para quienes no están familiarizados con los términos técnicos: el "upstream" es la etapa inicial de la cadena petrolera, es decir, la exploración y extracción del crudo directamente del yacimiento. El RIGI, por su parte, es un régimen especial que ofrece beneficios impositivos, aduaneros y cambiarios a proyectos de inversión que superen cierto umbral de magnitud, con el objetivo de atraer capital privado —tanto nacional como extranjero— hacia sectores estratégicos de la economía argentina. En pocas palabras, es un incentivo concreto para que las empresas apuesten fuerte por el país.<br><br>Y la apuesta de Pampa Energía es, efectivamente, muy grande. El proyecto contempla una inversión estimada de más de US$4.500 millones destinados a la producción de petróleo en el área, junto con la construcción de plantas de tratamiento, oleoductos y gasoductos. Además, la aplicación del RIGI permitiría viabilizar la zona norte del bloque, lo que implicaría sumar más de 100 pozos adicionales, acelerar el ritmo de crecimiento de la producción y prolongar el período de plateau —es decir, la etapa en que la producción se mantiene en su nivel máximo—, que podría incluso superar el diseño original del proyecto. En términos simples: más pozos, más petróleo, por más tiempo.<br><br>La noticia se enmarca en un momento de fuerte dinamismo para el sector energético argentino. Hace apenas días, Southern Energy firmaba el mayor contrato de exportación de GNL de la historia del país con Europa, y ahora Pampa Energía suma otro proyecto de escala histórica en Vaca Muerta. El RIGI, que el presidente Milei destacó en su discurso de apertura de sesiones con proyectos ya en marcha por US$25.000 millones, parece estar cumpliendo su función de ancla para atraer inversiones de largo plazo. Para Argentina, cada nuevo proyecto de esta magnitud representa no solo empleo y actividad económica, sino también —y quizás más importante— una fuente genuina de dólares que el país necesita para consolidar su estabilidad macroeconómica.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
