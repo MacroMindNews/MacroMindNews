@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Tim Cook deja Apple tras 15 años como CEO: John Ternus será el nuevo líder de la compañía más valiosa del mundo","description":"El cambio de mando en la empresa tecnológica más influyente del planeta marca el fin de una era y abre una nueva etapa bajo el liderazgo de un ingeniero de hardware que lleva 25 años en la compañía.","image":["https://macromindnews.com.ar/img/tim-cook.jpg"],"datePublished":"2026-04-21T00:00:00-03:00","dateModified":"2026-04-21T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/tim-cook-deja-apple-tras-15-anos-como-ceo-john-ternus-sera-el-nuevo-lider-de-la-.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Tim Cook deja Apple tras 15 años como CEO: John Ternus será el nuevo líder de la compañía más valiosa del mundo</h1>
   <p class="art-excerpt">El cambio de mando en la empresa tecnológica más influyente del planeta marca el fin de una era y abre una nueva etapa bajo el liderazgo de un ingeniero de hardware que lleva 25 años en la compañía.</p>
   <div class="art-meta">21 de Abril, 2026</div>
-  <img src="img/tim-cook.jpg" alt="Tim Cook deja Apple tras 15 años como CEO: John Ternus será el nuevo líder de la compañía más valiosa del mundo" onerror="this.style.background='#ddd';"/>
+  <img src="img/tim-cook.jpg" alt="Tim Cook deja Apple tras 15 años como CEO: John Ternus será el nuevo líder de la compañía más valiosa del mundo" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/tim-cook-deja-apple-tras-15-anos-como-ceo-john-ternus-sera-el-nuevo-lider-de-la-.html&text=Tim%20Cook%20deja%20Apple%20tras%2015%20a%C3%B1os%20como%20CEO%3A%20John%20Ternus%20ser%C3%A1%20el%20nuevo%20l%C3%ADder%20de%20la%20compa%C3%B1%C3%ADa%20m%C3%A1s%20valiosa%20del%20mundo" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Apple anunció este lunes uno de los movimientos corporativos más significativos del sector tecnológico en la última década. Tim Cook dejará el cargo de CEO de la compañía, rol que ocupó desde agosto de 2011 cuando sucedió al fundador Steve Jobs, y será reemplazado por John Ternus, actual vicepresidente senior de Ingeniería de Hardware. La transición fue aprobada de forma unánime por el Directorio de Apple y se hará efectiva el 1 de septiembre de 2026, fecha en que Cook pasará a ocupar el cargo de presidente ejecutivo del consejo de administración. No se trata de una salida abrupta: Cook continuará al frente hasta el cierre del verano boreal trabajando junto a Ternus para garantizar una transición ordenada.<br><br>El legado de Cook al frente de Apple es difícil de exagerar. Cuando asumió en 2011, la compañía tenía una capitalización bursátil de alrededor de US$350.000 millones. Bajo su conducción, Apple se convirtió en la primera empresa en superar los US$3 billones de valor de mercado y hoy es considerada la compañía más valiosa del mundo. Durante su gestión se lanzaron el Apple Watch, la línea de servicios que incluye Apple Music, Apple TV+ y Apple Arcade, la transición completa de Mac a los chips Apple Silicon de diseño propio, y se consolidó el iPhone como el producto de consumo masivo más reconocido del planeta. Cook también fue una pieza clave en las negociaciones con gobiernos de todo el mundo y en la construcción de la cadena de suministro global que hizo posible ese crecimiento.<br><br>John Ternus, de 50 años, se incorporó a Apple en 2001 y asumió la vicepresidencia senior de Ingeniería de Hardware en 2021. Es el responsable directo del diseño y la ingeniería del iPhone, el iPad y la Mac en los últimos años, por lo que su perfil es el de un líder forjado en el producto y no en las finanzas o las operaciones. Ese sesgo hacia la ingeniería es considerado estratégico en un momento en que Apple busca consolidar su liderazgo en inteligencia artificial integrada al hardware y expandirse hacia nuevas categorías de dispositivos. Junto con su nombramiento como CEO, Ternus se incorporará al Directorio de la compañía a partir del 1 de septiembre.<br><br>El nuevo organigrama también contempla que Arthur Levinson, quien durante 15 años ocupó el rol de presidente no ejecutivo del Directorio, pasará a ser director independiente principal. Cook, por su parte, tendrá un rol activo como presidente ejecutivo, enfocado especialmente en la relación con reguladores y funcionarios de todo el mundo, una de las áreas donde su perfil y su experiencia diplomática son más valorados. El mercado recibirá el anuncio en las próximas horas y los analistas observarán de cerca si la transición genera volatilidad en la acción de Apple, una de las más seguidas del mundo.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
