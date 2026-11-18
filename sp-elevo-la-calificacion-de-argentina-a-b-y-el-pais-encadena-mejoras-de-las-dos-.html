@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"S&P elevó la calificación de Argentina a B- y el país encadena mejoras de las dos principales agencias estadounidenses","description":"La calificadora subió la nota soberana en moneda extranjera a largo plazo de CCC+ a B-, citando menor riesgo económico, avances en la estabilización y mejor acceso al financiamiento externo. Es la segunda gran agencia en mejorar la nota argentina en poco tiempo, después de Moody's.","image":["https://macromindnews.com.ar/img/s&p-argentina.jpg"],"datePublished":"2026-06-10T00:00:00-03:00","dateModified":"2026-06-10T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/sp-elevo-la-calificacion-de-argentina-a-b-y-el-pais-encadena-mejoras-de-las-dos-.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">S&P elevó la calificación de Argentina a B- y el país encadena mejoras de las dos principales agencias estadounidenses</h1>
   <p class="art-excerpt">La calificadora subió la nota soberana en moneda extranjera a largo plazo de CCC+ a B-, citando menor riesgo económico, avances en la estabilización y mejor acceso al financiamiento externo. Es la segunda gran agencia en mejorar la nota argentina en poco tiempo, después de Moody's.</p>
   <div class="art-meta">10 de Junio, 2026</div>
-  <img src="img/s&p-argentina.jpg" alt="S&P elevó la calificación de Argentina a B- y el país encadena mejoras de las dos principales agencias estadounidenses" onerror="this.style.background='#ddd';"/>
+  <img src="img/s&p-argentina.jpg" alt="S&P elevó la calificación de Argentina a B- y el país encadena mejoras de las dos principales agencias estadounidenses" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/sp-elevo-la-calificacion-de-argentina-a-b-y-el-pais-encadena-mejoras-de-las-dos-.html&text=S%26P%20elev%C3%B3%20la%20calificaci%C3%B3n%20de%20Argentina%20a%20B-%20y%20el%20pa%C3%ADs%20encadena%20mejoras%20de%20las%20dos%20principales%20agencias%20estadounidenses" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Standard &amp; Poor's elevó la calificación crediticia soberana de Argentina en moneda extranjera a largo plazo de CCC+ a B-, en una decisión que refleja el reconocimiento de la agencia sobre los avances logrados en la estabilización macroeconómica y la mejora en el acceso al financiamiento internacional. La suba implica salir de la categoría CCC, que en la jerga financiera internacional se asocia a emisores con riesgo muy elevado de incumplimiento, para ingresar a la categoría B, que si bien sigue siendo considerada especulativa, denota una capacidad de repago cualitativamente superior.<div><br><h2>Qué evalúa S&amp;P para tomar esta decisión</h2><div>Las agencias de calificación analizan un conjunto amplio de variables antes de modificar una nota soberana. En el caso de Argentina, S&amp;P destacó la reducción del riesgo económico percibido, la mejora en los indicadores de liquidez del sector público y el mayor acceso del país a los mercados de capitales internacionales. Desde la normalización de la relación con el FMI y el cierre de los últimos acuerdos con holdouts, Argentina logró volver a emitir deuda soberana en condiciones más favorables, lo que la agencia interpreta como una señal de que el mercado está dispuesto a prestarle al país a tasas que ya no descuentan un default inminente.</div><div><br></div><h2>La segunda mejora en poco tiempo</h2><div>La decisión de S&amp;P no ocurre en el vacío sino como parte de una tendencia. Poco antes, Moody's también había mejorado su perspectiva sobre la deuda argentina, y en el segmento subnacional la propia Moody's otorgó la calificación AAA a la Ciudad de Buenos Aires. El hecho de que las dos principales agencias de calificación estadounidenses hayan mejorado su visión sobre Argentina en un período relativamente corto tiene un impacto concreto sobre el costo de financiamiento del país: a mejor calificación, menor la tasa de interés que los inversores institucionales exigen para prestarle al Estado, lo que se traduce en menores pagos de intereses en futuras emisiones de deuda.</div><div><br></div><h2>Qué implica para los mercados y qué falta</h2><div>La mejora de S&amp;P tiene efectos inmediatos y mediatos. En el corto plazo, tiende a comprimir el riesgo país y a impulsar el precio de los bonos soberanos argentinos, que ajustan su valor en función de la percepción de riesgo del emisor. En el mediano plazo, una calificación B- abre la puerta a un universo más amplio de inversores institucionales que tienen restricciones regulatorias para invertir en emisores calificados por debajo de ese umbral. Sin embargo, Argentina todavía está lejos del grado de inversión, que comienza en BBB-, y el camino para llegar ahí requiere consolidar varios años consecutivos de superávit fiscal, reducción de deuda en términos del PBI y estabilidad macroeconómica sostenida. La mejora de hoy es un paso en la dirección correcta, pero también un recordatorio de cuánto terreno queda por recorrer.</div></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
