@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Argentina Week: Milei viaja a París junto a una delegación oficial y se reunirá con Macron","description":"El Presidente encabezará una nutrida comitiva oficial en la capital francesa para inaugurar el evento Argentina Week y captar inversiones para minería y energía. Los ministros y CEOs de gigantes mundiales que lo acompañan, y quién queda al frente del Gobierno en Buenos Aires.","image":["https://macromindnews.com.ar/img/milei-macron-28-09-26.webp"],"datePublished":"2026-09-28T00:00:00-03:00","dateModified":"2026-09-28T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/argentina-week-milei-viaja-a-paris-junto-a-una-delegacion-oficial-y-se-reunira-con-macron.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Argentina Week: Milei viaja a París junto a una delegación oficial y se reunirá con Macron</h1>
   <p class="art-excerpt">El Presidente encabezará una nutrida comitiva oficial en la capital francesa para inaugurar el evento Argentina Week y captar inversiones para minería y energía. Los ministros y CEOs de gigantes mundiales que lo acompañan, y quién queda al frente del Gobierno en Buenos Aires.</p>
   <div class="art-meta">28 de Septiembre, 2026</div>
-  <img src="img/milei-macron-28-09-26.webp" alt="Argentina Week: Milei viaja a París junto a una delegación oficial y se reunirá con Macron" onerror="this.style.background='#ddd';"/>
+  <img src="img/milei-macron-28-09-26.webp" alt="Argentina Week: Milei viaja a París junto a una delegación oficial y se reunirá con Macron" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/argentina-week-milei-viaja-a-paris-junto-a-una-delegacion-oficial-y-se-reunira-con-macron.html&text=Argentina%20Week%3A%20Milei%20viaja%20a%20Par%C3%ADs%20junto%20a%20una%20delegaci%C3%B3n%20oficial%20y%20se%20reunir%C3%A1%20con%20Macron" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>El presidente <b data-path-to-node="6" data-index-in-node="14">Javier Milei</b> iniciará este martes por la noche una de las giras internacionales más ambiciosas de su gestión. Con destino a <b data-path-to-node="6" data-index-in-node="138">París</b>, el mandatario encabezará una delegación sin precedentes integrada por <b data-path-to-node="6" data-index-in-node="215">cinco ministros, dos secretarios de Estado, 13 gobernadores provinciales y nueve líderes corporativos globales</b>, con el objetivo de inaugurar la segunda edición del foro <b data-path-to-node="6" data-index-in-node="384">Argentina Week</b> y acelerar la llegada de capitales extranjeros.<div><br></div><div>La misión busca exhibir en Europa un amplio consenso político y empresario alrededor de las reformas desreguladoras y el Régimen de Incentivo a las Grandes Inversiones (RIGI), proyectando al país como un destino confiable en sectores estratégicos como la energía, el litio, el cobre y la tecnología.</div><div><br></div><h2>La cumbre en el Elíseo: mano a mano con Emmanuel Macron</h2><div>El eje geopolítico de la visita estará marcado por la reunión bilateral que Milei mantendrá con el presidente francés, <b data-path-to-node="9" data-index-in-node="119">Emmanuel Macron</b>, en el Palacio del Elíseo:</div><div><br></div><div>Será un nuevo capítulo en el vínculo constructivo que ambos mandatarios consolidaron desde el inicio de la gestión libertaria. Pese a las marcadas diferencias doctrinarias en asuntos como el cambio climático o los organismos multilaterales, la Casa Rosada busca afianzar a Francia como un socio comercial de primer orden y abrir canales para que compañías galas amplíen su presencia en el mercado local.</div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDjkhuGoKE26qdQAkEmek1xOHYgLbX7a_uyUKNRcjmgqWDuX0vLp5nQBtj&amp;s=10" alt="Imagen" style="margin: 12px 0px; max-width: 100%; display: block;"><h2>El respaldo federal: Los 13 Gobernadores aliados en la comitiva</h2><div>Uno de los datos políticos más salientes del viaje es la presencia de trece mandatarios provinciales que suelen articular acuerdos legislativos con el oficialismo nacional en el Congreso:</div><div><br></div><div>La delegación federal incluye a los gobernadores patagónicos enfocados en hidrocarburos y pesca: <b data-path-to-node="14" data-index-in-node="97">Rolando Figueroa</b> (Neuquén), <b data-path-to-node="14" data-index-in-node="125">Ignacio Torres</b> (Chubut), <b data-path-to-node="14" data-index-in-node="150">Alberto Weretilneck</b> (Río Negro) y <b data-path-to-node="14" data-index-in-node="184">Claudio Vidal</b> (Santa Cruz). También forman parte los referentes de las provincias mineras y productivas: <b data-path-to-node="14" data-index-in-node="289">Marcelo Orrego</b> (San Juan), <b data-path-to-node="14" data-index-in-node="316">Alfredo Cornejo</b> (Mendoza), <b data-path-to-node="14" data-index-in-node="343">Raúl Jalil</b> (Catamarca), <b data-path-to-node="14" data-index-in-node="367">Carlos Sadir</b> (Jujuy) y <b data-path-to-node="14" data-index-in-node="390">Gustavo Sáenz</b> (Salta), junto a <b data-path-to-node="14" data-index-in-node="421">Rogelio Frigerio</b> (Entre Ríos), <b data-path-to-node="14" data-index-in-node="452">Leandro Zdero</b> (Chaco), <b data-path-to-node="14" data-index-in-node="475">Juan Pablo Valdés</b> (Corrientes) y el jefe de Gobierno porteño, <b data-path-to-node="14" data-index-in-node="537">Jorge Macri</b>.</div></div><div><img src="https://sur24cdn.eleco.com.ar/media/2026/09/milei_gobernadores.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"></div><h2>El equipo económico y los nueve titanes corporativos</h2><div>En el plano técnico y financiero, Milei estará escoltado por una mesa chica de toma de decisiones:</div><div><ul><li><b data-path-to-node="16" data-index-in-node="101">Gabinete nacional:</b> Viajan <b data-path-to-node="16" data-index-in-node="127">Karina Milei</b> (Secretaria General de la Presidencia), <b data-path-to-node="16" data-index-in-node="180">Luis Caputo</b> (Economía), <b data-path-to-node="16" data-index-in-node="204">Pablo Quirno</b> (Cancillería), <b data-path-to-node="16" data-index-in-node="232">Federico Sturzenegger</b> (Desregulación), <b data-path-to-node="16" data-index-in-node="271">Juan Bautista Mahiques</b> (Justicia), <b data-path-to-node="16" data-index-in-node="306">Mario Lugones</b> (Salud), el secretario de Política Económica <b data-path-to-node="16" data-index-in-node="365">José Luis Daza</b> y el titular del Banco Central, <b data-path-to-node="16" data-index-in-node="412">Santiago Bausili</b>.</li><li><b data-path-to-node="16" data-index-in-node="432">CEOs y líderes empresarios:</b> Se sumarán a la agenda en París figuras clave de los negocios globales como <b data-path-to-node="16" data-index-in-node="536">Horacio Marín</b> (YPF), <b data-path-to-node="16" data-index-in-node="557">Marcelo Mindlin</b> (Pampa Energía), <b data-path-to-node="16" data-index-in-node="590">Martín Migoya</b> (Globant), <b data-path-to-node="16" data-index-in-node="615">Patrick Pouyanné</b> (TotalEnergies), <b data-path-to-node="16" data-index-in-node="649">Margarita Louis-Dreyfus</b> (Grupo Louis Dreyfus), <b data-path-to-node="16" data-index-in-node="696">Gary Nagle</b> (Glencore), <b data-path-to-node="16" data-index-in-node="719">Héctor Grisi</b> (Banco Santander), <b data-path-to-node="16" data-index-in-node="751">Claudio Descalzi</b> (Eni) y <b data-path-to-node="16" data-index-in-node="776">Ahmed Al Jaber</b> (ADNOC de Emiratos Árabes).</li></ul><div><br></div></div><h2>El esquema de Poder en Buenos Aires</h2><div>Debido a que la vicepresidenta <b data-path-to-node="19" data-index-in-node="31">Victoria Villarruel</b> también viajará al exterior este miércoles para participar de un foro parlamentario en Madrid, la presidencia del Poder Ejecutivo quedará a cargo temporalmente de <b data-path-to-node="19" data-index-in-node="214">Bartolomé Abdala</b>, presidente provisional del Senado.</div><img src="https://tn.com.ar/resizer/v2/bartolome-abdala-senador-nacional-de-la-libertad-avanza-quedara-la-semana-proxima-a-cargo-del-poder-ejecutivo-foto-juan-carlos-cardenas-comunicacin-senado--YWHB3HUYG5BYPD4XOWQ7DIKDBE.JPG?auth=fb3f72d3b520e00e3131b0b6d0c0acd23727af2767cd1248b4b3fecabcb12d77&amp;width=1440" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div>En tanto, la administración operativa cotidiana y el control de la Casa Rosada durante la semana estarán bajo la conducción del jefe de Gabinete, <b data-path-to-node="20" data-index-in-node="146">Diego Santilli</b>.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
