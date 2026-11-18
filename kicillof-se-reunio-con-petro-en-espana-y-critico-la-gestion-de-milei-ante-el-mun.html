@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Kicillof se reunió con Petro en España y criticó la gestión de Milei ante el mundo","description":"En el marco de su gira por España, el gobernador bonaerense se reunió con el presidente colombiano Gustavo Petro y advirtió que en el exterior se percibe un \"desplome\" de la economía argentina bajo la actual administración.","image":["https://macromindnews.com.ar/img/kicillof-petro.jpg"],"datePublished":"2026-04-17T00:00:00-03:00","dateModified":"2026-04-17T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/kicillof-se-reunio-con-petro-en-espana-y-critico-la-gestion-de-milei-ante-el-mun.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Kicillof se reunió con Petro en España y criticó la gestión de Milei ante el mundo</h1>
   <p class="art-excerpt">En el marco de su gira por España, el gobernador bonaerense se reunió con el presidente colombiano Gustavo Petro y advirtió que en el exterior se percibe un "desplome" de la economía argentina bajo la actual administración.</p>
   <div class="art-meta">17 de Abril, 2026</div>
-  <img src="img/kicillof-petro.jpg" alt="Kicillof se reunió con Petro en España y criticó la gestión de Milei ante el mundo" onerror="this.style.background='#ddd';"/>
+  <img src="img/kicillof-petro.jpg" alt="Kicillof se reunió con Petro en España y criticó la gestión de Milei ante el mundo" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/kicillof-se-reunio-con-petro-en-espana-y-critico-la-gestion-de-milei-ante-el-mun.html&text=Kicillof%20se%20reuni%C3%B3%20con%20Petro%20en%20Espa%C3%B1a%20y%20critic%C3%B3%20la%20gesti%C3%B3n%20de%20Milei%20ante%20el%20mundo" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El gobernador de la provincia de Buenos Aires, Axel Kicillof, continúa su gira por España y protagonizó un encuentro con el presidente de Colombia, Gustavo Petro, que generó repercusiones tanto por su contenido político como por las declaraciones que lo acompañaron. Durante la reunión, ambos mandatarios analizaron, según las propias palabras de Kicillof, los desafíos que enfrentan los países latinoamericanos en un contexto de inestabilidad mundial y la necesidad de construir alianzas regionales, en particular frente a lo que describieron como las amenazas de la ultraderecha internacional.<br><br>El gobernador bonaerense aprovechó el encuentro para trazar un diagnóstico crítico de la situación argentina ante interlocutores extranjeros. Kicillof afirmó que desde el exterior se percibe una situación de extrema fragilidad en el país, caracterizada por lo que describió como una caída de la demanda y una ausencia total del Estado. Las declaraciones apuntan directamente a la gestión de Javier Milei y se producen en un momento en que el gobierno nacional acumula respaldos de organismos internacionales como el FMI y el Banco Mundial, y exhibe datos de recuperación de la actividad económica.<br><br>El encuentro adquirió una dimensión adicional por los dichos del propio Petro, quien a través de sus redes sociales describió a Kicillof como alguien que posiblemente sea presidente de Argentina para sacarla de su colapso, posicionándolo públicamente como referente de la oposición progresista regional. Este tipo de declaraciones de un jefe de Estado extranjero sobre la política interna argentina suelen generar rispideces diplomáticas, especialmente en un gobierno que ha tenido cruces previos con el mandatario colombiano. La frase de Petro también instala implícitamente a Kicillof en el escenario electoral de 2027, cuando vence el mandato de Milei.<br><br>La gira europea del gobernador bonaerense tiene un perfil claramente político y de construcción de alianzas internacionales con espacios de centroizquierda y progresismo. El encuentro con Petro refuerza ese posicionamiento y marca una línea de diferenciación explícita con la política exterior del gobierno nacional, que ha orientado sus vínculos hacia Washington, la órbita libertaria europea y mandatarios como Donald Trump. En ese sentido, el viaje de Kicillof no es solo una gira diplomática provincial sino un movimiento de construcción de capital político internacional de cara a la disputa electoral que se avecina.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
