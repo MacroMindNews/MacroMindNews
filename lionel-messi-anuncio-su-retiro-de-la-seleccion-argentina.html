@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Lionel Messi anunció su retiro de la Selección Argentina","description":"Lionel Messi anunció su retiro definitivo de la Selección Argentina a través de una emotiva carta en sus redes sociales. El capitán y campeón del mundo le puso fin a una trayectoria de 20 años con la camiseta albiceleste tras conquistar el Mundial de Qatar 2022, dos Copas América, la Finalissima y el oro olímpico.","image":["https://macromindnews.com.ar/img/messi-31-8-26.webp"],"datePublished":"2026-08-31T00:00:00-03:00","dateModified":"2026-08-31T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/lionel-messi-anuncio-su-retiro-de-la-seleccion-argentina.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Lionel Messi anunció su retiro de la Selección Argentina</h1>
   <p class="art-excerpt">Lionel Messi anunció su retiro definitivo de la Selección Argentina a través de una emotiva carta en sus redes sociales. El capitán y campeón del mundo le puso fin a una trayectoria de 20 años con la camiseta albiceleste tras conquistar el Mundial de Qatar 2022, dos Copas América, la Finalissima y el oro olímpico.</p>
   <div class="art-meta">31 de Agosto, 2026</div>
-  <img src="img/messi-31-8-26.webp" alt="Lionel Messi anunció su retiro de la Selección Argentina" onerror="this.style.background='#ddd';"/>
+  <img src="img/messi-31-8-26.webp" alt="Lionel Messi anunció su retiro de la Selección Argentina" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/lionel-messi-anuncio-su-retiro-de-la-seleccion-argentina.html&text=Lionel%20Messi%20anunci%C3%B3%20su%20retiro%20de%20la%20Selecci%C3%B3n%20Argentina" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>A través de una sentida y emotiva publicación en sus redes sociales, Lionel Andrés Messi confirmó el final de su gloriosa etapa con la camiseta de la Selección Argentina. El capitán y máximo referente de la historia del fútbol nacional anunció que no volverá a vestir la cinta albiceleste tras una profunda reflexión personal iniciada al término del último certamen internacional, cerrando un recorrido de más de dos décadas defendiendo al país en los escenarios más exigentes del planeta.</div><div><br></div><div>"Fue una decisión que dolió y duele en el alma, pero entiendo que es el momento. Les juro que siempre dejé todo, no solo los últimos años que se ganó todo, antes también, y siempre peleé y me dejé todo por esta camiseta, por darles alegrías y hacer que se sientan orgullosos de ser argentinos a través del fútbol", expresó el astro rosarino en su mensaje. En el texto, Messi remarcó que siente haberlo dado todo físicamente y emocionalmente por el equipo: "Me vacié, ya no tengo más para dar y aparte vienen chicos muy grandes atrás que merecen estar".</div><img src="img/messi-carta.png" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;">El diez agradeció el acompañamiento de los hinchas a lo largo de 20 años de trayectoria, prometiendo pasar a ser "uno más de ustedes alentando y bancando desde afuera", y dedicó palabras de reconocimiento a su familia, a cada cuerpo técnico y a los compañeros con los que compartió plantel. El mensaje concluyó con una sentida frase de identidad: "Me voy con la tranquilidad y el orgullo de haberles regalado momentos soñados. Gracias Dios por hacerme argentino".<br><img src="img/messi-carta-2.png" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><br><h2>Los títulos conseguidos con la Selección</h2><div><div>El legado de Lionel Messi en la Selección Argentina queda inmortalizado en los libros del fútbol mundial tras liderar la era más ganadora y dominante en la historia del seleccionado:</div></div><div><ul><li><b>Qatar 2022 - Copa del Mundo</b></li><li><b>Brasil 2021 y EE.UU. 2024 - Copa América</b></li><li><b>Inglaterra 2022 - Finalissima</b></li><li><b>Pekín 2008 - Juegos Olímpicos</b></li><li><b>Países Bajos 2005 - Copa del Mundo SUB-23</b></li></ul></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
