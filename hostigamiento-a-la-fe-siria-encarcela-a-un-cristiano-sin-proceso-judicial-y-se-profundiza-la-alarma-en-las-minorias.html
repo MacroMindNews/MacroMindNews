@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Hostigamiento a la fe: Siria encarcela a un cristiano sin proceso judicial y se profundiza la alarma en las minorías","description":"Las fuerzas de seguridad de Siria detuvieron a un ciudadano cristiano sin presentar cargos ni concederle garantías procesales, en el marco de una creciente presión estatal contra las minorías religiosas. Organizaciones internacionales de derechos humanos denunciaron el carácter arbitrario de la medida y exigieron su inmediata liberación ante el deterioro de la libertad de culto en el país.","image":["https://macromindnews.com.ar/img/suleiman-khalil.webp"],"datePublished":"2026-08-25T00:00:00-03:00","dateModified":"2026-08-25T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/hostigamiento-a-la-fe-siria-encarcela-a-un-cristiano-sin-proceso-judicial-y-se-profundiza-la-alarma-en-las-minorias.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Hostigamiento a la fe: Siria encarcela a un cristiano sin proceso judicial y se profundiza la alarma en las minorías</h1>
   <p class="art-excerpt">Las fuerzas de seguridad de Siria detuvieron a un ciudadano cristiano sin presentar cargos ni concederle garantías procesales, en el marco de una creciente presión estatal contra las minorías religiosas. Organizaciones internacionales de derechos humanos denunciaron el carácter arbitrario de la medida y exigieron su inmediata liberación ante el deterioro de la libertad de culto en el país.</p>
   <div class="art-meta">25 de Agosto, 2026</div>
-  <img src="img/suleiman-khalil.webp" alt="Hostigamiento a la fe: Siria encarcela a un cristiano sin proceso judicial y se profundiza la alarma en las minorías" onerror="this.style.background='#ddd';"/>
+  <img src="img/suleiman-khalil.webp" alt="Hostigamiento a la fe: Siria encarcela a un cristiano sin proceso judicial y se profundiza la alarma en las minorías" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/hostigamiento-a-la-fe-siria-encarcela-a-un-cristiano-sin-proceso-judicial-y-se-profundiza-la-alarma-en-las-minorias.html&text=Hostigamiento%20a%20la%20fe%3A%20Siria%20encarcela%20a%20un%20cristiano%20sin%20proceso%20judicial%20y%20se%20profundiza%20la%20alarma%20en%20las%20minor%C3%ADas" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La libertad religiosa en Siria atraviesa horas críticas tras confirmarse la detención arbitraria de un ciudadano cristiano por parte de las fuerzas de seguridad estatales. El hecho, ejecutado al margen de cualquier procedimiento legal ordinario, mantiene a la víctima incomunicada y sin la formulación formal de cargos, en una maniobra que busca amedrentar a las comunidades de fe locales.<div><br></div><div>El arresto se produjo de manera intempestiva y sin orden de aprehensión válida, impidiendo el acceso a una defensa legal y vulnerando las garantías constitucionales más elementales. Según testimonios recogidos por redes de monitoreo de derechos humanos, las autoridades intensificaron los interrogatorios extrajudiciales a allegados de la víctima con el propósito de fiscalizar las actividades cotidianas de la congregación.</div><div><br></div><h2>Un patrón de intimidación estatal y asfixia comunitaria</h2><div>La detención no constituye un hecho aislado, sino que responde a una estrategia deliberada de presión sobre los sectores confesionales minoritarios del país. Tras soportar más de una década de guerra civil, pérdidas demográficas masivas y desplazamientos forzados, los creyentes locales afrontan una vigilancia burocrática y policial que restringe su desarrollo normal en la vida pública.</div><div><br></div><div>Los organismos internacionales señalan que este tipo de privaciones ilegítimas de la libertad buscan infundir temor generalizado, desarticular el tejido social de las iglesias y forzar a los miembros más activos a abandonar el territorio o limitar sus reuniones comunitarias a la clandestinidad.</div><div><br></div><h2>El reclamo por garantías jurídicas y cese de la persecución</h2><div>Frente al deterioro de las condiciones de seguridad para las minorías, diversas entidades de defensa de la libertad de conciencia emitieron alertas urgentes dirigidas a la comunidad internacional. La exigencia central radica en la liberación inmediata e incondicional del creyente detenido y el cese de los actos de persecución arbitraria contra quienes profesan su fe en la región.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
