@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Tregar evalúa reactivar la planta de ARSA en Arenaza y relanzar las marcas Yogs y Shimy","description":"La láctea analiza retomar la producción en la planta que quebró en noviembre pasado, en un contexto de recuperación del empleo lechero y la reciente vuelta al mercado de La Suipachense. El sector lácteo empieza a mostrar señales de recomposición.","image":["https://macromindnews.com.ar/img/lactea-tregar.jpg"],"datePublished":"2026-06-10T00:00:00-03:00","dateModified":"2026-06-10T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/tregar-evalua-reactivar-la-planta-de-arsa-en-arenaza-y-relanzar-las-marcas-yogs-.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Tregar evalúa reactivar la planta de ARSA en Arenaza y relanzar las marcas Yogs y Shimy</h1>
   <p class="art-excerpt">La láctea analiza retomar la producción en la planta que quebró en noviembre pasado, en un contexto de recuperación del empleo lechero y la reciente vuelta al mercado de La Suipachense. El sector lácteo empieza a mostrar señales de recomposición.</p>
   <div class="art-meta">10 de Junio, 2026</div>
-  <img src="img/lactea-tregar.jpg" alt="Tregar evalúa reactivar la planta de ARSA en Arenaza y relanzar las marcas Yogs y Shimy" onerror="this.style.background='#ddd';"/>
+  <img src="img/lactea-tregar.jpg" alt="Tregar evalúa reactivar la planta de ARSA en Arenaza y relanzar las marcas Yogs y Shimy" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/tregar-evalua-reactivar-la-planta-de-arsa-en-arenaza-y-relanzar-las-marcas-yogs-.html&text=Tregar%20eval%C3%BAa%20reactivar%20la%20planta%20de%20ARSA%20en%20Arenaza%20y%20relanzar%20las%20marcas%20Yogs%20y%20Shimy" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La empresa láctea Tregar está evaluando la reactivación de la planta que operaba ARSA en la localidad de Arenaza, en el noroeste de la provincia de Buenos Aires. La planta, que producía las marcas Yogs y Shimy, cerró sus puertas en noviembre pasado luego de que la compañía se declarara en quiebra, dejando sin trabajo a decenas de operarios y generando un fuerte impacto en la economía local de una zona donde la actividad lechera tiene peso estructural.<div><br></div><h2>El contexto del sector</h2><div>La posible reactivación no ocurre en el vacío. El sector lácteo argentino atravesó en 2025 uno de sus peores años en términos de rentabilidad, golpeado por la combinación de costos en alza, caída del consumo interno y dificultades para sostener precios en un contexto de ajuste macroeconómico. Sin embargo, las últimas semanas mostraron señales de recuperación: el empleo lechero comenzó a repuntar en las principales cuencas del país y La Suipachense, otra marca que había desaparecido del mercado, logró volver a las góndolas tras un proceso de restructuración.</div><div><br></div><h2>Las marcas en juego</h2><div>Yogs y Shimy eran marcas con presencia en el segmento de yogures y lácteos frescos, especialmente en el interior del país. Su desaparición del mercado dejó un espacio que otras empresas del sector aprovecharon parcialmente, pero que los consumidores de la zona todavía asocian con esas marcas. La eventual reactivación de Tregar no solo implicaría relanzar esos productos sino también recuperar puestos de trabajo directos en la planta y en la cadena de proveedores de leche cruda de la región.</div><div><br></div><h2>Una señal para el sector</h2><div>Si la operación se confirma, representaría una señal relevante para el sector lácteo en un momento en que el Gobierno busca mostrar que el ajuste de 2024 y 2025 está dando paso a una etapa de recomposición productiva. La industria láctea es una de las que más empleo genera en las economías regionales del centro del país, y su recuperación tiene impacto directo en provincias como Buenos Aires, Santa Fe y Córdoba. La definición final de Tregar dependerá del análisis de viabilidad económica de la planta y de las condiciones que se puedan negociar en el marco del proceso de quiebra de ARSA.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
