@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Javier Milei hablará en cadena nacional el jueves con un mensaje enfocado en la Cuestión Malvinas","description":"El presidente Javier Milei encabezará este jueves una cadena nacional para fijar la postura argentina sobre Malvinas en medio de tensiones entre EE.UU. y el Reino Unido. La decisión sigue a las declaraciones del canciller Pablo Quirno, en un contexto donde Donald Trump condicionó su apoyo a Londres a un mayor gasto militar.","image":["https://macromindnews.com.ar/img/milei-1-9-26.webp"],"datePublished":"2026-09-01T00:00:00-03:00","dateModified":"2026-09-01T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/javier-milei-hablara-en-cadena-nacional-el-jueves-con-un-mensaje-enfocado-en-la-cuestion-malvinas.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Javier Milei hablará en cadena nacional el jueves con un mensaje enfocado en la Cuestión Malvinas</h1>
   <p class="art-excerpt">El presidente Javier Milei encabezará este jueves una cadena nacional para fijar la postura argentina sobre Malvinas en medio de tensiones entre EE.UU. y el Reino Unido. La decisión sigue a las declaraciones del canciller Pablo Quirno, en un contexto donde Donald Trump condicionó su apoyo a Londres a un mayor gasto militar.</p>
   <div class="art-meta">1 de Septiembre, 2026</div>
-  <img src="img/milei-1-9-26.webp" alt="Javier Milei hablará en cadena nacional el jueves con un mensaje enfocado en la Cuestión Malvinas" onerror="this.style.background='#ddd';"/>
+  <img src="img/milei-1-9-26.webp" alt="Javier Milei hablará en cadena nacional el jueves con un mensaje enfocado en la Cuestión Malvinas" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/javier-milei-hablara-en-cadena-nacional-el-jueves-con-un-mensaje-enfocado-en-la-cuestion-malvinas.html&text=Javier%20Milei%20hablar%C3%A1%20en%20cadena%20nacional%20el%20jueves%20con%20un%20mensaje%20enfocado%20en%20la%20Cuesti%C3%B3n%20Malvinas" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El presidente Javier Milei se dirigirá al país este jueves a través de una cadena nacional para fijar la postura oficial de la República Argentina respecto a las Islas Malvinas y el escenario geopolítico del Atlántico Sur. La alocución, coordinada desde Casa Rosada, buscará sentar una posición estratégica frente a los recientes movimientos diplomáticos globales y reafirmar el reclamo de soberanía territorial por vías pacíficas e institucionales.<div><br></div><div>El mensaje presidencial se emitirá en horario central y contará con la participación de los equipos de Cancillería y Defensa, quienes trabajaron en los lineamientos técnicos y jurídicos del discurso. Desde el Ejecutivo remarcan la importancia de consolidar un posicionamiento claro de la Argentina en el plano internacional, aprovechando la coyuntura para ratificar los derechos legítimos e imprescriptibles sobre el archipiélago y los espacios marítimos circundantes.</div><div><br></div><div><br></div><h2>El contexto internacional y el tablero diplomático</h2><div>La decisión de convocar a la cadena nacional coincide con un momento de reconfiguración geopolítica global. En declaraciones recientes, el canciller Pablo Quirno ratificó la posición del país frente a las declaraciones del presidente estadounidense Donald Trump, remarcando que el reclamo por las islas es irrenunciable pero enfatizando que la Argentina debe valerse por sí misma:&nbsp;<i data-path-to-node="4,0" data-index-in-node="0" style="font-size: 0.92rem;">"Sobre lo que no tenemos control, no operamos. Nosotros operamos sobre lo que nosotros operamos. Acá no hay un triángulo mágico donde estamos hablando"</i><span data-path-to-node="4,0" data-index-in-node="0" style="font-size: 0.92rem;">, sentenció el titular del Palacio San Martín al priorizar la vía diplomática en foros internacionales.</span></div><div><i data-path-to-node="4,0" data-index-in-node="0" style="font-size: 0.92rem;"><br></i></div><div><span data-path-to-node="4,0" data-index-in-node="0" style="font-size: 0.92rem;">Este escenario se da en el marco de la fuerte presión que ejerce la Casa Blanca sobre el Reino Unido, advirtiendo que Estados Unidos podría revisar su histórico apoyo a la postura británica e incluso volcar su respaldo hacia la Argentina en caso de que Londres no incremente sustancialmente su presupuesto de defensa dentro de la OTAN.</span></div><div><span data-path-to-node="4,0" data-index-in-node="0" style="font-size: 0.92rem;"><br></span></div><div>La transmisión se emitirá en directo para todo el territorio nacional y constituirá una de las intervenciones institucionales más relevantes de la gestión en materia de relaciones exteriores y soberanía nacional.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
