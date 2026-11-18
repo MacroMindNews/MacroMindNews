@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Un potente terremoto sacudió Panamá: activan alertas de tsunami y evacuaciones masivas en Centroamérica","description":"Un potente terremoto sacudió Panamá: activan alertas de tsunami y evacuaciones masivas en Centroamérica","image":["https://macromindnews.com.ar/img/terremoto-panama.webp"],"datePublished":"2026-10-09T00:00:00-03:00","dateModified":"2026-10-09T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/un-potente-terremoto-sacudio-panama-activan-alertas-de-tsunami-y-evacuaciones-masivas-en-centroamerica.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Un potente terremoto sacudió Panamá: activan alertas de tsunami y evacuaciones masivas en Centroamérica</h1>
   <p class="art-excerpt">Un potente terremoto sacudió Panamá: activan alertas de tsunami y evacuaciones masivas en Centroamérica</p>
   <div class="art-meta">9 de Octubre, 206</div>
-  <img src="img/terremoto-panama.webp" alt="Un potente terremoto sacudió Panamá: activan alertas de tsunami y evacuaciones masivas en Centroamérica" onerror="this.style.background='#ddd';"/>
+  <img src="img/terremoto-panama.webp" alt="Un potente terremoto sacudió Panamá: activan alertas de tsunami y evacuaciones masivas en Centroamérica" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/un-potente-terremoto-sacudio-panama-activan-alertas-de-tsunami-y-evacuaciones-masivas-en-centroamerica.html&text=Un%20potente%20terremoto%20sacudi%C3%B3%20Panam%C3%A1%3A%20activan%20alertas%20de%20tsunami%20y%20evacuaciones%20masivas%20en%20Centroam%C3%A9rica" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><blockquote class="twitter-tweet"><span >Un sismo de gran magnitud sacudió el territorio de Panamá durante la tarde de este viernes 9 de octubre.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="1"><!----></sup></source-footnote></span> <span >El evento telúrico, registrado a las 12:56 hora local (17:56 UTC), provocó escenas de pánico, la evacuación preventiva de edificios en la capital panameña y la activación inmediata de alertas de tsunami para diversos puntos del Océano Pacífico.</span></blockquote><blockquote class="twitter-tweet"><span ><br></span></blockquote><blockquote class="twitter-tweet"><span ><span >Las mediciones del fenómeno mostraron variaciones en los reportes preliminares de los organismos técnicos: el Instituto de Geociencias de la Universidad de Panamá emitió un informe situando la magnitud en 7,2 (con estimaciones iniciales de hasta 8,0), mientras que el Servicio Geológico de Estados Unidos (USGS) fijó la magnitud revisada en 7,6 en la escala de Richter.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="3"><!----></sup></source-footnote></span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c2907981959=""></sources-carousel-inline></span></blockquote><blockquote class="twitter-tweet"><span ><span ><br></span></span></blockquote><h2><span ><span >Epicentro, profundidad y alcance del sismo</span></span></h2><blockquote class="twitter-tweet"><span ><span >De acuerdo con los datos recopilados por las agencias de monitoreo sísmico, el temblor tuvo las siguientes características técnicas principales:</span></span></blockquote><blockquote class="twitter-tweet"><ul><li><span ><span ><b data-path-to-node="6,0,0" data-index-in-node="0">Localización geográfica:</b> <span >El epicentro se ubicó en la región del Pacífico, a aproximadamente 39 kilómetros al oeste-noroeste de la localidad de Tonosí, en la provincia de Los Santos, al sur del país.</span></span></span></li><li><span ><span ><span ><b data-path-to-node="6,1,0" data-index-in-node="0"><span >Profundidad hipocentral:<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="6"><!----></sup></source-footnote></span></b> El origen del movimiento fue sumamente superficial, registrándose entre 4 y 10 kilómetros de profundidad. <span >Esta escasa profundidad incrementó la violencia y la percepción de las ondas sísmicas en la superficie.</span></span></span></span></li><li><span ><span ><span ><span ><b data-path-to-node="6,2,0" data-index-in-node="0"><span >Percepción regional:<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="8"><!----></sup></source-footnote></span></b> El fuerte remezón se sintió con marcada intensidad en la Ciudad de Panamá, provocando interrupciones en transmisiones televisivas en vivo y pánico en las calles, extendiéndose además hacia zonas fronterizas de Costa Rica y la capital San José.<sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c2907981959=""></sources-carousel-inline></span></span></span></span></li></ul><div><br></div></blockquote><blockquote class="twitter-tweet"><a href="https://twitter.com/igcpanamaup/status/2108621639193686333">Ver publicación en X</a></blockquote><p><br></p><h2>Alerta regional de tsunami y protocolos de emergencia</h2><p>Tras la magnitud de la sacudida en la zona marítima costera, el Sistema de Alerta de Tsunamis de Estados Unidos emitió un aviso urgente ante la posibilidad de marejadas y olas potencialmente peligrosas dentro de las tres horas posteriores al sismo.</p><p><br></p><p>La advertencia de impacto costero incluyó a una amplia franja de la cuenca del Pacífico que abarca a Panamá, Colombia, Costa Rica, Ecuador, Perú, Nicaragua, Guatemala, El Salvador y México, e incluso una evaluación preventiva para el archipiélago de Hawái. Mientras el Sistema Nacional de Protección Civil (Sinaproc) de Panamá inició la verificación de daños estructurales en las provincias del sur y coordinó los protocolos de evacuación, el Gobierno instó a la población de las áreas costeras a mantener la calma y alejarse preventivamente de las playas.</p><p><br></p><p><i><b>Noticia en desarrollo</b></i></p></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
