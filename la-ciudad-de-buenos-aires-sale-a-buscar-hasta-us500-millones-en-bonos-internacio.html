@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"La Ciudad de Buenos Aires sale a buscar hasta US$500 millones en bonos internacionales a 10 años","description":"CABA lanzará el 6 de mayo una licitación de deuda bajo ley inglesa con participación de bancos locales e internacionales. Los fondos se destinarán a cancelar pasivos existentes.","image":["https://macromindnews.com.ar/img/jorge-macri.jpg"],"datePublished":"2026-05-05T00:00:00-03:00","dateModified":"2026-05-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/la-ciudad-de-buenos-aires-sale-a-buscar-hasta-us500-millones-en-bonos-internacio.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">La Ciudad de Buenos Aires sale a buscar hasta US$500 millones en bonos internacionales a 10 años</h1>
   <p class="art-excerpt">CABA lanzará el 6 de mayo una licitación de deuda bajo ley inglesa con participación de bancos locales e internacionales. Los fondos se destinarán a cancelar pasivos existentes.</p>
   <div class="art-meta">5 de Mayo, 2026</div>
-  <img src="img/jorge-macri.jpg" alt="La Ciudad de Buenos Aires sale a buscar hasta US$500 millones en bonos internacionales a 10 años" onerror="this.style.background='#ddd';"/>
+  <img src="img/jorge-macri.jpg" alt="La Ciudad de Buenos Aires sale a buscar hasta US$500 millones en bonos internacionales a 10 años" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/la-ciudad-de-buenos-aires-sale-a-buscar-hasta-us500-millones-en-bonos-internacio.html&text=La%20Ciudad%20de%20Buenos%20Aires%20sale%20a%20buscar%20hasta%20US%24500%20millones%20en%20bonos%20internacionales%20a%2010%20a%C3%B1os" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La Ciudad Autónoma de Buenos Aires avanza en una nueva emisión de deuda en los mercados internacionales. El gobierno porteño lanzará el 6 de mayo una licitación para colocar bonos a 10 años bajo ley inglesa por hasta US$500 millones, en una operación que tendrá como destino exclusivo la cancelación de pasivos ya existentes. La emisión se realizará con participación de bancos nacionales e internacionales como colocadores, en línea con el esquema habitual para este tipo de operaciones soberanas subnacionales.<br><br>La elección de ley inglesa como marco jurídico no es menor: es el estándar que exigen los mercados de capitales internacionales para instrumentos de deuda de largo plazo, ya que ofrece a los inversores mayor certeza jurídica y mecanismos de enforcement más predecibles que la ley argentina. Un bono a 10 años bajo ese marco le permite a la Ciudad acceder a inversores institucionales globales —fondos de pensión, asset managers y compañías de seguros— que de otro modo no participarían en una emisión local. El plazo extendido también le da a CABA mayor previsibilidad en su perfil de vencimientos, reduciendo la presión de refinanciación en el corto plazo.<br><br>El contexto para esta emisión es favorable. El riesgo país argentino se ubica en torno a los 516 puntos, lejos de los máximos de la crisis pero todavía por encima de lo que el mercado considera zona de confort para emisiones soberanas. Sin embargo, la Ciudad de Buenos Aires tiene históricamente un perfil crediticio mejor evaluado que el soberano nacional, lo que le permite acceder al mercado a tasas más bajas. La operación también se da en un contexto donde otras jurisdicciones del país —como varias provincias— ya emitieron deuda en dólares en los últimos meses para hacer frente a sus necesidades de financiamiento, lo que muestra una ventana de acceso al mercado internacional que el gobierno porteño está aprovechando.<br><br>El destino de los fondos —cancelación de pasivos— indica que no se trata de nueva deuda neta sino de un ejercicio de manejo de pasivos: CABA busca sustituir obligaciones existentes, posiblemente con vencimientos más cortos o tasas más altas, por deuda más larga y eventualmente más barata. Si la demanda acompaña el 6 de mayo, la operación podría cerrar dentro de los rangos esperados y consolidar la posición financiera de la administración porteña de cara a un segundo semestre que, a nivel nacional, luce exigente en materia de compromisos externos.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
