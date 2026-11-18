@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"YPF avanza con Tesla en proyectos de carga eléctrica y almacenamiento de energía","description":"La petrolera estatal negocia con Tesla la instalación de infraestructura de carga rápida en todo el país y proyectos de almacenamiento energético. En paralelo, desde la empresa californiana señalan que están \"muy metidos en Argentina\" y estudian acogerse al régimen de incentivos para grandes inversiones en centros de datos.","image":["https://macromindnews.com.ar/img/ypf-tesla.jpg"],"datePublished":"2026-06-16T00:00:00-03:00","dateModified":"2026-06-16T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/ypf-avanza-con-tesla-en-proyectos-de-carga-electrica-y-almacenamiento-de-energia.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">YPF avanza con Tesla en proyectos de carga eléctrica y almacenamiento de energía</h1>
   <p class="art-excerpt">La petrolera estatal negocia con Tesla la instalación de infraestructura de carga rápida en todo el país y proyectos de almacenamiento energético. En paralelo, desde la empresa californiana señalan que están "muy metidos en Argentina" y estudian acogerse al régimen de incentivos para grandes inversiones en centros de datos.</p>
   <div class="art-meta">16 de Junio, 2026</div>
-  <img src="img/ypf-tesla.jpg" alt="YPF avanza con Tesla en proyectos de carga eléctrica y almacenamiento de energía" onerror="this.style.background='#ddd';"/>
+  <img src="img/ypf-tesla.jpg" alt="YPF avanza con Tesla en proyectos de carga eléctrica y almacenamiento de energía" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/ypf-avanza-con-tesla-en-proyectos-de-carga-electrica-y-almacenamiento-de-energia.html&text=YPF%20avanza%20con%20Tesla%20en%20proyectos%20de%20carga%20el%C3%A9ctrica%20y%20almacenamiento%20de%20energ%C3%ADa" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">YPF está avanzando en conversaciones con Tesla para desarrollar proyectos conjuntos de infraestructura de carga rápida para vehículos eléctricos y sistemas de almacenamiento de energía en distintos puntos del país. La iniciativa busca aprovechar la red de estaciones de servicio y activos energéticos de la petrolera estatal para acelerar el despliegue de infraestructura eléctrica en Argentina, un mercado que todavía está en etapas tempranas de adopción del vehículo eléctrico pero que el mundo corporativo ya empieza a mirar con atención estratégica.<div><br><h2>Tesla, "muy metida en Argentina"</h2><div>Más allá de la negociación con YPF, el interés de Tesla por Argentina va más lejos. Desde la compañía californiana señalaron que están "muy metidos en el país" y que están evaluando acogerse a un esquema conocido como Super RIGI para el desarrollo de centros de datos en territorio argentino. Según información publicada por Infobae, la provincia de Neuquén sería la locación elegida para ese proyecto, en línea con la tendencia de las últimas semanas de posicionar a esa provincia patagónica como polo de atracción de inversiones de gran escala en energía y tecnología.</div><div><br></div><h2>La convergencia entre energía y tecnología</h2><div>La posible alianza entre YPF y Tesla refleja una tendencia global que está redefiniendo el negocio energético: la convergencia entre la infraestructura de combustibles fósiles tradicional y las nuevas necesidades de la electromovilidad y el almacenamiento de energía renovable. Para YPF, sumar estaciones de carga rápida a su red de estaciones de servicio representa una forma de diversificar su presencia en el mercado de movilidad sin abandonar su negocio central. Para Tesla, contar con un socio con presencia territorial en todo el país acelera la posibilidad de desplegar su red Supercharger en Argentina sin necesidad de construir infraestructura propia desde cero.</div><div><br></div><h2>El contexto del mercado eléctrico argentino</h2><div>Argentina tiene todavía una penetración muy baja de vehículos eléctricos en comparación con mercados más desarrollados, pero el ecosistema está cambiando. La eliminación de aranceles para la importación de hasta 10.000 autos desde Estados Unidos, el acuerdo comercial con Washington que favorece a marcas como Tesla, y la creciente disponibilidad de energía renovable en el país generan las condiciones para que la electromovilidad empiece a ganar terreno en los próximos años. Una alianza de la magnitud de YPF y Tesla podría ser el catalizador que acelere ese proceso, tanto en infraestructura de carga como en el desarrollo de soluciones de almacenamiento que complementen la generación renovable intermitente.</div></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
