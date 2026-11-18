@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Rio Tinto ingresa al RIGI con un proyecto de litio en Catamarca por US$251 millones: qué implica para Argentina","description":"El Gobierno nacional aprobó el ingreso al Régimen de Incentivo para Grandes Inversiones (RIGI) de un proyecto de litio de la minera multinacional Rio Tinto en la provincia de Catamarca, por un monto de US$251 millones. La aprobación consolida a Argentina como destino clave para la minería de litio a nivel global y suma un nuevo actor de peso al ecosistema de inversiones del país.","image":["https://macromindnews.com.ar/img/rio-tinto.jpg"],"datePublished":"2026-04-06T00:00:00-03:00","dateModified":"2026-04-06T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/rio-tinto-ingresa-al-rigi-con-un-proyecto-de-litio-en-catamarca-por-us251-millon.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Rio Tinto ingresa al RIGI con un proyecto de litio en Catamarca por US$251 millones: qué implica para Argentina</h1>
   <p class="art-excerpt">El Gobierno nacional aprobó el ingreso al Régimen de Incentivo para Grandes Inversiones (RIGI) de un proyecto de litio de la minera multinacional Rio Tinto en la provincia de Catamarca, por un monto de US$251 millones. La aprobación consolida a Argentina como destino clave para la minería de litio a nivel global y suma un nuevo actor de peso al ecosistema de inversiones del país.</p>
   <div class="art-meta">6 de Abril, 2026</div>
-  <img src="img/rio-tinto.jpg" alt="Rio Tinto ingresa al RIGI con un proyecto de litio en Catamarca por US$251 millones: qué implica para Argentina" onerror="this.style.background='#ddd';"/>
+  <img src="img/rio-tinto.jpg" alt="Rio Tinto ingresa al RIGI con un proyecto de litio en Catamarca por US$251 millones: qué implica para Argentina" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/rio-tinto-ingresa-al-rigi-con-un-proyecto-de-litio-en-catamarca-por-us251-millon.html&text=Rio%20Tinto%20ingresa%20al%20RIGI%20con%20un%20proyecto%20de%20litio%20en%20Catamarca%20por%20US%24251%20millones%3A%20qu%C3%A9%20implica%20para%20Argentina" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Argentina sigue atrayendo inversiones mineras de escala mundial. El Gobierno nacional aprobó el ingreso al RIGI —el Régimen de Incentivo para Grandes Inversiones creado durante la gestión de Milei— de un proyecto de litio presentado por Rio Tinto, una de las mineras más grandes del mundo, con sede en el Reino Unido y cotización en las bolsas de Londres, Nueva York y Sydney. El proyecto, ubicado en la provincia de Catamarca, contempla una inversión de US$251 millones y se convierte en uno de los primeros grandes proyectos de litio en acceder formalmente a este régimen de beneficios impositivos y cambiarios diseñado para atraer capital privado de largo plazo a sectores estratégicos de la economía argentina.<br><br>Para entender la importancia del litio en el contexto actual, basta con saber que este mineral es el insumo clave para la fabricación de baterías de vehículos eléctricos, dispositivos móviles y sistemas de almacenamiento de energía renovable. En un mundo que acelera su transición energética, la demanda de litio crece de manera sostenida y los países que tienen reservas probadas —como Argentina, que forma parte del llamado "Triángulo del Litio" junto a Chile y Bolivia— están en una posición privilegiada para capturar esa demanda. Catamarca, en particular, es una de las provincias con mayor potencial litífero del país, y la llegada de Rio Tinto con un proyecto formal y aprobado bajo el RIGI es una señal de que el interés global en el litio argentino es concreto y se está materializando en inversiones reales.<br><br>El RIGI le otorga a Rio Tinto un paquete de beneficios diseñados para dar certeza y previsibilidad a inversiones de largo plazo: estabilidad fiscal e impositiva por 30 años, acceso libre al mercado de cambios para repatriar utilidades, reducción de aranceles de importación para bienes de capital y un marco regulatorio simplificado. A cambio, el proyecto se compromete a generar empleo local, transferir tecnología y producir divisas genuinas a través de las exportaciones. Para Catamarca, una provincia cuya economía depende históricamente de la minería, la aprobación de este proyecto representa una oportunidad concreta de desarrollo productivo y generación de trabajo calificado en los próximos años.<br><br>La aprobación del proyecto de Rio Tinto se suma a una seguidilla de inversiones que están redefiniendo el perfil productivo de Argentina. En pocas semanas, el país vio cómo Pampa Energía solicitaba el RIGI para un proyecto petrolero de US$4.500 millones en Vaca Muerta, TGS presentaba un plan de US$3.000 millones en líquidos de gas natural, y Mercado Libre anunciaba una inversión de US$3.400 millones en tecnología y logística. A ese pelotón se suma ahora Rio Tinto en el sector minero, completando un cuadro donde los sectores de energía, tecnología y recursos naturales están recibiendo simultáneamente compromisos de inversión históricos. Para Argentina, que necesita dólares y empleo para consolidar su recuperación económica, cada aprobación de este tipo es un paso más en la dirección correcta.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
