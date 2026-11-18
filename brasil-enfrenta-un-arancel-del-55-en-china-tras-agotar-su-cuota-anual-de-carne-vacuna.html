@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Brasil enfrenta un arancel del 55% en China tras agotar su cuota anual de carne vacuna","description":"Pekín activó un fuerte recargo aduanero al completarse el cupo de 1,1 millones de toneladas fijado para este año. El freno a los envíos, el impacto laboral en los frigoríficos brasileños y el giro proteccionista del gigante asiático.","image":["https://macromindnews.com.ar/img/china-brasil.webp"],"datePublished":"2026-10-01T00:00:00-03:00","dateModified":"2026-10-01T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/brasil-enfrenta-un-arancel-del-55-en-china-tras-agotar-su-cuota-anual-de-carne-vacuna.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Brasil enfrenta un arancel del 55% en China tras agotar su cuota anual de carne vacuna</h1>
   <p class="art-excerpt">Pekín activó un fuerte recargo aduanero al completarse el cupo de 1,1 millones de toneladas fijado para este año. El freno a los envíos, el impacto laboral en los frigoríficos brasileños y el giro proteccionista del gigante asiático.</p>
   <div class="art-meta">1 de Octubre, 2026</div>
-  <img src="img/china-brasil.webp" alt="Brasil enfrenta un arancel del 55% en China tras agotar su cuota anual de carne vacuna" onerror="this.style.background='#ddd';"/>
+  <img src="img/china-brasil.webp" alt="Brasil enfrenta un arancel del 55% en China tras agotar su cuota anual de carne vacuna" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/brasil-enfrenta-un-arancel-del-55-en-china-tras-agotar-su-cuota-anual-de-carne-vacuna.html&text=Brasil%20enfrenta%20un%20arancel%20del%2055%25%20en%20China%20tras%20agotar%20su%20cuota%20anual%20de%20carne%20vacuna" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El comercio agroindustrial entre las dos mayores potencias emergentes del mundo entró este jueves en un escenario de alta tensión. A partir del 1 de octubre, <b data-path-to-node="6" data-index-in-node="158">China</b> comenzó a aplicar un arancel adicional del <b data-path-to-node="6" data-index-in-node="207">55%</b> a todas las importaciones de carne vacuna procedentes de <b data-path-to-node="6" data-index-in-node="268">Brasil</b>, luego de que el país sudamericano agotara la totalidad de su cuota anual de importación libre de recargos extraordinarios.<div><br></div><div>La medida, confirmada oficialmente por el Ministerio de Comercio de China, grava las compras que excedan el límite de 1,1 millones de toneladas establecido para 2026. Esta penalización arancelaria amenaza con paralizar los embarques durante el último trimestre del año, reconfigurar las rutas globales de abastecimiento cárnico y profundizar las dificultades operativas de la industria frigorífica brasileña.</div><div><br></div><h2>El límite de 1,1 millones de toneladas y la sanción comercial</h2><div>El cupo preferencial se agotó formalmente el pasado 29 de septiembre, de acuerdo con los registros de las aduanas chinas. A partir de esa fecha, cualquier cargamento adicional que ingrese a los puertos del gigante asiático debe pagar el nuevo gravamen del 55%, el cual se suma a los derechos arancelarios que ya estaban vigentes.</div><div><br></div><div>La escala del intercambio dimensiona la magnitud del golpe comercial: Brasil es el principal proveedor de carne vacuna de China y representó en 2025 aproximadamente la mitad de las 2,8 millones de toneladas que el país asiático compró en el mercado internacional. Con la cuota colmada tres meses antes de fin de año, el flujo regular de exportaciones queda prácticamente bloqueado por pérdida de rentabilidad.</div><div><br></div><h2>El giro proteccionista de Pekín y el freno del consumo interno</h2><div>La imposición de cuotas estrictas a los proveedores extranjeros responde a un cambio de estrategia económica por parte del gobierno chino.</div><div><br></div><div>Por un lado, las autoridades de Pekín buscan blindar a sus propios productores ganaderos locales, que en los últimos dos años incrementaron de manera notable su volumen de faena y producción interna. Por el otro, la desaceleración del crecimiento económico en China enfrió el consumo de las familias, reduciendo la necesidad urgente de importar grandes excedentes de proteína animal desde el exterior.</div><div><br></div><div>Esta política de salvaguardas ya había golpeado a otros competidores directos: <b data-path-to-node="15" data-index-in-node="79">Australia</b>, el otro gran abastecedor de carne vacuna de alta calidad en Asia, había agotado su propia cuota permitida en junio pasado, quedando igualmente marginado de las ventas sin aranceles.</div><div><br></div><h2>El impacto en la cadena cárnica: suspensiones y freno exportador</h2><div>El sector frigorífico brasileño venía anticipando este desenlace desde mediados de año, lo que ya generó consecuencias directas sobre la actividad y el empleo:</div><div><ul><li><b data-path-to-node="18" data-index-in-node="2">Recortes de personal y vacaciones forzosas:</b> Diversas plantas de faena y procesamiento comenzaron semanas atrás a conceder licencias colectivas y a recortar turnos laborales para adecuar su estructura de costos a la menor demanda externa.</li><li><b data-path-to-node="19" data-index-in-node="2">Desplome de los embarques en agosto:</b> Las exportadoras frenaron los envíos anticipadamente para evitar que los buques llegaran a destino después de la fecha límite y quedaran sujetos al arancel del 55%.</li><li><b data-path-to-node="20" data-index-in-node="2">Redirección de excedentes:</b> Los operadores buscan ahora colocar parte del saldo exportable en destinos alternativos como Medio Oriente, el sudeste asiático y el mercado doméstico, aunque a precios sensiblemente menores.</li></ul><div><br></div></div><h2>La mirada puesta en la reactivación en 2027</h2><div>Pese al parate del último trimestre, las empresas ya diseñan su estrategia para el próximo ciclo. Para el 1 de enero de 2027 está previsto el inicio de un nuevo cupo anual de aproximadamente <b data-path-to-node="22" data-index-in-node="191">1,13 millones de toneladas</b>.</div><div><br></div><div>Frente a esa reapertura inminente, los contratos de futuros de ganado vivo en la bolsa B3 de São Paulo treparon casi un 5% en las últimas semanas. La industria proyecta reactivar la compra intensiva de hacienda en pie hacia finales de año para asegurar que los primeros cargamentos arriben a los puertos chinos en las primeras semanas de 2027 bajo el nuevo cupo libre de aranceles.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
