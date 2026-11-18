@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"SpaceX debutó en bolsa con el IPO más grande de la historia: recaudó USD 75.000 millones y su valoración superó los USD 2 billones","description":"La compañía de Elon Musk fijó el precio de sus acciones en USD 135 y al inicio de la cotización bajo el símbolo SPCX treparon hasta los USD 161, posicionando a SpaceX como la séptima empresa pública más valiosa de Estados Unidos.","image":["https://macromindnews.com.ar/img/ipo-spacex.jpg"],"datePublished":"2026-06-12T00:00:00-03:00","dateModified":"2026-06-12T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/spacex-debuto-en-bolsa-con-el-ipo-mas-grande-de-la-historia-recaudo-usd-75000-mi.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">SpaceX debutó en bolsa con el IPO más grande de la historia: recaudó USD 75.000 millones y su valoración superó los USD 2 billones</h1>
   <p class="art-excerpt">La compañía de Elon Musk fijó el precio de sus acciones en USD 135 y al inicio de la cotización bajo el símbolo SPCX treparon hasta los USD 161, posicionando a SpaceX como la séptima empresa pública más valiosa de Estados Unidos.</p>
   <div class="art-meta">12 de Junio, 2026</div>
-  <img src="img/ipo-spacex.jpg" alt="SpaceX debutó en bolsa con el IPO más grande de la historia: recaudó USD 75.000 millones y su valoración superó los USD 2 billones" onerror="this.style.background='#ddd';"/>
+  <img src="img/ipo-spacex.jpg" alt="SpaceX debutó en bolsa con el IPO más grande de la historia: recaudó USD 75.000 millones y su valoración superó los USD 2 billones" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/spacex-debuto-en-bolsa-con-el-ipo-mas-grande-de-la-historia-recaudo-usd-75000-mi.html&text=SpaceX%20debut%C3%B3%20en%20bolsa%20con%20el%20IPO%20m%C3%A1s%20grande%20de%20la%20historia%3A%20recaud%C3%B3%20USD%2075.000%20millones%20y%20su%20valoraci%C3%B3n%20super%C3%B3%20los%20USD%202%20billones" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">SpaceX concretó su debut en los mercados de valores con la mayor oferta pública inicial de la historia financiera. La compañía fundada por Elon Musk fijó el precio definitivo de sus acciones en USD 135 por unidad, rechazando el rango variable que se utiliza habitualmente en este tipo de colocaciones y optando por un precio fijo que transmitió confianza al mercado. La operación permitió recaudar USD 75.000 millones mediante la venta de más de 555 millones de títulos, superando con amplitud el récord anterior que ostentaba Saudi Aramco con su IPO de 2019.<div><br><h2>Un debut explosivo en Wall Street</h2><div>Al iniciar su cotización formal bajo el símbolo SPCX, las acciones experimentaron un salto inmediato de aproximadamente el 20%, situándose en un rango de entre USD 150 y USD 161 por título. Ese movimiento elevó la valoración total de la compañía a una cifra estimada entre USD 1,77 y USD 2,1 billones, ubicando a SpaceX como la séptima entidad pública más valiosa del territorio estadounidense, por encima de empresas como Berkshire Hathaway y Tesla. La demanda de inversores durante el período previo a la colocación superó ampliamente la oferta disponible de acciones, lo que anticipaba la presión compradora que se materializó en el arranque de la cotización.</div><div><br></div><h2>Para qué usará el dinero</h2><div>La masiva inyección de capital tiene como destino principal tres frentes de expansión. El primero es el desarrollo de infraestructura para la exploración espacial, que incluye la aceleración del programa Starship y la construcción de nuevas instalaciones de lanzamiento. El segundo es la expansión de los centros de datos de inteligencia artificial, en un momento en que la demanda global de capacidad computacional para IA sigue creciendo a un ritmo sin precedentes. El tercero son los planes de colonización planetaria, que Musk viene describiendo públicamente como el objetivo existencial de largo plazo de la compañía.</div><div><br></div><h2>El impacto patrimonial</h2><div>En términos personales, la revalorización de la estructura accionaria consolidó el patrimonio de Elon Musk por encima del billón de dólares, un umbral que ningún individuo había alcanzado antes en la historia. Al mismo tiempo, la salida a bolsa convirtió en millonarios a miles de empleados y exempleados de la firma que tenían opciones sobre acciones acumuladas durante años de trabajo en la compañía. El IPO de SpaceX marca un punto de inflexión no solo para la empresa sino para toda la industria espacial privada, que pasa a tener por primera vez a su actor más relevante cotizando en los mercados públicos y sometido a la disciplina y el escrutinio que eso implica.</div></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
