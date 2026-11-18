@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"La economía creció un 1,9% en enero: qué sectores lideraron la recuperación y qué significa para 2026","description":"El Instituto Nacional de Estadística y Censos (INDEC) publicó el Estimador Mensual de Actividad Económica (EMAE) correspondiente a enero de 2026, que mostró un crecimiento del 1,9% interanual y del 0,4% respecto a diciembre de 2025. El agro y la minería fueron los motores principales de la suba, en una señal positiva para el arranque del año.","image":["https://macromindnews.com.ar/img/emae-enero-2026.jpg"],"datePublished":"2026-03-26T00:00:00-03:00","dateModified":"2026-03-26T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/la-economia-crecio-un-19-en-enero-que-sectores-lideraron-la-recuperacion-y-que-s.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">La economía creció un 1,9% en enero: qué sectores lideraron la recuperación y qué significa para 2026</h1>
   <p class="art-excerpt">El Instituto Nacional de Estadística y Censos (INDEC) publicó el Estimador Mensual de Actividad Económica (EMAE) correspondiente a enero de 2026, que mostró un crecimiento del 1,9% interanual y del 0,4% respecto a diciembre de 2025. El agro y la minería fueron los motores principales de la suba, en una señal positiva para el arranque del año.</p>
   <div class="art-meta">26 de Marzo, 2026</div>
-  <img src="img/emae-enero-2026.jpg" alt="La economía creció un 1,9% en enero: qué sectores lideraron la recuperación y qué significa para 2026" onerror="this.style.background='#ddd';"/>
+  <img src="img/emae-enero-2026.jpg" alt="La economía creció un 1,9% en enero: qué sectores lideraron la recuperación y qué significa para 2026" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/la-economia-crecio-un-19-en-enero-que-sectores-lideraron-la-recuperacion-y-que-s.html&text=La%20econom%C3%ADa%20creci%C3%B3%20un%201%2C9%25%20en%20enero%3A%20qu%C3%A9%20sectores%20lideraron%20la%20recuperaci%C3%B3n%20y%20qu%C3%A9%20significa%20para%202026" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La economía argentina arrancó 2026 con el pie derecho. Según el Estimador Mensual de Actividad Económica (EMAE) —el indicador que publica el INDEC para medir la evolución de la actividad económica mes a mes, antes de que salgan los datos del PBI trimestral— la economía creció un 1,9% en enero de 2026 respecto al mismo mes del año anterior, y un 0,4% en relación a diciembre de 2025. Si bien los números no son espectaculares, confirman que la recuperación que comenzó a esbozarse en la segunda mitad de 2025 se mantiene en curso y que el país no arrancó el año con una caída, algo que no estaba del todo garantizado dado el contexto internacional.<br><br>Los protagonistas de esta suba fueron el agro y la minería, dos sectores que vienen ganando peso en la estructura productiva argentina y que responden tanto a condiciones climáticas favorables como a las reformas e inversiones que se vienen consolidando en el país. El campo, con una cosecha que viene desarrollándose sin mayores contratiempos climáticos, aportó volumen exportador y actividad a lo largo de toda la cadena agroindustrial. La minería, por su parte, sigue en expansión gracias al interés inversor que despertó el RIGI y a proyectos que ya están en ejecución en distintas provincias del país. Ambos sectores tienen en común que generan dólares genuinos, lo que también impacta positivamente sobre las reservas del Banco Central.<br><br>El dato interanual del 1,9% debe leerse con cierta perspectiva. Enero de 2025 había sido un mes todavía marcado por la turbulencia de los primeros meses del programa económico del Gobierno, con consumo deprimido y actividad general contraída. Por eso, crecer un 1,9% respecto a ese piso no es un resultado extraordinario, pero sí es consistente con la tendencia de recuperación gradual que vienen mostrando los indicadores desde mediados del año pasado. Más relevante aún es el crecimiento del 0,4% respecto a diciembre, que indica que la economía no solo no retrocedió al salir de las fiestas —un período estacionalmente favorable para el consumo— sino que siguió avanzando.<br><br>El desafío para los próximos meses será que esa recuperación se amplíe más allá del agro y la minería, y empiece a sentirse con más fuerza en sectores como la industria, la construcción y el comercio, que son los que más empleo generan y los que más impacto tienen en el bolsillo cotidiano de los argentinos. Las señales de inversión que llegaron en las últimas semanas —desde Mercado Libre hasta TGS y Pampa Energía— apuntan en esa dirección, pero sus efectos sobre la actividad general tardarán algunos meses en materializarse. Por ahora, el 1,9% de enero es un dato que el Gobierno puede mostrar con alivio: la economía crece, y eso es el punto de partida para todo lo demás.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
