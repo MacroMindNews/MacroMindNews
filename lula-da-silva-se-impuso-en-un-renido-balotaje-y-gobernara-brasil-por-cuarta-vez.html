@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Lula da Silva se impuso en un reñido balotaje y gobernará Brasil por cuarta vez","description":"Luiz Inácio Lula da Silva ganó el balotaje presidencial en Brasil con el 51,75% de los votos sobre Flavio Bolsonaro (48,25%). El triunfo generó las felicitaciones de Cristina Kirchner en Argentina, mientras que el índice EWZ reaccionó con cautela.","image":["https://macromindnews.com.ar/img/flavio-lula-25-10-26.webp"],"datePublished":"2026-10-25T00:00:00-03:00","dateModified":"2026-10-25T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/lula-da-silva-se-impuso-en-un-renido-balotaje-y-gobernara-brasil-por-cuarta-vez.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Lula da Silva se impuso en un reñido balotaje y gobernará Brasil por cuarta vez</h1>
   <p class="art-excerpt">Luiz Inácio Lula da Silva ganó el balotaje presidencial en Brasil con el 51,75% de los votos sobre Flavio Bolsonaro (48,25%). El triunfo generó las felicitaciones de Cristina Kirchner en Argentina, mientras que el índice EWZ reaccionó con cautela.</p>
   <div class="art-meta">25 de Octubre, 2026</div>
-  <img src="img/flavio-lula-25-10-26.webp" alt="Lula da Silva se impuso en un reñido balotaje y gobernará Brasil por cuarta vez" onerror="this.style.background='#ddd';"/>
+  <img src="img/flavio-lula-25-10-26.webp" alt="Lula da Silva se impuso en un reñido balotaje y gobernará Brasil por cuarta vez" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/lula-da-silva-se-impuso-en-un-renido-balotaje-y-gobernara-brasil-por-cuarta-vez.html&text=Lula%20da%20Silva%20se%20impuso%20en%20un%20re%C3%B1ido%20balotaje%20y%20gobernar%C3%A1%20Brasil%20por%20cuarta%20vez" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>En una de las elecciones más polarizadas y ajustadas de la historia reciente de la región, Luiz Inácio Lula da Silva logró una remontada decisiva y se consagró ganador del balotaje presidencial en Brasil. El actual mandatario y candidato del Partido de los Trabajadores (PT) se impuso tras una jornada electoral marcada por una alta tensión política, dificultades logísticas en el transporte público de algunas regiones y una extensión del horario de votación dispuesta por el Tribunal Superior Electoral (TSE).<div><br></div><div>Con este resultado, Lula consolida su liderazgo político y asumirá un nuevo mandato presidencial en un país que llega a las urnas profundamente dividido en los planos económico, social y de seguridad.</div><div><br></div></div><img src="https://cdn.getarena.im/cm/6ade8f8122fdfff4a972745f.png?w=800&amp;q=85" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><blockquote class="twitter-tweet"><div><br></div><h2>Los números finales del escrutinio</h2><div>Con el <b data-path-to-node="3" data-index-in-node="7">98,76% de los votos escrutados</b> por el Tribunal Superior Electoral (TSE), los resultados oficiales reflejaron la extrema paridad que dominó toda la contienda electoral:</div><div><ul><li><b data-path-to-node="4,0,0" data-index-in-node="0">Luiz Inácio Lula da Silva (Partido de los Trabajadores - PT):</b> 51,75% de los votos.</li><li><b data-path-to-node="4,1,0" data-index-in-node="0">Flavio Bolsonaro (Partido Liberal - PL):</b> 48,25% de los votos.</li></ul><div><br></div></div><div>De esta manera, el líder del PT revirtió la tendencia adversa de la primera vuelta —donde su rival había quedado al frente— y se aseguró la presidencia por cuarta vez en su trayectoria política, acompañado por su candidato a vicepresidente, Geraldo Alckmin. Por su parte, el candidato del Partido Liberal, respaldado por la base de su padre Jair Bolsonaro, quedó a menos de tres puntos porcentuales en una pulseada que mantuvo en vilo a todo el continente.</div><div><br></div><h2>Repercusiones y reacciones en Argentina</h2><div>La definición electoral en el gigante vecino generó repercusiones inmediatas y polarizadas en el arco político de la Argentina, donde las principales figuras oficialistas y opositoras siguieron de cerca el proceso. Desde el espacio opositor, referentes como Cristina Kirchner y Sergio Massa expresaron rápidamente su respaldo y celebraron el triunfo de Lula da Silva en las redes sociales, destacando el valor de la democracia y la importancia estratégica de la integración latinoamericana frente a los proyectos de tinte liberal-conservador que encarnaba la familia Bolsonaro.</div></blockquote><blockquote class="twitter-tweet"><br></blockquote><blockquote class="twitter-tweet"><a href="https://twitter.com/CFKArgentina/status/2114509843717399011">Ver publicación en X</a></blockquote><p><br></p><div>En la vereda opuesta, el oficialismo libertario argentino mantuvo una postura de cautela, habiendo mostrado de manera implícita o explícita simpatía por el modelo de ajuste fiscal y el “tijeretazo” estatal que proponía la campaña de Flavio Bolsonaro —inspirado en parte en las políticas locales de Javier Milei—. Este resultado obliga a la diplomacia argentina a recalibrar el vínculo bilateral con Brasilia, un socio comercial clave que ahora continuará bajo la órbita de un gobierno progresista.</div><div><br></div><h2>Impacto en los mercados financieros y el Pre-Market del EWZ</h2><div>Los mercados financieros internacionales y locales reaccionaron con cautela y volatilidad ante la victoria de Lula, dado que los grandes fondos de inversión descontaban expectativas mixtas según el rumbo fiscal que tome el nuevo mandato. En la antesala de la apertura formal de los mercados, el índice <b data-path-to-node="10" data-index-in-node="302" ><i data-path-to-node="10" data-index-in-node="302">iShares MSCI Brazil ETF</i> (EWZ)</b> —el principal vehículo de renta variable de empresas brasileñas que opera en Wall Street— reflejó movimientos de presión a la baja y cautela en el <i data-path-to-node="10" data-index-in-node="479">pre-market</i>.</div><div><br></div><div>Los inversores manifestaron dudas respecto a la sostenibilidad de la deuda pública y el aumento del gasto social que contempla la plataforma de Lula da Silva, la cual prioriza la inversión pública, el incremento real del salario mínimo y una mayor progresividad tributaria frente al programa de achicamiento estatal que proponía la oposición liberal.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
