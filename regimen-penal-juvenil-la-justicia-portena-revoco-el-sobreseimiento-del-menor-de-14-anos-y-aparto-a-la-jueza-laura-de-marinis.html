@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Régimen Penal Juvenil: la Justicia porteña revocó el sobreseimiento del menor de 14 años y apartó a la jueza Laura De Marinis","description":"En un fallo unánime, la Cámara de Apelaciones volteó la resolución que declaraba inconstitucional la nueva ley y ordenó sortear a un nuevo magistrado para juzgar al adolescente. Las duras críticas a la actuación de la jueza y la reacción del oficialismo.","image":["https://macromindnews.com.ar/img/laura-beatriz-de-marinis-25-09-26.webp"],"datePublished":"2026-09-25T00:00:00-03:00","dateModified":"2026-09-25T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/regimen-penal-juvenil-la-justicia-portena-revoco-el-sobreseimiento-del-menor-de-14-anos-y-aparto-a-la-jueza-laura-de-marinis.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Régimen Penal Juvenil: la Justicia porteña revocó el sobreseimiento del menor de 14 años y apartó a la jueza Laura De Marinis</h1>
   <p class="art-excerpt">En un fallo unánime, la Cámara de Apelaciones volteó la resolución que declaraba inconstitucional la nueva ley y ordenó sortear a un nuevo magistrado para juzgar al adolescente. Las duras críticas a la actuación de la jueza y la reacción del oficialismo.</p>
   <div class="art-meta">25 de Septiembre, 2026</div>
-  <img src="img/laura-beatriz-de-marinis-25-09-26.webp" alt="Régimen Penal Juvenil: la Justicia porteña revocó el sobreseimiento del menor de 14 años y apartó a la jueza Laura De Marinis" onerror="this.style.background='#ddd';"/>
+  <img src="img/laura-beatriz-de-marinis-25-09-26.webp" alt="Régimen Penal Juvenil: la Justicia porteña revocó el sobreseimiento del menor de 14 años y apartó a la jueza Laura De Marinis" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/regimen-penal-juvenil-la-justicia-portena-revoco-el-sobreseimiento-del-menor-de-14-anos-y-aparto-a-la-jueza-laura-de-marinis.html&text=R%C3%A9gimen%20Penal%20Juvenil%3A%20la%20Justicia%20porte%C3%B1a%20revoc%C3%B3%20el%20sobreseimiento%20del%20menor%20de%2014%20a%C3%B1os%20y%20apart%C3%B3%20a%20la%20jueza%20Laura%20De%20Marinis" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La pulseada judicial y política en torno a la baja de la edad de imputabilidad tuvo un giro determinante en los tribunales de la Ciudad de Buenos Aires. La <b data-path-to-node="6" data-index-in-node="156">Sala III de la Cámara de Apelaciones en lo Penal, Penal Juvenil, Contravencional y de Faltas</b> resolvió por unanimidad <b data-path-to-node="6" data-index-in-node="273">revocar el fallo de la jueza Laura Beatriz De Marinis</b>, dejando sin efecto el sobreseimiento del adolescente de 14 años acusado por un intento de robo.<div><br></div><div>Con esta decisión, el tribunal de alzada ratificó la plena vigencia de la nueva <b data-path-to-node="7" data-index-in-node="80">Ley de Régimen Penal Juvenil</b> y dispuso el <b data-path-to-node="7" data-index-in-node="122">apartamiento inmediato de la magistrada</b> del expediente, ordenando la designación de un nuevo juez para garantizar la imparcialidad del proceso.</div><div><br></div><h2>El revés judicial a la declaración de inconstitucionalidad</h2><div>La intervención de la Cámara se originó tras la apelación presentada por el Ministerio Público Fiscal porteño contra la sentencia de primera instancia, que había frenado la causa bajo el argumento de que juzgar a menores de 16 años violaba tratados internacionales de derechos del niño.</div><div><br></div><div>Los camaristas consideraron que el pronunciamiento de De Marinis fue prematuro y carente de sustento jurídico, remarcando que la declaración de inconstitucionalidad de una ley nacional es una medida excepcional de última instancia que no correspondía aplicar de manera automática en el inicio de la instrucción.</div><div><br></div><h2>Los motivos de la Cámara para apartar a la magistrada</h2><div>En su fundamentación, el tribunal superior cuestionó con dureza el accionar de la jueza y detalló las razones que obligaron a retirarla de la causa:</div><div><ul><li><b data-path-to-node="12" data-index-in-node="151">Pérdida de imparcialidad:</b> Consideraron que la jueza adelantó opinión de forma categórica contra el régimen penal aprobado por el Congreso, afectando la garantía de objetividad para intervenir en el caso.</li><li><b data-path-to-node="12" data-index-in-node="357">Desconocimiento de la norma:</b> Señalaron que la magistrada omitió evaluar que la ley no solo prevé sanciones, sino también medidas formativas, socioeducativas y de reparación no privativas de la libertad.</li><li><b data-path-to-node="12" data-index-in-node="562">Gravedad institucional:</b> Advirtieron que su postura generaba un peligroso vacío normativo que paralizaba las facultades de investigación de los fiscales.</li></ul><img src="img/tribunales-caba.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"></div><div><br></div><h2>Cómo continuará la causa contra el menor de 14 años</h2><div>A partir de la anulación del sobreseimiento, la causa fue remitida a la mesa de entradas para desinsacular por sorteo a un nuevo juzgado penal juvenil de la Ciudad.</div><div><br></div><div>El magistrado que resulte designado deberá retomar el trámite del expediente por la tentativa de robo y definir si aplica medidas de contención, supervisión o restricciones procesales al adolescente conforme a los parámetros fijados por el nuevo régimen legal vigente.</div><div><br></div><h2>Celebración en el Gobierno Porteño y avance del jury</h2><div>La revocación fue recibida como un triunfo político por el jefe de Gobierno, <b data-path-to-node="18" data-index-in-node="77">Jorge Macri</b>, y los referentes de seguridad que habían denunciado una maniobra de impunidad en los tribunales.</div><div><br></div><div>Pese a que la magistrada ya no intervendrá en el expediente, en el Consejo de la Magistratura porteño confirmaron que continuarán adelante con el pedido de <b data-path-to-node="19" data-index-in-node="156">juicio político</b> para evaluar su destitución por presunto mal desempeño de sus funciones.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
