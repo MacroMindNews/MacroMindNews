@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Los bancos bajan las tasas de los créditos UVA y reactivan el sueño de la casa propia","description":"Tras meses de tasas elevadas que enfriaron el mercado hipotecario, varios bancos comenzaron a reducir el costo de sus créditos UVA en las últimas semanas. Algunas entidades ya ofrecen tasas desde el 6,9% anual para clientes con acreditación de sueldo, en un contexto de mayor estabilidad económica y con expectativas de que la tendencia continúe a lo largo de 2026.","image":["https://macromindnews.com.ar/img/creditos-hipotecarios.jpg"],"datePublished":"2026-03-22T00:00:00-03:00","dateModified":"2026-03-22T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/los-bancos-bajan-las-tasas-de-los-creditos-uva-y-reactivan-el-sueno-de-la-casa-p.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Los bancos bajan las tasas de los créditos UVA y reactivan el sueño de la casa propia</h1>
   <p class="art-excerpt">Tras meses de tasas elevadas que enfriaron el mercado hipotecario, varios bancos comenzaron a reducir el costo de sus créditos UVA en las últimas semanas. Algunas entidades ya ofrecen tasas desde el 6,9% anual para clientes con acreditación de sueldo, en un contexto de mayor estabilidad económica y con expectativas de que la tendencia continúe a lo largo de 2026.</p>
   <div class="art-meta">22 de Marzo, 2026</div>
-  <img src="img/creditos-hipotecarios.jpg" alt="Los bancos bajan las tasas de los créditos UVA y reactivan el sueño de la casa propia" onerror="this.style.background='#ddd';"/>
+  <img src="img/creditos-hipotecarios.jpg" alt="Los bancos bajan las tasas de los créditos UVA y reactivan el sueño de la casa propia" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/los-bancos-bajan-las-tasas-de-los-creditos-uva-y-reactivan-el-sueno-de-la-casa-p.html&text=Los%20bancos%20bajan%20las%20tasas%20de%20los%20cr%C3%A9ditos%20UVA%20y%20reactivan%20el%20sue%C3%B1o%20de%20la%20casa%20propia" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Para millones de argentinos, la posibilidad de acceder a un crédito hipotecario es la puerta de entrada al sueño de la casa propia. Y esa puerta, que estuvo prácticamente cerrada durante casi cinco años, volvió a abrirse en 2024 con el relanzamiento de los créditos UVA —préstamos que se actualizan según la inflación pero que ofrecen cuotas iniciales más bajas que los créditos tradicionales—. Sin embargo, desde mediados de 2025 las tasas subieron fuertemente, por encima del 10% anual, impactando directamente en el bolsillo de los potenciales tomadores. Ahora, con la economía mostrando señales de mayor previsibilidad, el viento parece estar cambiando de dirección.<br><br>La competencia entre bancos ya se hace notar en los números concretos. El Banco Hipotecario bajó su tasa de 13,9% a 12,5%, el ICBC redujo la suya de 11% a 10,5% en una primera instancia y luego fue más lejos aún, fijando una tasa preferencial del 6,9% anual para quienes acrediten haberes, posicionándose como el banco privado más agresivo del mercado. El BBVA bajó su tasa del 17% al 7,5% para monotributistas y responsables inscriptos con al menos dos años de antigüedad, mientras que Santander redujo la suya del 15% al 9,5% para clientes que cobran su sueldo en la entidad. Por su parte, el Banco Ciudad lanzó una línea especial con tasa del 7,5% subsidiada por el Gobierno porteño para la compra de primera vivienda, y Banco Macro sorprendió con una línea en dólares a tasa fija del 11,5% anual a 5 años, algo prácticamente ausente del mercado desde los años '90.<br><br>El contexto, sin embargo, no es del todo auspicioso. En febrero de 2026 se otorgaron apenas 151 millones de dólares en créditos hipotecarios, el nivel más bajo desde septiembre de 2024, con una caída del 25% interanual y un retroceso del 13% en el primer bimestre del año. Las altas tasas de 2025 enfriaron la demanda y dejaron su huella en las estadísticas. Aun así, hay una señal que tranquiliza a las entidades financieras: los créditos UVA muestran bajos niveles de morosidad, cercanos al 1% de la cartera, lo que indica que quienes tomaron estos préstamos en su mayoría los están cumpliendo. Eso le da a los bancos incentivos concretos para seguir ampliando su oferta y captar nuevos clientes en un mercado que todavía tiene mucho potencial por desarrollar.<br><br>El desafío hacia adelante es claro: sostener la baja de tasas en el tiempo y ampliar el acceso a más sectores de la población. Para los argentinos que hoy sueñan con comprar su primer departamento o casa, la tendencia es alentadora, aunque los expertos advierten que la consolidación del mercado hipotecario dependerá, en última instancia, de que la estabilidad macroeconómica se sostenga a lo largo del año. Si las variables se mantienen en orden, 2026 podría ser el año en que el crédito hipotecario deje de ser una excepción y se convierta en una herramienta real y accesible para más familias argentinas.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
