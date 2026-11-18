@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Argentina importará 10.000 autos desde EE.UU. sin aranceles: qué marcas pelean por el cupo y qué modelos podrían llegar","description":"El acuerdo comercial con Washington contempla un cupo anual de 10.000 vehículos fabricados en EE.UU. con arancel cero, en reemplazo del 35% extrazona vigente. Ford, Chevrolet, Toyota, BMW y Mercedes-Benz ya analizan cómo aprovechar el beneficio, con pick-ups y SUV de alta gama como principales candidatos.","image":["https://macromindnews.com.ar/img/acuerdo-arg-eeuu.jpg"],"datePublished":"2026-06-10T00:00:00-03:00","dateModified":"2026-06-10T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/argentina-importara-10000-autos-desde-eeuu-sin-aranceles-que-marcas-pelean-por-e.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Argentina importará 10.000 autos desde EE.UU. sin aranceles: qué marcas pelean por el cupo y qué modelos podrían llegar</h1>
   <p class="art-excerpt">El acuerdo comercial con Washington contempla un cupo anual de 10.000 vehículos fabricados en EE.UU. con arancel cero, en reemplazo del 35% extrazona vigente. Ford, Chevrolet, Toyota, BMW y Mercedes-Benz ya analizan cómo aprovechar el beneficio, con pick-ups y SUV de alta gama como principales candidatos.</p>
   <div class="art-meta">10 de Junio, 2026</div>
-  <img src="img/acuerdo-arg-eeuu.jpg" alt="Argentina importará 10.000 autos desde EE.UU. sin aranceles: qué marcas pelean por el cupo y qué modelos podrían llegar" onerror="this.style.background='#ddd';"/>
+  <img src="img/acuerdo-arg-eeuu.jpg" alt="Argentina importará 10.000 autos desde EE.UU. sin aranceles: qué marcas pelean por el cupo y qué modelos podrían llegar" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/argentina-importara-10000-autos-desde-eeuu-sin-aranceles-que-marcas-pelean-por-e.html&text=Argentina%20importar%C3%A1%2010.000%20autos%20desde%20EE.UU.%20sin%20aranceles%3A%20qu%C3%A9%20marcas%20pelean%20por%20el%20cupo%20y%20qu%C3%A9%20modelos%20podr%C3%ADan%20llegar" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El Gobierno está ultimando los detalles de un acuerdo comercial con Estados Unidos que habilitará la importación de 10.000 vehículos fabricados en ese país por año sin pagar el arancel extrazona del 35% que rige actualmente para la mayoría de los autos que ingresan al mercado argentino. El anuncio formal se espera para agosto de 2026, aunque las negociaciones ya están avanzadas y varias automotrices comenzaron a analizar cómo posicionarse para aprovechar el beneficio.<div><br><h2>Cómo funciona el cupo</h2><div>El esquema es sencillo: las primeras 10.000 unidades que ingresen cada año calendario bajo este acuerdo tendrán arancel cero. Las unidades que superen ese límite pagarán el 35% de arancel completo. El cupo se asignará por orden de solicitud y se renovará anualmente para dar previsibilidad a los importadores y las marcas. El mecanismo es similar al que ya existe con otros orígenes, pero en este caso apunta exclusivamente a vehículos con origen comprobado en plantas radicadas en territorio estadounidense.</div><div><br></div><h2>Las marcas que ya están en la carrera</h2><div>El beneficio despertó el interés inmediato de varias automotrices. Ford, Chevrolet y Stellantis, que ya tienen fuerte presencia en el mercado local, están entre las primeras en evaluar la oportunidad. También se sumaron al análisis Toyota, Honda, Hyundai, BMW, Mercedes-Benz y Volkswagen, todas con plantas de producción activas en EE.UU. que fabrican modelos que hoy no llegan a Argentina o llegan a precios muy elevados por el impacto arancelario.</div><div><br></div><div>Entre los modelos que más se mencionan en el sector están la pick-up Toyota Tundra, los SUV Chevrolet Tahoe y Suburban, la Ford F-150 y el Ford Mustang. Son vehículos de gama media-alta y alta, con precios de lista en EE.UU. que van desde los USD 40.000 hasta los USD 180.000 en las versiones más equipadas.</div><div><br></div><h2>Cómo se diferencia del cupo chino y qué pasará con los precios</h2><div><span style="font-size: 0.92rem;">A diferencia del cupo de 50.000 autos híbridos y eléctricos de origen chino que ya está activo, con un tope de USD 16.000 de valor FOB orientado al segmento de precio bajo, el nuevo cupo apunta al mercado de mayor valor: pick-ups grandes, SUV de lujo y utilitarios premium. No compiten por el mismo comprador ni en el mismo segmento de precios, por lo que ambos esquemas pueden coexistir sin pisarse.</span></div><div><span style="font-size: 0.92rem;"><br></span></div><div>En cuanto al impacto sobre los precios finales, aunque se elimina el 35% de arancel, todavía restarán aproximadamente un 30% adicional en concepto de IVA, tasa estadística y margen de concesionario. De todas formas, los modelos que entren por este cupo llegarán bastante más baratos que en el esquema actual. A eso se suma que la sobretasa de impuestos internos sobre autos de alta gama fue eliminada temporalmente, lo que potencia aún más la reducción de precio para el consumidor final.</div></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
