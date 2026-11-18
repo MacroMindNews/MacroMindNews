@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Vigilancia fiscal a los activos digitales: Argentina se comprometió ante la OCDE a intercambiar datos de criptomonedas para 2029","description":"En el marco del Foro Global de Transparencia, el país confirmó su adhesión al estándar CARF para cruzar información patrimonial con decenas de potencias mundiales. Qué movimientos quedarán bajo la lupa de los organismos tributarios y cómo impactará en las plataformas de inversión.","image":["https://macromindnews.com.ar/img/ocde-argentina.webp"],"datePublished":"2026-09-15T00:00:00-03:00","dateModified":"2026-09-15T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/vigilancia-fiscal-a-los-activos-digitales-argentina-se-comprometio-ante-la-ocde-a-intercambiar-datos-de-criptomonedas-para-2029.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Vigilancia fiscal a los activos digitales: Argentina se comprometió ante la OCDE a intercambiar datos de criptomonedas para 2029</h1>
   <p class="art-excerpt">En el marco del Foro Global de Transparencia, el país confirmó su adhesión al estándar CARF para cruzar información patrimonial con decenas de potencias mundiales. Qué movimientos quedarán bajo la lupa de los organismos tributarios y cómo impactará en las plataformas de inversión.</p>
   <div class="art-meta">15 de Septiembre, 2026</div>
-  <img src="img/ocde-argentina.webp" alt="Vigilancia fiscal a los activos digitales: Argentina se comprometió ante la OCDE a intercambiar datos de criptomonedas para 2029" onerror="this.style.background='#ddd';"/>
+  <img src="img/ocde-argentina.webp" alt="Vigilancia fiscal a los activos digitales: Argentina se comprometió ante la OCDE a intercambiar datos de criptomonedas para 2029" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/vigilancia-fiscal-a-los-activos-digitales-argentina-se-comprometio-ante-la-ocde-a-intercambiar-datos-de-criptomonedas-para-2029.html&text=Vigilancia%20fiscal%20a%20los%20activos%20digitales%3A%20Argentina%20se%20comprometi%C3%B3%20ante%20la%20OCDE%20a%20intercambiar%20datos%20de%20criptomonedas%20para%202029" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El cerco regulatorio internacional sobre el mercado de activos digitales sumó una definición de alto impacto para el ecosistema financiero local. La <b data-path-to-node="6" data-index-in-node="149">Organización para la Cooperación y el Desarrollo Económicos (OCDE)</b> confirmó que la <b data-path-to-node="6" data-index-in-node="232">Argentina formalizó su compromiso para implementar el intercambio automático de información sobre transacciones de criptoactivos a más tardar en septiembre de 2029</b>.<div><br></div><div>La adhesión se dio en el ámbito del Foro Global sobre la Transparencia y el Intercambio de Información con Fines Fiscales —del cual el país es miembro pleno desde 2009— y supone la incorporación del estándar internacional <b data-path-to-node="7" data-index-in-node="222">CARF</b> (<i data-path-to-node="7" data-index-in-node="228">Crypto-Asset Reporting Framework</i>), una arquitectura diseñada a pedido del G20 para evitar que la descentralización financiera funcione como vía de escape a la tributación transfronteriza.</div><div><br></div><h2>El estándar CARF: Qué datos deberán suministrar las plataformas</h2><div>El nuevo régimen impone obligaciones de reporte a los proveedores de servicios de activos virtuales (PSAV), término que engloba a los <b data-path-to-node="9" data-index-in-node="134">exchanges de criptomonedas, agentes de custodia, intermediarios y brokers</b> que operan tanto dentro del territorio nacional como en el exterior prestando servicios a residentes argentinos.</div><div><br></div><div>Bajo este esquema, las plataformas deberán identificar a los beneficiarios finales de las cuentas, registrar su residencia fiscal y reportar anualmente a las autoridades tributarias locales los saldos y flujos patrimoniales de cada usuario.</div><div><br></div><h2>Las cuatro operaciones que estarán bajo la lupa fiscal</h2><div>El protocolo multilateral no se limitará a la tenencia pasiva de activos, sino que auditará de forma exhaustiva las operaciones cotidianas del mercado:</div><div><ul><li><b data-path-to-node="12" data-index-in-node="154">Conversiones fiduciarias:</b> Toda compra y venta de criptomonedas liquidada contra moneda de curso legal (pesos, dólares o euros).</li><li><b data-path-to-node="12" data-index-in-node="284">Permutas entre criptoactivos:</b> Intercambios directos entre distintas monedas digitales (por ejemplo, transacciones de Bitcoin a <i data-path-to-node="12" data-index-in-node="411">stablecoins</i> o viceversa).</li><li><b data-path-to-node="12" data-index-in-node="439">Transferencias a billeteras no custodiadas:</b> Envíos y recepciones de fondos que involucren billeteras frías (<i data-path-to-node="12" data-index-in-node="547">hardware wallets</i>) o monederos privados externos a los exchanges centralizados.</li><li><b data-path-to-node="12" data-index-in-node="628">Pagos comerciales minoristas:</b> Pagos de bienes o servicios de alto valor procesados a través de pasarelas de pago cripto.</li></ul><div><br></div></div><h2>El impacto en el mercado argentino y el rol de ARCA</h2><div>La medida adquiere especial relevancia en la Argentina, uno de los países con mayor tasa de adopción per cápita de monedas estables (<i data-path-to-node="15" data-index-in-node="133">stablecoins</i> como USDT y USDC) en América Latina, utilizadas habitualmente como reserva de valor y medio de pago frente a las variaciones del tipo de cambio.</div><div><br></div><div>De aquí a 2029, el Gobierno nacional deberá adecuar la normativa interna a través de la <b data-path-to-node="16" data-index-in-node="88">Agencia de Recaudación y Control Aduanero (ARCA)</b> para habilitar los canales tecnológicos seguros de transmisión de datos. Una vez operativo el sistema, los datos recabados por el fisco argentino se cruzarán de manera automática y recíproca con las administraciones tributarias de más de 70 jurisdicciones internacionales.</div><div><br></div><h2>El fin del anonimato transfronterizo</h2><div>La implementación del CARF funcionará en paralelo con las actualizaciones del <b data-path-to-node="18" data-index-in-node="78">Estándar Común de Reporte (CRS)</b>, que ya rige para el sistema bancario tradicional y el dinero electrónico, cerrando las brechas regulatorias que existían entre las cuentas financieras convencionales y las finanzas descentralizadas.</div><div><br></div><div>Para los contribuyentes, el acuerdo consolida un estándar de transparencia global donde las tenencias en plataformas internacionales dejarán de estar fuera del radar fiscal, marcando un antes y un después en la fiscalización del patrimonio digital en el país.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
