@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El Garrahan le reclama a Kicillof más de $8.278 millones por la atención de 44.447 niños bonaerenses del IOMA","description":"El hospital pediátrico desmintió al Gobierno de la provincia de Buenos Aires y advirtió que el incumplimiento en los pagos pone en riesgo la operatividad de la institución y la salud de los chicos atendidos desde 2017.","image":["https://macromindnews.com.ar/img/hospital-garrahan.jpg"],"datePublished":"2026-06-10T00:00:00-03:00","dateModified":"2026-06-10T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-garrahan-le-reclama-a-kicillof-mas-de-8278-millones-por-la-atencion-de-44447-.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El Garrahan le reclama a Kicillof más de $8.278 millones por la atención de 44.447 niños bonaerenses del IOMA</h1>
   <p class="art-excerpt">El hospital pediátrico desmintió al Gobierno de la provincia de Buenos Aires y advirtió que el incumplimiento en los pagos pone en riesgo la operatividad de la institución y la salud de los chicos atendidos desde 2017.</p>
   <div class="art-meta">10 de Junio, 2026</div>
-  <img src="img/hospital-garrahan.jpg" alt="El Garrahan le reclama a Kicillof más de $8.278 millones por la atención de 44.447 niños bonaerenses del IOMA" onerror="this.style.background='#ddd';"/>
+  <img src="img/hospital-garrahan.jpg" alt="El Garrahan le reclama a Kicillof más de $8.278 millones por la atención de 44.447 niños bonaerenses del IOMA" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-garrahan-le-reclama-a-kicillof-mas-de-8278-millones-por-la-atencion-de-44447-.html&text=El%20Garrahan%20le%20reclama%20a%20Kicillof%20m%C3%A1s%20de%20%248.278%20millones%20por%20la%20atenci%C3%B3n%20de%2044.447%20ni%C3%B1os%20bonaerenses%20del%20IOMA" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>El Hospital de Pediatría Juan P. Garrahan emitió un comunicado oficial en el que desmintió públicamente al Gobierno de la provincia de Buenos Aires y reclamó el pago de más de $8.278 millones por la atención prestada a 44.447 niños y niñas bonaerenses afiliados al Instituto de Obra Médico Asistencial (IOMA) desde 2017. La deuda acumula casi una década de prestaciones impagas y, según la institución, su persistencia compromete directamente la capacidad operativa del hospital y la continuidad de la atención de los pacientes más vulnerables del sistema de salud pública.</div><img src="img/hospital-garrahan-nota.jpg" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><h2>Una deuda que se arrastra desde 2017</h2><div>El Garrahan es el principal hospital pediátrico público de la Argentina y uno de los centros de referencia de alta complejidad más importantes de América Latina. Atiende a pacientes de todo el país, incluyendo una porción significativa de niños y niñas derivados desde la provincia de Buenos Aires cuya cobertura médica corresponde al IOMA, la obra social provincial. La deuda reclamada no es reciente: se origina en prestaciones realizadas a lo largo de casi nueve años, durante las cuales el organismo bonaerense habría incumplido sistemáticamente con los pagos comprometidos por la atención de sus afiliados.</div><div><br></div><h2>El desmentido al Gobierno provincial</h2><div>El comunicado del hospital surgió en respuesta a declaraciones del Gobierno de Axel Kicillof que, según la institución, no reflejaban con precisión el estado real de la deuda ni el impacto que su falta de pago genera en el funcionamiento del centro. El Garrahan fue explícito: el incumplimiento no es un problema administrativo menor sino una amenaza concreta a la operatividad de la institución. En términos prácticos, una deuda de esa magnitud afecta la capacidad del hospital de sostener sus insumos, equipamiento, contratos con proveedores y condiciones laborales del personal.</div><div><br></div><h2>Lo que está en juego</h2><div>El caso del Garrahan expone una tensión estructural del sistema de salud argentino: la brecha entre lo que los hospitales públicos de alta complejidad prestan efectivamente y lo que las obras sociales y los gobiernos provinciales pagan por esas prestaciones. El Garrahan atiende casos que muchos centros de menor complejidad no pueden resolver, lo que lo convierte en destino final de los pacientes más graves. Que una deuda de esta magnitud se acumule durante casi una década con una obra social provincial no es un caso aislado, pero la magnitud del monto y la contundencia del desmentido público le dan a este episodio una dimensión política que trasciende lo administrativo. La salud de 44.447 niños bonaerenses, según la propia institución, está en el centro de la disputa.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
