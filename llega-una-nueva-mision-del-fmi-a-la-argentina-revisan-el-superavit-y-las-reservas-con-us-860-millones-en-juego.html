@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Llega una nueva misión del FMI a la Argentina: revisan el superávit y las reservas con US$ 860 millones en juego","description":"Los técnicos del organismo internacional desembarcan en Buenos Aires para auditar el rumbo del programa económico en medio de un clima global más exigente. Qué metas miran de cerca y el calendario de vencimientos que apura al Gobierno.","image":["https://macromindnews.com.ar/img/caputo-kristalina-21-9-26.webp"],"datePublished":"2026-09-21T00:00:00-03:00","dateModified":"2026-09-21T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/llega-una-nueva-mision-del-fmi-a-la-argentina-revisan-el-superavit-y-las-reservas-con-us-860-millones-en-juego.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Llega una nueva misión del FMI a la Argentina: revisan el superávit y las reservas con US$ 860 millones en juego</h1>
   <p class="art-excerpt">Los técnicos del organismo internacional desembarcan en Buenos Aires para auditar el rumbo del programa económico en medio de un clima global más exigente. Qué metas miran de cerca y el calendario de vencimientos que apura al Gobierno.</p>
   <div class="art-meta">21 de Septiembre, 2026</div>
-  <img src="img/caputo-kristalina-21-9-26.webp" alt="Llega una nueva misión del FMI a la Argentina: revisan el superávit y las reservas con US$ 860 millones en juego" onerror="this.style.background='#ddd';"/>
+  <img src="img/caputo-kristalina-21-9-26.webp" alt="Llega una nueva misión del FMI a la Argentina: revisan el superávit y las reservas con US$ 860 millones en juego" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/llega-una-nueva-mision-del-fmi-a-la-argentina-revisan-el-superavit-y-las-reservas-con-us-860-millones-en-juego.html&text=Llega%20una%20nueva%20misi%C3%B3n%20del%20FMI%20a%20la%20Argentina%3A%20revisan%20el%20super%C3%A1vit%20y%20las%20reservas%20con%20US%24%20860%20millones%20en%20juego" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El equipo económico de <b data-path-to-node="6" data-index-in-node="23">Luis Caputo</b> vuelve a quedar bajo la lupa internacional. Una delegación técnica del <b data-path-to-node="6" data-index-in-node="106">Fondo Monetario Internacional (FMI)</b>, encabezada por <b data-path-to-node="6" data-index-in-node="158">Joyce Wong</b>, llegó este lunes a Buenos Aires para iniciar la <b data-path-to-node="6" data-index-in-node="218">tercera revisión del programa vigente</b>, una auditoría clave de cuya aprobación depende la liberación de un desembolso pendiente por <b data-path-to-node="6" data-index-in-node="349">US$ 860 millones</b>.<div><br></div><div>La llegada de los enviados se produce en un momento de mayor tensión en los mercados externos por la reciente suba de tasas en Estados Unidos, lo que elevó el <b data-path-to-node="7" data-index-in-node="159">riesgo país argentino a 524 puntos básicos</b> y encareció el costo del crédito internacional por encima del 10% anual.</div><div><br></div><h2>Los tres puntos fundamentales que auditará el FMI</h2><div>A diferencia de misiones anteriores, el organismo multilateral no solo evaluará el cumplimiento de las metas del último trimestre, sino también la sostenibilidad de la hoja de ruta hacia 2027:</div><div><br></div><div>En primer término, revisarán el <b data-path-to-node="10" data-index-in-node="32">superávit fiscal primario</b>, donde el acuerdo exige cerrar 2026 con un saldo positivo del 1,4% del PBI. Hasta agosto, el Sector Público acumuló un superávit primario cercano al 1% y un excedente financiero del 0,2%, apoyado en el estricto control del gasto público.</div><div><br></div><div>En segundo lugar, se analizará la <b data-path-to-node="11" data-index-in-node="34">acumulación de reservas del Banco Central</b>. Si bien el BCRA compró más de <b data-path-to-node="11" data-index-in-node="107">US$ 14.000 millones</b> en lo que va del año (superando ampliamente la meta pautada con el FMI), en septiembre el ritmo de compras se redujo a unos US$ 203 millones para mantener estabilizado el tipo de cambio minorista en torno a los $1.535.</div><div><br></div><div>Finalmente, los técnicos pondrán la lupa sobre el <b data-path-to-node="12" data-index-in-node="50">Presupuesto 2027</b> enviado al Congreso, que proyecta una inflación del 18% para el próximo año y un crecimiento económico del 4%, en medio de un debate legislativo por recortes en partidas del gasto.</div><div><br></div><h2>El frente financiero y los vencimientos inmediatos</h2><div>La auditoría coincide con semanas de definiciones para la Casa Rosada en el plano exterior:</div><div><ul><li><b data-path-to-node="15" data-index-in-node="94">Vencimiento inminente:</b> A fines de septiembre el país debe cancelar un pago de <b data-path-to-node="15" data-index-in-node="172">US$ 800 millones</b> al propio organismo.</li><li><b data-path-to-node="15" data-index-in-node="212">Giro de divisas:</b> La aprobación técnica de esta misión destrabará de inmediato los <b data-path-to-node="15" data-index-in-node="294">US$ 860 millones</b> que quedaron pendientes desde julio.</li><li><b data-path-to-node="15" data-index-in-node="350">Deuda 2027:</b> Para el próximo año restan vencimientos netos con el FMI por casi <b data-path-to-node="15" data-index-in-node="428">US$ 6.000 millones</b>, razón por la cual el Palacio de Hacienda pidió autorización legislativa para emitir deuda externa.</li><li><b data-path-to-node="15" data-index-in-node="549">Viaje a Nueva York:</b> Paralelamente al trabajo de la misión en Buenos Aires, el presidente <b data-path-to-node="15" data-index-in-node="638">Javier Milei</b> viaja a Estados Unidos para la Asamblea General de la ONU, con agenda orientada a inversores.</li></ul><div><br></div></div><h2>¿Qué se espera de la visita técnica?</h2><div>Los enviados mantendrán reuniones de trabajo durante los próximos días con funcionarios del Ministerio de Economía y el Banco Central, además de encuentros con empresarios y analistas. En el Gobierno confían en aprobar las metas sin sobresaltos para asegurar el giro de fondos y enviar una señal de previsibilidad cambiaria antes del cierre del tercer trimestre.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
