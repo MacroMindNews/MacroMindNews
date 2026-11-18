@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Escocia, Gales e Irlanda del Norte sellan un frente común para separarse del Reino Unido","description":"Por primera vez en la historia, los líderes de las tres naciones periféricas firmaron un memorando conjunto que desafía la autoridad de Londres. Con la mira puesta en el retorno a la Unión Europea, lanzaron una advertencia que sacude la estructura política de Gran Bretaña.","image":["https://macromindnews.com.ar/img/internacional-14-9-26.webp"],"datePublished":"2026-09-14T00:00:00-03:00","dateModified":"2026-09-14T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/escocia-gales-e-irlanda-del-norte-sellan-un-frente-comun-para-separarse-del-reino-unido.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Escocia, Gales e Irlanda del Norte sellan un frente común para separarse del Reino Unido</h1>
   <p class="art-excerpt">Por primera vez en la historia, los líderes de las tres naciones periféricas firmaron un memorando conjunto que desafía la autoridad de Londres. Con la mira puesta en el retorno a la Unión Europea, lanzaron una advertencia que sacude la estructura política de Gran Bretaña.</p>
   <div class="art-meta">14 de Septiembre, 2026</div>
-  <img src="img/internacional-14-9-26.webp" alt="Escocia, Gales e Irlanda del Norte sellan un frente común para separarse del Reino Unido" onerror="this.style.background='#ddd';"/>
+  <img src="img/internacional-14-9-26.webp" alt="Escocia, Gales e Irlanda del Norte sellan un frente común para separarse del Reino Unido" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/escocia-gales-e-irlanda-del-norte-sellan-un-frente-comun-para-separarse-del-reino-unido.html&text=Escocia%2C%20Gales%20e%20Irlanda%20del%20Norte%20sellan%20un%20frente%20com%C3%BAn%20para%20separarse%20del%20Reino%20Unido" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El mapa político de las islas británicas enfrenta su mayor desafío constitucional en décadas. En una cumbre sin precedentes celebrada en la ciudad de <b data-path-to-node="4" data-index-in-node="150">Cardiff</b>, los máximos referentes gubernamentales de <b data-path-to-node="4" data-index-in-node="201">Escocia, Gales e Irlanda del Norte</b> formalizaron un <b data-path-to-node="4" data-index-in-node="252">memorando de entendimiento</b> para coordinar una estrategia conjunta orientada a la autodeterminación y la ruptura definitiva con el <b data-path-to-node="4" data-index-in-node="382">Reino Unido</b>.<div><br></div><div>El acuerdo sella una alianza estratégica entre las principales fuerzas nacionalistas de la región: el <b data-path-to-node="5" data-index-in-node="102">Partido Nacional Escocés (SNP)</b>, el partido galés <b data-path-to-node="5" data-index-in-node="151">Plaid Cymru</b> y el republicano <b data-path-to-node="5" data-index-in-node="180">Sinn Féin</b>, marcando un punto de inflexión en la relación con el Parlamento británico.</div><div><br></div><h2>Una advertencia directa al poder central de Londres</h2><div>La declaración conjunta contó con la rúbrica del primer ministro escocés <b data-path-to-node="7" data-index-in-node="73">John Swinney</b>, la primera ministra norirlandesa <b data-path-to-node="7" data-index-in-node="120">Michelle O’Neill</b>, el líder galés <b data-path-to-node="7" data-index-in-node="153">Rhun ap Iorwerth</b> y la presidenta del Sinn Féin, <b data-path-to-node="7" data-index-in-node="201">Mary Lou McDonald</b>. Desde la capital galesa, los dirigentes emitieron un mensaje contundente contra el centralismo de Westminster:</div><div><i data-path-to-node="8,0" data-index-in-node="0">"Por primera vez en la historia, la población de todas estas islas tiene primeros ministros en Escocia, en Gales y en Irlanda del Norte comprometidos con independizarse del Reino Unido. Para quienes nos ven en el mundo, no puede haber una señal más clara de que el tiempo de Westminster está llegando a su fin"</i>.<br><br>Los firmantes sostuvieron que ningún gobierno en Londres tiene legitimidad para bloquear los procesos democráticos internos y reivindicaron el derecho inalienable de sus pueblos a definir su propio estatus soberano.</div><div><br></div><h2>El retorno a la Unión Europea como horizonte común</h2><div>Aunque los partidos mantienen divergencias en los tiempos de ejecución y en los procedimientos institucionales, el pacto delimitó las prioridades de cada frente:</div><div><ul><li><b data-path-to-node="15" data-index-in-node="164">Escocia:</b> El gobierno del SNP busca sortear los fallos judiciales de Londres que prohíben convocar a un referéndum unilateral, utilizando el mandato parlamentario en Holyrood como palanca de presión internacional.</li><li><b data-path-to-node="15" data-index-in-node="379">Irlanda del Norte:</b> El Sinn Féin promueve la convocatoria a una consulta vinculante sobre la unificación irlandesa, respaldándose en los acuerdos de paz y en su condición de primera fuerza política en Stormont.</li><li><b data-path-to-node="15" data-index-in-node="591">Gales:</b> Plaid Cymru impulsa un debate creciente sobre la viabilidad fiscal y la ampliación de competencias autonómicas como paso previo a una separación formal.</li></ul><div><br></div></div><div>Frente a este escenario, el gobierno británico ratificó que no avalará consultas populares que pongan en riesgo la integridad del Estado, abriendo una etapa de máxima fricción legal y política que amenaza con reconfigurar las fronteras del Reino Unido.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
