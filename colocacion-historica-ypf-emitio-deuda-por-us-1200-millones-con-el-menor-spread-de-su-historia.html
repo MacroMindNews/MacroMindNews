@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Colocación histórica: YPF emitió deuda por US$ 1.200 millones con el menor spread de su historia","description":"La petrolera colocó un bono a 2035 con una tasa del 7,55% anual y un diferencial de solo 300 puntos básicos sobre los bonos del Tesoro de EE. UU. La demanda internacional superó los US$ 2.200 millones y los fondos financiarán el Plan 4x4 y el despeje de vencimientos hacia 2029.","image":["https://macromindnews.com.ar/img/ypf-9-9-26.webp"],"datePublished":"2026-09-10T00:00:00-03:00","dateModified":"2026-09-10T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/colocacion-historica-ypf-emitio-deuda-por-us-1200-millones-con-el-menor-spread-de-su-historia.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Colocación histórica: YPF emitió deuda por US$ 1.200 millones con el menor spread de su historia</h1>
   <p class="art-excerpt">La petrolera colocó un bono a 2035 con una tasa del 7,55% anual y un diferencial de solo 300 puntos básicos sobre los bonos del Tesoro de EE. UU. La demanda internacional superó los US$ 2.200 millones y los fondos financiarán el Plan 4x4 y el despeje de vencimientos hacia 2029.</p>
   <div class="art-meta">10 de Septiembre, 2026</div>
-  <img src="img/ypf-9-9-26.webp" alt="Colocación histórica: YPF emitió deuda por US$ 1.200 millones con el menor spread de su historia" onerror="this.style.background='#ddd';"/>
+  <img src="img/ypf-9-9-26.webp" alt="Colocación histórica: YPF emitió deuda por US$ 1.200 millones con el menor spread de su historia" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/colocacion-historica-ypf-emitio-deuda-por-us-1200-millones-con-el-menor-spread-de-su-historia.html&text=Colocaci%C3%B3n%20hist%C3%B3rica%3A%20YPF%20emiti%C3%B3%20deuda%20por%20US%24%201.200%20millones%20con%20el%20menor%20spread%20de%20su%20historia" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><h2><span style="font-family: &quot;Source Sans 3&quot;, sans-serif; font-size: 0.92rem; font-weight: normal;">En una operación clave para el financiamiento corporativo argentino, YPF cerró con éxito una colocación de deuda internacional por US$ 1.200 millones, marcando la emisión de mayor volumen concretada por una empresa del país en los últimos 11 años.</span></h2><div>El nuevo instrumento, con vencimiento fijado a <b data-path-to-node="8" data-index-in-node="47">junio de 2035 (9 años de plazo)</b>, se estructuró a una tasa nominal de <b data-path-to-node="8" data-index-in-node="116">7,55%</b> (con una tasa efectiva anual del <b data-path-to-node="8" data-index-in-node="155">7,85%</b>). El dato saliente para el mercado fue el diferencial de tasa (<i data-path-to-node="8" data-index-in-node="224">spread</i>): se ubicó en <b data-path-to-node="8" data-index-in-node="245">300 puntos básicos (3%) sobre los rendimientos del Tesoro norteamericano</b>, registrando el costo de fondeo relativo ("riesgo YPF") más bajo alcanzado por la petrolera en su historia dentro del mercado global de capitales.<br><img src="img/comunicado-ypf-9-9-26.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><br></div><div><h2>Fuerte sobredemanda de Wall Street</h2>La transacción se concretó tras dos jornadas de reuniones en Nueva York, donde el equipo directivo de la compañía mantuvo encuentros con más de <b data-path-to-node="13" data-index-in-node="144">50 inversores institucionales internacionales</b>.</div><div><br></div><div>El apetito del mercado por el crédito de la petrolera se reflejó en las ofertas recibidas: la demanda trepó hasta los <b data-path-to-node="14" data-index-in-node="118">US$ 2.200 millones</b>, prácticamente duplicando el monto finalmente adjudicado de US$ 1.200 millones. Esta sobreoferta permitió ajustar las condiciones de rendimiento y consolidar una tasa competitiva.</div><div><br></div><h2>Destinos de los fondos: alivio de vencimientos y Vaca Muerta</h2><div>De acuerdo con lo precisado por la firma, los recursos captados tendrán dos destinos estratégicos:<br><ul><li><b data-path-to-node="17,0,0" data-index-in-node="0">Reperfilamiento de pasivos:</b> Precancelación de dos series de Obligaciones Negociables (ON) internacionales que vencían entre <b data-path-to-node="17,0,0" data-index-in-node="124">2027 y 2029</b>, lo que permite despejar compromisos de corto y mediano plazo y estirar la vida promedio de la deuda corporativa.</li><li><b data-path-to-node="17,1,0" data-index-in-node="0">Inversión productiva:</b> Apuntalar el financiamiento del <b data-path-to-node="17,1,0" data-index-in-node="54">Plan 4x4</b>, la hoja de ruta estratégica orientada a acelerar la producción de crudo no convencional en Vaca Muerta y maximizar la infraestructura de exportación.</li></ul><div><br></div></div><h2>Bancos colocadores</h2><div>La colocación contó con la participación de un consorcio de entidades de primera línea. En el ámbito internacional actuaron <b data-path-to-node="19" data-index-in-node="124">BBVA, Itaú, J.P. Morgan, Santander y Balanz</b>, mientras que a nivel local operaron <b data-path-to-node="19" data-index-in-node="205">Banco Galicia, Banco Macro, Banco CMF, Cucchiara, Latin Securities, Cocos Capital y Puente Hnos</b>.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
