@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Imputaron a Claudio \"Chiqui\" Tapia por presunto enriquecimiento ilícito en el CEAMSE","description":"Comodoro Py abrió una causa penal contra el presidente de la AFA para auditar la evolución de su patrimonio como funcionario público. Criptomonedas, cuentas bancarias, registros de lujo y un exhorto internacional a la CONMEBOL: los detalles de la exhaustiva investigación que ordenó la Justicia.","image":["https://macromindnews.com.ar/img/chiqui-tapia-11-9-26.webp"],"datePublished":"2026-09-11T00:00:00-03:00","dateModified":"2026-09-11T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/imputaron-a-claudio-chiqui-tapia-por-presunto-enriquecimiento-ilicito-en-el-ceamse.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Imputaron a Claudio "Chiqui" Tapia por presunto enriquecimiento ilícito en el CEAMSE</h1>
   <p class="art-excerpt">Comodoro Py abrió una causa penal contra el presidente de la AFA para auditar la evolución de su patrimonio como funcionario público. Criptomonedas, cuentas bancarias, registros de lujo y un exhorto internacional a la CONMEBOL: los detalles de la exhaustiva investigación que ordenó la Justicia.</p>
   <div class="art-meta">11 de Septiembre, 2026</div>
-  <img src="img/chiqui-tapia-11-9-26.webp" alt="Imputaron a Claudio "Chiqui" Tapia por presunto enriquecimiento ilícito en el CEAMSE" onerror="this.style.background='#ddd';"/>
+  <img src="img/chiqui-tapia-11-9-26.webp" alt="Imputaron a Claudio "Chiqui" Tapia por presunto enriquecimiento ilícito en el CEAMSE" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/imputaron-a-claudio-chiqui-tapia-por-presunto-enriquecimiento-ilicito-en-el-ceamse.html&text=Imputaron%20a%20Claudio%20%22Chiqui%22%20Tapia%20por%20presunto%20enriquecimiento%20il%C3%ADcito%20en%20el%20CEAMSE" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El frente judicial de <b data-path-to-node="4" data-index-in-node="22">Claudio "Chiqui" Tapia</b> sumó un nuevo capítulo de alta sensibilidad institucional. El fiscal federal <b data-path-to-node="4" data-index-in-node="122">Gerardo Pollicita</b> dispuso la apertura de una investigación penal e imputó al presidente de la Asociación del Fútbol Argentino (AFA) por presunto enriquecimiento ilícito durante su desempeño en la <b data-path-to-node="4" data-index-in-node="318">Coordinación Ecológica Área Metropolitana Sociedad del Estado (CEAMSE)</b>, empresa pública mixta encargada de la gestión de residuos en el AMBA que hoy encabeza.<br><br>La causa, radicada en los tribunales federales de Retiro tras resolverse una disputa de competencia, quedó bajo la órbita del juez federal <b data-path-to-node="5" data-index-in-node="139">Ariel Lijo</b>, a quien la fiscalía ya le solicitó una batería preliminar de medidas de prueba de amplio alcance financiero y patrimonial.<div><br></div><div><h2>Radiografía de la investigación: las pruebas bajo secreto bancario y fiscal</h2>Para determinar si los bienes de Tapia guardan correlato con sus ingresos lícitos declarados, la fiscalía requirió levantar el <b data-path-to-node="7" data-index-in-node="127">secreto bancario, fiscal y bursátil</b>, activando pedidos de informes a los principales organismos de control:<br><ul><li><b data-path-to-node="7" data-index-in-node="237">Cuentas y movimientos financieros:</b> Requerimientos directos al Banco Central (BCRA), Comisión Nacional de Valores (CNV), Caja de Valores y la Unidad de Información Financiera (UIF).</li><li><b data-path-to-node="7" data-index-in-node="420">Situación tributaria y previsional:</b> Cruce de declaraciones juradas integrales y anexos reservados ante la Agencia de Recaudación y Control Aduanero (ARCA) y la ANSES.</li><li><b data-path-to-node="7" data-index-in-node="589">Registros de bienes registrables:</b> Informes a los registros de la propiedad inmueble de CABA, Buenos Aires y San Juan, sumados al Registro Automotor, Buques y Aeronaves.</li><li><b data-path-to-node="7" data-index-in-node="760">Activos digitales y movimientos migratorios:</b> Pedido formal a empresas operadoras de criptomonedas para constatar billeteras virtuales, además del historial de salidas del país a través de Migraciones.</li></ul><div><br></div></div><h2>El origen de la denuncia y los números bajo la lupa</h2><div>El expediente se inició formalmente a raíz de una presentación del empresario <b data-path-to-node="10" data-index-in-node="78">Guillermo Tofoni</b>, quien denunció un salto patrimonial cercano al <b data-path-to-node="10" data-index-in-node="143">1.000% entre 2017 y 2024</b>, cifra que, según el escrito, excede los parámetros inflacionarios y no encontraría justificación en sus ingresos legítimos.</div><div><br></div><div>Tapia ingresó al CEAMSE en 2014 como vicepresidente durante la gestión porteña de Mauricio Macri y en 2024 asumió la presidencia del ente designado por el gobernador bonaerense Axel Kicillof. Entre los ingresos formales informados en la causa se destacan:</div><div><ul><li><b data-path-to-node="11" data-index-in-node="258">Salario en CEAMSE:</b> Estimado en unos <b data-path-to-node="11" data-index-in-node="294">$100.233.144 anuales</b> por su rol como presidente del directorio.</li><li><b data-path-to-node="11" data-index-in-node="360">Remuneración en CONMEBOL:</b> Declarada en torno a los <b data-path-to-node="11" data-index-in-node="411">$718.536.500 anuales</b> por su cargo de vicepresidente del organismo sudamericano.</li><li><b data-path-to-node="11" data-index-in-node="493">Presidencia de AFA:</b> Ejercida de manera formal con carácter <i data-path-to-node="11" data-index-in-node="552">ad honorem</i>.</li></ul><div><br></div></div><div>Frente a estas cifras, el fiscal Pollicita solicitó librar un <b data-path-to-node="12" data-index-in-node="62">exhorto internacional a la CONMEBOL</b> para que remita su legajo laboral completo, detalle los montos liquidados, las resoluciones de nombramiento y las cuentas bancarias donde se acreditaron dichos fondos.</div><div><br></div><h2>Acumulación de causas en Comodoro PY</h2><div>Se trata del primer expediente judicial que pone la lupa sobre el patrimonio personal de Tapia en su rol de funcionario del Estado. Sin embargo, el mandamás del fútbol ya afronta otros procesos en la Justicia federal junto al tesorero de la entidad, <b data-path-to-node="14" data-index-in-node="250">Pablo Toviggino</b>:</div><div><ul><li>Procesamiento confirmado por <b data-path-to-node="14" data-index-in-node="298">presunta evasión impositiva</b> vinculada a la retención de aportes en la AFA.</li><li>Investigaciones en curso por el presunto uso de <b data-path-to-node="14" data-index-in-node="423">facturas apócrifas</b>, administración fraudulenta y desvío de fondos hacia cuentas en el exterior.</li><li>La causa paralela sobre presuntos testaferros y la titularidad de propiedades atribuidas a la dirigencia, entre ellas una mansión en el partido de Pilar.</li></ul><div><br></div></div><div>Una vez que los organismos aporten la documentación solicitada, la fiscalía ordenará una pericia contable integral a través de un cuerpo de peritos especializados para determinar si existió un incremento patrimonial injustificado.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
