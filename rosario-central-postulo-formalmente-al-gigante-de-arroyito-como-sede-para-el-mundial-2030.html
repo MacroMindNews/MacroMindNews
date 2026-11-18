@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Rosario Central postuló formalmente al Gigante de Arroyito como sede para el Mundial 2030","description":"Rosario Central presentó la postulación oficial del Gigante de Arroyito como sede para la Copa del Mundo 2030. La propuesta contempla la ampliación del estadio, una tercera bandeja, accesos renovados y un sistema de llegada fluvial por el río Paraná.","image":["https://macromindnews.com.ar/img/gigante-de-arroyito.webp"],"datePublished":"2026-10-13T00:00:00-03:00","dateModified":"2026-10-13T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/rosario-central-postulo-formalmente-al-gigante-de-arroyito-como-sede-para-el-mundial-2030.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Rosario Central postuló formalmente al Gigante de Arroyito como sede para el Mundial 2030</h1>
   <p class="art-excerpt">Rosario Central presentó la postulación oficial del Gigante de Arroyito como sede para la Copa del Mundo 2030. La propuesta contempla la ampliación del estadio, una tercera bandeja, accesos renovados y un sistema de llegada fluvial por el río Paraná.</p>
   <div class="art-meta">13 de Octubre, 2026</div>
-  <img src="img/gigante-de-arroyito.webp" alt="Rosario Central postuló formalmente al Gigante de Arroyito como sede para el Mundial 2030" onerror="this.style.background='#ddd';"/>
+  <img src="img/gigante-de-arroyito.webp" alt="Rosario Central postuló formalmente al Gigante de Arroyito como sede para el Mundial 2030" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/rosario-central-postulo-formalmente-al-gigante-de-arroyito-como-sede-para-el-mundial-2030.html&text=Rosario%20Central%20postul%C3%B3%20formalmente%20al%20Gigante%20de%20Arroyito%20como%20sede%20para%20el%20Mundial%202030" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><span >Rosario Central dio un paso clave en el plano institucional y deportivo al presentar de manera oficial la candidatura de su estadio, el Gigante de Arroyito, para albergar encuentros de la Copa del Mundo 2030. A través de una cuidada campaña audiovisual difundida en las plataformas digitales de la entidad, la comisión directiva auriazul expuso las reformas edilicias en marcha y apeló al legado histórico del escenario rosarino como subsede de la máxima cita futbolística en 1978.</span><div><br></div><div>La iniciativa del club santafesino cobra relevancia en el marco de la organización tri continental prevista para el centenario del torneo. <span >Mientras España, Portugal y Marruecos concentrarán la fase principal del certamen, la FIFA ratificó que Argentina, Uruguay y Paraguay albergarán los tres compromisos inaugurales de la competencia.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c864141825=""><sup _ngcontent-ng-c864141825=""  data-turn-source-index="3"><!----></sup></source-footnote></span> Ante este panorama, el Canalla busca posicionar a la ciudad de Rosario dentro de la nómina de ciudades receptoras.<br><span ><source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c864141825=""><sup _ngcontent-ng-c864141825=""  data-turn-source-index="2"><!----></sup></source-footnote></span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c2254557856=""></sources-carousel-inline><img src="img/gigante-de-arroyito-2.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"></div><h2>Remodelación de vanguardia y un inédito ingreso fluvial por el río Paraná</h2><div>El sustento principal de la postulación radica en el proyecto integral de modernización que ejecuta la institución en la estructura de Arroyito. El máster plan contempla la habilitación de una tercera bandeja para elevar la capacidad a más de 42.000 espectadores sentados bajo estándares FIFA, la adición de palcos preferenciales, zonas VIP y sectores de amenidades adaptados a las exigencias internacionales de transporte, prensa y transmisión.</div><div><br></div><div><span >Asimismo, las obras abarcan la reorganización de los circuitos de acceso peatonal, la ampliación del parque de estacionamiento contiguo para 400 vehículos y la incorporación de ascensores panorámicos de cristal.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c864141825=""><sup _ngcontent-ng-c864141825=""  data-turn-source-index="4"><!----></sup></source-footnote></span> Uno de los puntos conceptuales más innovadores de la carpeta de presentación es la habilitación de una vía de transporte fluvial sobre el margen del río Paraná, permitiendo el arribo directo de delegaciones y parcialidades mediante embarcaciones hasta los accesos posteriores de la cancha.</div><div><br></div><h2>Figuras icónicas y el antecedente histórico de Argentina 1978</h2><div>La pieza institucional lanzada por la dirigencia combina la viabilidad técnica con el valor cultural y deportivo de la región. <span >Con el lema "En el '78 fue Gigante Mundial. En el 2030 queremos volver a hacerlo. Estamos listos", el material reúne palabras e imágenes de personalidades trascendentes ligadas al club y a la ciudad, como Mario Alberto Kempes, César Luis Menotti, Ángel Di María, Roberto Fontanarrosa, Alberto Olmedo y Fito Páez.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c864141825=""><sup _ngcontent-ng-c864141825=""  data-turn-source-index="5"><!----></sup></source-footnote></span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c2254557856=""></sources-carousel-inline></div><div><span ><br></span></div><div><span >El antecedente de la Copa del Mundo de 1978 respalda el pedido de la entidad rosarina. En aquella oportunidad, el Gigante de Arroyito albergó seis encuentros correspondientes al Grupo 3 y a la segunda fase del torneo, transformándose en una sede estratégica para la coronación del seleccionado nacional. Cincuenta y dos años después, Central apunta a reinsertarse en la agenda futbolística internacional.</span></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
