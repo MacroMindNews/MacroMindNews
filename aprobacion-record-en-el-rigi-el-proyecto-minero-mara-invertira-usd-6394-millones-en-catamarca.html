@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Aprobación récord en el RIGI: el proyecto minero MARA invertirá USD 6.394 millones en Catamarca","description":"El Gobierno aprobó el ingreso del proyecto minero MARA (Glencore) al RIGI por una inversión de USD 6.394 millones en Catamarca. Producirá cobre, oro, plata y molibdeno durante 23 años.","image":["https://macromindnews.com.ar/img/proyecto-minero-mara.webp"],"datePublished":"2026-10-27T00:00:00-03:00","dateModified":"2026-10-27T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/aprobacion-record-en-el-rigi-el-proyecto-minero-mara-invertira-usd-6394-millones-en-catamarca.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Aprobación récord en el RIGI: el proyecto minero MARA invertirá USD 6.394 millones en Catamarca</h1>
   <p class="art-excerpt">El Gobierno aprobó el ingreso del proyecto minero MARA (Glencore) al RIGI por una inversión de USD 6.394 millones en Catamarca. Producirá cobre, oro, plata y molibdeno durante 23 años.</p>
   <div class="art-meta">27 de Octubre, 2026</div>
-  <img src="img/proyecto-minero-mara.webp" alt="Aprobación récord en el RIGI: el proyecto minero MARA invertirá USD 6.394 millones en Catamarca" onerror="this.style.background='#ddd';"/>
+  <img src="img/proyecto-minero-mara.webp" alt="Aprobación récord en el RIGI: el proyecto minero MARA invertirá USD 6.394 millones en Catamarca" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/aprobacion-record-en-el-rigi-el-proyecto-minero-mara-invertira-usd-6394-millones-en-catamarca.html&text=Aprobaci%C3%B3n%20r%C3%A9cord%20en%20el%20RIGI%3A%20el%20proyecto%20minero%20MARA%20invertir%C3%A1%20USD%206.394%20millones%20en%20Catamarca" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El Ministerio de Economía de la Nación aprobó la incorporación formal al Régimen de Incentivo para Grandes Inversiones (RIGI) del proyecto minero integrado MARA (Minera Agua Rica – Alumbrera). La iniciativa, impulsada por la firma suiza Glencore, contempla un desembolso total de USD 6.393,6 millones a lo largo de sus distintas etapas de desarrollo. El yacimiento, ubicado en la provincia de Catamarca, estará enfocado en la extracción y procesamiento de cobre, oro, plata y molibdeno.<div><br></div><div>La autorización habilita un marco de previsibilidad fiscal y cambiaria para el emprendimiento, que aprovechará la infraestructura de procesamiento preexistente de Minera Alumbrera. En materia de impacto socioeconómico, el Poder Ejecutivo y la empresa estiman que las tareas de infraestructura y explotación demandarán la creación de unos 8.200 puestos de trabajo, entre empleos directos e indirectos.</div><div><br></div><h2>Cronograma de obras, plazos de inversión y proyecciones de producción</h2><div>La documentación técnica ratificada por las autoridades fija un estricto cronograma para el desembolso de los capitales y la puesta en marcha de la mina, con una proyección de explotación fijada en 23 años de vida útil:</div><div><ul><li><b data-path-to-node="6,0,0" data-index-in-node="0">Plazos de construcción y operación:</b> El inicio formal de las obras de infraestructura está programado para el 1° de noviembre de 2027, mientras que el comienzo de la etapa productiva se estima para octubre de 2031.</li><li><b data-path-to-node="6,1,0" data-index-in-node="0">Estructura del capital inicial:</b> Del total de USD 6.393,6 millones proyectados, USD 3.310,6 millones corresponden a activos directamente computables para el régimen. La compañía deberá desembolsar USD 771,5 millones antes del 31 de diciembre de 2028 para cumplir con los requisitos mínimos del RIGI.</li><li><b data-path-to-node="6,2,0" data-index-in-node="0">Metas de producción acumulada:</b> A lo largo de sus 23 años de operación, se prevé procesar 780 millones de toneladas de mineral para obtener 3,45 millones de toneladas de cobre, 2,33 millones de onzas de oro, 41,16 millones de onzas de plata y cerca de 100.000 toneladas de molibdeno.</li><li><b data-path-to-node="6,3,0" data-index-in-node="0">Desarrollo de proveedores locales:</b> El plan contempla que el 54% del presupuesto destinado a compras, servicios y obras civiles sea adjudicado a empresas nacionales, superando el piso legal del 20% exigido por la normativa.</li></ul></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
