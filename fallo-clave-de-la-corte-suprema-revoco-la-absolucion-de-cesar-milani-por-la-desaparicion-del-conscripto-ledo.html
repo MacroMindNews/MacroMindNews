@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Fallo clave de la Corte Suprema: revocó la absolución de César Milani por la desaparición del conscripto Ledo","description":"En una resolución dividida con conjueces, el máximo tribunal dejó sin efecto el sobreseimiento del exjefe del Ejército kirchnerista por el secuestro del soldado riojano en 1976. Las pruebas omitidas sobre el acta de falsa deserción y el nuevo juicio que deberá dictar la Casación.","image":["https://macromindnews.com.ar/img/milani-29-09-26.webp"],"datePublished":"2026-09-29T00:00:00-03:00","dateModified":"2026-09-29T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/fallo-clave-de-la-corte-suprema-revoco-la-absolucion-de-cesar-milani-por-la-desaparicion-del-conscripto-ledo.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Fallo clave de la Corte Suprema: revocó la absolución de César Milani por la desaparición del conscripto Ledo</h1>
   <p class="art-excerpt">En una resolución dividida con conjueces, el máximo tribunal dejó sin efecto el sobreseimiento del exjefe del Ejército kirchnerista por el secuestro del soldado riojano en 1976. Las pruebas omitidas sobre el acta de falsa deserción y el nuevo juicio que deberá dictar la Casación.</p>
   <div class="art-meta">29 de Septiembre, 2026</div>
-  <img src="img/milani-29-09-26.webp" alt="Fallo clave de la Corte Suprema: revocó la absolución de César Milani por la desaparición del conscripto Ledo" onerror="this.style.background='#ddd';"/>
+  <img src="img/milani-29-09-26.webp" alt="Fallo clave de la Corte Suprema: revocó la absolución de César Milani por la desaparición del conscripto Ledo" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/fallo-clave-de-la-corte-suprema-revoco-la-absolucion-de-cesar-milani-por-la-desaparicion-del-conscripto-ledo.html&text=Fallo%20clave%20de%20la%20Corte%20Suprema%3A%20revoc%C3%B3%20la%20absoluci%C3%B3n%20de%20C%C3%A9sar%20Milani%20por%20la%20desaparici%C3%B3n%20del%20conscripto%20Ledo" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La situación judicial del teniente general retirado <b data-path-to-node="6" data-index-in-node="52">César Milani</b> dio un vuelco drástico en los tribunales federales. En un pronunciamiento de alto impacto institucional, la <b data-path-to-node="6" data-index-in-node="173">Corte Suprema de Justicia de la Nación revocó la absolución</b> del exjefe del Ejército durante el kirchnerismo en la causa que investiga su responsabilidad en el encubrimiento y la desaparición forzada del soldado conscripto <b data-path-to-node="6" data-index-in-node="395">Alberto Agapito Ledo</b>, ocurrida en Tucumán en junio de 1976.<div><br></div><div>El fallo del máximo tribunal no implica una condena directa ni la prisión inmediata de Milani, sino que anula las sentencias favorables previas dictadas por el Tribunal Oral de Tucumán en 2019 y la Cámara de Casación en 2021, ordenando que un nuevo panel de camaristas vuelva a juzgar su actuación en los hechos.</div><div><br></div><h2>Cómo votaron los jueces: mayoría con conjueces y una disidencia</h2><div>La resolución se definió a través de una mayoría especial conformada por ministros de la Corte y magistrados federales convocados como conjueces:</div><div><br></div><div>El voto que dejó sin efecto la absolución reunió las firmas de los jueces <b data-path-to-node="10" data-index-in-node="74">Horacio Rosatti</b> y <b data-path-to-node="10" data-index-in-node="92">Ricardo Lorenzetti</b>, junto al conjuez <b data-path-to-node="10" data-index-in-node="129">Juan Ignacio Pérez Curci</b> (camarista federal de Mendoza), haciendo suyos los argumentos del procurador general interino <b data-path-to-node="10" data-index-in-node="248">Eduardo Casal</b>. A ellos se sumó el voto concurrente del conjuez <b data-path-to-node="10" data-index-in-node="311">Luis Renato Rabbi Baldi Cabanillas</b> (camarista federal de Salta), quien remarcó que las instancias anteriores evaluaron la conducta de Milani como un mero trámite administrativo aislado del plan represivo.</div><div><br></div><div>En soledad, el juez <b data-path-to-node="11" data-index-in-node="20">Carlos Rosenkrantz</b> votó en disidencia por confirmar la absolución por el beneficio de la duda, sosteniendo que al momento de los hechos Milani tenía 21 años, revistaba como subteniente recién llegado a la unidad y no se acreditó que contara con información sobre las órdenes ilegales de los altos mandos.<br><img src="img/milani-en-el-juicio.jpg" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"></div><h2>El caso Ledo: Secuestro en la madrugada y el acta simulada</h2><div><b data-path-to-node="14" data-index-in-node="0">Alberto Agapito Ledo</b> era un estudiante riojano de Historia, militante del Partido Revolucionario de los Trabajadores (PRT) y colaborador social del obispo Enrique Angelelli. Cumplía el Servicio Militar Obligatorio en el Batallón de Ingenieros de Construcciones 141 de La Rioja cuando la unidad fue trasladada a Monteros, Tucumán, en el marco del Operativo Independencia.</div><div><br></div><div>En la noche del 17 de junio de 1976, Ledo fue retirado de su puesto de descanso por superiores y nunca más se supo de él:</div><div><ul><li><b data-path-to-node="15" data-index-in-node="124">La maniobra de encubrimiento:</b> Para ocultar el crimen, el entonces capitán Esteban Sanguinetti (ya condenado a 14 años de prisión) ordenó confeccionar un sumario interno haciendo figurar que el conscripto había desertado.</li><li><b data-path-to-node="15" data-index-in-node="347">La firma de Milani:</b> Dicha acta de deserción fue labrada y firmada por el entonces joven subteniente César Milani, donde se dejó asentado falsamente que Ledo había escapado llevándose su equipo reglamentario de campaña.</li></ul><div><br></div></div><h2>Los reproches de la Corte: por qué se anuló la absolución</h2><div>El dictamen de la Procuración que convalidó la Corte apuntó contra las falencias de los fallos que habían beneficiado al militar:</div><div><ul><li><b data-path-to-node="17" data-index-in-node="132">Omisión de pruebas determinantes:</b> Sostuvo que fue arbitrario afirmar que Milani no sabía ni tenía motivos para sospechar que Ledo era víctima de un secuestro estatal en una zona militarizada.</li><li><b data-path-to-node="17" data-index-in-node="326">Falsedad ideológica:</b> Se acreditó que las pertenencias del soldado habían quedado en el campamento, contradiciendo lo volcado en el expediente administrativo.</li><li><b data-path-to-node="17" data-index-in-node="486">Uso indebido de la duda:</b> La Corte determinó que no correspondía cerrar el proceso bajo el beneficio de la duda cuando existían indicios concordantes que no fueron analizados con rigor.</li></ul><div><br></div></div><h2>Qué pasará con el futuro judicial del militar</h2><div>El expediente volverá ahora a la <b data-path-to-node="19" data-index-in-node="33">Cámara Federal de Casación Penal</b>, donde se sorteará una nueva sala para dictar una nueva sentencia definitiva sobre la acusación por encubrimiento y falsedad ideológica, delitos que prevén penas de hasta seis años de prisión.</div><div><br></div><div>A sus 71 años, Milani suma un nuevo revés en la máxima instancia judicial, que se añade a la reactivación de la causa por presunto enriquecimiento ilícito vinculada a la compra de una propiedad en San Isidro, cuya absolución también había sido anulada previamente por la Cámara de Casación.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
