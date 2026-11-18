@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"CAME le pidió a Caputo que ARCA suspenda embargos y congele multas a las pymes mientras se debate la nueva Ley de Inocencia Fiscal","description":"La confederación que agrupa a más de 600.000 pymes solicitó un régimen especial de hasta 48 cuotas con condonación parcial de intereses, en un contexto de consumo deprimido y presión tributaria creciente sobre el sector.","image":["https://macromindnews.com.ar/img/came.jpg"],"datePublished":"2026-06-06T00:00:00-03:00","dateModified":"2026-06-06T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/came-le-pidio-a-caputo-que-arca-suspenda-embargos-y-congele-multas-a-las-pymes-m.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">CAME le pidió a Caputo que ARCA suspenda embargos y congele multas a las pymes mientras se debate la nueva Ley de Inocencia Fiscal</h1>
   <p class="art-excerpt">La confederación que agrupa a más de 600.000 pymes solicitó un régimen especial de hasta 48 cuotas con condonación parcial de intereses, en un contexto de consumo deprimido y presión tributaria creciente sobre el sector.</p>
   <div class="art-meta">6 de Junio, 2026</div>
-  <img src="img/came.jpg" alt="CAME le pidió a Caputo que ARCA suspenda embargos y congele multas a las pymes mientras se debate la nueva Ley de Inocencia Fiscal" onerror="this.style.background='#ddd';"/>
+  <img src="img/came.jpg" alt="CAME le pidió a Caputo que ARCA suspenda embargos y congele multas a las pymes mientras se debate la nueva Ley de Inocencia Fiscal" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/came-le-pidio-a-caputo-que-arca-suspenda-embargos-y-congele-multas-a-las-pymes-m.html&text=CAME%20le%20pidi%C3%B3%20a%20Caputo%20que%20ARCA%20suspenda%20embargos%20y%20congele%20multas%20a%20las%20pymes%20mientras%20se%20debate%20la%20nueva%20Ley%20de%20Inocencia%20Fiscal" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La Confederación Argentina de la Mediana Empresa (CAME) le solicitó formalmente al ministro de Economía Luis Caputo que, durante el período de transición abierto por el anuncio de modificación de la Ley de Inocencia Fiscal, la Agencia de Recaudación y Control Aduanero (ARCA) no aplique multas ni ejecute embargos sobre las pequeñas y medianas empresas. El pedido se enmarca en la incertidumbre que generó el anuncio de un nuevo proyecto de ley antes de que el plazo original del 27 de julio esté resuelto legislativamente, dejando a miles de contribuyentes pyme en un limbo normativo.<div><br><div>La entidad planteó una serie de condiciones concretas. En primer lugar, que en los casos en que el contribuyente regularice la obligación intimada dentro de los 15 días posteriores a la finalización del período de espera, la multa aplicable se reduzca en un 50%. Solo una vez vencido ese plazo sin cumplimiento debería aplicarse la sanción completa. A su vez, CAME reclamó la suspensión de todas las ejecuciones fiscales y embargos vigentes sobre el sector pyme mientras se tramita el nuevo proyecto en el Congreso, argumentando que sería contradictorio avanzar con acciones coercitivas en simultáneo con una reforma que busca precisamente reducir la litigiosidad entre el fisco y los contribuyentes.</div><div><br></div><div>El reclamo más ambicioso de la confederación apunta a la implementación de un régimen especial de facilidades de pago que contemple hasta 48 cuotas, con una condonación del 50% de los intereses devengados y una tasa de financiación equivalente al 50% de la tasa pasiva del Banco Nación. El régimen debería abarcar las deudas vencidas al 31 de mayo de 2026, así como los planes de facilidades vigentes y los que hubieran caducado. La propuesta refleja la situación crítica que atraviesa el sector: en abril, la producción industrial pyme cayó un 7,3% interanual, y el consumo minorista sigue sin recuperar los niveles previos al ajuste de 2024.</div><div><br></div><div>El planteo de CAME pone en evidencia la tensión entre el objetivo fiscal del Gobierno y la capacidad real de pago de las pymes en el contexto actual. La confederación, que nuclea a más de 1.491 federaciones, cámaras y centros industriales de todo el país y representa a empresas que emplean a 4.200.000 trabajadores registrados, advirtió que sin medidas de acompañamiento concretas el proceso de reforma tributaria podría profundizar el deterioro del entramado productivo en lugar de sanearlo.</div></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
