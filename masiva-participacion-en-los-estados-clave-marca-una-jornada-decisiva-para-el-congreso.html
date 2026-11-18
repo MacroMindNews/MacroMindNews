@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Masiva participación en los estados clave marca una jornada decisiva para el Congreso","description":"Millones de estadounidenses acuden a las urnas en una jornada marcada por un récord de votación anticipada que superó los 50 millones de sufragios. Ohio y Georgia registran niveles de afluencia cercanos a los de las elecciones presidenciales.","image":["https://macromindnews.com.ar/img/elecciones-usa-03-11-26.webp"],"datePublished":"2026-11-03T00:00:00-03:00","dateModified":"2026-11-03T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/masiva-participacion-en-los-estados-clave-marca-una-jornada-decisiva-para-el-congreso.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Masiva participación en los estados clave marca una jornada decisiva para el Congreso</h1>
   <p class="art-excerpt">Millones de estadounidenses acuden a las urnas en una jornada marcada por un récord de votación anticipada que superó los 50 millones de sufragios. Ohio y Georgia registran niveles de afluencia cercanos a los de las elecciones presidenciales.</p>
   <div class="art-meta">3 de Noviembre, 2026</div>
-  <img src="img/elecciones-usa-03-11-26.webp" alt="Masiva participación en los estados clave marca una jornada decisiva para el Congreso" onerror="this.style.background='#ddd';"/>
+  <img src="img/elecciones-usa-03-11-26.webp" alt="Masiva participación en los estados clave marca una jornada decisiva para el Congreso" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/masiva-participacion-en-los-estados-clave-marca-una-jornada-decisiva-para-el-congreso.html&text=Masiva%20participaci%C3%B3n%20en%20los%20estados%20clave%20marca%20una%20jornada%20decisiva%20para%20el%20Congreso" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><h2>Un mapa político impulsado por la movilización popular</h2><div>Las elecciones de medio término en Estados Unidos avanzan a paso firme con una movilización ciudadana sin precedentes en los principales distritos del país. Este martes, millones de votantes acudieron a las urnas para definir la nueva composición de la Cámara de Representantes y las bancas más disputadas del Senado en Washington. Esta fuerte afluencia física se suma a una base histórica: más de 50 millones de ciudadanos emitieron su sufragio durante el período de votación anticipada, superando con holgura los guarismos registrados en las legislativas de 2022 en prácticamente todos los estados donde se dirime el control del Capitolio.</div><div><br></div><div>El fenómeno de alta concurrencia se percibe con especial intensidad en plazas estratégicas. En Ohio, los condados más densamente poblados —como Franklin y Hamilton— reportaron niveles de participación muy superiores a los de las últimas elecciones de medio término e incluso cercanos a las cifras históricas de las presidenciales de 2024. En tanto, en la Costa Este, el secretario de Estado de Georgia, Brad Raffensperger, confirmó proyecciones optimistas al estimar que cerca de 1,4 millones de personas votarán en persona durante el transcurso del día, superando la marca alcanzada hace dos años.</div><div><br></div><h2>La mirada puesta en los récords históricos de votación</h2><div>Las miradas de los analistas políticos y de ambos partidos se centran ahora en la suma total que arrojarán los escrutinios al cierre de los centros comiciales en todo el territorio norteamericano. El techo histórico para unas elecciones de medio término se fijó en 2018, cuando más de 120 millones de estadounidenses ejercieron su derecho al voto, mientras que en 2022 la participación cayó levemente a 112 millones. Dada la alta concurrencia observada desde las primeras horas de la mañana, en Washington proyectan que los niveles definitivos de este martes podrían quedar muy cerca de los máximos históricos, reflejando el clima de alta polarización y el peso de las bancas que están en juego.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
