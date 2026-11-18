@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Milei en París: pronosticó que 2028 será \"el mejor año económico de la historia\" y prometió el grado de inversión ante la OCDE","description":"En la apertura de la Argentina Week en Francia, el Presidente defendió el rumbo de shock ante los mayores fondos globales y 13 gobernadores. La oferta de gas y minerales para Europa, la \"bazuca de dólares\" para las elecciones y por qué descartó un Plan Platita.","image":["https://macromindnews.com.ar/img/milei-01-10-26.webp"],"datePublished":"2026-10-01T00:00:00-03:00","dateModified":"2026-10-01T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/milei-en-paris-pronostico-que-2028-sera-el-mejor-ano-economico-de-la-historia-y-prometio-el-grado-de-inversion-ante-la-ocde.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Milei en París: pronosticó que 2028 será "el mejor año económico de la historia" y prometió el grado de inversión ante la OCDE</h1>
   <p class="art-excerpt">En la apertura de la Argentina Week en Francia, el Presidente defendió el rumbo de shock ante los mayores fondos globales y 13 gobernadores. La oferta de gas y minerales para Europa, la "bazuca de dólares" para las elecciones y por qué descartó un Plan Platita.</p>
   <div class="art-meta">1 de Octubre, 2026</div>
-  <img src="img/milei-01-10-26.webp" alt="Milei en París: pronosticó que 2028 será "el mejor año económico de la historia" y prometió el grado de inversión ante la OCDE" onerror="this.style.background='#ddd';"/>
+  <img src="img/milei-01-10-26.webp" alt="Milei en París: pronosticó que 2028 será "el mejor año económico de la historia" y prometió el grado de inversión ante la OCDE" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/milei-en-paris-pronostico-que-2028-sera-el-mejor-ano-economico-de-la-historia-y-prometio-el-grado-de-inversion-ante-la-ocde.html&text=Milei%20en%20Par%C3%ADs%3A%20pronostic%C3%B3%20que%202028%20ser%C3%A1%20%22el%20mejor%20a%C3%B1o%20econ%C3%B3mico%20de%20la%20historia%22%20y%20prometi%C3%B3%20el%20grado%20de%20inversi%C3%B3n%20ante%20la%20OCDE" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El presidente <b data-path-to-node="6" data-index-in-node="14">Javier Milei</b> inauguró este jueves en la sede de la <b data-path-to-node="6" data-index-in-node="65">OCDE</b> en París la segunda edición del foro <b data-path-to-node="6" data-index-in-node="107">Argentina Week</b>, desplegando una intensa agenda de seducción ante más de un centenar de inversores, directivos de multinacionales y líderes de organismos internacionales. Acompañado por una comitiva de <b data-path-to-node="6" data-index-in-node="308">13 gobernadores provinciales</b> y su equipo económico, el mandatario aseguró que el país se encamina a consolidar un ciclo de crecimiento inédito si el oficialismo logra la reelección en 2027.<div><br></div><div><i data-path-to-node="7" data-index-in-node="0">"Cualquier inversor que siga de cerca a la Argentina sabe que si nuestro Gobierno es reelecto en 2027, el año 2028 va a ser el mejor año económico de nuestra historia"</i>, afirmó el jefe de Estado, proyectando que el país alcanzará la calificación de <b data-path-to-node="7" data-index-in-node="248">investment grade (grado de inversión)</b> durante su segundo mandato, con tasas de expansión per cápita del 7% al 8% anual.</div><div><br></div><h2>La hoja de ruta de los 30 meses: del colapso al superávit</h2><div>Durante su exposición, el Presidente repasó las principales variables macroeconómicas para fundamentar por qué la salida de la crisis actual no se asemeja a los intentos de apertura de gestiones anteriores:</div><div><ul><li><b data-path-to-node="9" data-index-in-node="209">Eliminación del déficit gemelo:</b> Destacó el ajuste fiscal y cuasifiscal de <b data-path-to-node="9" data-index-in-node="283">15 puntos del PBI en apenas seis meses</b>, suprimiendo el rojo primario en el primer mes de mandato.</li><li><b data-path-to-node="9" data-index-in-node="383">Desplome de la inflación y el riesgo país:</b> Resaltó que el índice de precios bajó del 211% anual al entorno del <b data-path-to-node="9" data-index-in-node="494">30%</b>, mientras que el riesgo país descendió desde los 3.000 a la zona de los <b data-path-to-node="9" data-index-in-node="570">600 puntos básicos</b>.</li><li><b data-path-to-node="9" data-index-in-node="592">Desendeudamiento y reactivación:</b> Señaló que la deuda neta cayó del 100% al <b data-path-to-node="9" data-index-in-node="667">40% del PBI</b>, con un crecimiento económico acumulado cercano al 13% y la salida formal del cepo cambiario.</li><li><b data-path-to-node="9" data-index-in-node="775">Blindaje institucional del Banco Central:</b> Celebró la media sanción del Senado que prohíbe de forma definitiva la emisión monetaria para financiar al Tesoro, eliminando el impuesto inflacionario.</li></ul><div><br></div></div><h2>Energía, minería y fertilizantes: La solución para la demanda europea</h2><div>El tramo productivo del mensaje apuntó de forma directa a las necesidades estratégicas de la Unión Europea, ofreciendo al país como un proveedor seguro y confiable en un contexto de incertidumbre bélica internacional.</div><div><br></div><div>En materia de hidrocarburos, Milei destacó los balances récord de <b data-path-to-node="13" data-index-in-node="66">YPF</b> y el desarrollo del proyecto <b data-path-to-node="13" data-index-in-node="99">Argentina LNG</b> junto a la italiana <b data-path-to-node="13" data-index-in-node="133">Eni</b> y la emiratí <b data-path-to-node="13" data-index-in-node="150">XRG</b>, diseñado para exportar <b data-path-to-node="13" data-index-in-node="178">12 millones de toneladas anuales de gas natural licuado</b> desde Vaca Muerta. En el plano minero, celebró la reforma de la Ley de Glaciares para desatar inversiones de dos dígitos en cobre y litio, a lo que sumó los recientes anuncios de plantas de urea para abastecer de fertilizantes al mundo y esquivar los riesgos de bloqueo en el Estrecho de Ormuz.</div><div><br></div><div>Asimismo, ponderó los resultados del <b data-path-to-node="14" data-index-in-node="37">RIGI</b>, que ya acumula más de <b data-path-to-node="14" data-index-in-node="65">USD 45.000 millones aprobados</b> y proyectos presentados por más de USD 200.000 millones, ratificando además la decisión de convertir a la Argentina en un polo de Inteligencia Artificial sin regulaciones preventivas.</div><div><br></div><h2>Cero gradualismo y la "bazuca de reservas" para 2027</h2><div>Al responder a las comparaciones con el programa económico de 2016, Milei fue tajante: diferenció su gestión del gradualismo promovido por el ala centrista de aquel entonces, remarcando que su administración encaró el esfuerzo de shock al inicio del ciclo y sin romper contratos.</div><div><br></div><div>De cara al año electoral, el Presidente descartó de plano cualquier desvío populista y confirmó que el Banco Central cuenta con una <b data-path-to-node="17" data-index-in-node="132">"bazuca de dólares"</b> para neutralizar corridas cambiarias: <b data-path-to-node="17" data-index-in-node="190">USD 20.000 millones</b> en compras de reservas acumuladas, <b data-path-to-node="17" data-index-in-node="245">USD 20.000 millones</b> del swap con EE. UU., <b data-path-to-node="17" data-index-in-node="287">USD 20.000 millones</b> del swap con China y <b data-path-to-node="17" data-index-in-node="328">USD 15.000 millones</b> de posición en futuros. <i data-path-to-node="17" data-index-in-node="372">"Al populismo no se lo combate con más populismo, sino con más ortodoxia y más libertad"</i>, concluyó el mandatario ante el auditorio parisino.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
