@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El Gobierno oficializó el RIGI para Tecpetrol en Vaca Muerta: se invertirán más de US$ 6.400 millones hasta 2054","description":"El Gobierno aprobó el ingreso al RIGI del proyecto petrolero Los Toldos II Este de Tecpetrol en Neuquén: una inversión de USD 6.432 millones dividida en tres etapas hasta 2054 para perforar 380 pozos, alcanzar los 70.000 barriles diarios y generar 7.900 puestos de trabajo directos e indirectos.","image":["https://macromindnews.com.ar/img/vaca-muerta-09-10-06.webp"],"datePublished":"2026-10-09T00:00:00-03:00","dateModified":"2026-10-09T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-gobierno-oficializo-el-rigi-para-tecpetrol-en-vaca-muerta-se-invertiran-mas-de-us-6400-millones-hasta-2054.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El Gobierno oficializó el RIGI para Tecpetrol en Vaca Muerta: se invertirán más de US$ 6.400 millones hasta 2054</h1>
   <p class="art-excerpt">El Gobierno aprobó el ingreso al RIGI del proyecto petrolero Los Toldos II Este de Tecpetrol en Neuquén: una inversión de USD 6.432 millones dividida en tres etapas hasta 2054 para perforar 380 pozos, alcanzar los 70.000 barriles diarios y generar 7.900 puestos de trabajo directos e indirectos.</p>
   <div class="art-meta">9 de Octubre, 2026</div>
-  <img src="img/vaca-muerta-09-10-06.webp" alt="El Gobierno oficializó el RIGI para Tecpetrol en Vaca Muerta: se invertirán más de US$ 6.400 millones hasta 2054" onerror="this.style.background='#ddd';"/>
+  <img src="img/vaca-muerta-09-10-06.webp" alt="El Gobierno oficializó el RIGI para Tecpetrol en Vaca Muerta: se invertirán más de US$ 6.400 millones hasta 2054" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-gobierno-oficializo-el-rigi-para-tecpetrol-en-vaca-muerta-se-invertiran-mas-de-us-6400-millones-hasta-2054.html&text=El%20Gobierno%20oficializ%C3%B3%20el%20RIGI%20para%20Tecpetrol%20en%20Vaca%20Muerta%3A%20se%20invertir%C3%A1n%20m%C3%A1s%20de%20US%24%206.400%20millones%20hasta%202054" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><span ><blockquote class="twitter-tweet"><span >El Gobierno nacional formalizó la incorporación al Régimen de Incentivo para Grandes Inversiones (RIGI) del desarrollo de petróleo no convencional Los Toldos II Este, ubicado a unos 30 kilómetros de Rincón de los Sauces, en la provincia de Neuquén.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="2"></sup></source-footnote></span> <span >La iniciativa, impulsada por la petrolera del Grupo Techint en sociedad con la firma provincial Gas y Petróleo del Neuquén (GyP), contempla un desembolso global de USD 6.432 millones hasta el año 2054 y fue calificada como Proyecto de Exportación Estratégica de Largo Plazo (PEELP).</span><div><span ><br></span></div><div><span ><span >A través de la Resolución 1771/2026 del Ministerio de Economía, oficializada en el Boletín Oficial tras la firma del ministro Luis Caputo y el aval del Comité Evaluador, la Unión Transitoria (UT RIGI Los Toldos) compuesta por Tecpetrol S.A.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="4"></sup></source-footnote></span> <span >(90%) y GyP S.A.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="5"></sup></source-footnote></span> (10%) accedió al régimen para acelerar la explotación de crudo Medanito en un bloque de 78 kilómetros cuadrados de la Cuenca Neuquina.</span></div><div><br></div><h2>Plan de inversión por etapas y cronograma hasta 2054</h2><div>El plan operativo contempla la perforación y puesta en producción de un total de 380 pozos horizontales, con ramas laterales de 2.700 metros de longitud promedio, estructurado en tres fases financieras de ejecución:<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="7"></sup></source-footnote></div><div><ul><li><b data-path-to-node="6,0,0" data-index-in-node="0"><span >Primera etapa (1 de noviembre de 2024 al 28 de febrero de 2027):<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="8"></sup></source-footnote></span></b> <span >Con una inversión asignada de USD 1.635 millones, esta fase inicial se concentrará en el levantamiento de la infraestructura de superficie clave y en la perforación de los primeros 16 pozos horizontales.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="9"></sup></source-footnote></span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c2907981959=""></sources-carousel-inline></li><li><span ><b data-path-to-node="6,1,0" data-index-in-node="0"><span >Segunda etapa (1 de marzo de 2027 al 30 de junio de 2029):<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="10"></sup></source-footnote></span></b> <span >Implica un desembolso de USD 1.268 millones para la ampliación de las instalaciones hasta llevar la capacidad de procesamiento a su nivel máximo y la incorporación de 91 nuevos pozos.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="11"></sup></source-footnote></span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c2907981959=""></sources-carousel-inline></span></li><li><span ><span ><b data-path-to-node="6,2,0" data-index-in-node="0"><span >Tercera etapa (1 de julio de 2029 al año 2054):<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="12"></sup></source-footnote></span></b> <span >Representa el tramo principal del proyecto con una inversión de USD 3.529 millones orientada al desarrollo masivo del bloque, completando la perforación de los 273 pozos restantes y el mantenimiento de las instalaciones durante un horizonte de 25 años.</span></span></span></li></ul><div><br></div></div></blockquote><blockquote class="twitter-tweet"><a href="https://twitter.com/MinEconomia_Ar/status/2108498638032814216">Ver publicación en X</a></blockquote><blockquote class="twitter-tweet"><br></blockquote><h2>Infraestructura, volumen de producción e impacto laboral</h2><blockquote class="twitter-tweet"><span >El corazón del proyecto de superficie será la construcción de una Planta Central de Tratamiento (CPF) diseñada con capacidad nominal para procesar 70.000 barriles diarios de petróleo crudo y 3,6 millones de metros cúbicos estándar de gas natural por día, con capacidad técnica para prestar servicios de tratamiento y transporte a terceros en la zona.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="14"><!----></sup></source-footnote></span> <span >La obra se completará con la traza de un oleoducto de evacuación, un gasoducto para el gas asociado y sistemas de suministro e inyección de agua.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="15"><!----></sup></source-footnote></span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c2907981959=""></sources-carousel-inline></blockquote><blockquote class="twitter-tweet"><ul><li><span ><b data-path-to-node="12,0,0" data-index-in-node="0"><span >Generación de empleo:<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="16"><!----></sup></source-footnote></span></b> <span >Según estimaciones del Ministerio de Economía, la construcción y operación del área generarán 3.100 puestos de trabajo directos y unos 4.800 empleos indirectos.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1324583968=""><sup _ngcontent-ng-c1324583968=""  data-turn-source-index="17"><!----></sup></source-footnote></span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c2907981959=""></sources-carousel-inline></span></li><li><span ><span ><b data-path-to-node="12,1,0" data-index-in-node="0">Red de proveedores:</b> Alrededor de 800 pequeñas y medianas empresas nacionales formarán parte de la cadena de suministro de obras, servicios e insumos.</span></span></li><li><span ><span ><b data-path-to-node="12,2,0" data-index-in-node="0">Aporte de divisas:</b> Una vez alcanzado el régimen de producción plena de 70.000 barriles diarios, las exportaciones de petróleo del yacimiento generarán un flujo aproximado de USD 2.200 millones anuales para el país.</span></span></li></ul></blockquote></span></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
