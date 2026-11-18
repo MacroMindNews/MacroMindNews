@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El Gobierno oficializó un régimen general de retiro voluntario para la Administración Pública Nacional y eliminará las vacantes","description":"El Gobierno oficializó el Decreto 1203/2026 que establece un retiro voluntario general para los empleados públicos de la Administración Pública Nacional. El plan funcionará durante noviembre, eliminará las vacantes generadas e impondrá una prohibición de reingreso al Estado por 8 años.","image":["https://macromindnews.com.ar/img/milei-sturzenegger.webp"],"datePublished":"2026-10-19T00:00:00-03:00","dateModified":"2026-10-19T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-gobierno-oficializo-un-regimen-general-de-retiro-voluntario-para-la-administracion-publica-nacional-y-eliminara-las-vacantes.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El Gobierno oficializó un régimen general de retiro voluntario para la Administración Pública Nacional y eliminará las vacantes</h1>
   <p class="art-excerpt">El Gobierno oficializó el Decreto 1203/2026 que establece un retiro voluntario general para los empleados públicos de la Administración Pública Nacional. El plan funcionará durante noviembre, eliminará las vacantes generadas e impondrá una prohibición de reingreso al Estado por 8 años.</p>
   <div class="art-meta">19 de Octubre, 2026</div>
-  <img src="img/milei-sturzenegger.webp" alt="El Gobierno oficializó un régimen general de retiro voluntario para la Administración Pública Nacional y eliminará las vacantes" onerror="this.style.background='#ddd';"/>
+  <img src="img/milei-sturzenegger.webp" alt="El Gobierno oficializó un régimen general de retiro voluntario para la Administración Pública Nacional y eliminará las vacantes" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-gobierno-oficializo-un-regimen-general-de-retiro-voluntario-para-la-administracion-publica-nacional-y-eliminara-las-vacantes.html&text=El%20Gobierno%20oficializ%C3%B3%20un%20r%C3%A9gimen%20general%20de%20retiro%20voluntario%20para%20la%20Administraci%C3%B3n%20P%C3%BAblica%20Nacional%20y%20eliminar%C3%A1%20las%20vacantes" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El Poder Ejecutivo formalizó la puesta en marcha de un plan generalizado de retiro voluntario destinado a los trabajadores de la Administración Pública Nacional (APN) centralizada. A través del Decreto 1203/2026, suscrito por el presidente Javier Milei, el jefe de Gabinete, Diego Santilli, y el ministro de Desregulación y Transformación del Estado, Federico Sturzenegger, la medida extiende la posibilidad de desvinculación optativa a la totalidad de las jurisdicciones centrales del Estado, estableciendo además que las vacantes generadas por las bajas aprobadas serán eliminadas de manera definitiva.<div><br></div><div>La disposición se enmarca en la política de reducción de la estructura estatal impulsada por la administración central. Según los registros oficializados por el Instituto Nacional de Estadística y Censos (INDEC), la dotación total de la APN, junto con las empresas e instituciones públicas, pasó de 341.465 agentes en diciembre de 2023 a 269.025 en agosto de 2026, registrando un recorte de 72.440 puestos de trabajo. El esquema de adhesión estará habilitado durante todo el mes de noviembre de 2026, con opción a una prórroga de hasta 30 días adicionales.</div><div><br></div><h2>Escala de cobro y esquema de compensaciones indemnizatorias</h2><div>El anexo normativo del decreto determina los montos de la gratificación extraordinaria según la edad del agente al 31 de octubre y los años de aportes acreditados en el sistema previsional. La base de cálculo se fijó sobre la remuneración habitual y bruta del trabajador, excluyendo adicionales extraordinarios y computando únicamente los años prestados en planta permanente o bajo contratación por tiempo indeterminado:</div><div><ul><li><b>Mujeres hasta 57 años y hombres hasta 62 años (planta permanente o contrato indefinido):</b>&nbsp;Percibirán 1 sueldo por año de antigüedad (con un máximo de 20 sueldos) y se les adicionarán 4 sueldos si tienen menos de 15 años en planta permanente, o 5 sueldos si cuentan con 15 años o más.</li></ul><ul><li><b>Mujeres de 58 a 64 años y hombres de 63 a 64 años (con al menos 30 años de aportes):</b>&nbsp;Cobrarán 1 sueldo por año de antigüedad (con tope de 18 sueldos) más 5 sueldos adicionales, sin poder superar en total la cantidad de meses faltantes para jubilarse.</li></ul><ul><li><b data-path-to-node="2,2,0" data-index-in-node="0">Mujeres desde 58 años y hombres desde 63 años sin aportes suficientes (Opción A):</b> Podrán optar por recibir el 60% de su sueldo mensual hasta cumplir los requisitos jubilatorios (con un límite de 36 meses), manteniendo la cobertura de obra social y los aportes previsionales.</li><li><b data-path-to-node="2,3,0" data-index-in-node="0">Mujeres desde 58 años y hombres desde 63 años sin aportes suficientes (Opción B):</b> Podrán elegir un pago único equivalente a 1 sueldo por año de antigüedad, con un tope de 18 sueldos y sujeto al límite de meses restantes para acceder a la jubilación.</li></ul><div><br></div></div><h2>Restricciones, exclusiones y plazos de exclusión</h2><div>&nbsp;El régimen de retiro voluntario establece limitaciones estrictas para los beneficiarios. Los agentes que opten por desvincularse quedarán inhabilitados para reingresar o desempeñarse en cualquier área del Sector Público Nacional por un período de ocho años, incluyendo cargos directivos, asesorías de gabinete o contrataciones bajo programas de financiamiento multilateral. La única excepción contemplada en el texto corresponde a los cargos docentes en universidades nacionales.</div><div><br></div><div>Asimismo, la normativa contempla exclusiones explícitas para el personal en funciones de las Fuerzas Armadas, Fuerzas de Seguridad, Agencia de Inteligencia de Estado (SIDE), Servicio Exterior de la Nación, Sistema Federal de Manejo del Fuego y elencos artísticos nacionales. Tampoco podrán solicitar el beneficio aquellos empleados procesados por delitos contra la administración pública, trabajadores con sumarios administrativos en trámite con potencial sanción de expulsión o quienes ya reúnan los requisitos para acceder a la jubilación ordinaria.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
