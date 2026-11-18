@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Alarma en Europa: registran 40 crímenes de odio contra cristianos e iglesias en solo un mes","description":"El Observatorio sobre la Intolerancia contra los Cristianos en Europa (OIDAC) reportó 40 delitos de odio en julio de 2026, con Alemania, Francia e Italia concentrando la mayoría de los casos. El informe denuncia un fuerte incremento de vandalismos, ataques incendiarios y profanaciones que amenazan la libertad religiosa y la seguridad de las comunidades cristianas en el continente.","image":["https://macromindnews.com.ar/img/oidac-europe.webp"],"datePublished":"2026-08-25T00:00:00-03:00","dateModified":"2026-08-25T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/alarma-en-europa-registran-40-crimenes-de-odio-contra-cristianos-e-iglesias-en-solo-un-mes.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Alarma en Europa: registran 40 crímenes de odio contra cristianos e iglesias en solo un mes</h1>
   <p class="art-excerpt">El Observatorio sobre la Intolerancia contra los Cristianos en Europa (OIDAC) reportó 40 delitos de odio en julio de 2026, con Alemania, Francia e Italia concentrando la mayoría de los casos. El informe denuncia un fuerte incremento de vandalismos, ataques incendiarios y profanaciones que amenazan la libertad religiosa y la seguridad de las comunidades cristianas en el continente.</p>
   <div class="art-meta">25 de Agosto, 2026</div>
-  <img src="img/oidac-europe.webp" alt="Alarma en Europa: registran 40 crímenes de odio contra cristianos e iglesias en solo un mes" onerror="this.style.background='#ddd';"/>
+  <img src="img/oidac-europe.webp" alt="Alarma en Europa: registran 40 crímenes de odio contra cristianos e iglesias en solo un mes" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/alarma-en-europa-registran-40-crimenes-de-odio-contra-cristianos-e-iglesias-en-solo-un-mes.html&text=Alarma%20en%20Europa%3A%20registran%2040%20cr%C3%ADmenes%20de%20odio%20contra%20cristianos%20e%20iglesias%20en%20solo%20un%20mes" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La hostilidad hacia las comunidades cristianas y sus lugares de culto continúa en niveles alarmantes en el continente europeo. Según el último informe mensual del <b>Observatorio sobre la Intolerancia y la Discriminación contra los Cristianos en Europa</b> (OIDAC Europe), durante julio de 2026 se documentaron 40 delitos de odio confirmados contra cristianos, templos, símbolos religiosos y cementerios.<div><br></div><div>El balance mensual refleja una marcada escalada en la profanación de espacios sagrados y ataques directos a creyentes. El registro incluye 18 actos de vandalismo (el doble que el mes anterior), 8 ataques incendiarios deliberados, 7 profanaciones de altares y elementos religiosos, 2 casos de violencia física, 2 episodios de amenazas graves y robos sacrílegos.</div><div><br></div><h2>El mapa de la intolerancia: Alemania, Francia e Italia a la cabeza</h2><div>La mayor concentración de agresiones se focalizó en las principales naciones de Europa Occidental, obligando a numerosas iglesias a restringir sus horarios de apertura, reforzar la seguridad o reubicar sus celebraciones comunitarias:</div><div><ul><li><b>Alemania (15 casos):</b>&nbsp;Lideró las estadísticas del mes. Entre los hechos más graves, las autoridades desbarataron un plan de atentado incendiario de inspiración yihadista (ISIS) contra una iglesia independiente en Hamm. Asimismo, se registró la quema deliberada de un libro litúrgico en Kelhein, la agresión física a un solicitante de asilo cristiano por portar una cruz en Regensburg y ultrajes con excrementos y orina en pilas bautismales y altares de Wörth Rhein y Abenheim.</li><li><b>Francia (10 casos):</b>&nbsp;Se perpetraron tres ataques incendiarios en templos de Rouen, Le&nbsp;<span data-path-to-node="6,1,0,0">Relecq-Kerhuon y La Palme</span><span data-path-to-node="6,1,0,1"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><source-footnote _nghost-ng-c2543564007="" ><sup _ngcontent-ng-c2543564007="" ><!----></sup></source-footnote><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></span><span data-path-to-node="6,1,0,2">. En Tours, la iglesia de Saint-Symphorien fue profanada tras la dispersión de hostias consagradas por el suelo y el depósito de heces, mientras que en Breil-sur-Roya aparecieron amenazas anarquistas en muros parroquiales.</span><span data-path-to-node="6,1,0,3"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><source-footnote _nghost-ng-c2543564007="" ><sup _ngcontent-ng-c2543564007="" ><!----></sup></source-footnote><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></span><span data-path-to-node="6,1,0,4"></span></li><li><b>Italia (5 casos):</b>&nbsp;<span data-path-to-node="6,2,0,0">Se registraron actos de vandalismo en Saronno, daños a bustos papales en Venetico, el robo de once crucifijos en Catania y la sustracción de un sagrario con hostias consagradas en Porto Sant'Elpidio</span><span data-path-to-node="6,2,0,1"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><source-footnote _nghost-ng-c2543564007="" ><sup _ngcontent-ng-c2543564007="" ><!----></sup></source-footnote><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></span><span data-path-to-node="6,2,0,2">.</span></li><li><span data-path-to-node="6,2,0,2"><b>Resto de Europa:</b>&nbsp;Se contabilizaron episodios violentos en el Reino Unido (3), Polonia (2), Austria (1), Dinamarca (1), Finlandia (1), Turquía (1) e Irlanda, donde una mujer fue apuñalada de gravedad mientras rezaba antes de misa en la iglesia Holy Cross de Tramore.</span></li></ul><div><br></div></div><h2>Vulnerabilidad de los fieles y reclamo por la libertad religiosa</h2><div>Desde OIDAC Europe advirtieron con preocupación sobre la naturalización de estas agresiones y la falta de tipificación adecuada en las investigaciones oficiales, donde en reiteradas ocasiones se minimiza el móvil del odio religioso.</div><div><br></div><div>El hostigamiento sistemático contra templos históricos, la profanación del Santísimo Sacramento y los ataques contra conversos y fieles reflejan una presión creciente sobre la libertad religiosa y la identidad cristiana en Occidente, demandado un mayor compromiso de los gobiernos para garantizar la seguridad de los creyentes y la preservación de sus lugares de culto.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
