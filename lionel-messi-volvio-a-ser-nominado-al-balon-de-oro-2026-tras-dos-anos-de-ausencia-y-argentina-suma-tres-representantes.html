@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Lionel Messi volvió a ser nominado al Balón de Oro 2026 tras dos años de ausencia y Argentina suma tres representantes","description":"El astro rosarino competirá por su noveno galardón tras su destacada actuación en la Copa del Mundo. La delegación argentina también contará con Lautaro Martínez entre los 30 finalistas y el “Dibu” Martínez en la terna al mejor arquero del planeta.","image":["https://macromindnews.com.ar/img/messi-8-9-26.webp"],"datePublished":"2026-09-08T00:00:00-03:00","dateModified":"2026-09-08T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/lionel-messi-volvio-a-ser-nominado-al-balon-de-oro-2026-tras-dos-anos-de-ausencia-y-argentina-suma-tres-representantes.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Lionel Messi volvió a ser nominado al Balón de Oro 2026 tras dos años de ausencia y Argentina suma tres representantes</h1>
   <p class="art-excerpt">El astro rosarino competirá por su noveno galardón tras su destacada actuación en la Copa del Mundo. La delegación argentina también contará con Lautaro Martínez entre los 30 finalistas y el “Dibu” Martínez en la terna al mejor arquero del planeta.</p>
   <div class="art-meta">8 de Septiembre, 2026</div>
-  <img src="img/messi-8-9-26.webp" alt="Lionel Messi volvió a ser nominado al Balón de Oro 2026 tras dos años de ausencia y Argentina suma tres representantes" onerror="this.style.background='#ddd';"/>
+  <img src="img/messi-8-9-26.webp" alt="Lionel Messi volvió a ser nominado al Balón de Oro 2026 tras dos años de ausencia y Argentina suma tres representantes" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/lionel-messi-volvio-a-ser-nominado-al-balon-de-oro-2026-tras-dos-anos-de-ausencia-y-argentina-suma-tres-representantes.html&text=Lionel%20Messi%20volvi%C3%B3%20a%20ser%20nominado%20al%20Bal%C3%B3n%20de%20Oro%202026%20tras%20dos%20a%C3%B1os%20de%20ausencia%20y%20Argentina%20suma%20tres%20representantes" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>Lionel Messi volvió a inscribir su nombre en la élite absoluta del fútbol mundial. Tras dos años sin figurar entre los candidatos, la revista <i data-path-to-node="3" data-index-in-node="142">France Football</i> confirmó que el capitán argentino forma parte de la lista de los 30 futbolistas preseleccionados para quedarse con el <b data-path-to-node="3" data-index-in-node="276">Balón de Oro 2026</b>. La gala de entrega se celebrará el próximo <b data-path-to-node="3" data-index-in-node="338">26 de octubre en Londres</b>, en lo que será una edición histórica: por primera vez en sus 70 entregas se realizará fuera de Francia, en homenaje al legendario Stanley Matthews.</div><div><br></div><div>La nominación de Messi, a sus 39 años, llega como reconocimiento a otra actuación consagratoria con la Selección argentina, certamen donde anotó ocho tantos y guio al seleccionado de Lionel Scaloni a una nueva final. Esta postulación representa la <b data-path-to-node="4" data-index-in-node="248">número 17 en su trayectoria profesional</b>, reafirmándolo como una presencia indiscutida en los últimos veinte años del deporte rey.</div><div><img src="img/messi-balon-dor.webp" alt="Imagen" style="font-size: 0.92rem; max-width: 100%; margin: 12px 0px; display: block;">A lo largo de su carrera, el astro rosarino ha conquistado el Balón de Oro en <b data-path-to-node="5" data-index-in-node="78">ocho oportunidades</b> (2009, 2010, 2011, 2012, 2015, 2019, 2021 y 2023) y acumula un récord de 14 presencias en el podio. Su regreso a la nómina se produce, además, en un momento cargado de emotividad: recientemente, tras el torneo y el fallecimiento de su padre Jorge, Leo anunció mediante una sentida carta abierta su retiro definitivo de la selección albiceleste.</div><div><br></div><h2>Fuerte presencia argentina en la gala</h2><div>Aunque todos los reflectores apuntan al posible noveno trofeo de Messi, el fútbol argentino tendrá otros dos representantes de enorme peso en la ceremonia de Londres:</div><div><ul><li><b data-path-to-node="8,0,0" data-index-in-node="0">Lautaro Martínez:</b> El delantero fue incluido entre los 30 mejores jugadores de la temporada, coronando otro año brillante en las redes y ratificando su jerarquía en la élite internacional.</li><li><b data-path-to-node="8,1,0" data-index-in-node="0">Emiliano “Dibu” Martínez:</b> El guardameta buscará alzar una vez más el prestigioso <b data-path-to-node="8,1,0" data-index-in-node="81">Trofeo Lev Yashin</b>, galardón reservado al mejor arquero de la temporada, tras mantener su vigencia y solidez bajo los tres palos en las competencias de mayor exigencia.</li></ul></div><img src="img/lautaro-balon-dor.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div>El veredicto final quedará en manos del jurado internacional de 100 periodistas especializados, pero una cosa es segura: Lionel Messi volvió a ocupar el centro de la escena en el premio más codiciado del fútbol.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
