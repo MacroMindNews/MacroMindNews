@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Denuncian que el expresidente Santiago Peña abandonó Paraguay rumbo a la Argentina tras presentar su renuncia","description":"La diputada opositora Johana Ortega aseguró durante la sesión del Congreso que el exmandatario cruzó la frontera hacia la Argentina en medio de la convulsión política y las investigaciones judiciales provocadas por el colapso de Ueno Bank. El Gobierno paraguayo solicitó explicaciones inmediatas para confirmar su paradero.","image":["https://macromindnews.com.ar/img/milei-peña-05-11-26.webp"],"datePublished":"2026-11-05T00:00:00-03:00","dateModified":"2026-11-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/denuncian-que-el-expresidente-santiago-pena-abandono-paraguay-rumbo-a-la-argentina-tras-presentar-su-renuncia.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><span >La profunda crisis política e institucional en Paraguay sumó un nuevo capítulo de alta tensión tras la renuncia indeclinable presentaba por el presidente </span><b data-path-to-node="3" data-index-in-node="154" >Santiago Peña</b><span >.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="4"><!----></sup></source-footnote></span> <span >En el marco de la sesión parlamentaria convocada para tratar la sucesión presidencial y evaluar el proceso de juicio político dictaminado por la Cámara de Diputados, la legisladora opositora </span><b data-path-to-node="3" data-index-in-node="360" >Johana Ortega</b><span > denunció públicamente que el ahora exmandatario habría abandonado el país con destino a la Argentina.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="5"></sup></source-footnote></span><div><span ><br></span></div><div><span >La afirmación de Ortega sacudió el recinto del Congreso Nacional en Asunción, en momentos en que la ciudadanía exige respuestas tanto por la parálisis institucional como por las causas penales abiertas en torno a la caída de Ueno Bank y la retención de depósitos de cerca de tres millones de clientes.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="6"></sup></source-footnote></span></div><div><span ><br></span></div><h2><span >El reclamo opositor y las sospechas de la salida del país</span></h2><div><span >Durante su intervención en la cámara parlamentaria, la diputada solicitó informes urgentes a las autoridades de la Presidencia del Congreso para verificar el paradero real de Peña:</span></div><div><span ><span ><i>“Exigimos saber de manera inmediata dónde se encuentra el expresidente Santiago Peña. Hay versiones fundadas de que habría dejado el territorio nacional rumbo a la República Argentina tras formalizar su dimisión”</i>, expresó Ortega.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="8"><!----></sup></source-footnote></span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c622754057=""></sources-carousel-inline></span></div><div><span ><span ><br></span></span></div><div>La sospecha de una salida al exterior sin previa autorización ni aclaración oficial encendió las alarmas entre las bancadas opositoras, que remarcaron la necesidad de que el exjefe de Estado permanezca a disposición de la Justicia paraguaya en el marco de las investigaciones por presuntas irregularidades financieras y conflictos de interés durante su gestión.</div><div><br></div><h2>Negaciones cruzadas y un escenario de incertidumbre institucional</h2><div>Ante el impacto de la denuncia, voceros y referentes del entorno gubernamental salieron a desmentir o matizar las versiones, mientras que los organismos migratorios y de seguridad interna fueron requeridos para brindar precisiones sobre los registros de salida de las fronteras nacionales.</div><div><br></div><div>El rumor sobre el presunto traslado de Peña a territorio argentino reavivó los fantasmas de crisis diplomáticas y políticas pasadas en la región, al tiempo que el Congreso de Paraguay busca acelerar los pasos constitucionales para resolver la acefalía en el Poder Ejecutivo y restablecer el orden institucional en medio del descontento social.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="10"></sup></source-footnote></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
