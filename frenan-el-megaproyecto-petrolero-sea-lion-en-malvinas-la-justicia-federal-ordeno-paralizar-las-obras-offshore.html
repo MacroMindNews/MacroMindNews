@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Frenan el megaproyecto petrolero Sea Lion en Malvinas: la Justicia federal ordenó paralizar las obras offshore","description":"A instancias de excombatientes y abogados ambientalistas, un fallo dictado desde Tierra del Fuego impuso la suspensión inmediata de las actividades a las petroleras británica e israelí. La advertencia previa del gobierno británico y las derivaciones en el Atlántico Sur.","image":["https://macromindnews.com.ar/img/sea-lion-16-9-26.webp"],"datePublished":"2026-09-16T00:00:00-03:00","dateModified":"2026-09-16T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/frenan-el-megaproyecto-petrolero-sea-lion-en-malvinas-la-justicia-federal-ordeno-paralizar-las-obras-offshore.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Frenan el megaproyecto petrolero Sea Lion en Malvinas: la Justicia federal ordenó paralizar las obras offshore</h1>
   <p class="art-excerpt">A instancias de excombatientes y abogados ambientalistas, un fallo dictado desde Tierra del Fuego impuso la suspensión inmediata de las actividades a las petroleras británica e israelí. La advertencia previa del gobierno británico y las derivaciones en el Atlántico Sur.</p>
   <div class="art-meta">16 de Septiembre, 2026</div>
-  <img src="img/sea-lion-16-9-26.webp" alt="Frenan el megaproyecto petrolero Sea Lion en Malvinas: la Justicia federal ordenó paralizar las obras offshore" onerror="this.style.background='#ddd';"/>
+  <img src="img/sea-lion-16-9-26.webp" alt="Frenan el megaproyecto petrolero Sea Lion en Malvinas: la Justicia federal ordenó paralizar las obras offshore" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/frenan-el-megaproyecto-petrolero-sea-lion-en-malvinas-la-justicia-federal-ordeno-paralizar-las-obras-offshore.html&text=Frenan%20el%20megaproyecto%20petrolero%20Sea%20Lion%20en%20Malvinas%3A%20la%20Justicia%20federal%20orden%C3%B3%20paralizar%20las%20obras%20offshore" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La disputa por la explotación de hidrocarburos en el Atlántico Sur sumó una resolución judicial de alto impacto diplomático y ambiental. El <b data-path-to-node="6" data-index-in-node="140">Juzgado Federal de Río Grande</b>, a cargo de la jueza <b data-path-to-node="6" data-index-in-node="191">Mariel Borruto</b>, dictó una <b data-path-to-node="6" data-index-in-node="217">medida cautelar que ordena frenar de inmediato el proyecto petrolero "Sea Lion"</b> (León Marino), ubicado en la Cuenca Malvinas Norte, a unos 220 kilómetros al norte del archipiélago.<div><br></div><div>La orden judicial intima directamente a las operadoras <b data-path-to-node="7" data-index-in-node="55">Rockhopper Exploration PLC</b> (de capitales británicos) y <b data-path-to-node="7" data-index-in-node="110">Navitas Petroleum</b> (de origen israelí) a abstenerse de iniciar o continuar cualquier tarea operativa en la plataforma continental argentina.</div><div><br></div><h2>La cautelar ambiental dictada desde Tierra del Fuego</h2><div>La resolución judicial se dictó en el marco de una <b data-path-to-node="9" data-index-in-node="51">acción preventiva por daño ambiental colectivo</b> impulsada de forma conjunta por la <b data-path-to-node="9" data-index-in-node="133">Asociación Argentina de Abogados/as Ambientalistas (AAdeAA)</b> y el <b data-path-to-node="9" data-index-in-node="198">Centro de Ex Combatientes Islas Malvinas de La Plata (CECIM)</b>.</div><div><br></div><div>En su presentación, las organizaciones denunciaron que las empresas avanzaban con las fases preliminares de perforación e instalación extractiva en aguas bajo soberanía nacional sin haber tramitado la preceptiva Evaluación de Impacto Ambiental ante las autoridades de la República Argentina, violando los presupuestos mínimos establecidos en la <b data-path-to-node="10" data-index-in-node="345">Ley General del Ambiente (Ley N° 25.675)</b>.</div><div><br></div><h2>El alcance de la prohibición: Qué obras quedan paralizadas</h2><div>El fallo judicial establece una prohibición estricta sobre el despliegue de infraestructura extractiva en el lecho marino:</div><div><ul><li><b data-path-to-node="12" data-index-in-node="125">Perforación submarina:</b> Suspensión de cualquier intento de prospección o perforación del lecho y subsuelo de la plataforma continental.</li><li><b data-path-to-node="12" data-index-in-node="262">Infraestructura y fondeo:</b> Veto a la instalación de conductos, tendido de tuberías submarinas y sistemas de anclaje de gran porte.</li><li><b data-path-to-node="12" data-index-in-node="394">Unidades flotantes de almacenamiento:</b> Bloqueo a la llegada de buques factoría (unidades flotantes de producción, almacenamiento y descarga - FPSO).</li><li><b data-path-to-node="12" data-index-in-node="544">Condición de reanudación:</b> La medida rige por tiempo indeterminado hasta tanto se cumpla con el procedimiento ambiental ante el Estado argentino o exista una contraorden del tribunal.</li></ul><div><br></div></div><h2>El rechazo británico y la escalada geopolítica</h2><div><span style="font-size: 0.92rem;">La decisión de la Justicia federal se conoció horas después de una advertencia oficial emitida desde Londres. A través de un documento titulado </span><i data-path-to-node="15" data-index-in-node="144" style="font-size: 0.92rem;">"Hacer negocios con las Islas Malvinas"</i><span style="font-size: 0.92rem;">, el </span><b data-path-to-node="15" data-index-in-node="188" style="font-size: 0.92rem;">gobierno del Reino Unido</b><span style="font-size: 0.92rem;"> desconoció la validez de los pronunciamientos judiciales argentinos sobre el área circundante a las islas.</span></div><div><br></div><div>En dicho comunicado, la administración británica sostuvo que ningún poder del Estado argentino cuenta con jurisdicción legítima sobre la actividad económica de las islas y ratificó su respaldo a las compañías internacionales que operan con licencias otorgadas por el gobierno colonial local.</div><div><br></div><h2>El impacto sobre las cotizaciones y el financiamiento</h2><div>La orden de paralización representa un nuevo escollo financiero para el consorcio operador. Con un costo de desarrollo inicial calculado en miles de millones de dólares, el proyecto Sea Lion dependía de cerrar rondas de financiamiento internacional y contratos con contratistas navales en los próximos meses.</div><div><br></div><div>El fallo federal eleva el riesgo crediticio y regulatorio para las corporaciones involucradas, sumándose a las sanciones administrativas y advertencias penales notificadas por el Poder Ejecutivo nacional a las firmas del sector.&nbsp;&nbsp;</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
