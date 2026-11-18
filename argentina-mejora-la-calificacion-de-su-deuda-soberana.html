@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Argentina mejora la calificación de su deuda soberana","description":"La agencia Standard & Poor’s elevó la calificación de la deuda soberana argentina, reflejando una mejora en la percepción de riesgo por parte de los mercados.","image":["https://macromindnews.com.ar/img/standard-poors.jpg"],"datePublished":"2025-12-18T00:00:00-03:00","dateModified":"2025-12-18T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/argentina-mejora-la-calificacion-de-su-deuda-soberana.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Argentina mejora la calificación de su deuda soberana</h1>
   <p class="art-excerpt">La agencia Standard & Poor’s elevó la calificación de la deuda soberana argentina, reflejando una mejora en la percepción de riesgo por parte de los mercados.</p>
   <div class="art-meta">18 de Diciembre, 2025</div>
-  <img src="img/standard-poors.jpg" alt="Argentina mejora la calificación de su deuda soberana" onerror="this.style.background='#ddd';"/>
+  <img src="img/standard-poors.jpg" alt="Argentina mejora la calificación de su deuda soberana" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/argentina-mejora-la-calificacion-de-su-deuda-soberana.html&text=Argentina%20mejora%20la%20calificaci%C3%B3n%20de%20su%20deuda%20soberana" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La agencia internacional Standard &amp; Poor’s (S&amp;P) decidió elevar la calificación de la deuda soberana de Argentina, una señal que el mercado interpreta como una ligera mejora en la confianza sobre la capacidad de pago del país. Este movimiento refleja que, aunque los desafíos económicos persisten, la agencia percibe una voluntad o una capacidad técnica superior para cumplir con los compromisos financieros en el corto plazo.<div><br></div><div>En detalle, la calificación para la deuda de largo plazo, tanto en moneda extranjera como en moneda local, subió de un nivel de CCC a CCC+. Este pequeño escalón hacia arriba dentro de la escala de riesgo indica que, si bien el país sigue en una zona vulnerable, se han reducido mínimamente las probabilidades de un incumplimiento inmediato (default), otorgando un respiro a las finanzas públicas.</div><div><br></div><div>Inmediatamente después de conocerse el anuncio, los mercados reaccionaron de forma positiva: los bonos soberanos argentinos aumentaron su valor y el riesgo país experimentó una baja significativa. Esto ocurre porque, al mejorar la nota de la agencia, los inversores sienten que el peligro de no cobrar sus activos es menor, lo que genera una mayor demanda de títulos públicos en las bolsas internacionales.</div><div><br></div><div>A pesar de este avance alentador, es importante notar que Argentina todavía se encuentra muchos peldaños por debajo del "grado de inversión", que es el sello de calidad que buscan los grandes fondos del mundo. Para alcanzar niveles de estabilidad real, el país necesita mantener esta tendencia positiva y seguir resolviendo sus desequilibrios económicos para salir de la categoría de riesgo especulativo.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
