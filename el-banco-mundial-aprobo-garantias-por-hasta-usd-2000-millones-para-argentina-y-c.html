@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El Banco Mundial aprobó garantías por hasta USD 2.000 millones para Argentina y Caputo cierra el programa financiero de 2026","description":"El directorio del organismo multilateral oficializó el respaldo este martes, tres semanas antes de que el país deba afrontar vencimientos de deuda con bonistas por USD 4.350 millones. El economista jefe de Puente consideró que con esta decisión el equipo económico puede dar por cerrado el programa financiero del año.","image":["https://macromindnews.com.ar/img/banco-mundial.jpg"],"datePublished":"2026-06-16T00:00:00-03:00","dateModified":"2026-06-16T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-banco-mundial-aprobo-garantias-por-hasta-usd-2000-millones-para-argentina-y-c.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El Banco Mundial aprobó garantías por hasta USD 2.000 millones para Argentina y Caputo cierra el programa financiero de 2026</h1>
   <p class="art-excerpt">El directorio del organismo multilateral oficializó el respaldo este martes, tres semanas antes de que el país deba afrontar vencimientos de deuda con bonistas por USD 4.350 millones. El economista jefe de Puente consideró que con esta decisión el equipo económico puede dar por cerrado el programa financiero del año.</p>
   <div class="art-meta">16 de Junio, 2026</div>
-  <img src="img/banco-mundial.jpg" alt="El Banco Mundial aprobó garantías por hasta USD 2.000 millones para Argentina y Caputo cierra el programa financiero de 2026" onerror="this.style.background='#ddd';"/>
+  <img src="img/banco-mundial.jpg" alt="El Banco Mundial aprobó garantías por hasta USD 2.000 millones para Argentina y Caputo cierra el programa financiero de 2026" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-banco-mundial-aprobo-garantias-por-hasta-usd-2000-millones-para-argentina-y-c.html&text=El%20Banco%20Mundial%20aprob%C3%B3%20garant%C3%ADas%20por%20hasta%20USD%202.000%20millones%20para%20Argentina%20y%20Caputo%20cierra%20el%20programa%20financiero%20de%202026" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El Directorio del Banco Mundial aprobó este martes las garantías para movilizar hasta USD 2.000 millones en préstamos comerciales para Argentina, en una decisión que llega en un momento clave del calendario financiero del país. El anuncio se produce apenas tres semanas antes de que el Gobierno deba afrontar vencimientos de deuda soberana con bonistas por aproximadamente USD 4.350 millones, y despeja las principales incógnitas que quedaban abiertas sobre la capacidad del Tesoro de hacer frente a esos compromisos sin tensionar las reservas del Banco Central.<div><br><h2>Cómo funciona el mecanismo</h2><div>El esquema aprobado combina dos instrumentos del Grupo Banco Mundial. El primero es una garantía basada en políticas del Banco Internacional de Reconstrucción y Fomento, conocida como Policy-Based Guarantee. El segundo es una garantía de la Agencia Multilateral de Garantía de Inversiones. En conjunto, ambas garantías cubrirán el 95% de los pagos del servicio de la deuda del préstamo comercial que Argentina tomará en el mercado privado respaldada por ese paraguas institucional. Esa cobertura permite al país acceder a financiamiento a tasas más bajas de las que obtendría sin ese respaldo, ya que los prestamistas privados asumen un riesgo significativamente menor.</div><div><br></div><h2>El impacto sobre el programa financiero</h2><div>La aprobación de estas garantías tiene un efecto inmediato sobre el horizonte financiero del Gobierno. Analistas del mercado local señalaron que con este paquete, el equipo económico puede considerar cerrado el programa financiero de 2026, ya que se asegura un puente de liquidez que cubre los compromisos del año, incluyendo no solo los vencimientos de julio sino también los pagos de bonos soberanos previstos para principios de 2027. En ese contexto, la presión sobre las reservas del Banco Central para afrontar esos vencimientos se reduce considerablemente.</div><div><br></div><h2>La lectura del Banco Mundial</h2><div>En su comunicado oficial, el organismo afirmó que las garantías aprobadas respaldarán los esfuerzos del Gobierno para crear empleo, impulsar la inversión y fortalecer la estabilidad económica. También señaló que la operación reducirá los costos de financiamiento del país y acompañará una agenda de reformas orientadas a atraer inversiones en infraestructura y mejorar la inclusión financiera de las pequeñas empresas. El respaldo del Banco Mundial no es solo financiero sino también político: en el contexto actual, contar con el aval de un organismo multilateral de esa envergadura refuerza la narrativa de normalización que el Gobierno viene construyendo ante los mercados internacionales desde el inicio de la gestión.</div></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
