@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Suben los bonos argentinos y cede levemente el riesgo país impulsados por el optimismo en los mercados globales","description":"Tras las fuertes presiones y el salto de la volatilidad registrados en las rondas previas debido al proceso electoral en Estados Unidos, los títulos soberanos en dólares de la Argentina experimentaron una recuperación parcial que permitió aflojar al indicador de JP Morgan, en sintonía con un clima internacional más favorable para los activos de riesgo.","image":["https://macromindnews.com.ar/img/merval-04-11-26.webp"],"datePublished":"2026-11-04T00:00:00-03:00","dateModified":"2026-11-04T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/suben-los-bonos-argentinos-y-cede-levemente-el-riesgo-pais-impulsados-por-el-optimismo-en-los-mercados-globales.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><span >Los mercados financieros locales mostraron este miércoles un respiro luego de varias jornadas de marcado tono bajista.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="3"><!----></sup></source-footnote></span> <span >Los bonos soberanos en dólares registraron un rebote técnico que permitió contener la tensión cambiaria y redujo de manera marginal el indicador de riesgo país, el cual se mantenía bajo la presión de la incertidumbre global tras los comicios legislativos en Estados Unidos.</span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1631098458=""></sources-carousel-inline><div><span ><br></span></div><div><span >El compás de espera de los inversores institucionales comenzó a disiparse a medida que Wall Street asimilaba el nuevo mapa legislativo en Washington, permitiendo que los títulos Globales y Bonar mostraran números verdes y encontraran demanda selectiva tras acumular caídas consecutivas que los habían llevado a tocar máximos anuales de tensión en el tramo corto y medio de la curva.</span></div><div><span ><br></span></div><h2>Comportamiento de la deuda y factores externos</h2><div>Si bien la corrección alcista de los títulos soberanos alivia parcialmente las tensiones sobre el programa financiero del Gobierno —que monitorea de cerca las condiciones de acceso al mercado de crédito internacional de cara a los próximos compromisos de pago—, los operadores advierten que la volatilidad sigue latente.</div><div><ul><li><b data-path-to-node="6,0,0" data-index-in-node="0">Rebote de los Globales:</b> <span >Los principales bonos en dólares operaron con recompras de posiciones tras tocar pisos recientes, logrando recortar parte del castigo que sufrieron los títulos de referencia con ley extranjera.</span></li><li><span ><b data-path-to-node="6,1,0" data-index-in-node="0">Dinámica del riesgo país:</b> <span >El índice que elabora el JP Morgan reflejó un alivio temporal al ceder desde las inmediaciones de los máximos de un año, aunque los analistas recalcan que el indicador continúa exigiendo una prima elevada en comparación con los niveles observados meses atrás.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="7"><!----></sup></source-footnote></span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1631098458=""></sources-carousel-inline></span></li><li><span ><span ><b data-path-to-node="6,2,0" data-index-in-node="0">Contexto internacional:</b> El pulso de las plazas externas resultó determinante. El comportamiento de las principales bolsas internacionales y la estabilización de las materias primas aportaron el marco propicio para que los emergentes experimentaran una rueda de recomposición de carteras.</span></span></li></ul><div><br></div></div><div><span >Pese al respiro de la jornada, la atención de la City porteña continúa centrada en la evolución de las reservas internacionales del Banco Central y en la capacidad de la administración local para consolidar un ancla fiscal y monetaria que disipe por completo las dudas del mercado secundario de deuda.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="8"><!----></sup></source-footnote></span><sources-carousel-inline ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1631098458=""></sources-carousel-inline></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
