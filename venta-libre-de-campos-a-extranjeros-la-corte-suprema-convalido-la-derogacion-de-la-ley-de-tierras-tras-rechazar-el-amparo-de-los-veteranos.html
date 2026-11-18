@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Venta libre de campos a extranjeros: la Corte Suprema convalidó la derogación de la Ley de Tierras tras rechazar el amparo de los veteranos","description":"En una resolución unánime, el máximo tribunal dejó vigente el artículo del mega DNU de Javier Milei y anuló los topes históricos que impedían a firmas foráneas comprar territorio nacional. La explosiva respuesta del CECIM La Plata contra los jueces supremos.","image":["https://macromindnews.com.ar/img/corte-suprema-29-09-26.webp"],"datePublished":"2026-09-29T00:00:00-03:00","dateModified":"2026-09-29T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/venta-libre-de-campos-a-extranjeros-la-corte-suprema-convalido-la-derogacion-de-la-ley-de-tierras-tras-rechazar-el-amparo-de-los-veteranos.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Venta libre de campos a extranjeros: la Corte Suprema convalidó la derogación de la Ley de Tierras tras rechazar el amparo de los veteranos</h1>
   <p class="art-excerpt">En una resolución unánime, el máximo tribunal dejó vigente el artículo del mega DNU de Javier Milei y anuló los topes históricos que impedían a firmas foráneas comprar territorio nacional. La explosiva respuesta del CECIM La Plata contra los jueces supremos.</p>
   <div class="art-meta">29 de Septiembre, 2026</div>
-  <img src="img/corte-suprema-29-09-26.webp" alt="Venta libre de campos a extranjeros: la Corte Suprema convalidó la derogación de la Ley de Tierras tras rechazar el amparo de los veteranos" onerror="this.style.background='#ddd';"/>
+  <img src="img/corte-suprema-29-09-26.webp" alt="Venta libre de campos a extranjeros: la Corte Suprema convalidó la derogación de la Ley de Tierras tras rechazar el amparo de los veteranos" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/venta-libre-de-campos-a-extranjeros-la-corte-suprema-convalido-la-derogacion-de-la-ley-de-tierras-tras-rechazar-el-amparo-de-los-veteranos.html&text=Venta%20libre%20de%20campos%20a%20extranjeros%3A%20la%20Corte%20Suprema%20convalid%C3%B3%20la%20derogaci%C3%B3n%20de%20la%20Ley%20de%20Tierras%20tras%20rechazar%20el%20amparo%20de%20los%20veteranos" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El mercado inmobiliario rural y el debate sobre la soberanía territorial sumaron un fallo determinante. La <b data-path-to-node="6" data-index-in-node="107">Corte Suprema de Justicia de la Nación</b> revocó una sentencia de la Cámara Federal de La Plata y resolvió dejar en <b data-path-to-node="6" data-index-in-node="220">plena vigencia el artículo 154 del DNU 70/2023</b>, norma que derogó de manera definitiva la <b data-path-to-node="6" data-index-in-node="309">Ley de Tierras (Ley 26.737)</b> sancionada en 2011.<div><br></div><div>La decisión de los jueces destraba cualquier restricción legal a la compra de campos por parte de personas físicas, corporaciones o Estados extranjeros, reactivando una de las desregulaciones más ambiciosas promovidas por el Poder Ejecutivo.</div><div><br></div><h2>Qué cambia en la práctica: adiós a los cupos y límites por hectárea</h2><div>La convalidación judicial del decreto presidencial desmantela de forma automática los frenos que regían para las operaciones inmobiliarias en todo el país:</div><div><br></div><div>A partir de ahora, ya no tiene vigencia el tope que impedía que más del <b data-path-to-node="10" data-index-in-node="72">15% del territorio</b> nacional, provincial o municipal estuviera en manos extranjeras. Tampoco rige el límite máximo de <b data-path-to-node="10" data-index-in-node="189">1.000 hectáreas</b> por titular foráneo en la zona núcleo pampeana, y quedan desreguladas las adquisiciones en zonas estratégicas de seguridad de frontera y en áreas ribereñas a grandes cuerpos de agua y cuencas hídricas.</div><div><br></div><h2>El fundamento de los jueces: falta de legitimación del amparo</h2><div>La sentencia, firmada en conjunto por los ministros <b data-path-to-node="12" data-index-in-node="52">Horacio Rosatti, Carlos Rosenkrantz y Ricardo Lorenzetti</b>, no entró a juzgar el contenido económico de la medida ni su constitucionalidad de fondo, sino que desestimó la demanda por razones procesales:</div><div><br></div><div>La Corte dictaminó que la agrupación de excombatientes demandante carecía de "legitimación activa", ya que no demostró sufrir un perjuicio concreto ni representar a un grupo directamente afectado. En duros términos, el tribunal remarcó que la soberanía territorial es una potestad exclusiva de los poderes políticos del Estado y no un derecho de incidencia colectiva que habilite a cualquier organización civil a litigar en los tribunales.</div><div><br></div><h2>La furia del CECIM de La Plata: "Puso a la Argentina en venta"</h2><div>Pocas horas después de conocerse el fallo, el <b data-path-to-node="16" data-index-in-node="46">Centro de Ex Combatientes Islas Malvinas (CECIM) La Plata</b> publicó un explosivo comunicado en sus redes sociales bajo el título <i data-path-to-node="16" data-index-in-node="173">"La Corte decretó que la soberanía no es un bien jurídico y puso a la Argentina en venta"</i>:</div><div><ul><li><b data-path-to-node="16" data-index-in-node="266">Reproche histórico:</b> <i data-path-to-node="16" data-index-in-node="286">"Un Estado argentino que, en 1982, nos mandó a batallar bajo el argumento de la defensa de la soberanía nacional... hoy nos dice que podemos morir por la patria, pero no acudir a un tribunal a defenderla"</i>, dispararon los veteranos.</li><li><b data-path-to-node="16" data-index-in-node="515">Crítica al argumento técnico:</b> Acusaron a los magistrados de haber <i data-path-to-node="16" data-index-in-node="581">"pateado la pelota afuera con argumentos técnicos"</i> para resolverle un problema político al Gobierno nacional.</li><li><b data-path-to-node="16" data-index-in-node="693">Alerta por recursos estratégicos:</b> La entidad advirtió que la sentencia <i data-path-to-node="16" data-index-in-node="764">"le dice al mundo entero que pueden venir a comprar zonas de frontera, ríos, valles, quebradas y provincias enteras"</i>, calificando el fallo como una entrega de soberanía territorial.</li></ul><img src="img/comunicado-cecim.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"></div><h2>El atajo judicial que destrabó el freno del Congreso</h2><div>El resultado en Tribunales le otorga una victoria clave a la Casa Rosada. Apenas semanas atrás, el oficialismo había intentado convertir en ley la desregulación de tierras dentro de un paquete legislativo, pero debió retirarlo del Senado ante el rechazo expreso de gobernadores aliados y protestas sociales.</div><div><br></div><div>Con la convalidación del DNU por parte del máximo tribunal, el Gobierno logró la apertura total del mercado rural por vía judicial, cerrando el frente cautelar que lo mantenía en suspenso desde el verano.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
