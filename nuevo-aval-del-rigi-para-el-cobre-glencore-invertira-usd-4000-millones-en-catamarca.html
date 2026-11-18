@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Nuevo aval del RIGI para el cobre: Glencore invertirá USD 4.000 millones en Catamarca","description":"En el marco de la gira oficial por Francia, Javier Milei y el titular de la multinacional minera confirmaron el desembarco de fondos para el yacimiento Agua Rica. Los plazos de obra, el circuito logístico y el impacto en exportaciones y empleo.","image":["https://macromindnews.com.ar/img/milei-glencore.webp"],"datePublished":"2026-10-02T00:00:00-03:00","dateModified":"2026-10-02T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/nuevo-aval-del-rigi-para-el-cobre-glencore-invertira-usd-4000-millones-en-catamarca.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Nuevo aval del RIGI para el cobre: Glencore invertirá USD 4.000 millones en Catamarca</h1>
   <p class="art-excerpt">En el marco de la gira oficial por Francia, Javier Milei y el titular de la multinacional minera confirmaron el desembarco de fondos para el yacimiento Agua Rica. Los plazos de obra, el circuito logístico y el impacto en exportaciones y empleo.</p>
   <div class="art-meta">2 de Octubre, 2026</div>
-  <img src="img/milei-glencore.webp" alt="Nuevo aval del RIGI para el cobre: Glencore invertirá USD 4.000 millones en Catamarca" onerror="this.style.background='#ddd';"/>
+  <img src="img/milei-glencore.webp" alt="Nuevo aval del RIGI para el cobre: Glencore invertirá USD 4.000 millones en Catamarca" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/nuevo-aval-del-rigi-para-el-cobre-glencore-invertira-usd-4000-millones-en-catamarca.html&text=Nuevo%20aval%20del%20RIGI%20para%20el%20cobre%3A%20Glencore%20invertir%C3%A1%20USD%204.000%20millones%20en%20Catamarca" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El sector minero argentino sumó este viernes un nuevo hito en materia de inversiones estratégicas. Durante el desarrollo del foro empresarial Argentina Week en París, el presidente <b data-path-to-node="6" data-index-in-node="181">Javier Milei</b> y el director ejecutivo global de la firma suiza <b data-path-to-node="6" data-index-in-node="243">Glencore</b>, <b data-path-to-node="6" data-index-in-node="253">Gary Nagle</b>, formalizaron el acuerdo para la puesta en marcha del proyecto de cobre <b data-path-to-node="6" data-index-in-node="336">Agua Rica</b>, ubicado en la provincia de <b data-path-to-node="6" data-index-in-node="374">Catamarca</b>, tras haber recibido la aprobación técnica del Comité Evaluador para ingresar al Régimen de Incentivo para Grandes Inversiones (RIGI).<div><br></div><div>La iniciativa demandará un desembolso de capital de <b data-path-to-node="7" data-index-in-node="52">USD 4.000 millones</b>, consolidando a la minería cuprífera como uno de los principales motores del ingreso de divisas y generación de empleo para el noroeste del país de cara a la próxima década.</div><div><br></div><h2>El megaproyecto Agua Rica: Cifras, plazos y volumen de exportaciones</h2><div>El plan de desarrollo prevé un cronograma de ejecución gradual y financiamiento con recursos propios de la multinacional:</div><div><ul><li><b data-path-to-node="10" data-index-in-node="2">Inversión inicial:</b> De los USD 4.000 millones presupuestados, unos USD 771 millones se desembolsarán durante los primeros dos años mediante aportes directos de capital y líneas de crédito corporativo de Glencore.</li><li><b data-path-to-node="11" data-index-in-node="2">Cronograma de obra:</b> El inicio de las tareas de construcción pesada está previsto para noviembre de 2027, mientras que la fase de extracción y operación comercial comenzará en octubre de 2031.</li><li><b data-path-to-node="12" data-index-in-node="2">Capacidad productiva:</b> El yacimiento alcanzará una extracción media de <b data-path-to-node="12" data-index-in-node="72">200.000 toneladas de cobre al año</b>.<b data-path-to-node="13" data-index-in-node="2">Ingreso de divisas:</b> La totalidad del mineral procesado se comercializará en mercados internacionales, generando exportaciones netas estimadas en <b data-path-to-node="13" data-index-in-node="147">USD 2.167 millones anuales</b>.</li></ul><img src="img/glencore-comunicado.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><h2>Logística integrada: El circuito desde Catamarca hasta el puerto de Rosario</h2></div><div>Una de las principales ventajas operativas del yacimiento Minera Agua Rica (MARA) radica en el aprovechamiento de la infraestructura preexistente que dejó la histórica explotación de Minera Alumbrera.</div><div><br></div><div>El mineral extraído en Catamarca se procesará directamente en la planta concentradora de Alumbrera y viajará a través de un mineraloducto hasta la provincia de Tucumán. Una vez allí, la carga será montada en formaciones ferroviarias de carga para su transporte hacia los muelles de exportación situados sobre el río Paraná, en el polo portuario del Gran Rosario.</div><div><br></div><div>El proyecto también incluye desembolsos complementarios para la pavimentación de rutas de acceso, obras de tendido eléctrico de alta tensión e infraestructura hídrica, además de programas de desarrollo para proveedores regionales.</div><div><br></div><h2>El empleo calificado e impacto en las economías regionales</h2><div>En términos de mano de obra, Glencore detalló que el proyecto dinamizará fuertemente el mercado laboral del interior.</div><div><br></div><div>La etapa de montaje y construcción requerirá un pico de hasta <b data-path-to-node="21" data-index-in-node="62">3.500 operarios en terreno</b>. Una vez que el complejo entre en régimen de producción continua hacia finales de 2031, sostendrá una nómina permanente de <b data-path-to-node="21" data-index-in-node="212">1.250 empleos directos</b> de alta calificación y cerca de <b data-path-to-node="21" data-index-in-node="267">3.750 puestos indirectos</b> a lo largo de toda su cadena de valor logística y de servicios.</div><div><br></div><h2>La advertencia del titular de Glencore sobre la estabilidad regulatoria</h2><div>Durante su participación en los paneles organizados en la sede de la OCDE en la capital francesa, Gary Nagle valoró el impacto del nuevo marco impositivo y cambiario aprobado por el Congreso nacional, aunque dejó un mensaje sobre la previsibilidad a largo plazo.</div><div><br></div><div>El ejecutivo remarcó que las reglas del RIGI le permiten a la Argentina equiparar e incluso superar la competitividad de países vecinos como Chile y Perú, abriendo la puerta a un paquete de inversiones de la compañía por hasta <b data-path-to-node="24" data-index-in-node="227">USD 20.000 millones en los próximos diez años</b>, incluyendo proyectos como El Pachón en San Juan. En ese sentido, Nagle enfatizó que una inversión minera de esta envergadura tarda entre cinco y seis años en construirse y no puede mudarse a otro destino, por lo que la estabilidad jurídica inalterable y la disponibilidad de infraestructura energética resultan condiciones indispensables para que los capitales se queden en el país.<br><div><img src="img/glencore.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"></div></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
