@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Manuel Adorni renunció a su cargo como Jefe de Gabinete de Ministros","description":"El funcionario presentó su renuncia indeclinable mediante una extensa carta dirigida al presidente Javier Milei, donde denunció un fuerte hostigamiento mediático hacia él y su familia.","image":["https://macromindnews.com.ar/img/adorni-4.jpg"],"datePublished":"2026-06-27T00:00:00-03:00","dateModified":"2026-06-27T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/manuel-adorni-renuncio-a-su-cargo-como-jefe-de-gabinete-de-ministros.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Manuel Adorni renunció a su cargo como Jefe de Gabinete de Ministros</h1>
   <p class="art-excerpt">El funcionario presentó su renuncia indeclinable mediante una extensa carta dirigida al presidente Javier Milei, donde denunció un fuerte hostigamiento mediático hacia él y su familia.</p>
   <div class="art-meta">27 de Junio, 2026</div>
-  <img src="img/adorni-4.jpg" alt="Manuel Adorni renunció a su cargo como Jefe de Gabinete de Ministros" onerror="this.style.background='#ddd';"/>
+  <img src="img/adorni-4.jpg" alt="Manuel Adorni renunció a su cargo como Jefe de Gabinete de Ministros" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/manuel-adorni-renuncio-a-su-cargo-como-jefe-de-gabinete-de-ministros.html&text=Manuel%20Adorni%20renunci%C3%B3%20a%20su%20cargo%20como%20Jefe%20de%20Gabinete%20de%20Ministros" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Manuel Adorni presentó formalmente su renuncia al cargo de Jefe de Gabinete de Ministros de la Nación. A través de un comunicado difundido públicamente, el funcionario expresó su agradecimiento al jefe de Estado por haber aceptado su dimisión, la cual va en contra de los deseos originales del mandatario pero responde a una decisión personal orientada a proteger a su entorno íntimo.<div><br><div>​En el texto de su dimisión, el ahora exjefe de Gabinete detalló los motivos que lo llevaron a dar un paso al costado, apuntando de manera directa contra lo que calificó como una "carnicería mediática". El funcionario señaló haber soportado innumerables ataques y operaciones de prensa que afectaron no solo su reputación, sino también la tranquilidad de su esposa, sus hijos pequeños, amigos y allegados de su círculo más cercano.</div><div><br></div><h2>​Denuncias de difamación y falsedades</h2><div>Adorni enumeró una serie de acusaciones vertidas en los medios de comunicación a las que catalogó como absolutas mentiras. Entre ellas, mencionó versiones falsas sobre viajes inexistentes, gastos suntuosos, contratos ficticios, supuestas "granjas cripto" vinculadas a la Custodia Presidencial, y la imputación de poseer un dispositivo de almacenamiento con divisas extranjeras de origen irregular, además de presuntas sociedades en Uruguay y cirugías estéticas millonarias.</div><div><br></div><div>El dirigente remarcó que las versiones periodísticas buscaron tildarlo de delincuente y corrupto sin que existiera un solo hecho real que sustentara tales afirmaciones. Asimismo, lamentó que las críticas traspasaran los límites de la discusión laboral y se entrometieran en aspectos de su vida privada, inventando situaciones de índole familiar y afectiva con el único propósito de arruinar su honorabilidad.</div><div><br></div><h2>​Agradecimientos y cierre de etapa</h2><div>A pesar de las circunstancias de su salida, manifestó su orgullo por haber formado parte de la gestión de gobierno y por haber cumplido a rajatabla con sus funciones desde que asumió el rol de coordinar los ministerios. En sus líneas de despedida, incluyó un agradecimiento especial tanto a Javier Milei como a la Secretaria General de la Presidencia, Karina Milei, por la confianza depositada en su persona desde el inicio del mandato.</div><div><br></div><div>​Finalmente, el funcionario extendió su gratitud a sus equipos de trabajo, a los integrantes del gabinete de ministros y a los ciudadanos que le brindaron apoyo frente a las difamaciones. Al cerrar el comunicado, aseguró retirarse con tranquilidad, en paz consigo mismo y con la firme convicción de haber colaborado en un proyecto político destinado a transformar el rumbo del país.</div></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
