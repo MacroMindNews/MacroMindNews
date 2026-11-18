@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El BCRA alivió los requisitos de capital para bancos que financien al agro","description":"El BCRA emitió la Comunicación \"A\" 8418. La medida facilita el acceso al crédito para el sector agropecuario y entra en vigencia a partir del día siguiente a su publicación.","image":["https://macromindnews.com.ar/img/dolar-agro.jpg"],"datePublished":"2026-04-13T00:00:00-03:00","dateModified":"2026-04-13T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-bcra-alivio-los-requisitos-de-capital-para-bancos-que-financien-al-agro.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El BCRA alivió los requisitos de capital para bancos que financien al agro</h1>
   <p class="art-excerpt">El BCRA emitió la Comunicación "A" 8418. La medida facilita el acceso al crédito para el sector agropecuario y entra en vigencia a partir del día siguiente a su publicación.</p>
   <div class="art-meta">13 de Abril, 2026</div>
-  <img src="img/dolar-agro.jpg" alt="El BCRA alivió los requisitos de capital para bancos que financien al agro" onerror="this.style.background='#ddd';"/>
+  <img src="img/dolar-agro.jpg" alt="El BCRA alivió los requisitos de capital para bancos que financien al agro" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-bcra-alivio-los-requisitos-de-capital-para-bancos-que-financien-al-agro.html&text=El%20BCRA%20alivi%C3%B3%20los%20requisitos%20de%20capital%20para%20bancos%20que%20financien%20al%20agro" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El Banco Central de la República Argentina (BCRA) emitió este 9 de abril de 2026 la Comunicación "A" 8418, dirigida a todas las entidades financieras del país, con una medida que impacta directamente sobre el financiamiento del sector agropecuario. La resolución deja sin efecto la exigencia adicional de capital mínimo que regía para los bancos que otorgaban préstamos a clientes con actividad agrícola no Mipyme —es decir, productores de mayor escala que no califican como micro, pequeña o mediana empresa— que mantenían acopios de su producción superiores al 5% de su capacidad de cosecha anual. En lenguaje simple: hasta ahora, si un banco le prestaba dinero a un productor agrícola grande que tenía guardada más del 5% de su cosecha en silos o depósitos, ese banco debía inmovilizar más capital propio como respaldo de ese crédito. Esa exigencia adicional queda eliminada.<br><br>Para entender por qué esto importa, hay que explicar qué son los capitales mínimos bancarios. Los bancos están obligados por el BCRA a mantener una proporción de capital propio en relación a los créditos que otorgan, como reserva de seguridad ante eventuales impagos. Cuanto mayor es el riesgo que el regulador asigna a un tipo de préstamo, mayor es el capital que el banco debe apartar para respaldarlo. Eso tiene un costo: el capital inmovilizado no puede prestarse, lo que encarece o directamente desincentiva ciertos tipos de financiamiento. Al eliminar la exigencia adicional sobre los préstamos a productores con acopio, el BCRA está diciendo que ese riesgo ya no justifica el tratamiento diferencial, lo que libera capital bancario y facilita que los bancos ofrezcan más crédito a ese segmento del agro en mejores condiciones.<br><br>La medida tiene una lógica clara en el contexto actual. El sector agropecuario viene siendo uno de los principales motores de la recuperación económica argentina, liderando las variaciones positivas del EMAE mes tras mes y siendo una fuente clave de divisas para el Banco Central. Sin embargo, el financiamiento al campo —especialmente a los productores medianos y grandes que no califican como Mipyme— enfrenta restricciones regulatorias que encarecen el crédito o directamente limitan el acceso. Al eliminar esta sobrecarga de capital, el BCRA facilita que los bancos puedan ofrecer líneas de crédito más competitivas para capital de trabajo, compra de insumos, maquinaria o financiamiento de campaña a ese segmento del sector rural.<br><br>La Comunicación "A" 8418 es parte de una serie de ajustes regulatorios que el BCRA viene realizando en el marco de la normalización del sistema financiero argentino. En las últimas semanas, el organismo también eliminó la sobretasa de encajes bancarios y avanzó en la flexibilización cambiaria, en una tendencia clara hacia reducir las fricciones regulatorias que históricamente complicaron el funcionamiento del sistema de crédito en el país. Para el campo, que necesita financiamiento fluido para sostener su producción y exportaciones, cada mejora en las condiciones de acceso al crédito bancario es un paso concreto hacia mayor competitividad y menor dependencia de fuentes de financiamiento informales o más costosas.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
