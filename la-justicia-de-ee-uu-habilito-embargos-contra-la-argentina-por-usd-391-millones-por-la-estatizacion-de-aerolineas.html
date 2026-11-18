@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"La Justicia de EE. UU. habilitó embargos contra la Argentina por USD 391 millones por la estatización de Aerolíneas","description":"Un tribunal de Washington autorizó a un fondo litigante a rastrear y congelar bienes del Estado a partir de este lunes. Los activos en la mira en Nueva York, el origen del reclamo tras la expropiación de 2008 y otros fallos millonarios que acechan al país.","image":["https://macromindnews.com.ar/img/caso-aerolineas-argentinas.webp"],"datePublished":"2026-09-27T00:00:00-03:00","dateModified":"2026-09-27T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/la-justicia-de-ee-uu-habilito-embargos-contra-la-argentina-por-usd-391-millones-por-la-estatizacion-de-aerolineas.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">La Justicia de EE. UU. habilitó embargos contra la Argentina por USD 391 millones por la estatización de Aerolíneas</h1>
   <p class="art-excerpt">Un tribunal de Washington autorizó a un fondo litigante a rastrear y congelar bienes del Estado a partir de este lunes. Los activos en la mira en Nueva York, el origen del reclamo tras la expropiación de 2008 y otros fallos millonarios que acechan al país.</p>
   <div class="art-meta">27 de Septiembre, 2026</div>
-  <img src="img/caso-aerolineas-argentinas.webp" alt="La Justicia de EE. UU. habilitó embargos contra la Argentina por USD 391 millones por la estatización de Aerolíneas" onerror="this.style.background='#ddd';"/>
+  <img src="img/caso-aerolineas-argentinas.webp" alt="La Justicia de EE. UU. habilitó embargos contra la Argentina por USD 391 millones por la estatización de Aerolíneas" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/la-justicia-de-ee-uu-habilito-embargos-contra-la-argentina-por-usd-391-millones-por-la-estatizacion-de-aerolineas.html&text=La%20Justicia%20de%20EE.%20UU.%20habilit%C3%B3%20embargos%20contra%20la%20Argentina%20por%20USD%20391%20millones%20por%20la%20estatizaci%C3%B3n%20de%20Aerol%C3%ADneas" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div><div>El frente judicial de la Argentina en los tribunales del exterior sumó una complicación inmediata. La jueza federal estadounidense <b data-path-to-node="6" data-index-in-node="131">Jia M. Cobb</b>, del Tribunal de Distrito de Columbia (Washington), dictó una resolución que autoriza formalmente a la firma demandante <b data-path-to-node="6" data-index-in-node="263">Titan Consortium</b> a iniciar <b data-path-to-node="6" data-index-in-node="290">pedidos de embargo y ejecución de bienes contra la República Argentina</b> a partir de este <b data-path-to-node="6" data-index-in-node="378">lunes 28 de septiembre</b>.</div><div><br></div><div>La medida busca cobrar una sentencia firme que asciende a <b data-path-to-node="7" data-index-in-node="58">USD 390,9 millones más intereses acumulados</b> (superando los <b data-path-to-node="7" data-index-in-node="117">USD 391 millones</b>) originada en la indemnización que el país nunca canceló por la expropiación de <b data-path-to-node="7" data-index-in-node="214">Aerolíneas Argentinas y Austral</b> en 2008.</div><img src="https://www.classicist.org/assets/images/articles/DC-COurt-of-Appeals_BisNow.jpg" alt="Imagen" style="margin: 12px 0px; max-width: 100%; display: block;"><div><br></div><h2>Luz verde judicial y los activos bajo amenaza</h2><div>Hasta ahora, la condena dictada por el tribunal arbitral del Banco Mundial (CIADI) no podía ejecutarse de manera directa sin el aval de la justicia ordinaria estadounidense. Con la firma de la jueza Cobb, el fondo acreedor quedó plenamente habilitado para solicitar embargos sobre activos soberanos de carácter comercial radicados en jurisdicciones como <b data-path-to-node="10" data-index-in-node="354">Nueva York y Washington D.C.</b></div><div><span data-path-to-node="10" data-index-in-node="354"><br></span></div><div><span data-path-to-node="10" data-index-in-node="354">Especialistas en litigios internacionales advierten que los demandantes podrían intentar trabar medidas cautelares sobre cuentas financieras, flujos de pagos o bienes vinculados a la aerolínea de bandera en escalas internacionales, luego de que fracasara un principio de acuerdo extrajudicial intentado a fines de 2024.</span></div><div><span data-path-to-node="10" data-index-in-node="354"><br></span></div><h2><span data-path-to-node="10" data-index-in-node="354">De la estatización de Marsans a las manos de un fondo buitre</span></h2><div><span data-path-to-node="10" data-index-in-node="354">El conflicto arrastra casi dos décadas de idas y vueltas jurídicas:</span></div><div><span data-path-to-node="10" data-index-in-node="354">Tras la reestatización aprobada bajo el mandato de Cristina Kirchner en 2008, el grupo español <b data-path-to-node="14" data-index-in-node="95">Marsans</b> demandó al país ante el CIADI, logrando en 2017 un laudo a su favor por USD 320 millones más intereses. La empresa en quiebra vendió luego sus derechos de cobro a <b data-path-to-node="14" data-index-in-node="266">Burford Capital</b>, que a su vez los transfirió a <b data-path-to-node="14" data-index-in-node="313">Titan Consortium LLC</b> en 2021 para avanzar con el reclamo ejecutivo en los tribunales norteamericanos.</span></div></div><img src="https://www.cfkargentina.com/wp-content/uploads/2023/07/photo1689629939-1.jpeg" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div><span data-path-to-node="10" data-index-in-node="354">La Argentina intentó apelar la sentencia alegando la prescripción de la causa tras tres años, pero la Cámara de Apelaciones de Columbia rechazó el recurso en julio pasado, confirmando que el plazo aplicable es de doce años y dejando la vía libre para la ejecución forzosa.</span></div><div><span data-path-to-node="10" data-index-in-node="354"><br></span></div><h2><span data-path-to-node="10" data-index-in-node="354">La lista de los fallos que presionan sobre las reservas</span></h2><div><span data-path-to-node="10" data-index-in-node="354">El caso de Aerolíneas no es el único frente abierto que presiona sobre las cuentas públicas en el exterior:</span></div><div><ul><li><span data-path-to-node="10" data-index-in-node="354"><b data-path-to-node="17" data-index-in-node="110">Caso Webuild:</b> Reclamo por contratos de infraestructura incumplidos con sentencia firme en el CIADI por <b data-path-to-node="17" data-index-in-node="213">USD 127 millones</b>, ya autorizado para registro en cortes de EE. UU.</span></li><li><span data-path-to-node="10" data-index-in-node="354"><b data-path-to-node="17" data-index-in-node="282">Caso Saur International:</b> Litigio por concesiones de saneamiento y agua potable por <b data-path-to-node="17" data-index-in-node="365">USD 72 millones</b>.</span></li><li><span data-path-to-node="10" data-index-in-node="354"><b data-path-to-node="17" data-index-in-node="384">Cupones PBI en Europa:</b> Demanda liderada por el fondo Palladian Partners con fallo en contra por <b data-path-to-node="17" data-index-in-node="480">USD 1.800 millones</b>.</span></li><li><span data-path-to-node="10" data-index-in-node="354"><b data-path-to-node="17" data-index-in-node="502">Previsión en el Presupuesto 2027:</b> Ante la acumulación de sentencias firmes no apelables, el Gobierno nacional incluyó en el artículo 49 del proyecto de Presupuesto una partida de <b data-path-to-node="17" data-index-in-node="681">USD 1.100 millones</b> destinada exclusivamente a cancelar litigios del CIADI.</span></li></ul></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
