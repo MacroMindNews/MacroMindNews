@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Nació el primer REIT argentino: el fondo de Briones e IEB captó $66.327 millones y abre el mercado inmobiliario a pequeños inversores","description":"El Fondo Común de Inversión Cerrado Inmobiliario lanzado por Grupo Briones y Grupo IEB recibió 3.523 órdenes de compra en su licitación primaria. El vehículo permite invertir en propiedades comerciales premium con montos mínimos y salida rápida por el mercado secundario.","image":["https://macromindnews.com.ar/img/reit-grupo-briones.jpg"],"datePublished":"2026-06-12T00:00:00-03:00","dateModified":"2026-06-12T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/nacio-el-primer-reit-argentino-el-fondo-de-briones-e-ieb-capto-66327-millones-y-.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Nació el primer REIT argentino: el fondo de Briones e IEB captó $66.327 millones y abre el mercado inmobiliario a pequeños inversores</h1>
   <p class="art-excerpt">El Fondo Común de Inversión Cerrado Inmobiliario lanzado por Grupo Briones y Grupo IEB recibió 3.523 órdenes de compra en su licitación primaria. El vehículo permite invertir en propiedades comerciales premium con montos mínimos y salida rápida por el mercado secundario.</p>
   <div class="art-meta">12 de Junio, 2026</div>
-  <img src="img/reit-grupo-briones.jpg" alt="Nació el primer REIT argentino: el fondo de Briones e IEB captó $66.327 millones y abre el mercado inmobiliario a pequeños inversores" onerror="this.style.background='#ddd';"/>
+  <img src="img/reit-grupo-briones.jpg" alt="Nació el primer REIT argentino: el fondo de Briones e IEB captó $66.327 millones y abre el mercado inmobiliario a pequeños inversores" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/nacio-el-primer-reit-argentino-el-fondo-de-briones-e-ieb-capto-66327-millones-y-.html&text=Naci%C3%B3%20el%20primer%20REIT%20argentino%3A%20el%20fondo%20de%20Briones%20e%20IEB%20capt%C3%B3%20%2466.327%20millones%20y%20abre%20el%20mercado%20inmobiliario%20a%20peque%C3%B1os%20inversores" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El mercado de capitales argentino sumó un instrumento inédito: el primer Fondo Común de Inversión Cerrado Inmobiliario bajo el formato de Real Estate Investment Trust, conocido como REIT, comenzó a cotizar públicamente luego de una licitación primaria que superó las expectativas del sector. La iniciativa fue impulsada por Beltrán Briones y Juan Ignacio Abuchdid a través del Grupo Briones y el Grupo IEB, dos de los operadores más activos del mercado financiero local, quienes obtuvieron la habilitación regulatoria para iniciar la negociación pública de las cuotapartes del fondo.<div><br><h2>Los números de la colocación</h2><div>La licitación primaria captó un total de $66.327 millones, equivalentes a aproximadamente USD 45 millones al tipo de cambio actual. Durante el período de colocación se recibieron 3.523 ofertas de compra provenientes de una base amplia y diversificada de inversores, que incluyó tanto a pequeños ahorristas individuales como a estructuras corporativas e inversores institucionales. El vehículo se estructuró con un plazo total de duración de 10 años, horizonte temporal habitual para fondos orientados al sector inmobiliario comercial.</div><div><br></div><h2>Qué hace este fondo y en qué invierte</h2><div>La estrategia del fondo se enfoca en la adquisición y explotación de propiedades inmobiliarias comerciales y premium ya terminadas, evitando el riesgo constructivo que caracteriza a otros vehículos del sector. Al invertir en activos que ya están operativos y generando renta, el fondo puede distribuir retornos a sus inversores desde etapas tempranas de su funcionamiento. Los activos objetivo incluyen oficinas de categoría, locales comerciales en ubicaciones estratégicas y otros inmuebles de renta en segmentos de alta demanda.</div><div><br></div><h2>Por qué es relevante para el mercado local</h2><div>La principal innovación de este instrumento es que democratiza el acceso al mercado inmobiliario comercial, históricamente reservado a inversores con capacidad de desembolsar sumas significativas para adquirir propiedades directamente. A través del REIT, un inversor minorista puede tener exposición a inmuebles premium con montos mínimos de capital y, a diferencia de comprar un departamento o local, puede salir de su posición de forma rápida vendiendo sus cuotapartes en el mercado secundario. En un contexto donde el ahorro en pesos busca alternativas de inversión vinculadas a activos reales, el lanzamiento de este instrumento llega en un momento de alta receptividad del mercado.</div></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
