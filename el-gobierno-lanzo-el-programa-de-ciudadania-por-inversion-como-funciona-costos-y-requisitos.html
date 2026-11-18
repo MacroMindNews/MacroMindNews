@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El Gobierno lanzó el programa de Ciudadanía por Inversión: cómo funciona, costos y requisitos","description":"En el cierre del Argentina Week en París, Luis Caputo y Diego Santilli oficializaron el régimen que permitirá a extranjeros obtener el pasaporte argentino a cambio de capital. Las opciones desde USD 350.000, los paquetes familiares y los filtros de seguridad.","image":["https://macromindnews.com.ar/img/caputo-santilli.webp"],"datePublished":"2026-10-02T00:00:00-03:00","dateModified":"2026-10-02T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-gobierno-lanzo-el-programa-de-ciudadania-por-inversion-como-funciona-costos-y-requisitos.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El Gobierno lanzó el programa de Ciudadanía por Inversión: cómo funciona, costos y requisitos</h1>
   <p class="art-excerpt">En el cierre del Argentina Week en París, Luis Caputo y Diego Santilli oficializaron el régimen que permitirá a extranjeros obtener el pasaporte argentino a cambio de capital. Las opciones desde USD 350.000, los paquetes familiares y los filtros de seguridad.</p>
   <div class="art-meta">2 de Octubre, 2026</div>
-  <img src="img/caputo-santilli.webp" alt="El Gobierno lanzó el programa de Ciudadanía por Inversión: cómo funciona, costos y requisitos" onerror="this.style.background='#ddd';"/>
+  <img src="img/caputo-santilli.webp" alt="El Gobierno lanzó el programa de Ciudadanía por Inversión: cómo funciona, costos y requisitos" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-gobierno-lanzo-el-programa-de-ciudadania-por-inversion-como-funciona-costos-y-requisitos.html&text=El%20Gobierno%20lanz%C3%B3%20el%20programa%20de%20Ciudadan%C3%ADa%20por%20Inversi%C3%B3n%3A%20c%C3%B3mo%20funciona%2C%20costos%20y%20requisitos" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><blockquote class="twitter-tweet">El Gobierno nacional formalizó este viernes el lanzamiento del <b data-path-to-node="6" data-index-in-node="63">Programa de Ciudadanía por Inversión de Argentina</b>, un mecanismo legal diseñado para otorgar la nacionalidad y el pasaporte a ciudadanos extranjeros que radiquen capitales productivos o financieros en el país. El anuncio fue realizado en París por el ministro de Economía, <b data-path-to-node="6" data-index-in-node="335">Luis Caputo</b>, y el jefe de Gabinete, <b data-path-to-node="6" data-index-in-node="371">Diego Santilli</b>,<span > durante la jornada de clausura de la gira internacional </span><i data-path-to-node="6" data-index-in-node="443">Argentina Week</i>.<div><br></div><div>La iniciativa, reglamentada en la órbita del Palacio de Hacienda y administrada por la Agencia de Programas de Ciudadanía por Inversión, comenzará a recibir las primeras solicitudes formales durante el <b data-path-to-node="7" data-index-in-node="202">cuarto trimestre de 2026</b>. Su objetivo central apunta a captar divisas externas no endeudantes y reforzar de manera directa la posición fiscal del Tesoro Nacional.<br><img src="https://macromindnews.com.ar/img/ciudadania-por-inversi%C3%B3n.webp" alt="Imagen" style="margin: 12px 0px; max-width: 100%; display: block;"></div><h2>Las dos vías de acceso: Aportes no reembolsable o títulos públicos</h2><div>El esquema diseñado por el equipo económico contempla dos alternativas financieras excluyentes para que los solicitantes titulares puedan calificar al beneficio:</div><div><ul><li><b data-path-to-node="10" data-index-in-node="2">Aporte directo al Tesoro:</b> Consiste en una contribución no reembolsable de <b data-path-to-node="10" data-index-in-node="76">USD 350.000</b> transferida directamente a las cuentas del Estado nacional.</li><li><b data-path-to-node="11" data-index-in-node="2">Suscripción de bonos soberanos:</b> La adquisición de un título público emitido especialmente para este régimen por un valor nominal de <b data-path-to-node="11" data-index-in-node="134">USD 800.000</b>, el cual deberá mantenerse en cartera durante el plazo fijado por la reglamentación.</li></ul><div><br></div></div><div>Ambas opciones exigen la previa justificación legal del origen de los fondos mediante estándares internacionales de cumplimiento financiero.</div></blockquote><blockquote class="twitter-tweet"><a href="https://twitter.com/LuisCaputoAR/status/2105990194784608719">Ver publicación en X</a></blockquote><p><br></p><h2>El esquema para familias: Costos adicionales por cónyuges e hijos</h2><p>El programa también permite incorporar al núcleo familiar directo del inversor principal, aplicando una escala de aportes complementarios al Tesoro según el rango etario y el vínculo:</p><p><ul><li><b data-path-to-node="16" data-index-in-node="2">Cónyuges e hijos mayores:</b> En el caso de cónyuges o hijos solteros de entre 18 y 25 años (sin hijos propios a cargo), el aporte adicional fijado es de <b data-path-to-node="16" data-index-in-node="152" >USD 100.000</b> por cada integrante.</li><li><b data-path-to-node="17" data-index-in-node="2">Hijos menores de edad:</b> Para los menores de 18 años, el costo de tramitación y aporte complementario es de <b data-path-to-node="17" data-index-in-node="108">USD 25.000</b> por persona.</li></ul><div><br></div><div>Bajo este esquema tarifario, el Ministerio de Economía calcula que un grupo familiar tipo compuesto por el titular, su cónyuge y dos hijos menores podrá tramitar la ciudadanía conjunta mediante un desembolso global aproximado de <b data-path-to-node="18" data-index-in-node="229">USD 500.000</b>.</div><div><br></div><h2>La auditoría de seguridad: Intervención de la SIDE, la UIF y Migraciones</h2><div>Para mitigar riesgos vinculados al lavado de activos y blindar el prestigio internacional del pasaporte argentino, los postulantes deberán sortear un estricto proceso de debida diligencia coordinado entre diversos organismos del Estado:</div><div><ul><li><b data-path-to-node="21" data-index-in-node="2">Auditoría financiera y patrimonial:</b> La Unidad de Información Financiera (UIF) y la AFIP/ARCA fiscalizarán la trazabilidad, licitud y consistencia patrimonial de los fondos invertidos.</li><li><b data-path-to-node="22" data-index-in-node="2">Seguridad e inteligencia:</b> La Secretaría de Inteligencia del Estado (SIDE) y el Ministerio de Seguridad realizarán un cruce exhaustivo de antecedentes penales, alertas rojas internacionales y riesgos jurisdiccionales.</li><li><b data-path-to-node="23" data-index-in-node="2">Resolución migratoria:</b> Tras el dictamen técnico favorable de la Agencia de Ciudadanía por Inversión, la <b data-path-to-node="23" data-index-in-node="106">Dirección Nacional de Migraciones</b> será la autoridad competente encargada de emitir o denegar formalmente la Carta de Ciudadanía en un plazo de 30 días hábiles, tras lo cual se habilitará la gestión del CUIT correspondiente.</li></ul><div><br></div></div><h2>La visión oficial: Captación de capitales y apertura al mundo</h2><div>Durante la presentación ante ejecutivos europeos reunidos en la capital francesa, Luis Caputo remarcó que el nuevo sistema busca equiparar a la Argentina con las legislaciones de inversión por residencia vigentes en países de la OCDE y Estados Unidos.</div><div><br></div><div>El titular del Palacio de Hacienda sostuvo que la medida profundiza el sendero de reformas para dotar de previsibilidad al sector privado y captar el interés de grandes patrimonios globales. En sintonía, Diego Santilli aseguró que el programa consolida a la Argentina como un polo abierto a los negocios y un faro de libertad para quienes elijan radicarse y aportar al desarrollo productivo local.</div></p></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
