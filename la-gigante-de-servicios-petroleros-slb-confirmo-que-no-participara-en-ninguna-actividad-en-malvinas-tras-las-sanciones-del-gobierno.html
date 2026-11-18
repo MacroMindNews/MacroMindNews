@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"La gigante de servicios petroleros SLB confirmó que no participará en ninguna actividad en Malvinas tras las sanciones del Gobierno","description":"La gigante mundial de servicios petroleros SLB (ex Schlumberger), proveedora líder en Vaca Muerta, confirmó que no participará en actividades hidrocarburíferas en las Islas Malvinas. La decisión responde al endurecimiento de sanciones e inhabilitaciones aplicado por el Gobierno de Javier Milei.","image":["https://macromindnews.com.ar/img/slb-malvinas.webp"],"datePublished":"2026-09-05T00:00:00-03:00","dateModified":"2026-09-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/la-gigante-de-servicios-petroleros-slb-confirmo-que-no-participara-en-ninguna-actividad-en-malvinas-tras-las-sanciones-del-gobierno.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">La gigante de servicios petroleros SLB confirmó que no participará en ninguna actividad en Malvinas tras las sanciones del Gobierno</h1>
   <p class="art-excerpt">La gigante mundial de servicios petroleros SLB (ex Schlumberger), proveedora líder en Vaca Muerta, confirmó que no participará en actividades hidrocarburíferas en las Islas Malvinas. La decisión responde al endurecimiento de sanciones e inhabilitaciones aplicado por el Gobierno de Javier Milei.</p>
   <div class="art-meta">5 de Septiembre, 2026</div>
-  <img src="img/slb-malvinas.webp" alt="La gigante de servicios petroleros SLB confirmó que no participará en ninguna actividad en Malvinas tras las sanciones del Gobierno" onerror="this.style.background='#ddd';"/>
+  <img src="img/slb-malvinas.webp" alt="La gigante de servicios petroleros SLB confirmó que no participará en ninguna actividad en Malvinas tras las sanciones del Gobierno" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/la-gigante-de-servicios-petroleros-slb-confirmo-que-no-participara-en-ninguna-actividad-en-malvinas-tras-las-sanciones-del-gobierno.html&text=La%20gigante%20de%20servicios%20petroleros%20SLB%20confirm%C3%B3%20que%20no%20participar%C3%A1%20en%20ninguna%20actividad%20en%20Malvinas%20tras%20las%20sanciones%20del%20Gobierno" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>La compañía internacional de servicios petroleros SLB (anteriormente conocida como Schlumberger), la mayor del mundo en su especialidad, confirmó oficialmente que no participará ni tiene previsto involucrarse en ninguna actividad vinculada a la exploración o explotación de hidrocarburos en las Islas Malvinas ni en sus espacios marítimos circundantes. El anuncio representa el primer gran impacto corporativo tras la ofensiva legal y regulatoria lanzada por la administración de Javier Milei para frenar el avance del proyecto offshore británico Sea Lion.</div><div><br></div><div>La decisión de SLB adquiere una relevancia crítica para el mercado energético debido al peso específico que ostenta en el país. La multinacional es un actor clave en Vaca Muerta, donde provee servicios de alta complejidad técnica —como perforación, fractura hidráulica, completación y registro de pozos— para las principales operadoras de la cuenca neuquina. Arriesgar su presencia en el mercado continental argentino a cambio de prestar soporte en las islas representaba un costo comercial y regulatorio inasumible frente al nuevo marco de inhabilitaciones</div><img src="img/comunicado-sbl-5-9-26.avif" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div><br></div><h2>La presión de las sanciones y el dilema para las empresas</h2><div>La determinación empresarial responde de manera directa a la advertencia pública y al paquete de medidas adoptadas por el Poder Ejecutivo. Apenas horas antes, el Gobierno formalizó la apertura de procedimientos sancionatorios contra 45 personas humanas y jurídicas bajo los términos del artículo 2° de la Ley N° 26.659, complementados por un decreto reglamentario que aceleró los plazos punitivos y extendió las inhabilitaciones de 5 a 20 años sobre directivos, accionistas y proveedores.</div><div><br></div><div>El presidente Javier Milei había planteado un ultimátum explícito durante su cadena nacional, señalando que las empresas debían elegir entre <i data-path-to-node="6" data-index-in-node="141">"una apuesta ilegal en un territorio disputado y una operación rentable y segura en un país soberano con reglas claras"</i>. SLB optó por resguardar sus intereses comerciales en la Argentina continental, donde el auge exportador y la captación de inversiones al amparo de las reformas económicas y el Régimen de Incentivo para Grandes Inversiones (RIGI) proyectan un flujo de negocios exponencial en el sector energético.</div><div><br></div><h2>Un golpe logístico al proyecto Sea Lion en las Islas Malvinas</h2><div>Al bajarse de cualquier licitación o prestación de servicios en el archipiélago austral, la postura de SLB debilita la estructura técnica que requiere la británica Rockhopper Exploration y la israelí Navitas Petroleum para poner en marcha el yacimiento Sea Lion. El desarrollo de pozos offshore en aguas ultraprofundas y climas hostiles depende estrictamente de un puñado reducido de compañías globales capaces de proveer tecnología de punta en ingeniería submarina y perforación.</div><div><br></div><div>Con el desistimiento formal de SLB, la estrategia de disuasión del Estado argentino anota su primer resultado concreto en el terreno privado: eleva significativamente el costo de entrada para los contratistas internacionales, aísla operativamente a las firmas que usurpan la plataforma continental y ratifica que participar del petróleo en Malvinas implica el cierre inmediato de las puertas a la mayor cuenca de hidrocarburos no convencionales de Sudamérica.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
