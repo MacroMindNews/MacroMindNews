@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Terremoto financiero e institucional en Paraguay tras el colapso de Ueno Bank y la renuncia de Santiago Peña","description":"El colapso y posterior intervención del banco digital paraguayo congeló los ahorros de cerca de tres millones de clientes y puso bajo investigación a su cúpula ejecutiva. Un entramado de créditos cruzados e insolvencia que provocó la dimisión del presidente del Banco Central e investigaciones penales.","image":["https://macromindnews.com.ar/img/ueno-bank-05-11-26.webp"],"datePublished":"2026-11-05T00:00:00-03:00","dateModified":"2026-11-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/terremoto-financiero-e-institucional-en-paraguay-tras-el-colapso-de-ueno-bank-y-la-renuncia-de-santiago-pena.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><blockquote class="twitter-tweet"><span ><span >El sistema financiero de Paraguay atraviesa la crisis más severa de las últimas décadas tras la intervención judicial y administrativa de </span><b data-path-to-node="3" data-index-in-node="138" >Ueno Bank</b><span >.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="4"></sup></source-footnote></span><span > </span><span >La entidad digital, una de las de mayor penetración en el país vecino, fue suspendida por el Banco Central del Paraguay (BCP) ante un marcado deterioro de sus índices de solvencia y por maniobras con créditos cruzados vinculados al Grupo Vázquez, conglomerado propietario de la firma.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="5"></sup></source-footnote></span><div><span ><br></span></div><div><span ><span >El procedimiento congeló los depósitos de unos </span><b data-path-to-node="4" data-index-in-node="47" ><span >3 millones de clientes</span></b><span > y afectó más de 800 millones de dólares en recursos públicos, incluyendo cerca de 380 millones de dólares pertenecientes al Fondo de Pensiones del Instituto de Previsión Social (IPS).<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="6"></sup></source-footnote></span><span > </span><span >Ante las irregularidades detectadas, la Fiscalía paraguaya emitió órdenes de captura contra los principales ejecutivos de la entidad, derivando en la entrega a la Justicia de Miguel Vázquez, presidente del Grupo Vázquez y principal accionista de la firma.</span></span></div><div><span ><span ><br></span></span></div><img src="https://media.cnn.com/api/v1/images/stellar/prod/2026-09-19t203000z-1872478698-rc2jmna96y8e-rtrmadp-3-venezuela-paraguay.JPG?c=16x9&amp;q=h_833,w_1480,c_fill" alt="Imagen" style="margin: 12px 0px; max-width: 100%; display: block;"><br></span><h2><span >Crisis de Estado: La histórica renuncia&nbsp; del Presidente Santiago Peña</span></h2><div><span ><span >El escándalo de Ueno Bank provocó un colapso de proporciones institucionales inéditas en Asunción.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="9"></sup></source-footnote></span><span > </span><span >El presidente de la República de Paraguay, </span><b data-path-to-node="7" data-index-in-node="142" ><span >Santiago Peña</span></b><span >, presentó este jueves su renuncia indeclinable al cargo cercado por los cuestionamientos políticos y las amenazas de juicio político impulsadas por la oposición.</span></span></div></blockquote><blockquote class="twitter-tweet"><br></blockquote><blockquote class="twitter-tweet"><a href="https://twitter.com/SantiPenap/status/2118376794781024600">Ver publicación en X</a></blockquote><p><br></p><div><span ><span ><span >Peña quedó directamente salpicado por la crisis debido a sus pasados vínculos comerciales y profesionales con el Grupo Vázquez hasta marzo de 2025, además de haber designado como titular del Banco Central a Carlos Carvallo, exdirector de Ueno.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="12"><!----></sup></source-footnote></span><span > </span><span >La dimisión de Peña estuvo precedida por la renuncia del propio Carvallo al frente del BCP, jaqueado por sospechas de conflicto de interés e inacción regulatoria.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="13"></sup></source-footnote></span></span></span></div><div><span ><span ><span ><br></span></span></span></div><h2><span ><span ><span >El coletazo en Argentina: Suspensión masiva de 1.000 trabajadores</span></span></span></h2><div><span ><span ><span >Aunque Ueno Bank no operaba sucursales bancarias directas abiertas al público en Buenos Aires, el terremoto transfronterizo golpeó con fuerza al sector de servicios tecnológicos en la Argentina.<span > </span><span >El conglomerado realizaba sus desarrollos de software y soporte digital a través de </span><b data-path-to-node="12" data-index-in-node="279" ><span >IT Consultores SAECA (ITTI)</span></b><span >, la firma tecnológica del Grupo Vázquez radicada en el país.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="15"></sup></source-footnote></span></span></span></span></div><div><span ><span ><span ><span ><br></span></span></span></span></div><div><span ><span ><span ><span ><span >Tras el congelamiento de activos y la ruptura de la cadena de pagos en Asunción, la consultora notificó sorpresivamente la </span><b data-path-to-node="13" data-index-in-node="123" ><span >suspensión laboral de unos 1.000 empleados en la Argentina por 30 días sin goce de sueldo</span></b><span > bajo el paraguas de "razones de fuerza mayor".<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="16"><!----></sup></source-footnote></span> <span >Los profesionales afectados denunciaron la falta de cobro del salario de octubre, el bloqueo repentino de los accesos a los sistemas operativos y la parálisis de las prestaciones que brindaban para Ueno Bank y sus plataformas satélites (</span><i data-path-to-node="13" data-index-in-node="497" ><span >Monchis, Uela, Wepa y Muv</span></i><span >).<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c3354039526=""><sup _ngcontent-ng-c3354039526=""  data-turn-source-index="17"></sup></source-footnote></span></span></span></span></span></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
