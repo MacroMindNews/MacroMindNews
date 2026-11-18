@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"La estadounidense Baker Hughes anunció que no participará en proyectos petroleros en las Islas Malvinas","description":"​La gigante estadounidense de servicios energéticos Baker Hughes confirmó que no participará en proyectos petroleros en las Islas Malvinas. La decisión consolida la salida en bloque de las principales firmas internacionales del sector tras las sanciones impuestas por el Gobierno de Javier Milei.","image":["https://macromindnews.com.ar/img/baker-hughes.webp"],"datePublished":"2026-09-05T00:00:00-03:00","dateModified":"2026-09-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/la-estadounidense-baker-hughes-anuncio-que-no-participara-en-proyectos-petroleros-en-las-islas-malvinas.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">La estadounidense Baker Hughes anunció que no participará en proyectos petroleros en las Islas Malvinas</h1>
   <p class="art-excerpt">​La gigante estadounidense de servicios energéticos Baker Hughes confirmó que no participará en proyectos petroleros en las Islas Malvinas. La decisión consolida la salida en bloque de las principales firmas internacionales del sector tras las sanciones impuestas por el Gobierno de Javier Milei.</p>
   <div class="art-meta">5 de Septiembre, 2026</div>
-  <img src="img/baker-hughes.webp" alt="La estadounidense Baker Hughes anunció que no participará en proyectos petroleros en las Islas Malvinas" onerror="this.style.background='#ddd';"/>
+  <img src="img/baker-hughes.webp" alt="La estadounidense Baker Hughes anunció que no participará en proyectos petroleros en las Islas Malvinas" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/la-estadounidense-baker-hughes-anuncio-que-no-participara-en-proyectos-petroleros-en-las-islas-malvinas.html&text=La%20estadounidense%20Baker%20Hughes%20anunci%C3%B3%20que%20no%20participar%C3%A1%20en%20proyectos%20petroleros%20en%20las%20Islas%20Malvinas" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>La multinacional estadounidense Baker Hughes, una de las tres compañías de tecnología y servicios energéticos más importantes del planeta, confirmó oficialmente que no participará de ninguna actividad de exploración o explotación hidrocarburífera en las Islas Malvinas ni en los espacios marítimos circundantes. Con esta comunicación formal, la empresa ratificó su estricto apego al marco normativo vigente en la República Argentina, sumándose al repliegue previamente anunciado por SLB y Halliburton para conformar un rechazo unánime del sector a las licitaciones en territorio bajo disputa colonial.</div><div><br></div><div>El pronunciamiento de la compañía radicada en Houston se dio como consecuencia directa del endurecimiento de las penalidades anunciado por el presidente Javier Milei durante su cadena nacional, complementado por la instrucción a Cancillería para iniciar sumarios sancionatorios contra 45 personas humanas y jurídicas bajo el artículo 2° de la Ley N° 26.659. La advertencia del Poder Ejecutivo de inhabilitar de manera prolongada a toda operadora, accionista o contratista que preste asistencia técnica en las islas sin autorización nacional aceleró la respuesta preventiva de las principales corporaciones internacionales.<br><img src="img/comunicado-baker-hughes.jpg" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><h2>Prioridad estratégica en el mercado local y el desarrollo de Vaca Muerta</h2></div><div>Baker Hughes mantiene un despliegue operativo neurálgico en la República Argentina, focalizado de forma preponderante en la provisión de turbomaquinaria, sistemas de perforación dirigida, terminación de pozos y soluciones digitales para los desarrollos no convencionales de la cuenca neuquina. Con el crecimiento acelerado de la producción y las facilidades regulatorias promovidas por la actual gestión económica, quedar inhabilitado para contratar en el mercado continental representaba una contingencia comercial inaceptable.</div><div><br></div><div>La empresa ratificó que sus operaciones se desenvuelven en pleno cumplimiento de las regulaciones nacionales, descartando cualquier tipo de involucramiento que pudiera poner en riesgo sus contratos a largo plazo con operadoras privadas e inversiones en infraestructura en el país.</div><div><br></div><h2>Aislamiento de la industria para el proyecto de Sea Lion</h2><div>Con la salida explícita de Baker Hughes, el esquema del proyecto offshore Sea Lion —conducido por Rockhopper Exploration y Navitas Petroleum— pierde la posibilidad de recurrir al tercer gran pilar tecnológico del mercado global. La industria de hidrocarburos costa afuera de aguas profundas requiere de proveedores de escala masiva capaces de suministrar cabezales submarinos, herramientas de bombeo de alta presión y monitoreo en tiempo real, segmentos donde Baker Hughes, SLB y Halliburton concentran la vanguardia técnica.</div><div><br></div><div>​El descarte coordinado de las tres líderes mundiales deja a las iniciativas no autorizadas en el archipiélago sin acceso a la cadena de valor estándar de la industria, confirmando la eficacia de la estrategia de disuasión legal y regulatoria implementada por el Estado argentino para blindar los recursos del Atlántico Sur.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
