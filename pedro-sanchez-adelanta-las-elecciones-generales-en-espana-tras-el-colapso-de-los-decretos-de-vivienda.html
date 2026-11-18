@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Pedro Sánchez adelanta las elecciones generales en España tras el colapso de los decretos de vivienda","description":"El presidente del Gobierno anunció la disolución de las Cortes y la convocatoria anticipada a las urnas para el 29 de noviembre. La fractura parlamentaria con Junts, el impacto social por el desahucio de Maricarmen y la acampada multitudinaria en la Puerta del Sol.","image":["https://macromindnews.com.ar/img/pedro-sanchez.webp"],"datePublished":"2026-10-05T00:00:00-03:00","dateModified":"2026-10-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/pedro-sanchez-adelanta-las-elecciones-generales-en-espana-tras-el-colapso-de-los-decretos-de-vivienda.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Pedro Sánchez adelanta las elecciones generales en España tras el colapso de los decretos de vivienda</h1>
   <p class="art-excerpt">El presidente del Gobierno anunció la disolución de las Cortes y la convocatoria anticipada a las urnas para el 29 de noviembre. La fractura parlamentaria con Junts, el impacto social por el desahucio de Maricarmen y la acampada multitudinaria en la Puerta del Sol.</p>
   <div class="art-meta">5 de Octubre, 2026</div>
-  <img src="img/pedro-sanchez.webp" alt="Pedro Sánchez adelanta las elecciones generales en España tras el colapso de los decretos de vivienda" onerror="this.style.background='#ddd';"/>
+  <img src="img/pedro-sanchez.webp" alt="Pedro Sánchez adelanta las elecciones generales en España tras el colapso de los decretos de vivienda" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/pedro-sanchez-adelanta-las-elecciones-generales-en-espana-tras-el-colapso-de-los-decretos-de-vivienda.html&text=Pedro%20S%C3%A1nchez%20adelanta%20las%20elecciones%20generales%20en%20Espa%C3%B1a%20tras%20el%20colapso%20de%20los%20decretos%20de%20vivienda" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><blockquote class="twitter-tweet">El tablero político español sufrió este lunes un terremoto institucional. En una declaración institucional desde el Palacio de La Moncloa, el presidente del Gobierno, <b data-path-to-node="6" data-index-in-node="167">Pedro Sánchez</b>, comunicó el adelanto de las elecciones generales para el próximo <b data-path-to-node="6" data-index-in-node="247">29 de noviembre</b>, la fecha más cercana habilitada por los plazos de la ley electoral. La decisión responde a la parálisis legislativa provocada por el rechazo en el Congreso de los Diputados de los dos decretos clave en materia de vivienda que el Ejecutivo intentaba convalidar de urgencia.<div><br></div><div>La negativa parlamentaria, sellada por el bloque conjunto del <b data-path-to-node="7" data-index-in-node="62">Partido Popular (PP)</b>, <b data-path-to-node="7" data-index-in-node="84">Vox</b>, <b data-path-to-node="7" data-index-in-node="89">UPN</b> y el desmarque definitivo de <b data-path-to-node="7" data-index-in-node="122">Junts per Catalunya</b>, precipitó el fin anticipado de la legislatura. Frente a este escenario, Sánchez apeló a la movilización ciudadana para conformar una mayoría parlamentaria amplia que permita desbloquear las reformas estructurales frente a la oposición conservadora.</div><div><br></div><h2>La fractura en el Congreso y el portazo de Junts</h2><div>El detonante directo de la convocatoria fue el naufragio legislativo del pasado viernes en el hemiciclo. El Ejecutivo había diseñado dos reales decretos ley con medidas de choque frente a la crisis habitacional, buscando conciliar el respaldo de sus socios habituales:</div><div><ul><li><b data-path-to-node="10" data-index-in-node="2">Alcance del primer decreto:</b> Planteaba la extensión del escudo social frente a los desahucios hasta finales de 2030, restricciones fiscales a la compra especulativa de inmuebles hasta 2028 y la fijación de un IVA del 10% para las viviendas de uso turístico.</li><li><b data-path-to-node="11" data-index-in-node="2">Contenido del segundo decreto:</b> Introducía la obligación de justificar la no renovación de los contratos de alquiler residencial e indemnizar a los inquilinos afectados.</li><li><b data-path-to-node="12" data-index-in-node="2">La votación en el pleno:</b> Pese a contar con el voto favorable de Sumar, Podemos y Esquerra Republicana (ERC), y el aval parcial del PNV y Coalición Canaria, la bancada de Junts resolvió votar en contra de ambos textos, sumando sus votos a los del PP y Vox y consumando la derrota del oficialismo.</li></ul></div></blockquote><blockquote class="twitter-tweet"><a href="https://twitter.com/sanchezcastejon/status/2107031564852883748">Ver publicación en X</a></blockquote><blockquote class="twitter-tweet"><br></blockquote><h2>El estallido social: del caso Maricarmen a la acampada en Sol</h2><blockquote class="twitter-tweet">La presión política sobre La Moncloa se vio agravada por una intensa ola de protestas callejeras en las principales ciudades del país. El malestar se desató a raíz del desalojo forzoso de Maricarmen, una mujer de 87 años que residía desde hacía más de siete décadas en su departamento de Madrid y cuya salida en camilla custodiada por efectivos policiales provocó condenas públicas e incluso pronunciamientos de relatores de la ONU.</blockquote><blockquote class="twitter-tweet"><br></blockquote><blockquote class="twitter-tweet">El episodio derivó en una concentración multitudinaria que se transformó en una acampada permanente en la Puerta del Sol de la capital, congregando más de 2.000 tiendas de campaña y extendiéndose a las arterias adyacentes. Durante el fin de semana, decenas de miles de personas marcharon en doce ciudades españolas, al tiempo que las centrales sindicales CCOO y UGT comenzaron a articular la convocatoria a una huelga general en reclamo de precios accesibles de alquiler.</blockquote><blockquote class="twitter-tweet"><br></blockquote><h2>El discurso de Sánchez: la disyuntiva entre la derecha y la extrema derecha</h2><blockquote class="twitter-tweet">Durante su alocución oficial, el jefe del Ejecutivo defendió la gestión de la coalición progresista a lo largo de los últimos tres años y cargó con dureza contra la estrategia de bloqueo de los partidos opositores.</blockquote><blockquote class="twitter-tweet"><br></blockquote><blockquote class="twitter-tweet">Sánchez sostuvo que su gabinete debió gobernar bajo una coyuntura parlamentaria compleja donde se confundió la capacidad de pacto con la traición política, lidiando con sectores que intentaron neutralizar los avances sociales. En su llamado al electorado, el mandatario planteó los comicios como un plebiscito directo entre consolidar un modelo de justicia social y protección ciudadana o retroceder ante el avance de las fuerzas de derecha y ultraderecha.</blockquote><blockquote class="twitter-tweet"><br></blockquote><h2>Las crítica de Feijoo y el inicio de la carrera electoral</h2><blockquote class="twitter-tweet">Desde la oposición, el líder del Partido Popular, <b data-path-to-node="21" data-index-in-node="50">Alberto Núñez Feijóo</b>, celebró el final precipitado del mandato y responsabilizó a Sánchez por la crisis habitacional, acusándolo de haber liderado el período con menor construcción de vivienda protegida de la democracia y de trasladar sus fracasos a los partidos parlamentarios.</blockquote><blockquote class="twitter-tweet"><br></blockquote><blockquote class="twitter-tweet">Con los decretos caídos y las urnas fijadas para fines de noviembre, las distintas fuerzas políticas entran de lleno en una campaña relámpago donde el acceso al techo, el control de los alquileres y la gobernabilidad parlamentaria serán los ejes centrales de la disputa por el poder en España.</blockquote></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
