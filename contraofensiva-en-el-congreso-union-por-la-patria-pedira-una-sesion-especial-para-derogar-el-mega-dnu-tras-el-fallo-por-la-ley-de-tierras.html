@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Contraofensiva en el Congreso: Unión por la Patria pedirá una sesión especial para derogar el mega DNU tras el fallo por la Ley de Tierras","description":"La decisión de la Corte Suprema que liberó la venta de campos a extranjeros encendió las alarmas en el Parlamento. Germán Martínez anunció que buscarán rechazar definitivamente el decreto 70/23 en la Cámara de Diputados. La clave del quórum y las leyes en juego.","image":["https://macromindnews.com.ar/img/diputados-30-09-26.webp"],"datePublished":"2026-09-30T00:00:00-03:00","dateModified":"2026-09-30T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/contraofensiva-en-el-congreso-union-por-la-patria-pedira-una-sesion-especial-para-derogar-el-mega-dnu-tras-el-fallo-por-la-ley-de-tierras.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Contraofensiva en el Congreso: Unión por la Patria pedirá una sesión especial para derogar el mega DNU tras el fallo por la Ley de Tierras</h1>
   <p class="art-excerpt">La decisión de la Corte Suprema que liberó la venta de campos a extranjeros encendió las alarmas en el Parlamento. Germán Martínez anunció que buscarán rechazar definitivamente el decreto 70/23 en la Cámara de Diputados. La clave del quórum y las leyes en juego.</p>
   <div class="art-meta">30 de Septiembre, 2026</div>
-  <img src="img/diputados-30-09-26.webp" alt="Contraofensiva en el Congreso: Unión por la Patria pedirá una sesión especial para derogar el mega DNU tras el fallo por la Ley de Tierras" onerror="this.style.background='#ddd';"/>
+  <img src="img/diputados-30-09-26.webp" alt="Contraofensiva en el Congreso: Unión por la Patria pedirá una sesión especial para derogar el mega DNU tras el fallo por la Ley de Tierras" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/contraofensiva-en-el-congreso-union-por-la-patria-pedira-una-sesion-especial-para-derogar-el-mega-dnu-tras-el-fallo-por-la-ley-de-tierras.html&text=Contraofensiva%20en%20el%20Congreso%3A%20Uni%C3%B3n%20por%20la%20Patria%20pedir%C3%A1%20una%20sesi%C3%B3n%20especial%20para%20derogar%20el%20mega%20DNU%20tras%20el%20fallo%20por%20la%20Ley%20de%20Tierras" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><blockquote class="twitter-tweet">El fallo de la Corte Suprema que convalidó la eliminación de los límites a la venta de tierras a extranjeros desató una reacción inmediata en el Poder Legislativo. El jefe del bloque de diputados de <b data-path-to-node="6" data-index-in-node="199">Unión por la Patria</b>, <b data-path-to-node="6" data-index-in-node="220">Germán Martínez</b>, confirmó este miércoles que solicitará formalmente la convocatoria a una <b data-path-to-node="6" data-index-in-node="310">sesión especial para tratar y rechazar de manera definitiva el DNU 70/2023</b> en el recinto.</blockquote><blockquote class="twitter-tweet"><br></blockquote><blockquote class="twitter-tweet">La iniciativa de la principal bancada opositora busca aprovechar el malestar político que generó la sentencia judicial en varios sectores del arco parlamentario para asestarle un golpe decisivo a la herramienta fundacional del programa económico libertario.</blockquote><img src="https://macromindnews.com.ar/img/corte-suprema-29-09-26.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><blockquote class="twitter-tweet"><br></blockquote><h2>El&nbsp; anuncio en el Congreso y el clima acalorado por Malvinas</h2><blockquote class="twitter-tweet">Martínez formalizó la advertencia minutos antes de ingresar a un plenario de comisiones de Defensa, Relaciones Exteriores y Legislación Penal, donde los legisladores debaten un proyecto de defensa soberana sobre las Islas Malvinas.</blockquote><blockquote class="twitter-tweet"><br></blockquote><blockquote class="twitter-tweet">El legislador remarcó que el fallo del máximo tribunal no declaró la constitucionalidad del decreto de Javier Milei, sino que se limitó a desestimar la demanda de los veteranos por cuestiones técnicas de representatividad. Por ese motivo, sostuvo que la responsabilidad política de frenar la extranjerización territorial recae ahora sobre los representantes del pueblo en el Parlamento.</blockquote><blockquote class="twitter-tweet"><a href="https://twitter.com/MacroMindNews/status/2105349353183363520">Ver publicación en X</a></blockquote><p><br></p><h2>El mecanismo legal: Por qué Diputados tiene la llave</h2><p>La embestida opositora se apoya en los preceptos de la <b data-path-to-node="12" data-index-in-node="55">Ley 26.122</b>, que regula el régimen de control de los Decretos de Necesidad y Urgencia:</p><p><br></p><p>Para que un DNU sea ratificado legalmente basta con la aprobación de una sola de las dos cámaras del Congreso; sin embargo, <b data-path-to-node="13" data-index-in-node="124">para que pierda vigencia de forma irreversible requiere el rechazo expreso de ambas</b>. Como el Senado de la Nación ya votó en contra del megadecreto en marzo de 2024, una votación negativa por mayoría simple en la Cámara baja bastaría para que la norma quede formalmente derogada en su totalidad.</p><p><br></p><h2>El recuento de bancas: la búsqueda de los 129 votos</h2><p>Para que la sesión especial prospere y logre abrir el debate, el peronismo deberá construir puentes con otros bloques opositores:</p><p><ul><li><b data-path-to-node="16" data-index-in-node="132">El número clave:</b> Se necesitan <b data-path-to-node="16" data-index-in-node="162">129 diputados presentes</b> para abrir el quórum y habilitar la votación.</li><li><b data-path-to-node="16" data-index-in-node="234">La base opositora:</b> Unión por la Patria aporta 99 bancas propias y cuenta con el respaldo asegurado del Frente de Izquierda.</li><li><b data-path-to-node="16" data-index-in-node="360">Los bloques de centro:</b> Las negociaciones apuntan a sumar a los diputados de <b data-path-to-node="16" data-index-in-node="436">Encuentro Federal</b>, sectores de la <b data-path-to-node="16" data-index-in-node="470">UCR disidente</b> y legisladores provinciales que responden a gobernadores que ya se habían manifestado en contra de vender tierras en zonas de frontera.</li><li><b data-path-to-node="16" data-index-in-node="622">La defensa del oficialismo:</b> <b data-path-to-node="16" data-index-in-node="650">La Libertad Avanza</b> y el bloque del <b data-path-to-node="16" data-index-in-node="685">PRO</b> buscarán bloquear el intento vaciando el recinto o intentando dilatar el llamado para evitar una derrota legislativa de alto costo político.</li></ul><div><br></div><h2>Las consecuencias si cae el megadecreto</h2><div>Si la Cámara de Diputados logra derogar el DNU 70/23, el impacto jurídico será inmediato: no solo <b data-path-to-node="18" data-index-in-node="98">volverá a regir la Ley de Tierras</b> con su tope del 15% a extranjeros y el límite de 1.000 hectáreas, sino que además caerían otras desregulaciones clave que nunca fueron convalidadas por ley, reconfigurando por completo el mapa regulatorio nacional.</div></p></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
