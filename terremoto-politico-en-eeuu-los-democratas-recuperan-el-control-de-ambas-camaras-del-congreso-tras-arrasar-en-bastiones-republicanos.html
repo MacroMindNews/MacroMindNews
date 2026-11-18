@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Terremoto político en EE.UU.: Los demócratas recuperan el control de ambas cámaras del Congreso tras arrasar en bastiones republicanos","description":"Los demócratas recuperan el control de la Cámara de Representantes y el Senado tras vencer en bastiones republicanos.","image":["https://macromindnews.com.ar/img/trump-04-11-26.webp"],"datePublished":"2026-11-04T00:00:00-03:00","dateModified":"2026-11-04T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/terremoto-politico-en-eeuu-los-democratas-recuperan-el-control-de-ambas-camaras-del-congreso-tras-arrasar-en-bastiones-republicanos.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><span >Las elecciones de mitad de mandato en Estados Unidos concluyeron con un giro radical en el mapa de poder de Washington.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="2"><!----></sup></source-footnote></span> <span >En una jornada marcada por una alta participación y un profundo descontento social por el costo de vida, el </span><b data-path-to-node="1" data-index-in-node="228" >Partido Demócrata logró arrebatarle a los republicanos tanto la Cámara de Representantes como el Senado</b><span >, infligiéndole un duro revés legislativo a la administración de Donald Trump en el tramo central de su mandato.</span><div><br></div><div>El sorpresivo avance del denominado "tsunami azul" no solo reconfigurará la agenda política y de control institucional del Congreso a partir de enero de 2027, sino que quebró hegemonías históricas en estados tradicionalmente conservadores, redefiniendo por completo el pulso político del país del norte.</div><div><br></div><h2>El quiebre del mapa conservador: Victorias históricas en el Senado</h2><div>La clave de la recuperación demócrata en la Cámara Alta residió en su capacidad para romper barreras electorales que llevaban décadas consolidadas a favor del Partido Republicano.</div><div><ul><li><b data-path-to-node="6,0,0" data-index-in-node="0" ><span >El hito de Kansas:<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="7"><!----></sup></source-footnote></span></b> <span >En uno de los resultados más impactantes de la noche, el pastor metodista </span><b data-path-to-node="6,0,0" data-index-in-node="93" >Adam Hamilton</b><span > venció al republicano Roger Marshall, poniendo fin a una racha de casi 100 años sin triunfos demócratas en las elecciones senatoriales por ese estado.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="8"><!----></sup></source-footnote></span> <span >Con una campaña enfocada en el impacto del encarecimiento de los insumos agropecuarios debido al conflicto en Medio Oriente y el malestar de los productores rurales, Hamilton capitalizó el descontento en los suburbios de Kansas City.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="9"></sup></source-footnote></span></li><li><span ><b data-path-to-node="6,1,0" data-index-in-node="0">Vuelcos estratégicos en el sur y el centro:</b> A esto se sumaron victorias de alto voltaje político en plazas complejas como Carolina del Norte —donde el exgobernador Roy Cooper obtuvo una victoria contundente— y en distritos tradicionalmente blindados por la maquinaria conservadora, consolidando una mayoría ajustada pero sólida en el Senado.</span></li><li><span ><b data-path-to-node="6,2,0" data-index-in-node="0">Contención de bastiones clave:</b> <span >En paralelo, figuras del partido aseguraron retenciones vitales y triunfos de peso, como el de Ben Ray Luján en Nuevo México, John Hickenlooper en Colorado y los avances en bancas legislativas de la Cámara Baja que permitieron alcanzar la cifra mágica de los 218 escaños necesarios para dominar el Capitolio.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="10"></sup></source-footnote></span></span></li></ul><div><br></div><span ><source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="3"></sup></source-footnote></span><img src="img/midterms-04-11-26.png" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"></div><div><br></div><h2>Impacto económico y reacción de los mercados financieros</h2><div><span >Los mercados reaccionaron de forma inmediata a la nueva correlación de fuerzas políticas en Washington.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="12"><!----></sup></source-footnote></span> La perspectiva de un Congreso dividido —con un poder legislativo con capacidad de contrapeso frente al Ejecutivo— amortiguó las tensiones especulativas iniciales.</div><div><br></div><div><span >En Wall Street, los principales indicadores operaron con marcadas subas tras conocerse la noticia: el índice </span><b data-path-to-node="10" data-index-in-node="109" >Dow Jones avanzó unos 1.500 puntos</b><span >, mientras que el </span><b data-path-to-node="10" data-index-in-node="161" >S&amp;P 500 y el Nasdaq registraron ganancias generalizadas del orden del 2%</b><span >.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="13"><!----></sup></source-footnote></span> <span >Por su parte, los bonos del Tesoro mostraban tendencia al alza y el barril de crudo Brent recortaba posiciones por debajo de los 100 dólares, reflejando el alivio de los inversores ante un escenario institucional de mayor equilibrio de poderes.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c944836739=""><sup _ngcontent-ng-c944836739=""  data-turn-source-index="14"></sup></source-footnote></span></div><div><span ><br></span></div><div><span >Repercusiones políticas y el reacomodamiento institucional</span></div><div><span >Desde Manhattan, el alcalde de Nueva York, <b data-path-to-node="13" data-index-in-node="43">Zohran Mamdani</b>, sintetizó el espíritu de la militancia progresista al señalar que la victoria "demuestra que los demócratas podemos cumplir y ofrecer una alternativa a las promesas vacías".</span></div><div><span ><br></span></div><div><span >Con esta nueva mayoría parlamentaria, los demócratas no solo neutralizan la capacidad de maniobra de la Casa Blanca en la designación de jueces y funcionarios de altos cargos, sino que obtienen las herramientas de fiscalización e investigación parlamentaria necesarias para condicionar el resto de la gestión de Trump, abriendo un capítulo de extrema fricción institucional de cara a los próximos dos años.</span></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
