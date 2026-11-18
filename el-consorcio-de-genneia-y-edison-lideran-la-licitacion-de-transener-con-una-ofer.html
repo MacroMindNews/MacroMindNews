@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El consorcio de Genneia y Edison lideran la licitación de Transener con una oferta de US$356 millones","description":"La adjudicación formal está prevista para mayo y representará un ingreso de más de US$356 millones para el Tesoro.","image":["https://macromindnews.com.ar/img/transener.jpg"],"datePublished":"2026-04-29T00:00:00-03:00","dateModified":"2026-04-29T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-consorcio-de-genneia-y-edison-lideran-la-licitacion-de-transener-con-una-ofer.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El consorcio de Genneia y Edison lideran la licitación de Transener con una oferta de US$356 millones</h1>
   <p class="art-excerpt">La adjudicación formal está prevista para mayo y representará un ingreso de más de US$356 millones para el Tesoro.</p>
   <div class="art-meta">29 de Abril, 2026</div>
-  <img src="img/transener.jpg" alt="El consorcio de Genneia y Edison lideran la licitación de Transener con una oferta de US$356 millones" onerror="this.style.background='#ddd';"/>
+  <img src="img/transener.jpg" alt="El consorcio de Genneia y Edison lideran la licitación de Transener con una oferta de US$356 millones" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-consorcio-de-genneia-y-edison-lideran-la-licitacion-de-transener-con-una-ofer.html&text=El%20consorcio%20de%20Genneia%20y%20Edison%20lideran%20la%20licitaci%C3%B3n%20de%20Transener%20con%20una%20oferta%20de%20US%24356%20millones" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El gobierno nacional concretó este martes la apertura de las ofertas económicas para la venta del 100% de la participación estatal en CITELEC S.A., la sociedad controlante de Transener, principal operadora de transmisión eléctrica en alta tensión del país. Tres empresas presentaron propuestas: el consorcio conformado por Genneia S.A. y Edison Transmisión S.A. encabezó el proceso con una oferta de US$356.174.811, seguida por Central Puerto con US$301 millones y Edenor con US$230 millones. La suma total de las tres propuestas alcanzó los US$887 millones, muy por encima del precio base fijado originalmente en US$206 millones, lo que refleja el alto valor estratégico que el sector privado le asigna al activo. La adjudicación formal está prevista para el mes de mayo, conforme al cronograma establecido.<br><br>Lo que se pone en juego es considerable. Transener opera más de 12.600 kilómetros de líneas en 500 kV que atraviesan el país de norte a sur, desde Jujuy hasta Santa Cruz, y junto a su subsidiaria Transba responde por el 85% de la transmisión eléctrica nacional. Es el único operador de alta tensión del país, con una disponibilidad superior al 99,7% y más de 1.770 empleados distribuidos en cinco regiones operativas. Quien se quede con CITELEC —que detenta el 52,65% del capital accionario de Transener a través de acciones clase A, las que otorgan el control— también pasará a gestionar Transener Internacional Ltda., con operaciones en Brasil, y Transba SA, sumando así una red de más de 20.000 kilómetros de líneas de alta y media tensión y 160 estaciones transformadoras. El proceso se realizó sin impugnaciones, en el marco del Decreto 286/2025 y la Resolución 540/2026 del Ministerio de Economía, con supervisión de la Agencia de Transformación de Empresas Públicas.<br><br>El consorcio ganador tiene un perfil que no pasa inadvertido. Genneia es la principal generadora de energías renovables del país, con más de 1.580 MW de capacidad instalada en parques eólicos y solares, y desde enero de 2026 la conduce Jorge Brito, hijo del fundador del Banco Macro. El Grupo Edison, su socio en esta licitación, está conformado por los hermanos Patricio y Juan Neuss —con vínculos cercanos al asesor presidencial Santiago Caputo—, además de Carlos Giovanelli, Damián Pozzoli, Guillermo Stanley, Federico Salvai —dueño de Havanna y Aspro—, y los empresarios Rubén Cherñajovsky y Luis Galli, propietarios de Newsan. Esta es ya la tercera privatización que se adjudica al grupo de los Neuss durante la actual administración, lo que generó comentarios en el mercado sobre la concentración de activos estratégicos en manos de un mismo círculo empresarial.<br><br>La operación se enmarca en el plan de privatizaciones que el ministerio de Economía proyecta completar antes de fin de año, con el objetivo de recaudar alrededor de US$2.000 millones. Además de Transener, el gobierno tiene en carpeta la privatización de Intercargo, AySA y las centrales térmicas Manuel Belgrano y San Martín. El antecedente inmediato es la venta de las represas hidroeléctricas del Comahue, que aportó más de US$700 millones destinados al pago de vencimientos de deuda. En este caso, los fondos que ingrese la venta de Transener se sumarán a las reservas del Tesoro en un momento donde el frente externo muestra solidez, pero la agenda financiera del segundo semestre demanda liquidez. El sector privado ya tiene las llaves de la red eléctrica más importante del país: ahora deberá demostrar que puede hacer crecer una infraestructura que el Estado administró durante décadas.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
