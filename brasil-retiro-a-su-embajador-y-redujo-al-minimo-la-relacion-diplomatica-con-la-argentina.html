@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Brasil retiró a su embajador y redujo al mínimo la relación diplomática con la Argentina","description":"Por decisión de Luiz Inácio Lula da Silva, el embajador Julio Bitelli deja su puesto en Buenos Aires y la representación queda en nivel de Encargados de Negocios. Cancillería lamentó la postura del país vecino y cuestionó que \"continúe aislándose de la región por cuestiones ideológicas\".","image":["https://macromindnews.com.ar/img/milei-y-lula-2.webp"],"datePublished":"2026-08-05T00:00:00-03:00","dateModified":"2026-08-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/brasil-retiro-a-su-embajador-y-redujo-al-minimo-la-relacion-diplomatica-con-la-argentina.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Brasil retiró a su embajador y redujo al mínimo la relación diplomática con la Argentina</h1>
   <p class="art-excerpt">Por decisión de Luiz Inácio Lula da Silva, el embajador Julio Bitelli deja su puesto en Buenos Aires y la representación queda en nivel de Encargados de Negocios. Cancillería lamentó la postura del país vecino y cuestionó que "continúe aislándose de la región por cuestiones ideológicas".</p>
   <div class="art-meta">5 de Agosto, 2026</div>
-  <img src="img/milei-y-lula-2.webp" alt="Brasil retiró a su embajador y redujo al mínimo la relación diplomática con la Argentina" onerror="this.style.background='#ddd';"/>
+  <img src="img/milei-y-lula-2.webp" alt="Brasil retiró a su embajador y redujo al mínimo la relación diplomática con la Argentina" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/brasil-retiro-a-su-embajador-y-redujo-al-minimo-la-relacion-diplomatica-con-la-argentina.html&text=Brasil%20retir%C3%B3%20a%20su%20embajador%20y%20redujo%20al%20m%C3%ADnimo%20la%20relaci%C3%B3n%20diplom%C3%A1tica%20con%20la%20Argentina" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div><div>Las relaciones bilaterales entre la Argentina y Brasil alcanzaron su punto de mayor tensión en décadas. El gobierno de Lula da Silva tomó la decisión formal de retirar a su embajador en Buenos Aires, Julio Bitelli, rebajando al mínimo nivel histórico el vínculo diplomático con el gobierno de Javier Milei.</div><div><br></div><div>La determinación del Palacio de Itamaraty implica que, de ahora en adelante y por orden directa del mandatario brasileño, la embajada en suelo argentino no contará con un diplomático de carrera a su cargo, dejando la representación institucional en manos de un Encargado de Negocios.</div><div><br></div><h2>Origen del conflicto y escalada diplomática</h2><div><b style="font-size: 0.92rem;">El desencadenante:</b><span style="font-size: 0.92rem;"> El quiebre diplomático se originó el pasado 25 de julio durante la convención del Partido Liberal en Brasil, evento en el que Javier Milei participó e intervino públicamente en el acto que proclamó a Flávio Bolsonaro como candidato a presidente de una coalición de derecha.</span></div></div><img src="img/milei-y-flavio.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div><div><div><b style="font-size: 0.92rem;">Llamado a consulta:</b><span style="font-size: 0.92rem;"> Frente a este hecho, considerado por el Planalto como una injerencia en la política interna de su país, Lula da Silva llamó inicialmente a consulta al embajador Bitelli y presentó una primera protesta formal ante la Cancillería argentina.</span></div><div><b style="font-size: 0.92rem;">Ruptura de la representación:</b><span style="font-size: 0.92rem;"> Aunque en un primer momento el llamado a consultas parecía marcar el tope de reclamo diplomático, el gobierno de Brasil decidió ir a un paso más allá retirando definitivamente a Bitelli de su sede diplomática y congelando el diálogo de alto nivel con la Casa Rosada.</span></div></div><div><span style="font-size: 0.92rem;"><br></span></div><h2>La respuesta oficial de la Cancillería Argentina</h2></div><div>Tras la notificación formal recibida por el Embajador Argentino en Brasilia, el Ministerio de Relaciones Exteriores emitió un comunicado oficial en el que "toma nota" de la decisión unilateral del país vecino y cuestionó la motivación del Presidente Brasileño.</div><div><br></div><div>En el comunicado oficial, la Cancillería manifestó que "lamenta su decisión de continuar aislándose del resto de la región por cuestiones puramente ideológicas", recordando además que en los últimos años existieron múltiples declaraciones de apoyo político cruzado sin que la Argentina optara por convertirlos en incidentes diplomáticos o medidas institucionales.<br><img src="img/cancilleria-5-8-26.webp" alt="Comunicado de Cancillería" style="font-size: 0.92rem; max-width: 100%; margin: 12px 0px; display: block;"></div><div>Por último, Cancillería reafirmó que las relaciones bilaterales deben "responder a los intereses permanentes de sus pueblos y no quedar supeditadas a las necesidades políticas y/o personales de los gobernantes de turno", sosteniendo que la política exterior nacional continuará guiándose por la defensa del interés supremo del país.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
