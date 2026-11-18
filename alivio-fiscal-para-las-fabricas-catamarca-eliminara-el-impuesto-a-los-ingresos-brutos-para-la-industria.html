@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Alivio fiscal para las fábricas: Catamarca eliminará el impuesto a los Ingresos Brutos para la industria","description":"En una cumbre clave con la cúpula de la Unión Industrial Argentina, el gobernador Raúl Jalil anunció una medida de alto impacto para bajar los costos de producción. El paquete de incentivos que se suma a la exención y la apuesta por el polo textil y minero.","image":["https://macromindnews.com.ar/img/catamarca-iibb.webp"],"datePublished":"2026-09-27T00:00:00-03:00","dateModified":"2026-09-27T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/alivio-fiscal-para-las-fabricas-catamarca-eliminara-el-impuesto-a-los-ingresos-brutos-para-la-industria.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Alivio fiscal para las fábricas: Catamarca eliminará el impuesto a los Ingresos Brutos para la industria</h1>
   <p class="art-excerpt">En una cumbre clave con la cúpula de la Unión Industrial Argentina, el gobernador Raúl Jalil anunció una medida de alto impacto para bajar los costos de producción. El paquete de incentivos que se suma a la exención y la apuesta por el polo textil y minero.</p>
   <div class="art-meta">27 de Septiembre, 2026</div>
-  <img src="img/catamarca-iibb.webp" alt="Alivio fiscal para las fábricas: Catamarca eliminará el impuesto a los Ingresos Brutos para la industria" onerror="this.style.background='#ddd';"/>
+  <img src="img/catamarca-iibb.webp" alt="Alivio fiscal para las fábricas: Catamarca eliminará el impuesto a los Ingresos Brutos para la industria" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/alivio-fiscal-para-las-fabricas-catamarca-eliminara-el-impuesto-a-los-ingresos-brutos-para-la-industria.html&text=Alivio%20fiscal%20para%20las%20f%C3%A1bricas%3A%20Catamarca%20eliminar%C3%A1%20el%20impuesto%20a%20los%20Ingresos%20Brutos%20para%20la%20industria" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">En un contexto de alta presión tributaria sobre el sector productivo en todo el país, el gobierno de <b data-path-to-node="6" data-index-in-node="101">Catamarca</b> dio una señal concreta para el desarrollo fabril. El gobernador <b data-path-to-node="6" data-index-in-node="175">Raúl Jalil</b> confirmó que la provincia avanzará formalmente con la <b data-path-to-node="6" data-index-in-node="240">eliminación total del impuesto a los Ingresos Brutos para la actividad industrial</b>, una decisión orientada a abaratar los costos operativos de las plantas radicadas en su territorio y atraer nuevas inversiones.<div><br></div><div>El anuncio se concretó durante un encuentro institucional en el Centro de Arte y Tecnología Aplicada (CATA) con las máximas autoridades de la <b data-path-to-node="7" data-index-in-node="142">Unión Industrial Argentina (UIA)</b>, encabezadas por su presidente, <b data-path-to-node="7" data-index-in-node="207">Martín Rappallini</b>, en el marco de una agenda de trabajo para sostener el empleo formal.</div><div><br></div><h2>Alivio fiscal directo: Costo cero en Ingresos Brutos para las fabricas</h2><div>La supresión del tributo provincial representa una de las demandas históricas de las cámaras empresariales, dado el efecto acumulativo y distorsivo que tiene Ingresos Brutos sobre cada etapa de la cadena de valor:</div><div><br></div><div>Con esta medida, Catamarca busca blindar la competitividad de sus establecimientos productivos frente a otros distritos, permitiendo que las manufacturas locales lleguen a los centros de consumo con menor carga impositiva. La iniciativa se plasmará a través de un proyecto de ley que el Ejecutivo enviará a la Legislatura provincial para garantizar su estabilidad en el tiempo.</div><div><br></div><h2>Las medidas complementarias para apuntalar la producción</h2><div>La eliminación del gravamen provincial forma parte de un paquete de asistencia integral acordado entre los equipos técnicos del Ministerio de Hacienda y los representantes fabriles:</div><div><ul><li><b data-path-to-node="12" data-index-in-node="184">Créditos productivos:</b> Lanzamiento de líneas de financiamiento a tasas subsidiadas con el respaldo de garantías del FOGACAT.</li><li><b data-path-to-node="12" data-index-in-node="310">Expansión de la Zona Franca:</b> Ampliación del predio aduanero para facilitar el ingreso de insumos industriales y la salida de exportaciones.</li><li><b data-path-to-node="12" data-index-in-node="452">Sostén al sector textil:</b> Implementación de programas de acompañamiento específico para hilanderías y confecciones durante la transición del mercado interno.</li><li><b data-path-to-node="12" data-index-in-node="611">Beneficios por ley:</b> Creación de un marco de incentivos fiscales plurianuales para empresas que incorporen nuevos puestos de trabajo.</li></ul><div><br></div></div><h2>El respaldo de la UIA y el enlace con el auge minero</h2><div>La conducción de la central fabril nacional celebró la decisión y destacó la vocación de la provincia para construir puentes de diálogo con el sector privado. <b data-path-to-node="14" data-index-in-node="159">Martín Rappallini</b> remarcó que el impacto de una fábrica va mucho más allá de su nómina directa, ya que moviliza una red masiva de proveedores, transporte y servicios.</div><div><br></div><div>Por su parte, el mandatario provincial subrayó que la desgravación impositiva busca generar sinergia con el crecimiento de la minería de litio y cobre en la Puna, incentivando a que las empresas industriales se integren como proveedoras locales de bienes e insumos para los grandes proyectos extractivos.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
