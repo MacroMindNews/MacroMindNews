@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Argentina LNG solicitó la adhesión al RIGI para desarrollar la mayor inversión privada de la historia por USD 51.000 millones","description":"El consorcio conformado por YPF, Eni y XRG presentó el proyecto integrado de licuefacción para exportar el gas de Vaca Muerta al mundo. La iniciativa prevé exportaciones por USD 10.000 millones anuales durante dos décadas y picos de hasta 40.000 empleos en su construcción.","image":["https://macromindnews.com.ar/img/ypf-3.webp"],"datePublished":"2026-08-14T00:00:00-03:00","dateModified":"2026-08-14T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/argentina-lng-solicito-la-adhesion-al-rigi-para-desarrollar-la-mayor-inversion-privada-de-la-historia-por-usd-51000-millones.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Argentina LNG solicitó la adhesión al RIGI para desarrollar la mayor inversión privada de la historia por USD 51.000 millones</h1>
   <p class="art-excerpt">El consorcio conformado por YPF, Eni y XRG presentó el proyecto integrado de licuefacción para exportar el gas de Vaca Muerta al mundo. La iniciativa prevé exportaciones por USD 10.000 millones anuales durante dos décadas y picos de hasta 40.000 empleos en su construcción.</p>
   <div class="art-meta">14 de Agosto, 2026</div>
-  <img src="img/ypf-3.webp" alt="Argentina LNG solicitó la adhesión al RIGI para desarrollar la mayor inversión privada de la historia por USD 51.000 millones" onerror="this.style.background='#ddd';"/>
+  <img src="img/ypf-3.webp" alt="Argentina LNG solicitó la adhesión al RIGI para desarrollar la mayor inversión privada de la historia por USD 51.000 millones" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/argentina-lng-solicito-la-adhesion-al-rigi-para-desarrollar-la-mayor-inversion-privada-de-la-historia-por-usd-51000-millones.html&text=Argentina%20LNG%20solicit%C3%B3%20la%20adhesi%C3%B3n%20al%20RIGI%20para%20desarrollar%20la%20mayor%20inversi%C3%B3n%20privada%20de%20la%20historia%20por%20USD%2051.000%20millones" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div><p data-path-to-node="6">Argentina LNG formalizó su solicitud de adhesión al Régimen de Incentivo para Grandes Inversiones (RIGI) para poner en marcha un proyecto integrado de producción y exportación de Gas Natural Licuado (GNL). Con una inversión acumulada estimada en 51.000 millones de dólares a lo largo de su ciclo, se consolida como el desembolso de capital privado más grande en la historia de la Argentina y la propuesta más ambiciosa presentada bajo el nuevo marco normativo hasta la fecha.</p><p data-path-to-node="6"><br></p><p data-path-to-node="7">La iniciativa es impulsada conjuntamente por YPF, Eni y XRG, y apunta a estructurar una cadena de valor integral que monetice los recursos de gas natural de la formación no convencional de Vaca Muerta en los mercados internacionales. El diseño técnico abarca desde la producción de gas rico en la cuenca neuquina, la infraestructura de transporte y fraccionamiento, hasta la instalación de dos unidades flotantes de licuefacción (FLNG) frente a las costas de Río Negro, en el Golfo San Matías, que totalizarán una capacidad conjunta de 12 millones de toneladas por año (MTPA).</p><p data-path-to-node="7"><br></p><h2><b data-path-to-node="8" data-index-in-node="0">Impacto macroeconómico y financiamiento</b>&nbsp;</h2><p data-path-to-node="8">De acuerdo con las estimaciones técnicas, la exportación sostenida de GNL generará ingresos de divisas cercanos a los 10.000 millones de dólares anuales durante dos décadas consecutivas, lo que representará un salto estructural para la balanza comercial y el ingreso de reservas netas al país.</p><p data-path-to-node="8"><br></p><p data-path-to-node="9">Hacia el año 2031, fecha estimada para la entrada en operación de las dos barcazas licuefactores, se desembolsarán cerca de USD 29.000 millones. De ese total, USD 24.000 millones se destinarán al montaje de gasoductos, plantas industriales e instalaciones portuarias, mientras que USD 5.000 millones irán al desarrollo del <i data-path-to-node="9" data-index-in-node="323">upstream</i> y la perforación de pozos de gas. Para costear la etapa constructiva, se utilizará un esquema de <i data-path-to-node="9" data-index-in-node="429">Project Finance</i> en mercados globales, respaldado por contratos de exportación a largo plazo con compradores de calificación <i data-path-to-node="9" data-index-in-node="553">investment grade</i>.</p></div><img src="img/comunicado-ypf-14-5-26.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div><h2><b data-path-to-node="10" data-index-in-node="0">Generación de empleo y desarrollo de proveedores locales</b>&nbsp;</h2><p data-path-to-node="10">El desarrollo del proyecto tendrá una fuerte tracción sobre la actividad económica y el entramado productivo de las provincias de Neuquén y Río Negro:</p><ul data-path-to-node="11"><li><p data-path-to-node="11,0,0"><b data-path-to-node="11,0,0" data-index-in-node="0">Empleo en construcción:</b> Generará unos 20.000 puestos laborales anuales (entre directos, indirectos e inducidos) entre 2026 y 2030, con picos proyectados de hasta 40.000 trabajadores en el tercer año de obra.</p></li><li><p data-path-to-node="11,1,0"><b data-path-to-node="11,1,0" data-index-in-node="0">Operación a largo plazo:</b> Durante toda su vida útil, el complejo sostendrá de forma permanente alrededor de 8.000 puestos de trabajo anuales.</p></li><li><p data-path-to-node="11,2,0"><b data-path-to-node="11,2,0" data-index-in-node="0">Compre nacional:</b> Se proyecta una contratación de bienes y servicios por USD 15.000 millones a proveedores locales, impulsando el desarrollo tecnológico de la industria argentina.</p></li></ul><div><br></div><p data-path-to-node="12">El presidente y CEO de YPF, Horacio Marín, destacó que la adhesión al RIGI es un hito decisivo para dotar al consorcio del marco de estabilidad jurídica, fiscal y cambiaria necesario para viabilizar el proyecto y abrir una nueva etapa para la Argentina como exportador global de energía.</p></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
