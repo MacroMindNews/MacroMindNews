@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Estados Unidos propuso disolver el Comité de Descolonización de la ONU en el que Argentina reclama la soberanía de Malvinas","description":"Estados Unidos propuso disolver el Comité de Descolonización de la ONU por considerarlo un \"despilfarro de recursos\", afectando el principal foro internacional donde la Argentina sostiene su reclamo de soberanía sobre las Islas Malvinas.","image":["https://macromindnews.com.ar/img/trump-jdvance.webp"],"datePublished":"2026-10-19T00:00:00-03:00","dateModified":"2026-10-19T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/estados-unidos-propuso-disolver-el-comite-de-descolonizacion-de-la-onu-en-el-que-argentina-reclama-la-soberania-de-malvinas.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Estados Unidos propuso disolver el Comité de Descolonización de la ONU en el que Argentina reclama la soberanía de Malvinas</h1>
   <p class="art-excerpt">Estados Unidos propuso disolver el Comité de Descolonización de la ONU por considerarlo un "despilfarro de recursos", afectando el principal foro internacional donde la Argentina sostiene su reclamo de soberanía sobre las Islas Malvinas.</p>
   <div class="art-meta">19 de Octubre, 2026</div>
-  <img src="img/trump-jdvance.webp" alt="Estados Unidos propuso disolver el Comité de Descolonización de la ONU en el que Argentina reclama la soberanía de Malvinas" onerror="this.style.background='#ddd';"/>
+  <img src="img/trump-jdvance.webp" alt="Estados Unidos propuso disolver el Comité de Descolonización de la ONU en el que Argentina reclama la soberanía de Malvinas" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/estados-unidos-propuso-disolver-el-comite-de-descolonizacion-de-la-onu-en-el-que-argentina-reclama-la-soberania-de-malvinas.html&text=Estados%20Unidos%20propuso%20disolver%20el%20Comit%C3%A9%20de%20Descolonizaci%C3%B3n%20de%20la%20ONU%20en%20el%20que%20Argentina%20reclama%20la%20soberan%C3%ADa%20de%20Malvinas" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La administración estadounidense encabezada por Donald Trump solicitó formalmente la finalización del mandato del Comité Especial de Descolonización de las Naciones Unidas (C-24). La representante de la delegación norteamericana fundamentó el pedido en la Cuarta Comisión del organismo multilateral argumentando que dicho fuero "dejó de cumplir su propósito original", calificó sus actividades anuales como un "desperdicio de tiempo y recursos" y advirtió que funciona como una herramienta política en lugar de brindar soluciones efectivas a los habitantes de los territorios no autónomos.<div><br></div><div>La iniciativa de Washington impacta directamente en la estrategia diplomática de la Cancillería argentina, dado que el C-24 es el foro institucional donde el país presenta de manera sistemática su reclamo de soberanía sobre las Islas Malvinas y exige al Reino Unido retomar las negociaciones bilaterales bajo el amparo de la resolución 20 de la Asamblea General de 1965.</div><div><br></div><h2>Tensión diplomática con Londres por el petróleo y la Ley de Soberanía</h2><div><span style="font-size: 0.92rem;">El planteo de la Casa Blanca se produce en un escenario de elevada fricción entre Buenos Aires y Londres. Recientemente, el Gobierno argentino solicitó medidas ante el Tribunal Internacional del Derecho del Mar en Hamburgo para frenar el avance del proyecto petrolero </span><i data-path-to-node="5" data-index-in-node="268" style="font-size: 0.92rem;">Sea Lion</i><span style="font-size: 0.92rem;"> en las aguas circundantes a las islas, maniobra que fue rechazada por la administración británica con un respaldo explícito a las petroleras que operan en la zona.</span></div><div><br></div><div>En paralelo, la estrategia legislativa del Poder Ejecutivo genera atención en el ámbito internacional y corporativo:</div><div><ul><li><b data-path-to-node="7,0,0" data-index-in-node="0">Sanciones a la actividad hidrocarburífera:</b> El Congreso analiza la Ley de Soberanía enviada por el Ejecutivo, que contempla sanciones a firmas que presten servicios o apoyen la explotación petrolera en las islas.</li><li><b data-path-to-node="7,1,0" data-index-in-node="0">Observaciones de empresas norteamericanas:</b> Compañías de Estados Unidos transmitieron su preocupación ante las autoridades argentinas por la amplitud del texto legal, solicitando mayor precisión técnica en las causales de sanción.</li><li><b data-path-to-node="7,2,0" data-index-in-node="0">Reclamo en la Asamblea General:</b> Durante su intervención ante las Naciones Unidas, Javier Milei volvió a calificar al organismo de "inútil" por ignorar la causa Malvinas y exhortó a Gran Bretaña a abrir una mesa de diálogo.</li></ul><div><br></div></div><h2>Un freno a las expectativas de la alineación bilateral</h2><div>La propuesta de desmantelar el C-24 —cuya adopción definitiva depende del voto de la Asamblea General— introduce un elemento complejo en la agenda exterior del país, que mantiene a Washington e Israel como sus principales aliados estratégicos. Pese a que durante su campaña Trump deslizó la posibilidad de revisar la neutralidad histórica norteamericana e interceder como mediador, el pedido formal formulado en Nueva York prescinde de contemplar el reclamo argentino.</div><div><br></div><div>La medida forma parte de la política de recortes presupuestarios y reestructuración integral que impone la administración republicana sobre los organismos y comisiones subsidiarias de la ONU. Este movimiento diplomático coincide con las gestiones del Gobierno nacional para promover la candidatura del diplomático argentino Rafael Grossi a la secretaría general de las Naciones Unidas.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
