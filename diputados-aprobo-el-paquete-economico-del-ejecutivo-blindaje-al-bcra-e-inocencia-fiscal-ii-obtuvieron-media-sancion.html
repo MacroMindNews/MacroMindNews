@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Diputados aprobó el paquete económico del Ejecutivo: blindaje al BCRA e Inocencia Fiscal II obtuvieron media sanción","description":"La Cámara de Diputados aprobó los proyectos centrales del Poder Ejecutivo encabezados por la reforma de la Carta Orgánica del Banco Central —que prohíbe la emisión monetaria para financiar al Tesoro y fija como mandato exclusivo la estabilidad del valor del peso— y la Ley de Inocencia Fiscal II para simplificar el régimen tributario de los contribuyentes. La jornada legislativa incluyó además la media sanción de acuerdos comerciales internacionales, incentivos impositivos regionales y normas de seguridad comunitaria.","image":["https://macromindnews.com.ar/img/diputados-26-8-26.webp"],"datePublished":"2026-08-27T00:00:00-03:00","dateModified":"2026-08-27T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/diputados-aprobo-el-paquete-economico-del-ejecutivo-blindaje-al-bcra-e-inocencia-fiscal-ii-obtuvieron-media-sancion.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Diputados aprobó el paquete económico del Ejecutivo: blindaje al BCRA e Inocencia Fiscal II obtuvieron media sanción</h1>
   <p class="art-excerpt">La Cámara de Diputados aprobó los proyectos centrales del Poder Ejecutivo encabezados por la reforma de la Carta Orgánica del Banco Central —que prohíbe la emisión monetaria para financiar al Tesoro y fija como mandato exclusivo la estabilidad del valor del peso— y la Ley de Inocencia Fiscal II para simplificar el régimen tributario de los contribuyentes. La jornada legislativa incluyó además la media sanción de acuerdos comerciales internacionales, incentivos impositivos regionales y normas de seguridad comunitaria.</p>
   <div class="art-meta">27 de Agosto, 2026</div>
-  <img src="img/diputados-26-8-26.webp" alt="Diputados aprobó el paquete económico del Ejecutivo: blindaje al BCRA e Inocencia Fiscal II obtuvieron media sanción" onerror="this.style.background='#ddd';"/>
+  <img src="img/diputados-26-8-26.webp" alt="Diputados aprobó el paquete económico del Ejecutivo: blindaje al BCRA e Inocencia Fiscal II obtuvieron media sanción" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/diputados-aprobo-el-paquete-economico-del-ejecutivo-blindaje-al-bcra-e-inocencia-fiscal-ii-obtuvieron-media-sancion.html&text=Diputados%20aprob%C3%B3%20el%20paquete%20econ%C3%B3mico%20del%20Ejecutivo%3A%20blindaje%20al%20BCRA%20e%20Inocencia%20Fiscal%20II%20obtuvieron%20media%20sanci%C3%B3n" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">En una extensa sesión maratónica, la Cámara de Diputados de la Nación convalidó la agenda de reformas impulsadas por el Gobierno de Javier Milei y completó el temario con iniciativas parlamentarias claves. El oficialismo logró articular acuerdos parlamentarios para avanzar con la reestructuración del régimen monetario, la simplificación tributaria, la apertura comercial y normas de seguridad comunitaria, girando todos los expedientes al Senado para su sanción definitiva.<div><br></div><h2>Reforma de la Carta Orgánica del Banco Central</h2><div>La iniciativa reconfigura de forma integral las funciones de la autoridad monetaria para adoptar un esquema enfocado exclusivamente en la estabilidad de precios, inspirado en el modelo del Banco Central de Reserva del Perú. El texto establece como misión única la preservación del valor de la moneda, prohíbe de manera tajante la emisión para financiar al Tesoro mediante adelantos transitorios, restringe la transferencia de utilidades contables y endurece el mecanismo para remover&nbsp;<span style="font-size: 0.92rem;">a sus autoridades, exigiendo una mayoría de dos tercios en ambas cámaras del Congreso.&nbsp;</span><span style="font-size: 0.92rem;">La votación resultó aprobada en general con 144 votos afirmativos, 102 negativos y 9 abstenciones.</span></div><div><img src="img/votacion-dip-bcra.webp" alt="Imagen" style="font-size: 0.92rem; max-width: 100%; margin: 12px 0px; display: block;"><br></div><h2>Ley de Inocencia Fiscal II</h2><div>El proyecto profundiza la desregulación y flexibilización del sistema tributarios y penal fiscal para los contribuyentes, suprimiendo topes patrimoniales para facilitar la regularización de activos. A instancias de los bloques dialoguistas, se incorporó una cláusula explícita que excluye a los funcionarios públicos del acceso a estos beneficios.</div><div>La Cámara de Diputados le dio media sanción con 139 votos a favor, 110 en contra y 2 abstenciones.</div><div><img src="img/votacion-dip-inocencia-fiscal-2.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><br><h2>Tratado de Cooperación en Materia de Patentes (PCT)</h2></div><div>El proyecto del Ejecutivo convalidó la adhesión argentina al sistema internacional de patentes, aunque incorporó una modificación respecto al texto original: Se mantuvo en reserva el Capítulo II sobre el examen preliminar internacional. Esta salvaguarda garantiza que el Instituto Nacional de la Propiedad Industrial (INPI) conserve la potestad técnica exclusiva para conceder patentes sobre medicamentos e innovaciones locales frente a las empresas multinacionales.</div><div>La iniciativa fue aprobada con modificaciones y consiguió 147 votos a favor y 93 en contra.&nbsp;<br><img src="img/votacion-dip-tcp.png" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><br><h2>Acuerdo de Libre Comercio Mercosur-Singapur</h2></div><div>El tratado internacional ratifica la integración comercial y la apertura arancelaria con la nación asiática, fijando normativas sobre el trato nacional, facilitando de trámites aduaneros y reglas de origen para el intercambio de bienes y servicios.</div><div>El proyecto sumó un masivo respaldo transversal y se aprobó con 234 votos afirmativos y 4 votos negativos.<br><img src="img/votacion-dip-mercosur-singapur.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><br></div><div><p data-path-to-node="0">En el plano de las iniciativas parlamentarias, la Cámara de Diputados aprobó con un amplio consenso de 218 votos afirmativos y 2 abstenciones la reducción del IVA del 21% al 10,5% para la fécula y derivados de la mandioca, equiparando su esquema tributario con otros cultivos agrícolas e impulsando a los productores del NEA. En materia de prevención y seguridad, se dio media sanción con 214 votos a favor a la "Ley Joaquín", normativa que impone la obligatoriedad de cumplir con estándares técnicos de anclaje, amortiguación y mantenimiento en arcos deportivos y juegos infantiles de clubes y escuelas para evitar accidentes.</p><p data-path-to-node="0"><br></p><p data-path-to-node="1">El temario de la sesión se completó con la reforma judicial que dispone la creación y reorganización de salas de apelaciones en tribunales federales del interior para agilizar los tiempos procesales, la cual reunió 198 votos a favor, 12 en contra y 8 abstenciones. Finalmente, el recinto convalidó por unanimidad y en bloque las declaraciones institucionales que reconocen al "Camino de Brochero" de Córdoba como patrimonio cultural inmaterial de la Nación y establecen las capitales nacionales simbólicas del Ecoturismo y de la Natación en Aguas Frías, girando todas las iniciativas al Senado.</p></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
