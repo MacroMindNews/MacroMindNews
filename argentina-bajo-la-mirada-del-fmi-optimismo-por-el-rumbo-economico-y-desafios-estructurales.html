@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Argentina bajo la mirada del FMI: optimismo por el rumbo económico y desafíos estructurales","description":"En un encuentro clave en Buenos Aires, Kristalina Georgieva y Luis Caputo analizaron el presente financiero del país. ¿Qué dijo la directora del FMI sobre el futuro argentino?","image":["https://macromindnews.com.ar/img/caputo-y-georgieva.webp"],"datePublished":"2026-07-27T00:00:00-03:00","dateModified":"2026-07-27T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/argentina-bajo-la-mirada-del-fmi-optimismo-por-el-rumbo-economico-y-desafios-estructurales.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Argentina bajo la mirada del FMI: optimismo por el rumbo económico y desafíos estructurales</h1>
   <p class="art-excerpt">En un encuentro clave en Buenos Aires, Kristalina Georgieva y Luis Caputo analizaron el presente financiero del país. ¿Qué dijo la directora del FMI sobre el futuro argentino?</p>
   <div class="art-meta">27 de Julio, 2026</div>
-  <img src="img/caputo-y-georgieva.webp" alt="Argentina bajo la mirada del FMI: optimismo por el rumbo económico y desafíos estructurales" onerror="this.style.background='#ddd';"/>
+  <img src="img/caputo-y-georgieva.webp" alt="Argentina bajo la mirada del FMI: optimismo por el rumbo económico y desafíos estructurales" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/argentina-bajo-la-mirada-del-fmi-optimismo-por-el-rumbo-economico-y-desafios-estructurales.html&text=Argentina%20bajo%20la%20mirada%20del%20FMI%3A%20optimismo%20por%20el%20rumbo%20econ%C3%B3mico%20y%20desaf%C3%ADos%20estructurales" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Un balance positivo sobre la estabilización macroeconómica<div>El Ministro de Economía, Luis Caputo, recibió este lunes a la Directora Gerente del Fondo Monetario Internacional (FMI), Kristalina Georgieva, para repasar los avances en el programa económico nacional. Durante la conferencia, el funcionario argentino agradeció la confianza brindada por el organismo desde el inicio de la gestión, destacando la solidez y el compromiso mutuo frente a los desafíos financieros enfrentados.</div><div><br></div><div>Por su parte, Georgieva resaltó la transformación macroeconómica lograda por la administración actual, señalando que los indicadores actuales muestran una posición mucho más saludable que años anteriores. La Directora destacó el cambio de déficit a superávit primario, la baja de la inflación y la consistente acumulación de reservas por parte del Banco Central, elementos que, según afirmó, devuelven la confianza de los mercados internacionales.</div><div><br></div><div>Puntos claves:</div><div><ul><li><b>Acumulación de Reservas:</b>&nbsp;El BCRA ha superado las metas previstas, sumando 13.000 millones de dólares.</li><li><b>Mercado Laboral:</b>&nbsp;Se puso especial foco en la importancia de fortalecer a las Pymes y fomentar el empleo formal.</li><li><b>Sin nuevos pedidos:</b>&nbsp;Georgieva descartó por el momento la necesidad de que Argentina solicite financiamiento adicional del organismo.</li></ul></div><div><br></div><div>Sin embargo, la agenda no se limitó&nbsp; a los logros fiscales. El tercer eje de discusión se centró en cómo lograr que este crecimiento se comparta de manera más amplia. Georgieva hizo hincapié en la necesidad de mejorar las condiciones para las pequeñas empresas y las familias, promoviendo el acceso al crédito y la creación de empleo formal, sectores que son vitales para una recuperación económica más vibrante y equitativa.</div><div><br></div><div>Finalmente, la funcionaria concluyó su presentación compartiendo una reflexión personal sobre la perseverancia. Comparando la situación con la transformación que vivió su propio país, Bulgaria, en los años90, instó a los argentinos a mantener el rumbo y no bajar los brazos ante las dificultades. Según Georgieva, aunque el proceso de transformación es complejo, la clave del éxito a largo plazo reside en la infraestructura, la educación y, sobre todo, el imperio de la ley.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
