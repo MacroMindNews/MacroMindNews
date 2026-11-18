@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Moody’s le subió la nota crediticia a la Argentina de Caa1 a B3 y mejoró la perspectiva a \"positiva\"","description":"La agencia estadounidense destacó la reducción del riesgo de default, el superávit fiscal sostenido y la desaceleración de la inflación. Alinea su calificación con S&P y Fitch por primera vez en más de una década.","image":["https://macromindnews.com.ar/img/agencia-moodys.webp"],"datePublished":"2026-07-21T00:00:00-03:00","dateModified":"2026-07-21T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/moodys-le-subio-la-nota-crediticia-a-la-argentina-de-caa1-a-b3-y-mejoro-la-perspectiva-a-positiva.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Moody’s le subió la nota crediticia a la Argentina de Caa1 a B3 y mejoró la perspectiva a "positiva"</h1>
   <p class="art-excerpt">La agencia estadounidense destacó la reducción del riesgo de default, el superávit fiscal sostenido y la desaceleración de la inflación. Alinea su calificación con S&P y Fitch por primera vez en más de una década.</p>
   <div class="art-meta">21 de Julio, 2026</div>
-  <img src="img/agencia-moodys.webp" alt="Moody’s le subió la nota crediticia a la Argentina de Caa1 a B3 y mejoró la perspectiva a "positiva"" onerror="this.style.background='#ddd';"/>
+  <img src="img/agencia-moodys.webp" alt="Moody’s le subió la nota crediticia a la Argentina de Caa1 a B3 y mejoró la perspectiva a "positiva"" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/moodys-le-subio-la-nota-crediticia-a-la-argentina-de-caa1-a-b3-y-mejoro-la-perspectiva-a-positiva.html&text=Moody%E2%80%99s%20le%20subi%C3%B3%20la%20nota%20crediticia%20a%20la%20Argentina%20de%20Caa1%20a%20B3%20y%20mejor%C3%B3%20la%20perspectiva%20a%20%22positiva%22" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La agencia calificadora de riesgo Moody´s Ratings mejoró la nota de la deuda soberana argentina, elevando las calificaciones de emisor a largo plazo en moneda local y extranjera desde <b>Caa1</b>&nbsp;hasta <b>B3</b>. Además, la entidad modificó la perspectiva del país de "estable" a "positiva".<div><br></div><div>Según detalló la firma, la decisión responde a una deducción sustancial en el riesgo de incumplimiento (default), impulsada por un programa de estabilización macroeconómica que pasó de ser un ajuste inicial a mostrar una mejora estructural más duradera.</div><div><br></div><div>Los pilares de la mejora crediticia:<br><ul><li><b>Ancla fiscal:</b>&nbsp;Mantenimiento de superávits fiscales sostenidos y eliminación del financiamiento monetario.</li><li><b>Desinflación y divisa:</b>&nbsp;Desaceleración constante de la inflación y fortalecimiento de la posición externa mediante mayores exportaciones energéticas y mineras.<br></li><li><b>Impulso de inversiones:</b>&nbsp;Impacto clave del Régimen de Incentivo para Grandes Inversiones (RIGI) y un acceso más fluido al financiamiento internacional.</li></ul><div><br></div></div><h2>Alineación histórica con los mercados</h2><div>Con este ascenso, las tres principales agencias globales (Moody´s, Standard &amp; Poor´s y Ficht) ubican a la deuda argentina en el mismo escalón equivalente (B-) por primera vez en más de diez años.</div><div><br></div><h2>La reacción del equipo económico</h2><div>Poco después de conocerse el informe, el Ministro de Economía, Luis Caputo, festejo el anuncio a través de sus redes sociales destacando la medida como un hito "IMPORTANTE!" para el país, mensaje que fue rápidamente reposteado por el Presidente Javier Milei. Por su parte el Viceministro de Economía, José Luis Daza, también celebró la decisión que abre la puerta a que grandes fondos de inversión internacionales vuelvan a poner la mira en los activos argentinos.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
