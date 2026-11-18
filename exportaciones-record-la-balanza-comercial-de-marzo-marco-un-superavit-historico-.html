@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Exportaciones récord: la balanza comercial de marzo marcó un superávit histórico de US$2.523 millones","description":"Las ventas al exterior crecieron más del 30% interanual y superaron cualquier registro previo, consolidando 28 meses consecutivos de superávit comercial.","image":["https://macromindnews.com.ar/img/exportaciones-marzo-26.jpg"],"datePublished":"2026-04-21T00:00:00-03:00","dateModified":"2026-04-21T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/exportaciones-record-la-balanza-comercial-de-marzo-marco-un-superavit-historico-.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Exportaciones récord: la balanza comercial de marzo marcó un superávit histórico de US$2.523 millones</h1>
   <p class="art-excerpt">Las ventas al exterior crecieron más del 30% interanual y superaron cualquier registro previo, consolidando 28 meses consecutivos de superávit comercial.</p>
   <div class="art-meta">21 de Abril, 2026</div>
-  <img src="img/exportaciones-marzo-26.jpg" alt="Exportaciones récord: la balanza comercial de marzo marcó un superávit histórico de US$2.523 millones" onerror="this.style.background='#ddd';"/>
+  <img src="img/exportaciones-marzo-26.jpg" alt="Exportaciones récord: la balanza comercial de marzo marcó un superávit histórico de US$2.523 millones" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/exportaciones-record-la-balanza-comercial-de-marzo-marco-un-superavit-historico-.html&text=Exportaciones%20r%C3%A9cord%3A%20la%20balanza%20comercial%20de%20marzo%20marc%C3%B3%20un%20super%C3%A1vit%20hist%C3%B3rico%20de%20US%242.523%20millones" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Las exportaciones argentinas marcaron un nuevo récord histórico en marzo de 2026. Las ventas al exterior totalizaron US$8.645 millones, registrando una suba del 30,1% en comparación con marzo de 2025, impulsada principalmente por un alza del 25,3% en las cantidades exportadas y una mejora del 3,9% en los precios. Como resultado, la balanza comercial arrojó un superávit de US$2.523 millones, lo que implica una mejora de US$1.899 millones frente al mismo mes del año anterior.<br><br>La cifra desplaza el pico de mayo de 2022 de US$8.226 millones, que hasta ahora se mantenía como la marca más alta, impulsada por el boom de precios de la pospandemia y el conflicto en Ucrania. El dato además rompe con la estacionalidad, ya que históricamente los picos de exportación argentinos ocurren en mayo o junio con la cosecha gruesa en pleno apogeo. El ministro de Economía, Luis Caputo, celebró el resultado destacando que también se registró un récord en exportaciones de combustibles y energía, con un superávit energético de US$1.090 millones, el mayor de la historia para un mes individual.<br><br>Todos los rubros exportadores mostraron crecimiento interanual, con los productos primarios encabezando la suba con un alza del 56,2%, impulsados por mayores volúmenes especialmente de cereales. Por el lado de las importaciones, estas totalizaron US$6.122 millones, con un incremento interanual de apenas 1,7%. El moderado avance de las compras al exterior refleja que la recuperación de la actividad interna todavía no se traduce en un fuerte aumento de la demanda de bienes importados.<br><br>A pesar del fuerte resultado comercial, los términos del intercambio mostraron un deterioro del 1,8% interanual, explicado por un mayor incremento en los precios de las importaciones frente a los de las exportaciones, lo que implicó una pérdida estimada de US$154 millones en el período. En cuanto a los principales socios, se destacaron superávits con el Resto de ALADI, ASEAN e India, mientras que los déficits más significativos se registraron con China y el Mercosur. El intercambio comercial total alcanzó los US$14.766 millones, con un crecimiento del 16,6% interanual.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
