@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"YPF prepara un split de acciones para reducir su valor nominal y captar inversores minoristas","description":"El CEO de YPF, Horacio Marín, anunció que los usuarios podrán comprar acciones de la petrolera directamente desde la aplicación de la empresa, sin necesidad de abrir una cuenta en una sociedad de bolsa. Además, la compañía realizará un split de sus acciones para bajar el precio unitario, facilitando el acceso a inversores con poco capital.","image":["https://macromindnews.com.ar/img/horacio-marin.jpg"],"datePublished":"2026-04-06T00:00:00-03:00","dateModified":"2026-04-06T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/ypf-prepara-un-split-de-acciones-para-reducir-su-valor-nominal-y-captar-inversor.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">YPF prepara un split de acciones para reducir su valor nominal y captar inversores minoristas</h1>
   <p class="art-excerpt">El CEO de YPF, Horacio Marín, anunció que los usuarios podrán comprar acciones de la petrolera directamente desde la aplicación de la empresa, sin necesidad de abrir una cuenta en una sociedad de bolsa. Además, la compañía realizará un split de sus acciones para bajar el precio unitario, facilitando el acceso a inversores con poco capital.</p>
   <div class="art-meta">6 de Abril, 2026</div>
-  <img src="img/horacio-marin.jpg" alt="YPF prepara un split de acciones para reducir su valor nominal y captar inversores minoristas" onerror="this.style.background='#ddd';"/>
+  <img src="img/horacio-marin.jpg" alt="YPF prepara un split de acciones para reducir su valor nominal y captar inversores minoristas" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/ypf-prepara-un-split-de-acciones-para-reducir-su-valor-nominal-y-captar-inversor.html&text=YPF%20prepara%20un%20split%20de%20acciones%20para%20reducir%20su%20valor%20nominal%20y%20captar%20inversores%20minoristas" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">YPF acaba de dar un paso que podría cambiar la forma en que los argentinos invierten. El CEO de la petrolera estatal, Horacio Marín, anunció que próximamente los usuarios de la app de YPF —que hoy funciona como una billetera digital para cargar combustible, hacer pagos y acceder a beneficios— podrán comprar acciones de la propia empresa directamente desde esa plataforma. "En la aplicación de YPF, la gente podrá comprar las acciones sin tener que abrir la comitente", afirmó Marín. Para entender la magnitud del anuncio hay que saber qué es una cuenta comitente: se trata de la cuenta que hoy cualquier persona debe abrir en una sociedad de bolsa para poder operar en los mercados financieros, un trámite que para muchos argentinos resulta engorroso, desconocido o directamente intimidante. Al eliminar ese requisito, YPF le abre la puerta a millones de usuarios que hoy ni siquiera considerarían invertir en acciones.<br><br>El segundo elemento del anuncio es el split de acciones, otro concepto que vale explicar. Un split consiste en dividir cada acción existente en varias unidades más pequeñas, reduciendo el precio por acción sin modificar el valor total de la inversión de quienes ya tienen papeles de la empresa. Hoy cada acción de YPF cotiza en el mercado local en torno a los $56.000 a $65.000 pesos, un monto que puede resultar elevado para un inversor minorista que quiere empezar con poco dinero. Tras el split, según explicó Marín, el precio bajará al orden de los $6.000 por acción, lo que significa que con el mismo dinero se podrán comprar aproximadamente diez veces más unidades. El efecto psicológico y práctico es claro: una acción más barata es más accesible y más fácil de incorporar a una cartera pequeña.<br><br>La combinación de estas dos medidas —compra directa desde la app y precio más bajo por acción— apunta a democratizar la inversión en YPF de una manera que hasta ahora no existía en Argentina. La petrolera tiene millones de usuarios que usan su aplicación cotidianamente para cargar nafta o acceder a promociones, y muchos de ellos nunca pensaron en invertir en bolsa. Con este cambio, YPF podría convertirse en la puerta de entrada al mundo de las inversiones para una franja enorme de la población que hoy queda afuera del mercado de capitales simplemente por desconocimiento o por la complejidad de los trámites. Es, en cierta forma, el equivalente de lo que Mercado Pago hizo con los servicios financieros: llevar algo que parecía reservado para pocos a la palma de la mano de cualquiera.<br><br>El anuncio llega en un contexto donde el mercado de capitales argentino está atravesando una transformación acelerada. Hace pocos días, la Comisión Nacional de Valores anticipó la creación de un ETF del Merval para atraer inversores internacionales, y ahora YPF apunta en la dirección opuesta pero complementaria: atraer al inversor local que todavía no dio el primer paso. Si la iniciativa se implementa con éxito, podría marcar un antes y un después en la cultura financiera argentina, acercando a una generación de ahorristas al mercado de acciones de una manera simple, digital y accesible desde el teléfono.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
