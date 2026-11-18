@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El Gobierno retiró el capítulo 3 de la Ley de Tierras para salvar la sesión del jueves y evitar una derrota legislativa","description":"Con la sesión en riesgo por la rebelión de gobernadores aliados y la habilitación del voto remoto de una senadora opositora, el oficialismo cedió y acordó avanzar sin el tramo más polémico de la reforma. La sesión se realizará este jueves con el texto recortado.","image":["https://macromindnews.com.ar/img/senado-5-8-26.webp"],"datePublished":"2026-08-05T00:00:00-03:00","dateModified":"2026-08-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-gobierno-retiro-el-capitulo-3-de-la-ley-de-tierras-para-salvar-la-sesion-del-jueves-y-evitar-una-derrota-legislativa.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El Gobierno retiró el capítulo 3 de la Ley de Tierras para salvar la sesión del jueves y evitar una derrota legislativa</h1>
   <p class="art-excerpt">Con la sesión en riesgo por la rebelión de gobernadores aliados y la habilitación del voto remoto de una senadora opositora, el oficialismo cedió y acordó avanzar sin el tramo más polémico de la reforma. La sesión se realizará este jueves con el texto recortado.</p>
   <div class="art-meta">5 de Agosto, 2026</div>
-  <img src="img/senado-5-8-26.webp" alt="El Gobierno retiró el capítulo 3 de la Ley de Tierras para salvar la sesión del jueves y evitar una derrota legislativa" onerror="this.style.background='#ddd';"/>
+  <img src="img/senado-5-8-26.webp" alt="El Gobierno retiró el capítulo 3 de la Ley de Tierras para salvar la sesión del jueves y evitar una derrota legislativa" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-gobierno-retiro-el-capitulo-3-de-la-ley-de-tierras-para-salvar-la-sesion-del-jueves-y-evitar-una-derrota-legislativa.html&text=El%20Gobierno%20retir%C3%B3%20el%20cap%C3%ADtulo%203%20de%20la%20Ley%20de%20Tierras%20para%20salvar%20la%20sesi%C3%B3n%20del%20jueves%20y%20evitar%20una%20derrota%20legislativa" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -168,6 +179,21 @@
 <h3 dir="ltr" >Gobernadores aliados se rebelaron y complicaron los números</h3>
 <p  dir="ltr">El panorama para el oficialismo se había vuelto crítico en las horas previas a la sesión, cuando gobernadores que habitualmente acompañan al Gobierno comenzaron a tomar distancia pública del proyecto. El mandatario de Neuquén, Rolando Figueroa, y el de Tucumán, Osvaldo Jaldo, anticiparon reparos al texto y pusieron en duda el respaldo de sus senadores. Desde Misiones, el gobernador Hugo Passalacqua fue aún más directo al publicar un mensaje en el que afirmó que su provincia "siempre va a defender su territorio" y que no acompañarán "ninguna iniciativa que facilite la extranjerización de nuestras tierras". La rebelión de los gobernadores dialoguistas volvió a exponer la fragilidad parlamentaria de La Libertad Avanza en el Senado, donde el oficialismo no tiene mayoría propia y depende de alianzas variables para aprobar cada proyecto.</p><p  dir="ltr"><br></p><h3 dir="ltr" >Villarruel habilitó el voto remoto opositor y encendió la tensión interna</h3><p  dir="ltr">En simultáneo, la vicepresidenta Victoria Villarruel adoptó una decisión que alteró aún más el delicado equilibrio de la sesión: autorizó a la senadora peronista Anabel Fernández Sagasti a participar de manera virtual. La legisladora mendocina, con 32 semanas de embarazo y con una prescripción médica que le impedía viajar, había solicitado intervenir a distancia. Villarruel le otorgó la autorización ad referéndum de lo que resuelva el pleno al inicio de la sesión, lo que garantizó un voto más para la oposición en un escenario donde cada banca es determinante. La medida reavivó las tensiones entre la vicepresidenta y el bloque oficialista. Bullrich llegó al Congreso a recriminarle personalmente a Villarruel la decisión, a quien acusó de estar "militando para el kirchnerismo", en una nueva expresión de la fractura interna que atraviesa al espacio gobernante.</p></div><img src="img/anabel-fernandez-sagasti.png" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div><p  dir="ltr"><br></p><h3 dir="ltr" >La sesión va, pero con menos proyecto</h3><p  dir="ltr">Con el Capítulo 3 fuera del texto, la sesión del jueves se realizará con una versión reducida de la reforma original. El Gobierno logra así mantener el acto legislativo y evitar el costo político de una sesión que no llegó a realizarse, pero al precio de resignar la parte más ambiciosa de la iniciativa. Para el oficialismo, el resultado es una victoria pírrica: salva la sesión pero pierde el núcleo de la reforma que originalmente impulsó. Para la oposición y los gobernadores aliados que resistieron, el episodio marca un punto de inflexión en la capacidad del Gobierno de imponer su agenda legislativa en el Senado, donde el kirchnerismo y los bloques provinciales han demostrado en reiteradas ocasiones tener poder de veto suficiente para frenar o modificar los proyectos prioritarios de la Casa Rosada.</p></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -209,6 +235,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
