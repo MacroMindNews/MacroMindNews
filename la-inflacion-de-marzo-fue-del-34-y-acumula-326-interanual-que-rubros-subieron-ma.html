@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"La inflación de marzo fue del 3,4% y acumula 32,6% interanual: qué rubros subieron más y qué viene para abril","description":"El INDEC publicó este martes el Índice de Precios al Consumidor de marzo de 2026, que marcó un 3,4% mensual, el dato más alto del año y el décimo mes consecutivo con aceleración o estabilidad en torno a ese umbral. Educación, combustibles y transporte fueron los principales impulsores de la suba, mientras que alimentos mostró una moderación. El acumulado interanual se ubica en 32,6%.","image":["https://macromindnews.com.ar/img/ipc-marzo-26.jpg"],"datePublished":"2026-04-14T00:00:00-03:00","dateModified":"2026-04-14T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/la-inflacion-de-marzo-fue-del-34-y-acumula-326-interanual-que-rubros-subieron-ma.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">La inflación de marzo fue del 3,4% y acumula 32,6% interanual: qué rubros subieron más y qué viene para abril</h1>
   <p class="art-excerpt">El INDEC publicó este martes el Índice de Precios al Consumidor de marzo de 2026, que marcó un 3,4% mensual, el dato más alto del año y el décimo mes consecutivo con aceleración o estabilidad en torno a ese umbral. Educación, combustibles y transporte fueron los principales impulsores de la suba, mientras que alimentos mostró una moderación. El acumulado interanual se ubica en 32,6%.</p>
   <div class="art-meta">14 de Abril, 2026</div>
-  <img src="img/ipc-marzo-26.jpg" alt="La inflación de marzo fue del 3,4% y acumula 32,6% interanual: qué rubros subieron más y qué viene para abril" onerror="this.style.background='#ddd';"/>
+  <img src="img/ipc-marzo-26.jpg" alt="La inflación de marzo fue del 3,4% y acumula 32,6% interanual: qué rubros subieron más y qué viene para abril" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/la-inflacion-de-marzo-fue-del-34-y-acumula-326-interanual-que-rubros-subieron-ma.html&text=La%20inflaci%C3%B3n%20de%20marzo%20fue%20del%203%2C4%25%20y%20acumula%2032%2C6%25%20interanual%3A%20qu%C3%A9%20rubros%20subieron%20m%C3%A1s%20y%20qu%C3%A9%20viene%20para%20abril" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El Instituto Nacional de Estadística y Censos (INDEC) publicó este martes el dato de inflación de marzo de 2026 y el número llegó por encima de lo que esperaba el mercado: el Índice de Precios al Consumidor (IPC) subió un 3,4% en el mes, superando el 2,9% de febrero y marcando el registro más alto del año hasta ahora. El acumulado de los últimos doce meses se ubicó en 32,6%, confirmando que la inflación interanual, aunque lejos de los niveles extremos de 2023 y 2024, sigue siendo elevada y resistente a bajar del umbral del 30%. El propio ministro de Economía, Luis Caputo, había anticipado el día anterior que el número estaría por encima del 3%, señalando como causas principales el impacto del conflicto en Medio Oriente sobre el precio de los combustibles y la estacionalidad educativa de marzo.<br><br>Los rubros que más empujaron la inflación de marzo son fáciles de identificar. Educación encabezó la lista con una suba de alrededor del 12%, explicada por el inicio del ciclo lectivo, cuando los colegios e instituciones educativas suelen aplicar sus aumentos anuales de cuotas. Le siguieron combustibles y transporte, que acusaron el impacto directo de la suba internacional del petróleo provocada por el cierre del Estrecho de Ormuz. Vivienda, agua, electricidad y gas también aportaron a la suba, en línea con el proceso de normalización tarifaria que sigue su curso. La buena noticia, en cambio, vino del rubro Alimentos y Bebidas, que mostró una moderación significativa respecto a meses anteriores al subir alrededor del 2,7%, con la carne y las frutas y verduras contribuyendo a ese freno. La inflación núcleo —que mide la tendencia de fondo sin incluir precios regulados ni estacionales— se mantuvo en torno al 2%, lo que sugiere que la inercia inflacionaria de base sigue desacelerando.<br><br>El dato de marzo cierra un primer trimestre complicado para el objetivo de desinflación del Gobierno. La inflación acumulada en los primeros tres meses del año ronda el 9%, por encima de lo que proyectaban los analistas a comienzos de 2026. Sin embargo, hay matices importantes: la aceleración de marzo tiene causas concretas y en parte transitorias —la estacionalidad educativa y el shock petrolero— que no necesariamente se repetirán en los meses siguientes. De hecho, el propio Caputo anticipó que el proceso de desinflación se retomará a partir de abril, y el Relevamiento de Expectativas de Mercado del Banco Central proyecta que el IPC irá bajando progresivamente hacia el 2% o menos en el segundo semestre del año.<br><br>El desafío hacia adelante es claro: sostener la baja de la inflación en un contexto donde los precios regulados siguen ajustando, el tipo de cambio está bajo presión por la crisis en Medio Oriente y los salarios reales necesitan seguir recuperándose para que la mejora en el poder adquisitivo sea sostenible. Para los argentinos, que viven con la inflación como una variable permanente en su vida cotidiana, el 3,4% de marzo es una señal de que el camino hacia la estabilidad de precios sigue siendo largo y no está exento de obstáculos. La inflación de abril será el próximo termómetro para saber si el rebote de marzo fue puntual o el inicio de una nueva tendencia al alza.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
