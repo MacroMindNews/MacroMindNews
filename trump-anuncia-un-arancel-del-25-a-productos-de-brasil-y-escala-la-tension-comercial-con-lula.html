@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Trump anuncia un arancel del 25% a productos de Brasil y escala la tensión comercial con Lula","description":"La medida alcanzará a bienes brasileños que ingresen a Estados Unidos, aunque dejará afuera productos clave como la carne vacuna, el café, los metales y la energía. Brasil respondió con la activación de su ley de reciprocidad, en un nuevo foco de fricción con impacto comercial y político en la región.","image":["https://macromindnews.com.ar/img/trump-lula.webp"],"datePublished":"2026-07-16T00:00:00-03:00","dateModified":"2026-07-16T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/trump-anuncia-un-arancel-del-25-a-productos-de-brasil-y-escala-la-tension-comercial-con-lula.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Trump anuncia un arancel del 25% a productos de Brasil y escala la tensión comercial con Lula</h1>
   <p class="art-excerpt">La medida alcanzará a bienes brasileños que ingresen a Estados Unidos, aunque dejará afuera productos clave como la carne vacuna, el café, los metales y la energía. Brasil respondió con la activación de su ley de reciprocidad, en un nuevo foco de fricción con impacto comercial y político en la región.</p>
   <div class="art-meta">16 de Julio, 2026</div>
-  <img src="img/trump-lula.webp" alt="Trump anuncia un arancel del 25% a productos de Brasil y escala la tensión comercial con Lula" onerror="this.style.background='#ddd';"/>
+  <img src="img/trump-lula.webp" alt="Trump anuncia un arancel del 25% a productos de Brasil y escala la tensión comercial con Lula" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/trump-anuncia-un-arancel-del-25-a-productos-de-brasil-y-escala-la-tension-comercial-con-lula.html&text=Trump%20anuncia%20un%20arancel%20del%2025%25%20a%20productos%20de%20Brasil%20y%20escala%20la%20tensi%C3%B3n%20comercial%20con%20Lula" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div><span style="font-size: 14.72px;">La relación entre Estados Unidos y Brasil sumó un nuevo capítulo de tensión luego de que Donald Trump anunciara un arancel del 25% para productos brasileños que ingresen al mercado estadounidense. El argumento del exmandatario fue que el gobierno de Lula da Silva no negocia “de buena fe”, una acusación que agrega un componente político a una decisión de fuerte impacto comercial.</span></div><div><span style="font-size: 0.92rem;"><br></span></div><div><span style="font-size: 0.92rem;">La medida, sin embargo, no alcanzará a todos los bienes. Según lo informado, quedarán excluidos de ese arancel la carne vacuna, el café, los metales, la energía y otros productos. Esa excepción reduce el alcance pleno del anuncio, pero no elimina su peso simbólico ni su efecto sobre la relación bilateral.</span></div><div><span style="font-size: 0.92rem;"><br></span></div><div><span style="font-size: 0.92rem;">Desde el punto de vista económico, el anuncio abre un frente de incertidumbre para el comercio entre ambos países. Un arancel es un impuesto aplicado a los productos importados, y su efecto más directo suele ser encarecer el ingreso de mercaderías al país de destino. En este caso, el aumento del costo para parte de los bienes brasileños puede alterar decisiones de exportación, precios y estrategias empresarias, aun cuando varios sectores relevantes hayan quedado exceptuados.</span></div><div><span style="font-size: 0.92rem;"><br></span></div><div><span style="font-size: 0.92rem;">El episodio también debe leerse en clave geopolítica. La decisión de Trump no se presenta solo como una discusión comercial, sino como una señal política hacia el gobierno de Lula. Cuando una disputa arancelaria se combina con acusaciones sobre la negociación entre gobiernos, el conflicto deja de ser estrictamente técnico y pasa a reflejar una puja más amplia por posicionamiento, poder e influencia.</span></div><div><span style="font-size: 14.72px;"><br></span></div><h2>La respuesta de Brasil</h2><div><span style="font-size: 14.72px;">La respuesta de Brasil fue inmediata: activó su ley de reciprocidad. En términos simples, se trata de una herramienta que le permite contestar medidas restrictivas tomadas por otro país con acciones equivalentes o compensatorias. Ese paso muestra que Brasil eligió no limitarse a una protesta diplomática, sino dejar abierta la posibilidad de una réplica formal si considera que sus intereses comerciales fueron afectados.</span></div><div><span style="font-size: 0.92rem;"><br></span></div><div><span style="font-size: 0.92rem;">Para una audiencia regional, el caso merece atención por al menos dos razones. La primera es que Brasil ocupa un lugar central en el comercio y la política sudamericana, por lo que cualquier cambio en su vínculo con Estados Unidos puede repercutir en cadenas productivas, flujos comerciales y clima de negocios. La segunda es que la disputa reintroduce una lógica de presión comercial en un momento en que la relación entre economía y política internacional vuelve a ganar protagonismo.</span></div><div><span style="font-size: 0.92rem;"><br></span></div><div><span style="font-size: 0.92rem;">Por ahora, el dato central es doble: Estados Unidos eleva la presión sobre parte de las exportaciones brasileñas, pero al mismo tiempo deja afuera rubros sensibles, mientras Brasil activa un mecanismo de respuesta. El resultado es una escalada acotada en su alcance inmediato, aunque significativa por la señal política y comercial que envía.</span></div><div><span style="font-size: 0.92rem;"><br></span></div><div><span style="font-size: 0.92rem;">En ese marco, el conflicto entre Trump y Lula trasciende el anuncio puntual de un arancel. También pone en evidencia cómo las tensiones entre liderazgo político, comercio exterior e intereses estratégicos pueden traducirse rápidamente en medidas concretas, con efectos que exceden la relación bilateral y son seguidos de cerca en toda la región.</span></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
