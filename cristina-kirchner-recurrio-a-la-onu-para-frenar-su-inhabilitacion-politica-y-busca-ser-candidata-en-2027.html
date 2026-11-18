@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Cristina Kirchner recurrió a la ONU para frenar su inhabilitación política y busca ser candidata en 2027","description":"La defensa de la expresidenta presentó un recurso ante el Comité de Derechos Humanos en Ginebra para suspender la condena por la causa Vialidad. El antecedente del caso Lula da Silva, el nuevo peritaje técnico sobre la obra pública y la confirmación política de Máximo Kirchner.","image":["https://macromindnews.com.ar/img/cristina-k-30-09-26.webp"],"datePublished":"2026-09-30T00:00:00-03:00","dateModified":"2026-09-30T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/cristina-kirchner-recurrio-a-la-onu-para-frenar-su-inhabilitacion-politica-y-busca-ser-candidata-en-2027.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Cristina Kirchner recurrió a la ONU para frenar su inhabilitación política y busca ser candidata en 2027</h1>
   <p class="art-excerpt">La defensa de la expresidenta presentó un recurso ante el Comité de Derechos Humanos en Ginebra para suspender la condena por la causa Vialidad. El antecedente del caso Lula da Silva, el nuevo peritaje técnico sobre la obra pública y la confirmación política de Máximo Kirchner.</p>
   <div class="art-meta">30 de Septiembre, 2026</div>
-  <img src="img/cristina-k-30-09-26.webp" alt="Cristina Kirchner recurrió a la ONU para frenar su inhabilitación política y busca ser candidata en 2027" onerror="this.style.background='#ddd';"/>
+  <img src="img/cristina-k-30-09-26.webp" alt="Cristina Kirchner recurrió a la ONU para frenar su inhabilitación política y busca ser candidata en 2027" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/cristina-kirchner-recurrio-a-la-onu-para-frenar-su-inhabilitacion-politica-y-busca-ser-candidata-en-2027.html&text=Cristina%20Kirchner%20recurri%C3%B3%20a%20la%20ONU%20para%20frenar%20su%20inhabilitaci%C3%B3n%20pol%C3%ADtica%20y%20busca%20ser%20candidata%20en%202027" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El tablero judicial y político del peronismo se trasladó al plano internacional. El equipo de abogados de <b data-path-to-node="6" data-index-in-node="106">Cristina Fernández de Kirchner</b> formalizó una presentación ante el <b data-path-to-node="6" data-index-in-node="172">Comité de Derechos Humanos de las Naciones Unidas (ONU)</b> en Ginebra, con el objetivo de lograr una medida cautelar que <b data-path-to-node="6" data-index-in-node="290">suspenda la inhabilitación perpetua para ejercer cargos públicos</b> derivada de su condena a seis años de prisión en la causa Vialidad.<div><br></div><div>La iniciativa busca que el organismo internacional declare que existieron violaciones a sus garantías constitucionales y derechos políticos durante el proceso judicial, abriendo la puerta para que los tribunales argentinos deban revisar la sentencia firme antes de que finalice el año.</div><div><br></div><h2>La estrategia "Lula Da Silva" y los plazos en Ginebra</h2><div>La defensa de la exmandataria está coordinada por el abogado argentino <b data-path-to-node="9" data-index-in-node="71">Carlos Beraldi</b>, junto al letrado brasileño <b data-path-to-node="9" data-index-in-node="114">Rafael Valim</b> y el español <b data-path-to-node="9" data-index-in-node="140">Javier Borrego</b>. El equipo busca replicar la estrategia jurídica que en su momento aplicó <b data-path-to-node="9" data-index-in-node="229">Luiz Inácio Lula da Silva</b> en Brasil para revertir su proscripción política.</div><div><br></div><div>El objetivo de los abogados es que los 18 expertos independientes del Comité admitan el expediente durante su próxima sesión del mes de <b data-path-to-node="10" data-index-in-node="136">octubre</b>. Aunque los dictámenes del organismo no son de ejecución automática directa, en el entorno de la expresidenta confían en que una recomendación favorable generará una fuerte presión institucional sobre el Poder Judicial argentino para habilitar su candidatura.</div><div><img src="img/onu-30-09-26.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"></div><div><h2>Las nuevas pruebas técnicas presentadas por la defensa</h2><div>El escrito elevado a la ONU incorpora un informe pericial de la consultora Specs con el que el kirchnerismo busca voltear el argumento central de la condena:</div><div><ul><li><b data-path-to-node="12" data-index-in-node="160">Concentración cuestionada:</b> La defensa sostiene que el Grupo Austral (de Lázaro Báez) recibió apenas el <b data-path-to-node="12" data-index-in-node="263">0,85% de los fondos</b> del fideicomiso vial creado por el decreto 54/2009.</li><li><b data-path-to-node="12" data-index-in-node="337">El señalamiento a IECSA:</b> Según el informe técnico, el principal beneficiario de esos recursos nacionales fue la firma IECSA S.A., por entonces vinculada a Ángelo Calcaterra, primo de Mauricio Macri.</li><li><b data-path-to-node="12" data-index-in-node="538">Recurso de revisión:</b> Con estos datos, los abogados presentarán un recurso extraordinario de revisión ante la Cámara Federal de Casación Penal para exigir la anulación de la sentencia.</li></ul><div><br></div></div><h2>La respuesta de los tribunales de Comodoro PY</h2></div><div>En los pasillos de los tribunales federales de Retiro desestimaron el impacto de la presentación internacional. Fuentes judiciales recordaron que los planteos sobre el fideicomiso nacional ya fueron tratados y rechazados durante el debate oral.</div><div><br></div><div>Los magistrados remarcaron que el juicio no auditó la distribución general de los fondos viales en todo el país, sino el direccionamiento sistemático del <b data-path-to-node="16" data-index-in-node="154">85% de las obras públicas viales dentro de la provincia de Santa Cruz</b>, un esquema que ya fue ratificado por la Cámara de Casación y la Corte Suprema.</div><div><br></div><h2>Máximo Kirchner ratificó la voluntad de competir en 2027</h2><div>En paralelo al movimiento jurídico, el frente político se activó de inmediato. El diputado nacional <b data-path-to-node="18" data-index-in-node="100">Máximo Kirchner</b> confirmó públicamente que su madre mantiene la intención de encabezar una boleta electoral:</div><div><br></div><div><i data-path-to-node="19" data-index-in-node="0">"Desde el día que inició el camino de la ONU creo que tiene una voluntad de representar los intereses de los argentinos. Sin Cristina en la boleta, el peronismo pierde competitividad"</i>, afirmó el líder de La Cámpora. La jugada electoral busca capitalizar sondeos recientes que la ubican con un <b data-path-to-node="19" data-index-in-node="293">42% de imagen positiva</b>, perfilándola para disputar el liderazgo de la oposición y desafiar al oficialismo en los próximos comicios presidenciales.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
