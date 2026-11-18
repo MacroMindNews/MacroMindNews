@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Eduardo Coudet dejó de ser el director técnico de River tras el golpe en la Copa Sudamericana","description":"Eduardo Coudet renunció como director técnico de River Plate tras la eliminación en la Copa Sudamericana, cerrando un ciclo de 34 partidos al frente del equipo. La dirigencia confirmó mediante un comunicado oficial que Leonardo Ponzio asumirá como entrenador interino junto a Marcelo Escudero y Christian Manfredi mientras se busca al nuevo DT.","image":["https://macromindnews.com.ar/img/chacho-cuodet.webp"],"datePublished":"2026-08-27T00:00:00-03:00","dateModified":"2026-08-27T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/eduardo-coudet-dejo-de-ser-el-director-tecnico-de-river-tras-el-golpe-en-la-copa-sudamericana.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Eduardo Coudet dejó de ser el director técnico de River tras el golpe en la Copa Sudamericana</h1>
   <p class="art-excerpt">Eduardo Coudet renunció como director técnico de River Plate tras la eliminación en la Copa Sudamericana, cerrando un ciclo de 34 partidos al frente del equipo. La dirigencia confirmó mediante un comunicado oficial que Leonardo Ponzio asumirá como entrenador interino junto a Marcelo Escudero y Christian Manfredi mientras se busca al nuevo DT.</p>
   <div class="art-meta">27 de Agosto, 2026</div>
-  <img src="img/chacho-cuodet.webp" alt="Eduardo Coudet dejó de ser el director técnico de River tras el golpe en la Copa Sudamericana" onerror="this.style.background='#ddd';"/>
+  <img src="img/chacho-cuodet.webp" alt="Eduardo Coudet dejó de ser el director técnico de River tras el golpe en la Copa Sudamericana" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/eduardo-coudet-dejo-de-ser-el-director-tecnico-de-river-tras-el-golpe-en-la-copa-sudamericana.html&text=Eduardo%20Coudet%20dej%C3%B3%20de%20ser%20el%20director%20t%C3%A9cnico%20de%20River%20tras%20el%20golpe%20en%20la%20Copa%20Sudamericana" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><span style="font-size: 0.92rem;">El ciclo de Eduardo "Chacho" Coudet al frente del equipo profesional de River Plate llegó a su fin de manera precipitada. La dura eliminación en el plano internacional precipitó los tiempos de una salida acordada de común acuerdo entre el cuerpo técnico y la comisión directiva, cerrando una etapa marcada por la irregularidad en el rendimiento y la falta de respuestas colectivas en las instancias decisivas del certamen continental.</span><div><br></div><div>En una conferencia de prensa cargada de autocrítica y emoción en el predio del club, el entrenado oficializó su desvinculación definitiva, explicando las razones de una determinación tomada tras una extensa reunión con las máximas autoridades de la institución. "Cuando los objetivos principales no se cumplen y sentís que el mensaje no llega con la misma fuerza, lo más sano para River es dar un paso al costado. No vinimos a especular con un contrato, vinimos a ganar y hoy el equipo necesita una energía distinta", remarcó el director técnico frente a los medios.</div><div><br></div><h2>El impacto de la eliminación y el desgaste del proceso</h2><div>La eliminación de la Copa Sudamericana significó un golpe de gracia para la continuidad del proyecto futbolístico. A pesar de haber tenido tramos de protagonismo en el torneo local, el funcionamiento del equipo nunca logró consolidar la solidez defensiva ni la contundencia ofensiva que caracterizaron históricamente a los planteles millonarios en compromisos de eliminación directa.</div><div><br></div><div>A lo largo de su gestión, Coudet acumuló un registro estadístico que evidenció los altibajos del rendimiento: dirigió un total de 34 encuentros oficiales, cosechando 16 victorias, 9 empates y 9 derrotas, con una efectividad global del 55,8% de los puntos en disputa. Los números en condición de visitante y la merma de producción en los segundos tiempos terminaron desgastando la relación con los hinchas y acelerando el análisis de la dirigencia.</div><div><br></div><h2>Leonardo Ponzio toma el mando como entrenador interino</h2><div>Tras confirmarse la salida de Coudet, la institución emitió un comunicado oficial anunciando que Leonardo Ponzio asume la conducción técnica interina del plantel profesional para dirigir la práctica de este jueves por la tarde. El excapitán y referente histórico del club estará acompañado por Marcelo Escudero y Cristian Manfredi como ayudantes de campo, junto a los preparadores físicos Cristian Segura y Nicolás Paolorossi, mientras la dirigencia define la contratación del nuevo cuerpo técnico.</div><img src="img/comunicado-river-plate-27-8-26.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><br><div><br></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
