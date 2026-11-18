@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Moody's le otorgó a la Ciudad de Buenos Aires la calificación crediticia más alta del mercado argentino","description":"La calificadora elevó la nota de CABA de AA+ a AAA, destacando el orden fiscal, la solidez de la liquidez y la mejora en el perfil de vencimientos de la deuda.","image":["https://macromindnews.com.ar/img/jorge-macri-2.jpg"],"datePublished":"2026-06-10T00:00:00-03:00","dateModified":"2026-06-10T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/moodys-le-otorgo-a-la-ciudad-de-buenos-aires-la-calificacion-crediticia-mas-alta.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Moody's le otorgó a la Ciudad de Buenos Aires la calificación crediticia más alta del mercado argentino</h1>
   <p class="art-excerpt">La calificadora elevó la nota de CABA de AA+ a AAA, destacando el orden fiscal, la solidez de la liquidez y la mejora en el perfil de vencimientos de la deuda.</p>
   <div class="art-meta">10 de Junio, 2026</div>
-  <img src="img/jorge-macri-2.jpg" alt="Moody's le otorgó a la Ciudad de Buenos Aires la calificación crediticia más alta del mercado argentino" onerror="this.style.background='#ddd';"/>
+  <img src="img/jorge-macri-2.jpg" alt="Moody's le otorgó a la Ciudad de Buenos Aires la calificación crediticia más alta del mercado argentino" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/moodys-le-otorgo-a-la-ciudad-de-buenos-aires-la-calificacion-crediticia-mas-alta.html&text=Moody's%20le%20otorg%C3%B3%20a%20la%20Ciudad%20de%20Buenos%20Aires%20la%20calificaci%C3%B3n%20crediticia%20m%C3%A1s%20alta%20del%20mercado%20argentino" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Moody's Local Argentina mejoró la calificación crediticia de la Ciudad Autónoma de Buenos Aires, elevándola de AA+ a AAA, la nota más alta dentro de la escala de calificación del mercado argentino. La decisión de la calificadora refleja el reconocimiento de tres factores principales: el mantenimiento de un orden fiscal sostenido, una posición de liquidez sólida y una mejora visible en el perfil de vencimientos de la deuda de la Ciudad.<div><br></div><h2>Qué significa una calificación AAA</h2><div>En la escala local de Moody's, la calificación AAA representa la máxima capacidad de repago de obligaciones financieras dentro del universo de emisores argentinos. No es comparable con las calificaciones globales en escala internacional, pero dentro del mercado doméstico es la nota más alta posible y tiene un impacto concreto sobre el costo de financiamiento al que accede el emisor. Para la Ciudad, esta mejora implica que en futuras emisiones de deuda en el mercado local podrá acceder a tasas más bajas, dado que los inversores institucionales asignan menor riesgo a sus obligaciones.</div><div><br></div><h2>El respaldo de los números</h2><div>La Ciudad de Buenos Aires viene mostrando resultados fiscales positivos de manera consecutiva. El nivel de deuda en relación a sus ingresos se ubica dentro de parámetros considerados manejables, y el perfil de vencimientos fue restructurado en los últimos años para evitar concentraciones de pagos que pudieran generar tensiones de liquidez. La gestión del jefe de Gobierno Jorge Macri viene insistiendo en el ordenamiento de las finanzas porteñas como eje de su administración, y la mejora de Moody's llega como un respaldo externo a esa narrativa.</div><div><br></div><h2>El contexto del mercado</h2><div>La mejora en la calificación de CABA se produce en un contexto en que el mercado de deuda subnacional argentino está recuperando actividad. Varias provincias y municipios regresaron a los mercados de capitales locales e internacionales durante 2025 y 2026, aprovechando la mejora en el clima financiero del país y la reducción del riesgo soberano. La calificación AAA de la Ciudad la posiciona como el emisor subnacional de mayor calidad crediticia del país, por encima de provincias como Córdoba, Santa Fe y Mendoza, que también tienen calificaciones elevadas pero aún por debajo de ese máximo.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
