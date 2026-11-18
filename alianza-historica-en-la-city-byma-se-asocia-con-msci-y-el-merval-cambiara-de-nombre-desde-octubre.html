@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Alianza histórica en la City: BYMA se asocia con MSCI y el Merval cambiará de nombre desde octubre","description":"Bolsas y Mercados Argentinos cerró un acuerdo estratégico con el mayor proveedor global de índices para alinear las acciones locales a los estándares de Wall Street. Cómo se llamarán los nuevos indicadores y qué significa para los fondos del exterior.","image":["https://macromindnews.com.ar/img/byma-msci-22-09-26.webp"],"datePublished":"2026-09-22T00:00:00-03:00","dateModified":"2026-09-22T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/alianza-historica-en-la-city-byma-se-asocia-con-msci-y-el-merval-cambiara-de-nombre-desde-octubre.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Alianza histórica en la City: BYMA se asocia con MSCI y el Merval cambiará de nombre desde octubre</h1>
   <p class="art-excerpt">Bolsas y Mercados Argentinos cerró un acuerdo estratégico con el mayor proveedor global de índices para alinear las acciones locales a los estándares de Wall Street. Cómo se llamarán los nuevos indicadores y qué significa para los fondos del exterior.</p>
   <div class="art-meta">22 de Septiembre, 2026</div>
-  <img src="img/byma-msci-22-09-26.webp" alt="Alianza histórica en la City: BYMA se asocia con MSCI y el Merval cambiará de nombre desde octubre" onerror="this.style.background='#ddd';"/>
+  <img src="img/byma-msci-22-09-26.webp" alt="Alianza histórica en la City: BYMA se asocia con MSCI y el Merval cambiará de nombre desde octubre" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/alianza-historica-en-la-city-byma-se-asocia-con-msci-y-el-merval-cambiara-de-nombre-desde-octubre.html&text=Alianza%20hist%C3%B3rica%20en%20la%20City%3A%20BYMA%20se%20asocia%20con%20MSCI%20y%20el%20Merval%20cambiar%C3%A1%20de%20nombre%20desde%20octubre" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El mercado de capitales argentino encara una profunda modernización en sus instrumentos de referencia. <b data-path-to-node="6" data-index-in-node="103">Bolsas y Mercados Argentinos (BYMA)</b> anunció este martes una <b data-path-to-node="6" data-index-in-node="163">colaboración estratégica con MSCI</b>, la firma líder internacional en la elaboración de índices y herramientas de análisis financiero, que pasará a calcular y administrar los principales termómetros bursátiles del país.<div><br></div><div>La alianza marca el cierre de una etapa histórica: a partir del próximo mes, los indicadores dejarán de estar bajo la metodología de S&amp;P Dow Jones Índices y se integrarán de lleno a la arquitectura global de MSCI, utilizada por los mayores fondos de inversión del planeta.</div><div><br></div><h2>El adiós a S&amp;P y la transacción hacia estándares globales</h2><div>El cambio de proveedor busca otorgar mayor visibilidad y transparencia a las acciones argentinas frente al capital extranjero. La alineación con los parámetros internacionales de MSCI facilitará el seguimiento de los instrumentos de renta variable local para inversores institucionales, bancos y administradores de carteras.</div><div><br></div><div>Según lo informado por las entidades, los índices actuales continuarán bajo la gestión de S&amp;P hasta el <b data-path-to-node="10" data-index-in-node="103">viernes 16 de octubre de 2026</b>. Desde esa jornada, el cálculo quedará formalmente en manos de MSCI, con un lanzamiento oficial de los nuevos tableros previsto para el <b data-path-to-node="10" data-index-in-node="269">lunes 19 de octubre</b>.</div><div><br></div><h2>Los dos nuevos indicadores de la bolsa porteña</h2><div>La renovación del ecosistema de renta variable incluye el reemplazo directo de los dos <i data-path-to-node="13" data-index-in-node="87">benchmarks</i> tradicionales de la plaza financiera:</div><div><ul><li><b data-path-to-node="13" data-index-in-node="138">Índice MSCI MERVAL:</b> Sustituirá al tradicional S&amp;P Merval y agrupará a las empresas líderes con mayor volumen operativo y liquidez del mercado local.</li><li><b data-path-to-node="13" data-index-in-node="289">Índice MSCI BYMA Argentina General:</b> Ocupará el lugar del actual Índice General, abarcando una representación amplia del universo corporativo que cotiza en la Bolsa.</li></ul><div><br></div></div><h2>Las ventajas para el ingreso de fondos internacionales</h2><div>Para los analistas de la City, el desembarco de MSCI representa un paso concreto para mejorar la competitividad del mercado argentino en el plano externo:</div><div><ul><li><b data-path-to-node="15" data-index-in-node="157">Metodología unificada:</b> Aplica los mismos filtros de gobernanza, flotación libre (<i data-path-to-node="15" data-index-in-node="238">free float</i>) y liquidez que rigen en los principales centros bursátiles del mundo.</li><li><b data-path-to-node="15" data-index-in-node="322">Puerta de entrada a nuevos productos:</b> Crea la base técnica necesaria para el futuro lanzamiento de fondos cotizados (<b data-path-to-node="15" data-index-in-node="439">ETFs</b>), derivados financieros y carteras indexadas vinculadas a la Argentina.</li><li><b data-path-to-node="15" data-index-in-node="518">Mayor trazabilidad para el inversor externo:</b> Facilita que fondos globales que replican índices de mercados emergentes o de frontera puedan monitorear activos argentinos con métricas estandarizadas.</li></ul><div><br></div></div><div>En las próximas semanas, BYMA dará a conocer el cronograma operativo detallado y las precisiones metodológicas que deberán considerar los agentes y sociedades de bolsa antes de la entrada en vigencia del nuevo sistema.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
