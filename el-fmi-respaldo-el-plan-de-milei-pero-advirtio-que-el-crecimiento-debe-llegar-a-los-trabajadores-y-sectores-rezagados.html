@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El FMI respaldó el plan de Milei pero advirtió que el crecimiento debe llegar a los trabajadores y sectores rezagados","description":"En una conferencia de prensa en Washington, la portavoz del organismo, Julie Kozack, elogió la baja de la inflación pero alertó sobre una recuperación desigual que se concentra solo en energía y minería. La advertencia social del Fondo y el desembolso en juego.","image":["https://macromindnews.com.ar/img/kristalina-georgieva-01-10-26.webp"],"datePublished":"2026-10-01T00:00:00-03:00","dateModified":"2026-10-01T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-fmi-respaldo-el-plan-de-milei-pero-advirtio-que-el-crecimiento-debe-llegar-a-los-trabajadores-y-sectores-rezagados.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El FMI respaldó el plan de Milei pero advirtió que el crecimiento debe llegar a los trabajadores y sectores rezagados</h1>
   <p class="art-excerpt">En una conferencia de prensa en Washington, la portavoz del organismo, Julie Kozack, elogió la baja de la inflación pero alertó sobre una recuperación desigual que se concentra solo en energía y minería. La advertencia social del Fondo y el desembolso en juego.</p>
   <div class="art-meta">1 de Octubre, 2026</div>
-  <img src="img/kristalina-georgieva-01-10-26.webp" alt="El FMI respaldó el plan de Milei pero advirtió que el crecimiento debe llegar a los trabajadores y sectores rezagados" onerror="this.style.background='#ddd';"/>
+  <img src="img/kristalina-georgieva-01-10-26.webp" alt="El FMI respaldó el plan de Milei pero advirtió que el crecimiento debe llegar a los trabajadores y sectores rezagados" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-fmi-respaldo-el-plan-de-milei-pero-advirtio-que-el-crecimiento-debe-llegar-a-los-trabajadores-y-sectores-rezagados.html&text=El%20FMI%20respald%C3%B3%20el%20plan%20de%20Milei%20pero%20advirti%C3%B3%20que%20el%20crecimiento%20debe%20llegar%20a%20los%20trabajadores%20y%20sectores%20rezagados" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El <b data-path-to-node="6" data-index-in-node="3">Fondo Monetario Internacional (FMI)</b> envió este jueves un mensaje con doble lectura para el equipo económico argentino. Durante su habitual conferencia de prensa en Washington, la directora de Comunicaciones del organismo, <b data-path-to-node="6" data-index-in-node="225">Julie Kozack</b>, ratificó el respaldo técnico al programa de estabilización impulsado por <b data-path-to-node="6" data-index-in-node="312">Javier Milei</b>, destacando los continuos avances en la consolidación fiscal, la desaceleración inflacionaria y la reconstrucción de reservas del Banco Central.<div><br></div><div>Sin embargo, el organismo multilateral introdujo una advertencia explícita sobre la dinámica interna de la actividad: remarcó que el rebote económico se encuentra fuertemente polarizado y reclamó que las políticas oficiales aseguren que la recuperación alcance de manera efectiva al bolsillo de la población y a las ramas productivas que aún siguen en terreno negativo.</div><div><br></div><h2>La advertencia del Fondo: El rebote no llega a la calle</h2><div>Al ser consultada sobre la marcha del caso argentino tras la reciente visita técnica a Buenos Aires, Kozack reconoció los progresos macroeconómicos, pero puso el foco en la necesidad de ampliar la base social del programa,</div><div><br></div><div><i data-path-to-node="10" data-index-in-node="0">"Vemos que el crecimiento económico en Argentina se concentra actualmente en sectores muy dinámicos como la energía, la minería y la agricultura. Por eso, consideramos que es de suma importancia que el crecimiento se expanda hacia los sectores más rezagados de la economía y alcance de forma tangible a los trabajadores"</i>, señaló la portavoz ante los corresponsales internacionales.</div><div><img src="https://www.imf.org/-/media/images/imf/home-page/main-belt/2026/02/jk-press-briefing-image3.jpg?h=1077&amp;iar=0&amp;w=1920" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"></div><div>La economía dual: El auge exportador frente al freno del consumo</div><div>El diagnóstico del Fondo coincide con los últimos indicadores oficiales del INDEC y las advertencias de bancos de Wall Street como JP Morgan, que describen un país que avanza a dos velocidades marcadamente distintas.</div><div><br></div><div>Por un lado, el complejo hidrocarburífero de <b data-path-to-node="14" data-index-in-node="45">Vaca Muerta</b>, la extracción de litio y las ventas récord del agro traccionan números extraordinarios de exportación e inversión a través de regímenes como el RIGI. Por el otro, los rubros de mano de obra intensiva orientados al mercado doméstico —como el comercio mayorista y minorista y la industria manufacturera— continúan deprimidos por la pérdida del poder adquisitivo salarial frente al costo de los servicios y las tarifas reguladas.</div><div><br></div><h2>Las prioridades del organismo para la nueva fase</h2><div>Frente a este escenario, los técnicos del Fondo plantearon tres recomendaciones centrales para fortalecer la sostenibilidad del plan de estabilización:</div><div><ul><li><b data-path-to-node="16" data-index-in-node="154">Derrame hacia los ingresos laborales:</b> Asegurar que la estabilización de precios se traduzca en una recomposición genuina de los salarios reales del sector privado y público.</li><li><b data-path-to-node="16" data-index-in-node="329">Protección a los sectores vulnerables:</b> Reforzar las redes de contención social y asistencia directa tras los datos de pobreza que afectaron al 32,3% de la población en el primer semestre.</li><li>&nbsp;<b data-path-to-node="16" data-index-in-node="519">Sostenibilidad política de las reformas:</b> Diseñar un sendero de medidas que garantice el consenso social necesario para que las desregulaciones estructurales perduren en el tiempo.</li></ul><div><br></div></div><h2>Negociaciones en marcha por u$s 900 millones</h2><div>La funcionaria del FMI confirmó además que los equipos de la Secretaría de Finanzas y del Palacio de Hacienda continúan en contacto cotidiano con el staff técnico tras la tercera misión del año en Buenos Aires.</div><div><br></div><div>Las conversaciones buscan finalizar el informe técnico (<i data-path-to-node="19" data-index-in-node="56">Staff Level Agreement</i>) que será elevado al Directorio Ejecutivo para habilitar la liberación formal de un desembolso pendiente de <b data-path-to-node="19" data-index-in-node="186">casi u$s900 millones</b>, recursos que el Gobierno espera sumar antes de que concluya el mes para reforzar las reservas y afrontar los vencimientos de deuda programados.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
