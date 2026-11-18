@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"La multinacional Halliburton confirmó que no participará de ninguna actividad petrolera en las Islas Malvinas","description":"La gigante estadounidense de servicios petroleros Halliburton ratificó que no participará de proyectos hidrocarburíferos en las Islas Malvinas. La decisión se suma a las de SLB y Baker Hughes tras el endurecimiento de sanciones e inhabilitaciones aplicado por el gobierno de Javier Milei.","image":["https://macromindnews.com.ar/img/halliburton.webp"],"datePublished":"2026-09-05T00:00:00-03:00","dateModified":"2026-09-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/la-multinacional-halliburton-confirmo-que-no-participara-de-ninguna-actividad-petrolera-en-las-islas-malvinas.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">La multinacional Halliburton confirmó que no participará de ninguna actividad petrolera en las Islas Malvinas</h1>
   <p class="art-excerpt">La gigante estadounidense de servicios petroleros Halliburton ratificó que no participará de proyectos hidrocarburíferos en las Islas Malvinas. La decisión se suma a las de SLB y Baker Hughes tras el endurecimiento de sanciones e inhabilitaciones aplicado por el gobierno de Javier Milei.</p>
   <div class="art-meta">5 de Septiembre, 2026</div>
-  <img src="img/halliburton.webp" alt="La multinacional Halliburton confirmó que no participará de ninguna actividad petrolera en las Islas Malvinas" onerror="this.style.background='#ddd';"/>
+  <img src="img/halliburton.webp" alt="La multinacional Halliburton confirmó que no participará de ninguna actividad petrolera en las Islas Malvinas" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/la-multinacional-halliburton-confirmo-que-no-participara-de-ninguna-actividad-petrolera-en-las-islas-malvinas.html&text=La%20multinacional%20Halliburton%20confirm%C3%B3%20que%20no%20participar%C3%A1%20de%20ninguna%20actividad%20petrolera%20en%20las%20Islas%20Malvinas" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">La compañía estadounidense Halliburton, uno de los mayores proveedores globales de servicios para la industria de hidrocarburos, confirmó de manera oficial que no formará parte de ninguna actividad de exploración o explotación en las Islas Malvinas ni en los espacios marítimos circundantes. El pronunciamiento de la firma con sede en Houston se suma al desistimiento ya comunicado por SLB y Baker Hughes, consolidando una retirada en bloque de los principales líderes tecnológicos del sector de cualquier iniciativa impulsada bajo ocupación británica en el Atlántico Sur.<div><br></div><div>​La determinación de la empresa representa una respuesta inmediata al endurecimiento del marco regulatorio y punitivo dispuesto por el Poder Ejecutivo Nacional. Tras la cadena nacional del presidente Javier Milei, el Gobierno nacional oficializó los decretos que aceleran las sanciones de la Ley N° 26.659, ampliando las inhabilitaciones a directores, accionistas y proveedores, al tiempo que Cancillería abrió sumarios contra 45 personas humanas y jurídicas vinculadas a la actividad extractiva ilegal en la plataforma continental.<br><div><img src="img/comunicado-halliburton.jpg" alt="Imagen" style="font-size: 0.92rem; max-width: 100%; margin: 12px 0px; display: block;"></div></div><div><br></div><h2>Prioridad estratégica en el continente: el peso de Vaca Muerta</h2><div>​Para Halliburton, la disyuntiva planteada por la administración argentina no dejaba margen comercial ni operativo. La corporación es un engranaje crítico en el desarrollo de la formación Vaca Muerta, donde opera múltiples sets de fractura hidráulica, herramientas de cementación y servicios de terminación para las principales productoras de petróleo y gas no convencional del país.</div><div><br></div><div>El crecimiento sostenido de la producción en la cuenca neuquina, apalancado por el marco de estabilidad económica y los incentivos a proyectos a gran escala bajo el RIGI, proyecta negocios multimillonarios a mediano y largo plazo. Enfrentar una inhabilitación comercial de hasta 20 años en el territorio continental y quedar excluida de contrataciones con el sector público y privado habría significado una pérdida irreversible frente a sus competidores. Frente a la advertencia estatal de que "no se pueden hacer las dos cosas", la empresa optó por blindar su continuidad jurídica y operativa en la Argentina.</div><div><br></div><h2>Vacío tecnológico para el yacimiento offshore Sea Lion</h2><div>​El repliegue de Halliburton y sus pares debilita de forma directa la viabilidad del proyecto Sea Lion, operado por la británica Rockhopper Exploration y la israelí Navitas Petroleum. La extracción de hidrocarburos en aguas profundas y en condiciones climáticas extremas requiere de un estándar de equipamiento, bombeo y completación submarina que solo un grupo muy concentrado de corporaciones internacionales puede garantizar a escala industrial.</div><div><br></div><div>Sin el soporte logístico ni la maquinaria especializada de los tres grandes proveedores mundiales de servicios petroleros (Halliburton, SLB y Baker Hughes), las firmas que operan en las islas quedan aisladas técnicamente, lo que forzará sobrecostos operacionales, retrasos en los cronogramas de perforación y un severo aumento del riesgo crediticio. De este modo, la estrategia de disuasión económica desplegada por el Estado argentino anota un resultado clave al bloquear el acceso a la tecnología indispensable para el inicio de la explotación offshore ilegal en el archipiélago.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
