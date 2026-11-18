@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Es oficial: Argentina ya no es parte de la OMS y se alinea con la postura de Estados Unidos","description":"El canciller Pablo Quirno confirmó la salida, que convierte a Argentina en uno de los pocos países del mundo fuera del principal organismo sanitario internacional, siguiendo los pasos de Estados Unidos.","image":["https://macromindnews.com.ar/img/oms.jpg"],"datePublished":"2026-03-17T00:00:00-03:00","dateModified":"2026-03-17T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/es-oficial-argentina-ya-no-es-parte-de-la-oms-y-se-alinea-con-la-postura-de-esta.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Es oficial: Argentina ya no es parte de la OMS y se alinea con la postura de Estados Unidos</h1>
   <p class="art-excerpt">El canciller Pablo Quirno confirmó la salida, que convierte a Argentina en uno de los pocos países del mundo fuera del principal organismo sanitario internacional, siguiendo los pasos de Estados Unidos.</p>
   <div class="art-meta">17 de Marzo, 2026</div>
-  <img src="img/oms.jpg" alt="Es oficial: Argentina ya no es parte de la OMS y se alinea con la postura de Estados Unidos" onerror="this.style.background='#ddd';"/>
+  <img src="img/oms.jpg" alt="Es oficial: Argentina ya no es parte de la OMS y se alinea con la postura de Estados Unidos" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/es-oficial-argentina-ya-no-es-parte-de-la-oms-y-se-alinea-con-la-postura-de-esta.html&text=Es%20oficial%3A%20Argentina%20ya%20no%20es%20parte%20de%20la%20OMS%20y%20se%20alinea%20con%20la%20postura%20de%20Estados%20Unidos" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Argentina escribió hoy una página inédita en su historia sanitaria. El gobierno del presidente Javier Milei hizo efectivo este martes el retiro del país de la Organización Mundial de la Salud, al cumplirse un año de la notificación formal realizada ante la Organización de las Naciones Unidas. El canciller Pablo Quirno fue el encargado de anunciar la novedad a través de sus redes sociales, confirmando que el proceso se completó en tiempo y forma según los mecanismos internacionales vigentes. Argentina se había adherido a la constitución de la OMS en 1948, lo que significa que el país perteneció al organismo durante casi ocho décadas antes de dar este paso.<br><br>Para entender cómo funciona el proceso de salida, hay que saber que los tratados internacionales no se abandonan de un día para el otro. Argentina comunicó esta decisión mediante una nota dirigida al Secretario General de la ONU, en su carácter de depositario de la Constitución de la OMS, el 17 de marzo de 2025. De conformidad con lo establecido en la Convención de Viena sobre el Derecho de los Tratados, el retiro se produce un año después de realizada esa notificación. En otras palabras, el Gobierno avisó hace exactamente un año, esperó el plazo legal requerido, y hoy la salida se convirtió en un hecho consumado. Las razones esgrimidas apuntan principalmente a la gestión de la pandemia de COVID-19: la gestión libertaria criticó que "las cuarentenas provocaron una de las mayores catástrofes económicas de la historia mundial" y sostuvo que las recomendaciones del organismo respondieron a intereses políticos antes que científicos.<br><br>La salida de la OMS tiene consecuencias concretas para el sistema de salud argentino. Argentina dejará de recibir asistencia técnica, fondos y participación en redes de información epidemiológica de la OMS. Esto incluye el acceso a alertas tempranas ante brotes de enfermedades, protocolos de respuesta ante emergencias sanitarias, y financiamiento para programas de vacunación y control de enfermedades transmisibles. Sin embargo, pese a este retiro, Argentina continúa siendo parte de la Organización Panamericana de la Salud (OPS), el organismo regional que agrupa a los países de América y que, en la práctica, tiene una presencia más directa en las políticas sanitarias de la región. El Gobierno sostuvo que buscará reemplazar los vínculos perdidos con la OMS a través de acuerdos bilaterales con otros países.<br><br>La decisión no puede leerse sin su contexto geopolítico. La salida de Argentina responde a la sintonía ideológica y el respaldo simbólico que busca tener el gobierno de Milei con su contraparte en la Casa Blanca. La decisión se produce en el marco del estrecho alineamiento con Estados Unidos, país que concretó su salida de la organización el pasado 22 de enero. Argentina y Estados Unidos son hoy los dos países más grandes del mundo fuera de la OMS, una coincidencia que no es casual sino parte de una estrategia de política exterior compartida entre Milei y Trump. Para los defensores de la medida, es un ejercicio de soberanía sanitaria; para sus críticos, es un debilitamiento de la capacidad del país para responder a futuras emergencias de salud pública. Lo que es innegable es que, a partir de hoy, Argentina juega con reglas propias en el tablero sanitario internacional.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
