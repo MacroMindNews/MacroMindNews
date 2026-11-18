@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Lionel Messi recibió el Doctorado Honoris Causa de la UBA a horas de su despedida de la Selección","description":"En una emotiva ceremonia celebrada en el predio de Ezeiza, las máximas autoridades de la universidad pública le entregaron la medalla y el diploma de honor al capitán argentino. La distinción ética, sus palabras de agradecimiento y la vigilia previa a su último partido en el Monumental.","image":["https://macromindnews.com.ar/img/messi-06-10-26.webp"],"datePublished":"2026-10-06T00:00:00-03:00","dateModified":"2026-10-06T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/lionel-messi-recibio-el-doctorado-honoris-causa-de-la-uba-a-horas-de-su-despedida-de-la-seleccion.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Lionel Messi recibió el Doctorado Honoris Causa de la UBA a horas de su despedida de la Selección</h1>
   <p class="art-excerpt">En una emotiva ceremonia celebrada en el predio de Ezeiza, las máximas autoridades de la universidad pública le entregaron la medalla y el diploma de honor al capitán argentino. La distinción ética, sus palabras de agradecimiento y la vigilia previa a su último partido en el Monumental.</p>
   <div class="art-meta">6 de Octubre, 2026</div>
-  <img src="img/messi-06-10-26.webp" alt="Lionel Messi recibió el Doctorado Honoris Causa de la UBA a horas de su despedida de la Selección" onerror="this.style.background='#ddd';"/>
+  <img src="img/messi-06-10-26.webp" alt="Lionel Messi recibió el Doctorado Honoris Causa de la UBA a horas de su despedida de la Selección" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/lionel-messi-recibio-el-doctorado-honoris-causa-de-la-uba-a-horas-de-su-despedida-de-la-seleccion.html&text=Lionel%20Messi%20recibi%C3%B3%20el%20Doctorado%20Honoris%20Causa%20de%20la%20UBA%20a%20horas%20de%20su%20despedida%20de%20la%20Selecci%C3%B3n" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">A pocas horas de saltar al campo de juego del Estadio Monumental para disputar su último encuentro con la camiseta albiceleste frente a Benín, <b data-path-to-node="6" data-index-in-node="143">Lionel Messi</b> sumó este martes un reconocimiento sin precedentes en su carrera. La <b data-path-to-node="6" data-index-in-node="225">Universidad de Buenos Aires (UBA)</b> le otorgó en persona el título de <b data-path-to-node="6" data-index-in-node="293">Doctor Honoris Causa</b>, la distinción académica más importante que confiere la casa de altos estudios, en homenaje a su trayectoria profesional, su conducta ética y su rol como embajador de la cultura argentina en el mundo.<div><br></div><div>El acto se desarrolló en las instalaciones del predio de la Asociación del Fútbol Argentino (AFA) en Ezeiza y contó con la participación de la cúpula universitaria y directivos del fútbol nacional, marcando el inicio de una jornada cargada de homenajes populares.</div><div><br></div><h2>La ceremonia en Ezeiza y la entrega de atributos académicos</h2><div>La entrega del diploma y la medalla conmemorativa reunió a las autoridades del Consejo Superior de la UBA y del ámbito deportivo.</div><div><br></div><div>El rector de la universidad, <b data-path-to-node="10" data-index-in-node="29">Ricardo Gelpi</b>, y el vicerrector, <b data-path-to-node="10" data-index-in-node="62">Emiliano Yacobitti</b>, encabezaron la comitiva académica junto a los decanos de las distintas facultades y los delegados de los claustros de profesores, graduados y estudiantes. Por su parte, el presidente de la AFA, <b data-path-to-node="10" data-index-in-node="276">Claudio "Chiqui" Tapia</b>, ejerció como anfitrión del encuentro que formalizó el ingreso honorario del astro rosarino al claustro docente más prestigioso del país.</div><div><img src="img/messi-uba.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><h2>La alegría del capitán ante un día lleno de emociones</h2></div><div><span style="font-size: 0.92rem;">&nbsp;</span><span style="font-size: 0.92rem;">Al tomar la palabra tras recibir la medalla, el capitán de la Selección no ocultó la movilización interna que atraviesa en la previa de su despedida del combinado nacional:</span></div><div><span style="font-size: 0.92rem;"><br></span></div><div>"Poder recibir un reconocimiento así es un orgullo para mí, sobre todo poder decir que soy un doctor honorífico. Es un día muy especial, sé que va a ser difícil y voy a intentar disfrutarlo. Estoy tranquilo, pero a medida que se acerca el momento del partido se va complicando un poquito más, así que empezarlo de esta manera, con este reconocimiento, lo hace mucho más especial. Muchísimas gracias, la verdad que es un orgullo muy grande", expresó Messi visiblemente conmovido ante los presentes.<span style="font-size: 0.92rem;"></span></div><div><br></div><div><br></div><h2>Los fundadores del Consejo Superior: más allá de las estadísticas</h2><div>La iniciativa había sido aprobada por unanimidad la semana pasada por el Consejo Superior de la UBA. En los considerandos de la resolución oficial, la institución remarcó que el reconocimiento trasciende los éxitos deportivos:</div><div><ul><li><b data-path-to-node="17" data-index-in-node="2">Liderazgo y ética:</b> Se definió la carrera de Messi como un modelo de excelencia, perseverancia, humildad y ejercicio ético en el desarrollo de su profesión, subrayando su compromiso inalterable con la representación de la bandera nacional.</li><li><b data-path-to-node="18" data-index-in-node="2">Impacto social y comunitario:</b> El rectorado ponderó el trabajo desarrollado desde 2007 a través de la Fundación Leo Messi para garantizar el acceso a la salud, la educación y el deporte de niños en situación de vulnerabilidad, además de su labor continuada como Embajador de Buena Voluntad de UNICEF.</li><li><b data-path-to-node="19" data-index-in-node="2">Identidad popular:</b> Las autoridades destacaron que, mediante el fútbol como expresión cultural argentina, Messi logró proyectar al país en la escena internacional con valores de superación colectiva.</li></ul><div><br></div></div><h2>Los cuatro pilares distinguidos por la Universidad de Buenos Aires</h2><div>Durante sus discursos, los representantes de la UBA resumieron los valores que motivaron el galardón:</div><div><ul><li><b data-path-to-node="22" data-index-in-node="2">Excelencia y superación:</b> La vigencia deportiva que lo llevó a conquistar cuatro títulos consecutivos con la Selección Mayor y un récord de consagraciones internacionales.</li><li><b data-path-to-node="23" data-index-in-node="2">Apego a las raíces:</b> El mantenimiento de su vínculo con la comunidad de origen y el respeto por sus afectos pese a su escala global.</li><li><b data-path-to-node="24" data-index-in-node="2">Compromiso solidario:</b> La canalización de recursos y visibilidad para causas educativas y de salud infantil en zonas vulnerables.</li><li><b data-path-to-node="25" data-index-in-node="2">Humildad en el triunfo:</b> El ejercicio de un liderazgo integrador y respetuoso hacia rivales, compañeros y el público.</li></ul><div><br></div></div><h2>La vigilancia&nbsp; hacia la último función</h2><div>Con la medalla de la UBA en mano, Messi y el plantel completaron la concentración en Ezeiza a la espera del traslado hacia el barrio porteño de Núñez. La distinción académica abrió un martes histórico que culminará en el Monumental, donde más de 85.000 hinchas le rendirán tributo al futbolista que redefinió la historia del deporte argentino.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
