@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Javier Milei endureció su postura contra Lula da Silva y acusó a Brasil de financiar una campaña contra la Argentina","description":"El Presidente reavivó el contrapunto bilateral al asegurar que desde el gobierno brasileño se destinaron fondos para desestabilizar la gestión local. El conflicto vuelve a tensionar la relación estratégica dentro del Mercosur.","image":["https://macromindnews.com.ar/img/milei-y-flavio.webp"],"datePublished":"2026-07-26T00:00:00-03:00","dateModified":"2026-07-26T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/javier-milei-endurecio-su-postura-contra-lula-da-silva-y-acuso-a-brasil-de-financiar-una-campana-contra-la-argentina.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Javier Milei endureció su postura contra Lula da Silva y acusó a Brasil de financiar una campaña contra la Argentina</h1>
   <p class="art-excerpt">El Presidente reavivó el contrapunto bilateral al asegurar que desde el gobierno brasileño se destinaron fondos para desestabilizar la gestión local. El conflicto vuelve a tensionar la relación estratégica dentro del Mercosur.</p>
   <div class="art-meta">26 de Julio, 2026</div>
-  <img src="img/milei-y-flavio.webp" alt="Javier Milei endureció su postura contra Lula da Silva y acusó a Brasil de financiar una campaña contra la Argentina" onerror="this.style.background='#ddd';"/>
+  <img src="img/milei-y-flavio.webp" alt="Javier Milei endureció su postura contra Lula da Silva y acusó a Brasil de financiar una campaña contra la Argentina" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/javier-milei-endurecio-su-postura-contra-lula-da-silva-y-acuso-a-brasil-de-financiar-una-campana-contra-la-argentina.html&text=Javier%20Milei%20endureci%C3%B3%20su%20postura%20contra%20Lula%20da%20Silva%20y%20acus%C3%B3%20a%20Brasil%20de%20financiar%20una%20campa%C3%B1a%20contra%20la%20Argentina" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El Presidente Javier Milei volvió a elevar la tensión diplomática con el gobierno de Brasil. En sus últimas declaraciones, el mandatario argentino lanzó duras acusaciones contra la administración de Lula da Silva, señalando que desde el país vecino se financió de manera directa una campaña de desprestigio dirigida a desestabilizar el programa económico y político local.<div><br></div><div>El mandatario argumentó que existen partidas presupuestarias en Brasilia orientadas a influir en la opinión pública y en la política interna argentina. Según su visión, este tipo de maniobras buscan erosionar el respaldo social hacia las reformas de libre mercado que impulsa el Ejecutivo Nacional.</div><div><br></div><div>Esta acusación marca una nueva escalada en el vínculo personal y político entre ambos líderes, que ya venía registrando importantes distanciamientos en las cumbres regionales. Además, el cortocircuito reabre la incertidumbre sobre la dinámica de trabajo en las mesas técnicas y comerciales del Mercosur, donde ambas naciones representan los motores principales del bloque.</div><div><br></div><h2>Impacto en la agenda bilateral</h2><div>Esta nueva polémica se produce en un momento bisagra para las relaciones comerciales de la región, donde el intercambio de manufacturas y la cooperación energética requieren de un diálogo fluido entre ambos socios históricos.</div><div><br></div><div>Hasta el momento, el Ejecutivo Nacional Brasileño han evitado entrar en el choque directo, aunque no se descarta que la Cancillería brasileña emita un comunicado para responder formalmente a los severos señalamientos. Mientras tanto, la postura del Ejecutivo argentino deja en claro que las diferencias ideológicas seguirán marcando la pauta de la relación bilateral.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
