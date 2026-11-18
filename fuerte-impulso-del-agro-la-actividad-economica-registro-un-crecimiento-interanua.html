@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Fuerte impulso del agro: la actividad económica registró un crecimiento interanual del 5,48% en marzo","description":"El Estimador Mensual de Actividad Económica experimentó una sólida expansión traccionada de manera directa por la sobresaliente recuperación del sector agropecuario, consolidando una tendencia positiva que arrastró a casi la totalidad de los rubros productivos y comerciales del país.","image":["https://macromindnews.com.ar/img/act-eco-marzo-26.jpg"],"datePublished":"2026-05-21T00:00:00-03:00","dateModified":"2026-05-21T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/fuerte-impulso-del-agro-la-actividad-economica-registro-un-crecimiento-interanua.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Fuerte impulso del agro: la actividad económica registró un crecimiento interanual del 5,48% en marzo</h1>
   <p class="art-excerpt">El Estimador Mensual de Actividad Económica experimentó una sólida expansión traccionada de manera directa por la sobresaliente recuperación del sector agropecuario, consolidando una tendencia positiva que arrastró a casi la totalidad de los rubros productivos y comerciales del país.</p>
   <div class="art-meta">21 de Mayo, 2026</div>
-  <img src="img/act-eco-marzo-26.jpg" alt="Fuerte impulso del agro: la actividad económica registró un crecimiento interanual del 5,48% en marzo" onerror="this.style.background='#ddd';"/>
+  <img src="img/act-eco-marzo-26.jpg" alt="Fuerte impulso del agro: la actividad económica registró un crecimiento interanual del 5,48% en marzo" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/fuerte-impulso-del-agro-la-actividad-economica-registro-un-crecimiento-interanua.html&text=Fuerte%20impulso%20del%20agro%3A%20la%20actividad%20econ%C3%B3mica%20registr%C3%B3%20un%20crecimiento%20interanual%20del%205%2C48%25%20en%20marzo" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><p>El aparato productivo nacional mostró un dinamismo superior al esperado durante el tercer mes del año, impulsado por una combinación de factores climáticos y de mercado que favorecieron el desempeño de las principales cadenas de valor. Los registros oficiales reflejan que el nivel general de la actividad económica quebró marcas previas gracias al empuje coordinado de sectores clave que lograron revertir los estancamientos del período anterior. Esta evolución favorable inyecta un fuerte optimismo en los sectores industriales y en los despachos gubernamentales, donde se sigue con atención la sostenibilidad del proceso de reactivación general a mediano plazo.</p><p>La división compuesta por la agricultura, la ganadería, la caza y la silvicultura se consolidó indiscutiblemente como el motor principal del crecimiento, aportando la mayor incidencia positiva al indicador general con una notable variación sectorial de casi el 18%. En una línea de recuperación muy similar, aunque con volúmenes generales distintos, la industria manufacturera y la explotación de minas y canteras acompañaron con firmeza la tendencia expansiva, apuntaladas por una mayor demanda interna y la reactivación de proyectos extractivos en diversas provincias. Por su parte, el sector pesquero sobresalió de forma aislada al registrar un imponente incremento sectorial superior al 30% en su comparación anual.</p><p>El clima de negocios favorable también derramó de manera directa en los sectores vinculados a los servicios y el consumo masivo, los cuales reportaron variaciones positivas consistentes. El transporte, las comunicaciones, las actividades de intermediación financiera y el comercio mayorista y minorista sumaron valiosos puntos porcentuales al repunte global, reflejando una mayor circulación de bienes y una paulatina recomposición de las transacciones comerciales. Incluso la construcción y el rubro de los servicios públicos de electricidad, gas y agua lograron mantenerse en terreno positivo, alejando los fantasmas de la parálisis que afectaban a los desarrollos de infraestructura edilicia.</p><p>En el extremo opuesto del escalafón productivo, la enseñanza y los servicios de hotelería y restaurantes mostraron variaciones prácticamente nulas, exhibiendo un comportamiento de estabilización tras los reajustes estacionales previos. La única nota discordante del período estuvo a cargo del sector de la administración pública, la defensa y los planes de seguridad social de afiliación obligatoria, que experimentó una leve contracción interanual de poco más del 1%. Esta única baja sectorial impidió que la expansión global fuera perfecta, aunque su escaso peso relativo no logró empañar el sólido balance macroeconómico que dejó el cierre del primer trimestre.</p></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
