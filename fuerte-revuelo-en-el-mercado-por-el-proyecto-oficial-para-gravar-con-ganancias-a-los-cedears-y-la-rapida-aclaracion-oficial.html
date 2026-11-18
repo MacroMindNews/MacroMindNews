@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Fuerte revuelo en el mercado por el proyecto oficial para gravar con Ganancias a los CEDEARs y la rápida aclaración oficial","description":"El Gobierno incluyó en la Ley de Competitividad Financiera un artículo para eliminar la exención de Ganancias en CEDEARs a partir de octubre. Ante el impacto en el mercado, desde el Palacio de Hacienda aclararon que se trató de \"un borrador viejo\" y que será retirado.","image":["https://macromindnews.com.ar/img/caputo-03-11-26.webp"],"datePublished":"2026-11-03T00:00:00-03:00","dateModified":"2026-11-03T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/fuerte-revuelo-en-el-mercado-por-el-proyecto-oficial-para-gravar-con-ganancias-a-los-cedears-y-la-rapida-aclaracion-oficial.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Fuerte revuelo en el mercado por el proyecto oficial para gravar con Ganancias a los CEDEARs y la rápida aclaración oficial</h1>
   <p class="art-excerpt">El Gobierno incluyó en la Ley de Competitividad Financiera un artículo para eliminar la exención de Ganancias en CEDEARs a partir de octubre. Ante el impacto en el mercado, desde el Palacio de Hacienda aclararon que se trató de "un borrador viejo" y que será retirado.</p>
   <div class="art-meta">3 de Noviembre, 2026</div>
-  <img src="img/caputo-03-11-26.webp" alt="Fuerte revuelo en el mercado por el proyecto oficial para gravar con Ganancias a los CEDEARs y la rápida aclaración oficial" onerror="this.style.background='#ddd';"/>
+  <img src="img/caputo-03-11-26.webp" alt="Fuerte revuelo en el mercado por el proyecto oficial para gravar con Ganancias a los CEDEARs y la rápida aclaración oficial" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/fuerte-revuelo-en-el-mercado-por-el-proyecto-oficial-para-gravar-con-ganancias-a-los-cedears-y-la-rapida-aclaracion-oficial.html&text=Fuerte%20revuelo%20en%20el%20mercado%20por%20el%20proyecto%20oficial%20para%20gravar%20con%20Ganancias%20a%20los%20CEDEARs%20y%20la%20r%C3%A1pida%20aclaraci%C3%B3n%20oficial" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><span >El proyecto de Ley de Competitividad Financiera enviado por el Poder Ejecutivo al Congreso de la Nación generó un fuerte cimbronazo en el mercado de capitales local.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1155155434=""><sup _ngcontent-ng-c1155155434=""  data-turn-source-index="3"><!----></sup></source-footnote></span> <span >La iniciativa planteaba eliminar la exención histórica del Impuesto a las Ganancias sobre los Certificados de Depósito Argentinos (</span><b data-path-to-node="4" data-index-in-node="297" >CEDEARs</b><span >) —los instrumentos de renta variable más populares entre los ahorristas minoristas para dolarizar carteras y apostar por gigantes globales como Apple, Tesla o Coca-Cola desde la plaza local— aplicándolo de manera retroactiva a las operaciones concretadas desde el pasado 31 de octubre.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1155155434=""><sup _ngcontent-ng-c1155155434=""  data-turn-source-index="4"></sup></source-footnote></span><div><span ><br></span></div><div><span ><span >La medida formaba parte de un paquete más amplio de desregulación y reforma financiera diseñado para el mercado bursátil.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1155155434=""><sup _ngcontent-ng-c1155155434=""  data-turn-source-index="5"><!----></sup></source-footnote></span> <span >El argumento técnico inicial del oficialismo apuntaba a eliminar el denominado “arbitraje regulatorio”: la diferencia de trato fiscal que existía entre un inversor que operaba de forma directa en el exterior —alcanzado por el tributo— y aquel que lo hacía mediante estos certificados negociados en pesos o dólares cable en el mercado doméstico.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1155155434=""><sup _ngcontent-ng-c1155155434=""  data-turn-source-index="6"></sup></source-footnote></span></span></div><div><span ><span ><br></span></span></div><h2><span ><span >El impacto y la rápida marcha atrás del Palacio de Hacienda</span></span></h2><div>La inclusión de este gravamen —que preveía alcanzar con una alícuota del 15% a los resultados por compraventa de estos activos— provocó inmediato estupor y duras críticas entre sociedades de bolsa, inversores y tributaristas, quienes advirtieron sobre el desaliento al ahorro local y la profundización de la volatilidad en un mercado ya golpeado por el contexto macroeconómico.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1155155434=""><sup _ngcontent-ng-c1155155434=""  data-turn-source-index="7"></sup></source-footnote></div><div><br></div><div>Ante la magnitud del revuelo generado en el sector financiero, fuentes oficiales del Ministerio de Economía salieron a calmar las aguas de manera casi inmediata. <b data-path-to-node="8" data-index-in-node="162">Felipe Núñez</b>, director del Banco de Inversión y Comercio Exterior (BICE) y asesor clave del ministro <b data-path-to-node="8" data-index-in-node="263">Luis Caputo</b>, aclaró públicamente a través de sus redes sociales que la cláusula impositiva no formaba parte del espíritu actual de la reforma.</div><div><br></div><div><i data-path-to-node="9" data-index-in-node="0" >“Quedó de un borrador viejo. Se va a retirar”</i><span >, sentenció el funcionario, descomprimiendo la tensión generada entre los pequeños y medianos ahorristas que utilizan masivamente los CEDEARs como herramienta de cobertura frente a la inflación y la devaluación.<source-footnote ng-version="0.0.0-PLACEHOLDER" _nghost-ng-c1155155434=""><sup _ngcontent-ng-c1155155434=""  data-turn-source-index="8"></sup></source-footnote></span></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
