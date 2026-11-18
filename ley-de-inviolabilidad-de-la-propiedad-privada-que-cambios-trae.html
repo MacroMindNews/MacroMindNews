@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Ley de Inviolabilidad de la Propiedad Privada: qué cambios trae","description":"El Gobierno envió al Congreso la Ley de Inviolabilidad de la Propiedad Privada, una reforma estructural que apunta a proteger los derechos de los propietarios, agilizar los desalojos, destrabar la inversión extranjera en el campo y modernizar el sistema registral inmobiliario. Son seis ejes clave que buscan transformar el mercado de la vivienda y la tierra en Argentina.","image":["https://macromindnews.com.ar/img/gabinete-3.jpg"],"datePublished":"2026-03-28T00:00:00-03:00","dateModified":"2026-03-28T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/ley-de-inviolabilidad-de-la-propiedad-privada-que-cambios-trae.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Ley de Inviolabilidad de la Propiedad Privada: qué cambios trae</h1>
   <p class="art-excerpt">El Gobierno envió al Congreso la Ley de Inviolabilidad de la Propiedad Privada, una reforma estructural que apunta a proteger los derechos de los propietarios, agilizar los desalojos, destrabar la inversión extranjera en el campo y modernizar el sistema registral inmobiliario. Son seis ejes clave que buscan transformar el mercado de la vivienda y la tierra en Argentina.</p>
   <div class="art-meta">28 de Marzo, 2026</div>
-  <img src="img/gabinete-3.jpg" alt="Ley de Inviolabilidad de la Propiedad Privada: qué cambios trae" onerror="this.style.background='#ddd';"/>
+  <img src="img/gabinete-3.jpg" alt="Ley de Inviolabilidad de la Propiedad Privada: qué cambios trae" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/ley-de-inviolabilidad-de-la-propiedad-privada-que-cambios-trae.html&text=Ley%20de%20Inviolabilidad%20de%20la%20Propiedad%20Privada%3A%20qu%C3%A9%20cambios%20trae" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El Gobierno nacional presentó uno de los proyectos de ley más ambiciosos de su agenda de reformas estructurales: la Ley de Inviolabilidad de la Propiedad Privada, impulsada desde el Ministerio de Desregulación y Transformación del Estado. La iniciativa parte de un diagnóstico claro: durante años, las normas que supuestamente debían proteger el acceso a la vivienda y al suelo produjeron el efecto contrario, generando menos propiedades en alquiler, menos inversión, menos producción y más déficit habitacional. Para revertir esa situación, el proyecto plantea seis ejes de reforma que abarcan desde los desalojos hasta la digitalización del registro de propiedades, pasando por la inversión extranjera y la protección ambiental.<br><br>El primer eje y quizás el más esperado por los propietarios es la recuperación ágil de inmuebles. Hoy en Argentina, recuperar una propiedad ante un caso de usurpación o incumplimiento de contrato puede llevar años de litigios sin resultados garantizados, lo que desincentiva a muchos propietarios a poner sus inmuebles en alquiler. La nueva ley crea un proceso más rápido y con reglas claras para que los dueños puedan recuperar sus propiedades con seguridad jurídica. El segundo eje apunta a resolver el problema de la vivienda informal: dado que el sistema actual no logró regularizar los barrios populares ni garantizar títulos de propiedad a sus habitantes, la ley habilita a provincias y municipios a impulsar soluciones concretas para que más familias puedan acceder formalmente a su vivienda.<br><br>El tercer punto es económicamente estratégico: la ley destrabará la inversión extranjera en el campo y las economías regionales. Para eso, elimina prohibiciones generales que hoy limitan la compra de tierras por parte de extranjeros, pero mantiene controles específicos de seguridad nacional sobre actores vinculados a gobiernos extranjeros, buscando así atraer capital sin comprometer la soberanía territorial. El cuarto eje limita la discrecionalidad del Estado en los procesos de expropiación, estableciendo reglas precisas para fijar valores y plazos, lo que busca hacer más justo y previsible un proceso que históricamente generó conflictos y costos innecesarios para todas las partes. En el quinto punto, la ley aborda la protección ambiental: revierte la extensión de las restricciones de la Ley de Fuego aplicadas en 2020 a sectores productivos más allá de los bosques nativos, focalizando las restricciones en áreas realmente sensibles y permitiendo recuperar el uso productivo de tierras que hoy están injustificadamente limitadas.<br><br>El sexto eje cierra el proyecto con una modernización largamente reclamada: la digitalización del Registro de la Propiedad Inmueble. La ley incorpora la firma digital y crea una Ventanilla Única Federal Inmobiliaria que permitirá gestionar certificados e informes de cualquier registro del país de forma remota, sin necesidad de trasladarse ni hacer filas. Para los argentinos que compran, venden o alquilan propiedades, esto significa menos burocracia, menos tiempo y menos costos en cada operación inmobiliaria. En conjunto, los seis ejes de la Ley de Inviolabilidad de la Propiedad Privada configuran una reforma que, si logra aprobarse en el Congreso donde el oficialismo no tiene mayoría propia, podría cambiar de manera profunda las reglas del juego en el mercado inmobiliario y en el acceso a la tierra en Argentina.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
