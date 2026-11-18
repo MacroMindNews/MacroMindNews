@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"La inflación de julio fue del 2,1% y cortó tres meses de desaceleración: las vacaciones de invierno explicaron la suba","description":"El INDEC publicó este jueves el IPC de julio, que quedó en línea con las estimaciones del mercado y dentro del rango proyectado por el ministro Caputo. El acumulado del año llegó al 19,3% y la variación interanual se ubicó en 33,8%. En agosto, las consultoras esperan una vuelta a la baja.","image":["https://macromindnews.com.ar/img/ipc-julio-26.webp"],"datePublished":"2026-08-13T00:00:00-03:00","dateModified":"2026-08-13T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/la-inflacion-de-julio-fue-del-21-y-corto-tres-meses-de-desaceleracion-las-vacaciones-de-invierno-explicaron-la-suba.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">La inflación de julio fue del 2,1% y cortó tres meses de desaceleración: las vacaciones de invierno explicaron la suba</h1>
   <p class="art-excerpt">El INDEC publicó este jueves el IPC de julio, que quedó en línea con las estimaciones del mercado y dentro del rango proyectado por el ministro Caputo. El acumulado del año llegó al 19,3% y la variación interanual se ubicó en 33,8%. En agosto, las consultoras esperan una vuelta a la baja.</p>
   <div class="art-meta">13 de Agosto, 2026</div>
-  <img src="img/ipc-julio-26.webp" alt="La inflación de julio fue del 2,1% y cortó tres meses de desaceleración: las vacaciones de invierno explicaron la suba" onerror="this.style.background='#ddd';"/>
+  <img src="img/ipc-julio-26.webp" alt="La inflación de julio fue del 2,1% y cortó tres meses de desaceleración: las vacaciones de invierno explicaron la suba" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/la-inflacion-de-julio-fue-del-21-y-corto-tres-meses-de-desaceleracion-las-vacaciones-de-invierno-explicaron-la-suba.html&text=La%20inflaci%C3%B3n%20de%20julio%20fue%20del%202%2C1%25%20y%20cort%C3%B3%20tres%20meses%20de%20desaceleraci%C3%B3n%3A%20las%20vacaciones%20de%20invierno%20explicaron%20la%20suba" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div><p  dir="ltr">El Instituto Nacional de Estadística y Censos (INDEC) informó este jueves que el Índice de Precios al Consumidor (IPC) registró una suba del 2,1% en julio de 2026, cortando así una racha de tres meses consecutivos de desaceleración que había llevado la inflación mensual desde el 3,4% de marzo hasta el 1,9% de junio, el registro más bajo del año. El acumulado de los primeros siete meses de 2026 refleja un alza de precios del 19,3%, mientras que la variación interanual se ubicó en 33,8%. A pesar de la interrupción del proceso bajista, el dato quedó dentro del rango que el propio ministro de&nbsp;</p><p  dir="ltr">Economía, Luis Caputo, había anticipado públicamente: entre 1,9% y 2,3%.</p></div><div><img src="img/ipc-julio-26-2.webp" alt="Imagen" style="font-size: 0.92rem; max-width: 100%; margin: 12px 0px; display: block;"></div><h3 dir="ltr" >El desglose: estacionales como motor de la suba</h3><p  dir="ltr">La inflación de julio se desagregó en una suba del 1,8% en el IPC Núcleo, del 2,1% en los precios Regulados y del 4,5% en los Estacionales. Este último componente fue el gran protagonista del mes y el principal responsable de que el dato superara al de junio. Las vacaciones de invierno impulsaron con fuerza los rubros vinculados al turismo y el entretenimiento, que suelen tener un peso particularmente elevado en la canasta de consumo durante julio.</p><p  dir="ltr"><br></p><p  dir="ltr">La división de mayor aumento en el mes fue Recreación y Cultura con el 5%, seguida del rubro Restaurantes y Hoteles con el 2,8%. Por encima del promedio general también se ubicaron Salud con 2,5%, Comunicación con 2,4%, Bienes y Servicios Varios con 2,2% y Vivienda, agua, electricidad, gas y otros con 2,2%.</p><p  dir="ltr">Alimentos y Bebidas subió por debajo del promedio general con el 1,6%, favorecido por una baja en las frutas, mientras que Indumentaria fue el único rubro en terreno negativo por el inicio de las liquidaciones de invierno. Este comportamiento diferencial entre los rubros estacionales y los de consumo básico refuerza la lectura oficial de que el dato de julio es una excepción puntual y no un cambio de tendencia.</p><p  dir="ltr"><img src="img/ipc-julio-26-2.webp" alt="Imagen" style="font-size: 0.92rem; max-width: 100%; margin: 12px 0px; display: block;"></p><h3 dir="ltr" ><br></h3><h3 dir="ltr" >La lectura de Caputo y el contexto internacional</h3><p  dir="ltr">Minutos antes de que el INDEC publicara el dato, Caputo salió a anticipar el número y a encuadrarlo en un contexto más amplio. "No es sorpresa porque julio es un mes estacionalmente alto", señaló el ministro, y agregó: "Tenemos confianza plena de lo que estamos haciendo. Mientras mantengamos el rumbo, es un tema de tiempo hasta que nuestra inflación converja a la inflación internacional." El ministro también mencionó el contexto energético global como un factor que está presionando los precios en todo el mundo: "El precio del petróleo se duplicó en prácticamente los últimos 8 meses. La realidad es que todos los países lo están sufriendo."</p><p  dir="ltr"><br></p><h3 dir="ltr" >Qué espera el mercado para agosto</h3><p  dir="ltr">Las vacaciones de invierno fueron uno de los factores que presionaron durante julio sobre rubros como turismo, alojamiento, transporte y recreación, componentes que tienen un peso particularmente elevado en la canasta. Con ese componente estacional fuera del radar en agosto, las principales consultoras privadas esperan que la inflación vuelva a ceder, con proyecciones que apuntan a un registro en torno al 1,8% para el octavo mes del año. De confirmarse ese escenario, la trayectoria descendente que viene mostrando la inflación de fondo desde mediados del año quedaría intacta, y el Gobierno podría retomar la narrativa de convergencia hacia niveles de un dígito mensual que Caputo viene construyendo desde el inicio de la gestión.</p></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
