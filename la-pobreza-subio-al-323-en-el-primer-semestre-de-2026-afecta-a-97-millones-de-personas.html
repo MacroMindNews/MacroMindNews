@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"La pobreza subió al 32,3% en el primer semestre de 2026: afecta a 9,7 millones de personas","description":"El INDEC publicó los datos oficiales de condiciones de vida para los 31 aglomerados urbanos del país. Por qué la canasta básica volvió a superar a los salarios familiares y cuáles son las regiones y edades más afectadas.","image":["https://macromindnews.com.ar/img/pobreza-1er-2026.webp"],"datePublished":"2026-09-24T00:00:00-03:00","dateModified":"2026-09-24T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/la-pobreza-subio-al-323-en-el-primer-semestre-de-2026-afecta-a-97-millones-de-personas.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">La pobreza subió al 32,3% en el primer semestre de 2026: afecta a 9,7 millones de personas</h1>
   <p class="art-excerpt">El INDEC publicó los datos oficiales de condiciones de vida para los 31 aglomerados urbanos del país. Por qué la canasta básica volvió a superar a los salarios familiares y cuáles son las regiones y edades más afectadas.</p>
   <div class="art-meta">24 de Septiembre, 2026</div>
-  <img src="img/pobreza-1er-2026.webp" alt="La pobreza subió al 32,3% en el primer semestre de 2026: afecta a 9,7 millones de personas" onerror="this.style.background='#ddd';"/>
+  <img src="img/pobreza-1er-2026.webp" alt="La pobreza subió al 32,3% en el primer semestre de 2026: afecta a 9,7 millones de personas" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/la-pobreza-subio-al-323-en-el-primer-semestre-de-2026-afecta-a-97-millones-de-personas.html&text=La%20pobreza%20subi%C3%B3%20al%2032%2C3%25%20en%20el%20primer%20semestre%20de%202026%3A%20afecta%20a%209%2C7%20millones%20de%20personas" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div><span style="font-size: 14.72px;"><b>El Instituto Nacional de Estadística y Censos (INDEC)</b> dio a conocer este jueves el informe sobre condiciones de vida correspondiente al <b>primer semestre de 2026</b>. De acuerdo con el relevamiento oficial en los 31 aglomerados urbanos,<b> la pobreza alcanzó al 32,3% de las personas</b>, lo que <b>equivale a 9,7 millones de argentinos</b> cuyos ingresos no alcanzaron para cubrir la Canasta Básica Total.</span></div><div><span style="font-size: 14.72px;"><br></span></div><div><span style="font-size: 14.72px;">​El dato representa un incremento de<b> 4,1 puntos porcentuales</b> respecto del cierre de 2025 (28,2%), aunque se mantiene en valores similares a los registrados en igual período del año pasado (31,6%) y muy por debajo del pico registrado a comienzos de 2024 (52,9%).</span></div><div><span style="font-size: 14.72px;"><br></span></div><h2><span style="font-size: 14.72px;">La radiografía de los números: hogares e indigencia</span></h2><div><span style="font-size: 14.72px;">El informe socioeconómico expone que la problemática impacta de manera directa sobre la estructura de las familias urbanas:</span></div><div><span style="font-size: 14.72px;"><br></span></div><div><span style="font-size: 14.72px;">En la medición por hogares, el <b>24,4% de las viviendas</b> (casi 2,5 millones de hogares) se encuentra bajo la línea de pobreza. Dentro de este universo, la <b>indigencia trepó al 7,5% de las personas</b> (2,2 millones de habitantes) y al <b>5,6% de los hogares</b>, lo que comprende a aquellas familias cuyos ingresos ni siquiera alcanzan para adquirir la cantidad mínima de alimentos para subsistir.</span></div><img src="img/pobreza-1er-semestre-26.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div><br></div><h2>La causa económica: ingresos que corrieron detrás de las canastas</h2><div><span style="font-size: 14.72px;">El propio análisis técnico del INDEC explicó que el repunte semestral obedeció a que los ingresos familiares perdieron la carrera contra el costo de vida:</span></div><div><span style="font-size: 14.72px;"><br></span></div><div><span style="font-size: 14.72px;">Durante los primeros seis meses del año, el ingreso per cápita de las familias creció un promedio del 11,5%, mientras que la Canasta Básica Alimentaria (CBA) subió un 21,4% y la Canasta Básica Total (CBT) se encareció un 19,6%, producto de los reajustes tarifarios y de servicios esenciales.</span></div><div><span style="font-size: 14.72px;"><br></span></div><div><span style="font-size: 14.72px;">Esta diferencia agrandó la brecha de pobreza al 35,9%: mientras que una familia pobre promedio necesitó $1.440.395 al mes para no serlo, sus ingresos efectivos rondaron apenas los $922.755, dejando un descubierto mensual de más de $517.000.</span></div><div><span style="font-size: 14.72px;"><br></span></div><h2><span style="font-size: 14.72px;">Los sectores más vulnerables: infancia y disparidad territorial</span></h2><div><span style="font-size: 14.72px;">La desagregación estadística confirma una marcada brecha social en función de la edad y la localización geográfica:</span></div><div><ul><li><span style="font-size: 14.72px;"><b>Pobreza infantil:</b>&nbsp;El <b>44,5%</b>&nbsp;de los chicos de 0 a 14 años reside en hogares pobres, cifra que escala al 45,2% si se amplía la franja hasta los 17 años.</span></li><li><span style="font-size: 14.72px;"><b>Jóvenes y adultos mayores:</b>&nbsp;En el grupo de 15 a 29 años la pobreza fue del 36,9%, mientras que en la población de 65 años o más se ubicó en el 14,8%.</span></li><li><span style="font-size: 14.72px;"><b>Las regiones con mayor impacto:</b>&nbsp;El <b>Noroeste (NOA)</b>&nbsp;encabezó el ranking nacional con un <b>41,5%</b>&nbsp;de pobreza (con el Gran Resistencia en 48,6%), seguido por <b>Cuyo</b>&nbsp;con <b>36,7%</b>.</span></li><li><span style="font-size: 14.72px;"><b>Buenos Aires y el Conurbano:</b>&nbsp;En el Gran Buenos Aires el índice promedió 32,1%, mostrando una fuerte polarización entre la <b>Ciudad de Buenos Aires (11,1%)</b>&nbsp;y los partidos del Conurbano bonaerense (36,9%). En la región Pampeana la tasa fue del 30% y la Patagonia registré el menor nivel del país con 28,%.</span></li></ul></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
