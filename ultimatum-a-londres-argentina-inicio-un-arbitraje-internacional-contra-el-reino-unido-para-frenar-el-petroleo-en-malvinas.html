@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Ultimátum a Londres: Argentina inició un arbitraje internacional contra el Reino Unido para frenar el petróleo en Malvinas","description":"A través del Comunicado Oficial N° 166, el presidente Javier Milei le dio dos semanas al gobierno británico para paralizar de inmediato el proyecto Sea Lion. La advertencia de recurrir al Tribunal Internacional del Mar en Hamburgo y las claves de una ofensiva legal sin precedentes.","image":["https://macromindnews.com.ar/img/milei-28-09-26.webp"],"datePublished":"2026-09-28T00:00:00-03:00","dateModified":"2026-09-28T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/ultimatum-a-londres-argentina-inicio-un-arbitraje-internacional-contra-el-reino-unido-para-frenar-el-petroleo-en-malvinas.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Ultimátum a Londres: Argentina inició un arbitraje internacional contra el Reino Unido para frenar el petróleo en Malvinas</h1>
   <p class="art-excerpt">A través del Comunicado Oficial N° 166, el presidente Javier Milei le dio dos semanas al gobierno británico para paralizar de inmediato el proyecto Sea Lion. La advertencia de recurrir al Tribunal Internacional del Mar en Hamburgo y las claves de una ofensiva legal sin precedentes.</p>
   <div class="art-meta">28 de Septiembre, 2026</div>
-  <img src="img/milei-28-09-26.webp" alt="Ultimátum a Londres: Argentina inició un arbitraje internacional contra el Reino Unido para frenar el petróleo en Malvinas" onerror="this.style.background='#ddd';"/>
+  <img src="img/milei-28-09-26.webp" alt="Ultimátum a Londres: Argentina inició un arbitraje internacional contra el Reino Unido para frenar el petróleo en Malvinas" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/ultimatum-a-londres-argentina-inicio-un-arbitraje-internacional-contra-el-reino-unido-para-frenar-el-petroleo-en-malvinas.html&text=Ultim%C3%A1tum%20a%20Londres%3A%20Argentina%20inici%C3%B3%20un%20arbitraje%20internacional%20contra%20el%20Reino%20Unido%20para%20frenar%20el%20petr%C3%B3leo%20en%20Malvinas" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El conflicto por la explotación de hidrocarburos en el Atlántico Sur dio un salto decisivo hacia los tribunales globales. Mediante el <b data-path-to-node="6" data-index-in-node="134">Comunicado Oficial Número 166</b>, la <b data-path-to-node="6" data-index-in-node="168">Oficina del Presidente de la República Argentina (OPRA)</b> anunció que el Gobierno nacional resolvió iniciar formalmente un <b data-path-to-node="6" data-index-in-node="289">procedimiento de arbitraje internacional contra el Reino Unido</b> para detener de manera definitiva el proyecto petrolero <b data-path-to-node="6" data-index-in-node="408">Sea Lion</b>, emplazado en la Cuenca Malvinas Norte.<div><br></div><div>La determinación presidencial instruye a la Cancillería y a los equipos jurídicos del Estado a activar los mecanismos contemplados en el <b data-path-to-node="7" data-index-in-node="137">Anexo VII de la Convención de las Naciones Unidas sobre el Derecho del Mar (CONVEMAR)</b>, llevando la disputa soberana a los máximos estrados marítimos del planeta.</div><div><br></div><div><h2>El arbitraje bajo la Convención del Mar y la vía de Hamburgo</h2><div>La presentación argentina sostiene que cualquier actividad de prospección o extracción de recursos no renovables en la plataforma continental argentina sin autorización del Estado ribereño constituye una violación flagrante del derecho internacional:</div><div><br></div><div>El objetivo central de la acción es impedir el inicio o la continuidad de los trabajos operativos de perforación marina liderados por las empresas Rockhopper y Navitas. En su presentación, el Gobierno advierte que las licencias otorgadas de forma unilateral por las autoridades británicas en las islas carecen de toda validez jurídica y atentan contra las resoluciones pacíficas de la Asamblea General de la ONU.</div><img src="https://pbs.twimg.com/media/HTU__u0XQAAegFv?format=jpg&amp;name=large" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"></div><h2>Los puntos centrales de la intimación del Gobierno a Gran Bretaña</h2><div>La notificación diplomática fijó condiciones estrictas y plazos perentorios para la administración británica:</div><div><ul><li><b data-path-to-node="13" data-index-in-node="112">Plazo de dos semanas:</b> Se intimó formalmente a Londres a adoptar en un término máximo de 14 días corridos todas las medidas necesarias para frenar la actividad hidrocarburífera en la Cuenca Malvinas Norte.</li><li><b data-path-to-node="13" data-index-in-node="319">Medidas cautelares inmediatas:</b> El comunicado advierte que, si el Reino Unido no acata el requerimiento dentro del plazo fijado, la Argentina se presentará de forma urgente ante el <b data-path-to-node="13" data-index-in-node="499">Tribunal Internacional del Derecho del Mar (con sede en Hamburgo, Alemania)</b> para solicitar medidas provisionales de cese de operaciones.</li><li><b data-path-to-node="13" data-index-in-node="638">Preservación de derechos:</b> La solicitud cautelar buscará congelar cualquier movimiento de buques, tendido de ductos o perforaciones en el lecho marino mientras se sustancie el litigio de fondo.</li></ul><div><br></div></div><h2>De las advertencias en la ONU a la acción judicial directa</h2><div>La decisión de la Casa Rosada se conoce pocos días después del encendido discurso de Javier Milei ante la Asamblea General de las Naciones Unidas en Nueva York, donde denunció la inacción del organismo frente a las violaciones británicas de la Resolución 3149 y advirtió a las multinacionales energéticas que no podrán operar en el continente si participan de proyectos ilegítimos en Malvinas.</div><div><br></div><div>Asimismo, la vía arbitral internacional complementa la <b data-path-to-node="16" data-index-in-node="55">medida cautelar dictada la semana pasada por el Juzgado Federal de Río Grande en Tierra del Fuego</b>, consolidando una estrategia jurídica integral que busca bloquear el financiamiento y la logística de las petroleras antes de que comience la extracción del primer barril de crudo.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
