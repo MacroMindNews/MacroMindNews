@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Fuerte sismo sacudió el sur de Perú y se sintió en Lima: no se reportan víctimas ni daños graves","description":"Un potente movimiento telúrico sacudió el sur del territorio peruano este jueves 20 de agosto, generando alarma en varias regiones del país y provocando evacuaciones preventivas en edificios y viviendas, incluso en la capital, Lima.","image":["https://macromindnews.com.ar/img/sismo-en-peru.webp"],"datePublished":"2026-08-20T00:00:00-03:00","dateModified":"2026-08-20T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/fuerte-sismo-sacudio-el-sur-de-peru-y-se-sintio-en-lima-no-se-reportan-victimas-ni-danos-graves.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Fuerte sismo sacudió el sur de Perú y se sintió en Lima: no se reportan víctimas ni daños graves</h1>
   <p class="art-excerpt">Un potente movimiento telúrico sacudió el sur del territorio peruano este jueves 20 de agosto, generando alarma en varias regiones del país y provocando evacuaciones preventivas en edificios y viviendas, incluso en la capital, Lima.</p>
   <div class="art-meta">20 de Agosto, 2026</div>
-  <img src="img/sismo-en-peru.webp" alt="Fuerte sismo sacudió el sur de Perú y se sintió en Lima: no se reportan víctimas ni daños graves" onerror="this.style.background='#ddd';"/>
+  <img src="img/sismo-en-peru.webp" alt="Fuerte sismo sacudió el sur de Perú y se sintió en Lima: no se reportan víctimas ni daños graves" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/fuerte-sismo-sacudio-el-sur-de-peru-y-se-sintio-en-lima-no-se-reportan-victimas-ni-danos-graves.html&text=Fuerte%20sismo%20sacudi%C3%B3%20el%20sur%20de%20Per%C3%BA%20y%20se%20sinti%C3%B3%20en%20Lima%3A%20no%20se%20reportan%20v%C3%ADctimas%20ni%20da%C3%B1os%20graves" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>De acuerdo con el informe oficial del Instituto Geofísico del Perú (IGP), el temblor alcanzó una magnitud de 7,2 con epicentro localizado a 3 kilómetros al norte de la localidad de Coracora (Provincia de Parinacochas, región de Ayacucho) y una profundidad de 108 kilómetros. En tanto, organismos internacionales como el Servicio Geológico de Estados Unidos (USGS) calibraron el evento con una magnitud preliminar de 6,7 y foco a 66 kilómetros de profundidad en las inmediaciones de Upahuacho.</div><img src="img/sismo-en-peru-2.png" alt="Google" style="max-width:100%;margin:12px 0;display:block;"><div><br></div><h2>Alcance regional y balance preliminar de las autoridades</h2><div>Debido a su prolongada duración y energía, el fenómeno se percibió con fuerza en diversas provincias del sur como Arequipa, Ica, Cusco y Apurímac, mientras que en el Área Metropolitana de Lima se sintió de forma ondulante y prolongada, llevando a cientos de trabajadores y residentes a salir a las calles por precaución.</div><div><ul><li><b>Sin víctimas fatales:</b>&nbsp;Los primeros relevamientos del Instituto Nacional de Defensa Civil (Indeci) y autoridades locales confirmaron que no se registraron personas fallecidas ni heridos de gravedad.</li><li><b>Afectaciones menores:</b>&nbsp;Se notificaron desprendimientos de rocas y deslizamientos de tierra en laderas de cerros en zonas andinas de Ayacucho, sin comprometer estructuras críticas ni servicios esenciales.</li><li><b>Alerta marítima:</b>&nbsp;La Dirección de Hidrografía y Navegación de la Marina de Guerra del Perú descartó de inmediato la posibilidad de un tsunami en la franja costera del país.</li></ul><div><br></div></div><h2>Atenuación por profundidad y contexto geológico</h2><div>Especialistas del IGP explicaron que la profundidad del sismo (clasificado como de foco inmediato) fue un factor clave para que la energía liberada se disipara antes de alcanzar la superficie con mayor poder destructivo, permitiendo que el impacto en infraestructura fuera acotado.</div><div><br></div><div>Perú se encuentra ubicado en el denominado Cinturón de Fuego del Pacífico, una de las regiones con mayor interacción de placas tectónicas del planeta donde se concentra alrededor del 85% de la actividad sísmica mundial. Las autoridades de Protección Civil reiteraron a la población la importancia de mantener la calma, asegurar vías de evacuación y contar con la mochila de emergencia ante eventuales réplicas.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
