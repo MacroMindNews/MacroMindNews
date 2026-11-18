@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"El Ministerio de Defensa avanza en la incorporación de 235 blindados Stryker para el Ejército Argentino","description":"El Ministerio de Defensa avanzó en la compra de 235 blindados Stryker 8x8 para el Ejército Argentino a través de un acuerdo clave con Estados Unidos.","image":["https://macromindnews.com.ar/img/ejercito-argentino-22-8-26.webp"],"datePublished":"2026-08-22T00:00:00-03:00","dateModified":"2026-08-22T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/el-ministerio-de-defensa-avanza-en-la-incorporacion-de-235-blindados-stryker-para-el-ejercito-argentino.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">El Ministerio de Defensa avanza en la incorporación de 235 blindados Stryker para el Ejército Argentino</h1>
   <p class="art-excerpt">El Ministerio de Defensa avanzó en la compra de 235 blindados Stryker 8x8 para el Ejército Argentino a través de un acuerdo clave con Estados Unidos.</p>
   <div class="art-meta">22 de Agosto, 2026</div>
-  <img src="img/ejercito-argentino-22-8-26.webp" alt="El Ministerio de Defensa avanza en la incorporación de 235 blindados Stryker para el Ejército Argentino" onerror="this.style.background='#ddd';"/>
+  <img src="img/ejercito-argentino-22-8-26.webp" alt="El Ministerio de Defensa avanza en la incorporación de 235 blindados Stryker para el Ejército Argentino" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/el-ministerio-de-defensa-avanza-en-la-incorporacion-de-235-blindados-stryker-para-el-ejercito-argentino.html&text=El%20Ministerio%20de%20Defensa%20avanza%20en%20la%20incorporaci%C3%B3n%20de%20235%20blindados%20Stryker%20para%20el%20Ej%C3%A9rcito%20Argentino" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>El Ministerio de Defensa de la Nación avanzó formalmente en el proyecto de modernización y equipamiento de las Fuerzas Armadas al suscribir una Carta de Intención con el gobierno de los Estados Unidos para la compra de 235 vehículos de combate blindados a rueda (VCBR) M1126 Srtyker 8x8 destinados al Ejército Argentino.</div><div><br></div><div>El acuerdo, gestionado a través del sistema de Ventas Militares Extranjeras (FMS), representa uno de los programas de requipamiento terrestre más relevante de las últimas décadas, orientado a dotar al Ejército de unidades de alta movilidad táctica, protección balística y capacidad de despliegue rápido.</div><img src="img/ejercito-argentino-22-8-26-2.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><h2>Características operativas y alcance de la flota blindada</h2><div>La plataforma Stryker 8x8, desarrollada por la firma General Dynamics Systems, es uno de los sistemas más probados por el ejército estadounidense y fuerzas aliadas en operaciones modernas:</div><div><ul><li><b>Versatilidad y configuración:</b>&nbsp;El lote contempla unidades configuradas para transporte de tropas (versión base M1126), comando y control, ambulancias blindadas y puestos de observación avanzada.</li><li><b>Movilidad y velocidad:</b>&nbsp;Su tracción 8x8 con tracción integral y neumáticos con tecnología central de inflado le permite operar tanto en rutas pavimentadas a velocidades de hasta 100 km/h como en terrenos no preparados.</li><li><b>Protección y supervivencia:</b>&nbsp;Cuentan con blindaje modular reforzados contra proyectiles perforantes, esquirlas de artillería y protección contra artefactos explosivos improvisados y minas.</li><li><b>Integración logística y doctrina:</b>&nbsp;El programa incluye paquetes de mantenimiento, herramientas, repuestos críticos y programas de capacitación y entrenamiento operativo para mecánicos y tripulaciones locales.</li></ul><div><br></div><h2>Eje central del plan de reequipamiento y capacidades</h2><img src="img/ejercito-argentino-22-8-26-3.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;">la adquisición de la familia Stryker apunta a cubrir una vacante histórica en la doctrina de infantería mecanizada sobre ruedas, permitiendo la interoperabilidad regional y la rápida respuesta ante requerimientos de defensa nacional y misiones de paz mandato de Naciones Unidas.</div><div><br></div><div>Con esta firma, la cartera castrense consolida su agenda de alianzas estratégicas en materia de equipamiento militar, completando compras recientes como el sistema de cazas F-16 y fortaleciendo el estándar tecnológico y la capacidad disuasiva de las unidades terrestres en todo el territorio nacional.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
