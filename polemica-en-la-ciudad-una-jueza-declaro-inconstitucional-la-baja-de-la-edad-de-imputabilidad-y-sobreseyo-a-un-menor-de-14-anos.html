@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Polémica en la Ciudad: una jueza declaró inconstitucional la baja de la edad de imputabilidad y sobreseyó a un menor de 14 años","description":"La magistrada Laura De Marinis frenó la aplicación del nuevo Régimen Penal Juvenil en una causa por intento de robo. El fallo desató la furia del oficialismo y abrió un frente de tormenta institucional en los tribunales porteños.","image":["https://macromindnews.com.ar/img/ley-penal-juvenil-21-09-26.webp"],"datePublished":"2026-09-21T00:00:00-03:00","dateModified":"2026-09-21T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/polemica-en-la-ciudad-una-jueza-declaro-inconstitucional-la-baja-de-la-edad-de-imputabilidad-y-sobreseyo-a-un-menor-de-14-anos.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Polémica en la Ciudad: una jueza declaró inconstitucional la baja de la edad de imputabilidad y sobreseyó a un menor de 14 años</h1>
   <p class="art-excerpt">La magistrada Laura De Marinis frenó la aplicación del nuevo Régimen Penal Juvenil en una causa por intento de robo. El fallo desató la furia del oficialismo y abrió un frente de tormenta institucional en los tribunales porteños.</p>
   <div class="art-meta">21 de Septiembre, 2026</div>
-  <img src="img/ley-penal-juvenil-21-09-26.webp" alt="Polémica en la Ciudad: una jueza declaró inconstitucional la baja de la edad de imputabilidad y sobreseyó a un menor de 14 años" onerror="this.style.background='#ddd';"/>
+  <img src="img/ley-penal-juvenil-21-09-26.webp" alt="Polémica en la Ciudad: una jueza declaró inconstitucional la baja de la edad de imputabilidad y sobreseyó a un menor de 14 años" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/polemica-en-la-ciudad-una-jueza-declaro-inconstitucional-la-baja-de-la-edad-de-imputabilidad-y-sobreseyo-a-un-menor-de-14-anos.html&text=Pol%C3%A9mica%20en%20la%20Ciudad%3A%20una%20jueza%20declar%C3%B3%20inconstitucional%20la%20baja%20de%20la%20edad%20de%20imputabilidad%20y%20sobresey%C3%B3%20a%20un%20menor%20de%2014%20a%C3%B1os" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><div>Una resolución de la Justicia porteña provocó un fuerte sismo político y encendió el debate sobre la seguridad en la Ciudad de Buenos Aires. La jueza <b data-path-to-node="6" data-index-in-node="150">Laura Beatriz De Marinis</b>, titular del Juzgado Penal Juvenil, Contravencional y de Faltas N° 3, declaró la <b data-path-to-node="6" data-index-in-node="256">inconstitucionalidad de la nueva Ley Penal Juvenil</b> para un caso concreto y dictó el <b data-path-to-node="6" data-index-in-node="340">sobreseimiento de un adolescente de 14 años</b> que estaba acusado por tentativa de robo.</div><div><br></div><div>La decisión judicial cuestiona directamente la norma nacional aprobada por el Congreso que redujo la edad de imputabilidad a los 14 años, al considerar que la aplicación de sanciones penales a menores de esa franja colisiona contra tratados internacionales y pactos de derechos humanos ratificados por el país.</div><div><img src="img/laura-beatriz-de-marinis.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><br></div><h2>El hecho en la mira y los fundamentos del fallo</h2><div>La causa se originó a partir de un procedimiento policial donde se detuvo a tres menores acusados de intentar cometer un asalto en la vía pública. Pese a que el nuevo régimen habilitaba a la fiscalía a formular cargos y solicitar medidas cautelares sobre el sospechoso de 14 años, la magistrada frenó el proceso penal.</div><div><br></div><div>En sus argumentos, De Marinis sostuvo que la persecución punitiva sobre adolescentes menores de 16 años vulnera el principio de no regresividad en materia de derechos de la niñez y remarcó que el Estado debe priorizar esquemas de protección y contención socioeducativa en lugar de penas carcelarias.</div><div><br></div><h2>Jorge Macri pedirá el juicio político y Bullrich apuntó a la "impunidad"</h2><div>El pronunciamiento generó una respuesta inmediata y coordinada desde el arco político, que salió a cruzar con dureza la postura de la jueza a través de las redes sociales.</div><div><br></div><div>El jefe de Gobierno porteño, <b data-path-to-node="14" data-index-in-node="29">Jorge Macri</b>, repudió el fallo y anunció que impulsará la remoción de la magistrada en la Legislatura de la Ciudad: <i data-path-to-node="14" data-index-in-node="144">"Vamos a pedir inmediatamente juicio político. la gente de bien no puede seguir siendo rehén de decisiones que garantizan el delito. No voy a pedir perdón por defender a los&nbsp; porteños&nbsp; de bien"</i>, sentenció.</div><div><img src="img/jorge-macri-x.webp" alt="Imagen" style="font-size: 0.92rem; max-width: 100%; margin: 12px 0px; display: block;"></div><div><br></div><div>En sintonía, <b data-path-to-node="15" data-index-in-node="13">Patricia Bullrich</b> expresó su rechazo a la decisión judicial desde su cuenta de X: <i data-path-to-node="15" data-index-in-node="95">"Es muy difícil construir un país normal así. Estos jueces&nbsp; garantistas solo construyen impunidad"</i>.</div><img src="img/patricia-bullrich-x.webp" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"><div><div><br></div></div><h2>Las tres claves del conflicto que escala a la Legislatura</h2><div>La controversia promete trasladarse al ámbito parlamentario y judicial en las próximas horas:</div><div><ul><li><b data-path-to-node="18" data-index-in-node="96">Pedido de destitución:</b> La Ciudad buscará activar el jury contra la magistrada en el Consejo de la Magistratura porteño por presunto mal desempeño.</li><li><b data-path-to-node="18" data-index-in-node="245">Apelación de los fiscales:</b> El Ministerio Público Fiscal porteño presentará un recurso ante la Cámara para revertir el sobreseimiento y defender la vigencia de la ley nacional.</li><li><b data-path-to-node="18" data-index-in-node="423">Tensión por la puerta giratoria:</b> El oficialismo advierte que este tipo de fallos aislados genera un vacío legal y debilita el accionar de las fuerzas de seguridad en las calles.</li></ul></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
