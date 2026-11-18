@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Privatización de AySA: se conocieron los grupos oferentes y el Gobierno exigirá más de US$ 2.000 millones en obras","description":"El Ministerio de Economía activó la fase decisiva para transferir la concesión del servicio de agua y saneamiento por los próximos 30 años. Cuáles son los dos consorcios en carrera y los compromisos obligatorios de inversión y congelamiento tarifario real hasta 2031.","image":["https://macromindnews.com.ar/img/aysa-15-9-26.webp"],"datePublished":"2026-09-15T00:00:00-03:00","dateModified":"2026-09-15T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/privatizacion-de-aysa-se-conocieron-los-grupos-oferentes-y-el-gobierno-exigira-mas-de-us-2000-millones-en-obras.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Privatización de AySA: se conocieron los grupos oferentes y el Gobierno exigirá más de US$ 2.000 millones en obras</h1>
   <p class="art-excerpt">El Ministerio de Economía activó la fase decisiva para transferir la concesión del servicio de agua y saneamiento por los próximos 30 años. Cuáles son los dos consorcios en carrera y los compromisos obligatorios de inversión y congelamiento tarifario real hasta 2031.</p>
   <div class="art-meta">15 de Septiembre, 2026</div>
-  <img src="img/aysa-15-9-26.webp" alt="Privatización de AySA: se conocieron los grupos oferentes y el Gobierno exigirá más de US$ 2.000 millones en obras" onerror="this.style.background='#ddd';"/>
+  <img src="img/aysa-15-9-26.webp" alt="Privatización de AySA: se conocieron los grupos oferentes y el Gobierno exigirá más de US$ 2.000 millones en obras" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/privatizacion-de-aysa-se-conocieron-los-grupos-oferentes-y-el-gobierno-exigira-mas-de-us-2000-millones-en-obras.html&text=Privatizaci%C3%B3n%20de%20AySA%3A%20se%20conocieron%20los%20grupos%20oferentes%20y%20el%20Gobierno%20exigir%C3%A1%20m%C3%A1s%20de%20US%24%202.000%20millones%20en%20obras" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">El programa de reformas estructurales del Gobierno nacional alcanzó un hito central en el área de los servicios públicos esenciales. El <b data-path-to-node="6" data-index-in-node="136">Ministerio de Economía</b> encabezó este martes la apertura formal de ofertas técnicas para avanzar en la privatización y concesión por <b data-path-to-node="6" data-index-in-node="268">30 años</b> de <b data-path-to-node="6" data-index-in-node="279">Agua y Saneamientos Argentinos (AySA)</b>, la empresa responsable del suministro de agua potable y desagües cloacales en la Ciudad de Buenos Aires y 26 municipios del conurbano bonaerense.<div><br></div><div>El proceso licitatorio comprende la transferencia del <b data-path-to-node="7" data-index-in-node="54">90% del paquete accionario</b> en manos del Estado nacional al sector privado, mientras que el <b data-path-to-node="7" data-index-in-node="145">10% restante continuará asignado a los trabajadores</b> de la compañía bajo el régimen del Programa de Propiedad Participada (PPP).</div><div><br></div><h2>Los consorcios en punga por la operación del servicio</h2><div>La Comisión de Evaluación del Palacio de Hacienda comenzó la revisión de las credenciales técnicas y antecedentes operativos de dos grupos empresariales:</div><div><br></div><div>Por un lado, se presentó el <b data-path-to-node="11" data-index-in-node="28">Consorcio Rowing</b>, conformado por la alianza entre <b data-path-to-node="11" data-index-in-node="78">Rowing S.A., Arcos, Transclor y PHX</b>. Por el otro, formalizó su propuesta el <b data-path-to-node="11" data-index-in-node="154">Consorcio Roggio Roas</b>, encabezado por <b data-path-to-node="11" data-index-in-node="192">Roggio Roas S.A.U.</b> junto a firmas asociadas. Ambas agrupaciones deberán superar el filtro de solvencia operativa antes de la posterior apertura de las ofertas económicas que definirá la adjudicación definitiva.</div><div><br></div><h2>La auditoría estatal: Los números rojos del período 2006-2023</h2><div>En los fundamentos de la privatización, el informe técnico oficial expuso el balance de la gestión pública durante los últimos 17 años, calificándola como un modelo de déficit crónico e ineficiencia operativa:</div><div><ul><li><b data-path-to-node="13" data-index-in-node="212">Transferencias del Tesoro:</b> Entre 2006 y 2023, la empresa insumió más de <b data-path-to-node="13" data-index-in-node="284">US$ 13.400 millones</b> en subsidios y giros estatales para cubrir sus desbalances financieros.</li><li><b data-path-to-node="13" data-index-in-node="378">Falta de cobertura:</b> Pese a ese financiamiento, un tercio de la población dentro del área concesionada aún carece de acceso regular a redes cloacales y agua corriente.</li><li><b data-path-to-node="13" data-index-in-node="547">Pérdida en cañerías:</b> El nivel de agua no contabilizada —derivada de roturas, filtraciones y conexiones clandestinas— se mantiene en torno al <b data-path-to-node="13" data-index-in-node="688">42% del volumen producido</b>.</li><li><b data-path-to-node="13" data-index-in-node="717">Deterioro financiero:</b> El índice de morosidad en el cobro de boletas saltó del 4% al <b data-path-to-node="13" data-index-in-node="801">16%</b>, en paralelo a un incremento del <b data-path-to-node="13" data-index-in-node="838">80% en los costos operativos</b>.</li></ul><div><br></div></div><h2>El nuevo marco: US$ 2.000 millones en inversión y estabilidad tarifaria</h2><div>Para revertir el atraso de infraestructura, el pliego contractual no deja las inversiones libradas a la voluntad del concesionario, sino que impone un <b data-path-to-node="15" data-index-in-node="151">Plan de Acción obligatorio 2027-2031</b> correspondiente al primer ciclo tarifario de cinco años.</div><div><br></div><div>El nuevo operador estará obligado a ejecutar obras por <b data-path-to-node="16" data-index-in-node="55">$2,89 billones</b> (a valores de diciembre de 2025, equivalentes a más de <b data-path-to-node="16" data-index-in-node="125">US$ 2.000 millones</b>), elevando las metas de cobertura al <b data-path-to-node="16" data-index-in-node="181">75,3% en agua potable</b> y al <b data-path-to-node="16" data-index-in-node="208">63,9% en cloacas</b> hacia 2031, con la obligación de alcanzar pisos mínimos del 90% y 75% al término de los 30 años de contrato.</div><div><br></div><div>Como contrapartida regulatoria para los usuarios, el contrato estipula que las tarifas <b data-path-to-node="17" data-index-in-node="87">se mantendrán estables en términos reales</b> durante todo el primer quinquenio, sin habilitar incrementos por encima de la inflación salvo situaciones imprevistas tipificadas. Asimismo, la operatoria privada prevé aportar al fisco más de <b data-path-to-node="17" data-index-in-node="322">US$ 750 millones en impuestos</b> (US$ 400 millones en IVA y US$ 350 millones en Ingresos Brutos), bajo la supervisión anual del <b data-path-to-node="17" data-index-in-node="447">Ente Regulador de Agua y Saneamiento (ERAS)</b> y auditores técnicos independientes con facultad de rescindir el contrato ante incumplimientos graves.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
