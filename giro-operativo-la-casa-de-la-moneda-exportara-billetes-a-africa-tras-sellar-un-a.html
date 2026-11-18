@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Giro operativo: La Casa de la Moneda exportará billetes a África tras sellar un acuerdo con Nigeria","description":"La emblemática institución reactivará sus complejos industriales de impresión para confeccionar papel moneda extranjero, una medida técnica orientada a generar recursos propios y aprovechar la tecnología instalada.","image":["https://macromindnews.com.ar/img/casa-de-moneda.jpg"],"datePublished":"2026-07-07T00:00:00-03:00","dateModified":"2026-07-07T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/giro-operativo-la-casa-de-la-moneda-exportara-billetes-a-africa-tras-sellar-un-a.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Giro operativo: La Casa de la Moneda exportará billetes a África tras sellar un acuerdo con Nigeria</h1>
   <p class="art-excerpt">La emblemática institución reactivará sus complejos industriales de impresión para confeccionar papel moneda extranjero, una medida técnica orientada a generar recursos propios y aprovechar la tecnología instalada.</p>
   <div class="art-meta">7 de Julio, 2026</div>
-  <img src="img/casa-de-moneda.jpg" alt="Giro operativo: La Casa de la Moneda exportará billetes a África tras sellar un acuerdo con Nigeria" onerror="this.style.background='#ddd';"/>
+  <img src="img/casa-de-moneda.jpg" alt="Giro operativo: La Casa de la Moneda exportará billetes a África tras sellar un acuerdo con Nigeria" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/giro-operativo-la-casa-de-la-moneda-exportara-billetes-a-africa-tras-sellar-un-a.html&text=Giro%20operativo%3A%20La%20Casa%20de%20la%20Moneda%20exportar%C3%A1%20billetes%20a%20%C3%81frica%20tras%20sellar%20un%20acuerdo%20con%20Nigeria" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body"><h2>Reactivación industrial y reconversión técnica</h2><p data-path-to-node="6">Las imprentas de alta seguridad de la Casa de la Moneda volverán a encender sus motores en el marco de un plan de reconversión comercial de largo alcance. Mediante una licitación internacional adjudicada, el organismo estatal argentino asumió el compromiso de fabricar una parte del circulante monetario de Nigeria, lo que marca un hito en la internacionalización de sus servicios de manufactura de especies valoradas.</p><p data-path-to-node="6"><br></p><p data-path-to-node="7">La decisión de avanzar con contratos hacia el exterior surge en un momento donde la demanda de impresión local experimentaba una fuerte desaceleración debido a los esquemas vigentes de abastecimiento. Frente a este escenario, las autoridades optaron por reconvertir el potencial técnico de las plantas ubicadas en el país, transformando la capacidad ociosa de los talleres de precisión en una plataforma de exportación de servicios industriales con alto valor agregado.</p><img src="img/billete-de-nigeria.jpg" alt="Billete de Nigeria" style="max-width:100%;margin:12px 0;display:block;"><div><h2>Estándares de seguridad y sustentabilidad financiera</h2><p data-path-to-node="9">El proceso productivo demandará la utilización de tintas especiales, papeles con marcas de agua personalizadas y elementos de diseño óptico de última generación exigidos por los estándares de calidad del Banco Central de Nigeria. Para dar cumplimiento a los plazos pactados en el acuerdo bilateral, la dirección del taller gráfico dispondrá de un esquema de reactivación por etapas que involucrará de forma directa al personal calificado de la institución, garantizando los rigurosos controles de auditoría que requiere el manejo de valores internacionales.</p><p data-path-to-node="9"><br></p><p data-path-to-node="10">La puesta en marcha de este programa no solo asegura la continuidad de los procesos técnicos dentro de la institución, sino que posiciona a la entidad como un actor competitivo capaz de brindar servicios de acuñación e impresión a otros bancos centrales de la región y el mundo. Asimismo, la manufactura de moneda extranjera representa una vía alternativa clave para la recaudación de recursos propios genuinos bajo contratos denominados en moneda dura, optimizando los costos de mantenimiento de las maquinarias de precisión.</p></div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
