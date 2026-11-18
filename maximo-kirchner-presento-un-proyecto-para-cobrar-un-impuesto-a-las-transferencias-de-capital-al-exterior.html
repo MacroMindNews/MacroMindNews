@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Máximo Kirchner presentó un proyecto para cobrar un impuesto a las transferencias de capital al exterior","description":"El diputado de Unión por la Patria busca gravar la salida de divisas, bonos y criptoactivos con una alícuota de hasta el 5%. La estimación de lo que espera recaudar y la distribución de los fondos en plena tensión con el Gobierno y las provincias.","image":["https://macromindnews.com.ar/img/maximo-k-23-09-26.webp"],"datePublished":"2026-09-23T00:00:00-03:00","dateModified":"2026-09-23T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/maximo-kirchner-presento-un-proyecto-para-cobrar-un-impuesto-a-las-transferencias-de-capital-al-exterior.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Máximo Kirchner presentó un proyecto para cobrar un impuesto a las transferencias de capital al exterior</h1>
   <p class="art-excerpt">El diputado de Unión por la Patria busca gravar la salida de divisas, bonos y criptoactivos con una alícuota de hasta el 5%. La estimación de lo que espera recaudar y la distribución de los fondos en plena tensión con el Gobierno y las provincias.</p>
   <div class="art-meta">23 de Septiembre, 2026</div>
-  <img src="img/maximo-k-23-09-26.webp" alt="Máximo Kirchner presentó un proyecto para cobrar un impuesto a las transferencias de capital al exterior" onerror="this.style.background='#ddd';"/>
+  <img src="img/maximo-k-23-09-26.webp" alt="Máximo Kirchner presentó un proyecto para cobrar un impuesto a las transferencias de capital al exterior" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/maximo-kirchner-presento-un-proyecto-para-cobrar-un-impuesto-a-las-transferencias-de-capital-al-exterior.html&text=M%C3%A1ximo%20Kirchner%20present%C3%B3%20un%20proyecto%20para%20cobrar%20un%20impuesto%20a%20las%20transferencias%20de%20capital%20al%20exterior" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">​El bloque de Unión por la Patria en la Cámara de Diputados abrió un nuevo frente de debate económico y fiscal. El diputado nacional Máximo Kirchner presentó formalmente un proyecto de ley para crear el Impuesto a las Transferencias Internacionales de Capital, una iniciativa que busca aplicar una alícuota sobre los giros financieros hacia el exterior que no estén vinculados a la producción o importación genuina de bienes.<div><br></div><div>El proyecto emula la lógica del "Aporte Solidario" extraordinario implementado en 2020 y tiene como objetivo declarado compensar el fuerte recorte de fondos que sufrieron los gobernadores e intendentes tras la caída de las transferencias nacionales no automáticas.</div><div><br></div><h2>Cómo funcionaría el gravamen: alícuotas del 3% al 5%</h2><div>​La propuesta legislativa establece un esquema de retención impositiva sobre la fuga y salida de activos del sistema financiero local:</div><div><ul><li>Alícuota base del 3%: Se aplicará a toda operación que implique la salida efectiva de fondos del país, ya sea mediante divisas, títulos valores negociables o activos virtuales (criptomonedas).</li><li>Recargo para paraísos fiscales: Si el destino de los fondos es una jurisdicción considerada de baja o nula tributación, se adicionará un recargo del 2% extra, elevando la alícuota total al 5%.</li></ul><div><br></div></div><h2>Las operaciones que quedarían excluidas</h2><div>Para evitar objeciones sobre el impacto en el consumo cotidiano y la inversión productiva, el texto fija excepciones expresas:</div><div><br></div><div>No pagarán el impuesto las compras habituales de dólares ni la tenencia de moneda extranjera por parte de personas físicas dentro del país. Tampoco estarán alcanzadas las importaciones genuinas debidamente documentadas, ni la compraventa de bonos soberanos, acciones o CEDEARs, siempre que esos activos permanezcan depositados en cuentas del sistema financiero argentino.</div><div><br></div><h2>Cómo se repartirían los $2.89 billones proyectados</h2><div>De acuerdo con las estimaciones técnicas difundidas por el legislador, el nuevo tributo permitiría recaudar un piso de $2,89 billones, recursos que tendrían una asignación específica obligatoria:</div><div><ul><li>60% para Provincias y Municipios: Destinado a obras viales, infraestructura sanitaria, escuelas y viviendas, además de recomposición salarial docente y médica.</li><li>10% para Salud y Discapacidad: Fondos directos para la cobertura de tratamientos y prestadores.</li><li>10% para Educación: Obras edilicias y programas educativos nacionales.</li><li>10% para Jubilaciones y Pensiones: Refuerzo de los haberes previsionales de la ANSES.</li><li>10% para el PAMI: Financiamiento de medicamentos gratuitos y atención médica integral para jubilados.</li></ul><div><br></div></div><h2>La interna política y el freno del oficialismo</h2><div>El anuncio de la iniciativa coincidió con la gira del gobernador bonaerense Axel Kicillof por Estados Unidos, donde mantiene reuniones con fondos de inversión internacionales, en medio de la interna abierta que sacude al peronismo.</div><div><br></div><div>En el Congreso, en tanto, el proyecto enfrenta un escenario muy complejo: el bloque oficialista de La Libertad Avanza y las bancadas aliadas ya anticiparon su rechazo tajante a la creación de nuevos tributos sobre el movimiento de capitales, ratificando la política de desregulación financiera impulsada desde la Casa Rosada.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
