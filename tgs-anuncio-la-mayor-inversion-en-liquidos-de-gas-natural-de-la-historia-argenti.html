@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"TGS anunció la mayor inversión en líquidos de gas natural de la historia argentina","description":"TGS presentó en Nueva York un proyecto de inversión histórico por US$3.000 millones para el desarrollo de líquidos de gas natural, con obras que irán desde Neuquén hasta Bahía Blanca. El proyecto generará 4.000 empleos directos y 15.000 indirectos, y se espera que produzca exportaciones por US$1.200 millones anuales.","image":["https://macromindnews.com.ar/img/tgs.jpg"],"datePublished":"2026-03-12T00:00:00-03:00","dateModified":"2026-03-12T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/tgs-anuncio-la-mayor-inversion-en-liquidos-de-gas-natural-de-la-historia-argenti.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">TGS anunció la mayor inversión en líquidos de gas natural de la historia argentina</h1>
   <p class="art-excerpt">TGS presentó en Nueva York un proyecto de inversión histórico por US$3.000 millones para el desarrollo de líquidos de gas natural, con obras que irán desde Neuquén hasta Bahía Blanca. El proyecto generará 4.000 empleos directos y 15.000 indirectos, y se espera que produzca exportaciones por US$1.200 millones anuales.</p>
   <div class="art-meta">12 de Marzo, 2026</div>
-  <img src="img/tgs.jpg" alt="TGS anunció la mayor inversión en líquidos de gas natural de la historia argentina" onerror="this.style.background='#ddd';"/>
+  <img src="img/tgs.jpg" alt="TGS anunció la mayor inversión en líquidos de gas natural de la historia argentina" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/tgs-anuncio-la-mayor-inversion-en-liquidos-de-gas-natural-de-la-historia-argenti.html&text=TGS%20anunci%C3%B3%20la%20mayor%20inversi%C3%B3n%20en%20l%C3%ADquidos%20de%20gas%20natural%20de%20la%20historia%20argentina" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Argentina vuelve a ser noticia en el mundo financiero, y esta vez el anuncio llegó directamente desde Nueva York. Transportadora Gas del Sur (TGS), una de las empresas más importantes del sector energético argentino, presentó ante inversores internacionales un proyecto de inversión que marca un hito en la historia del país: US$3.000 millones destinados al desarrollo de líquidos de gas natural, con un corredor de obras que se extenderá desde Neuquén —corazón de Vaca Muerta— hasta Bahía Blanca, en la provincia de Buenos Aires. Elegir Nueva York como escenario del anuncio no es un detalle menor: es una señal clara de que TGS busca captar capital internacional y de que Argentina está posicionándose como un destino atractivo para inversiones de gran escala.<br><br>Para entender el alcance del proyecto, vale explicar qué son los líquidos de gas natural. Cuando se extrae gas del subsuelo, este viene acompañado de ciertos componentes que, al ser procesados y separados, se convierten en productos de alto valor comercial: etano, propano, butano y gasolina natural, entre otros. Estos líquidos tienen múltiples usos, desde la industria petroquímica hasta la exportación directa, y son una fuente importante de divisas para los países productores. Argentina, con la riqueza gasífera de Vaca Muerta, tiene un potencial enorme en este segmento que todavía está lejos de ser explotado al máximo.<br><br>El impacto económico y social del proyecto es significativo. TGS estima la creación de 4.000 puestos de trabajo directos y 15.000 empleos indirectos, una cifra que tiene peso real en las provincias involucradas, especialmente en Neuquén y en el área de influencia del polo industrial de Bahía Blanca. A eso se suma la expectativa de generar exportaciones por US$1.200 millones anuales, un flujo de dólares constante que contribuiría directamente a fortalecer las reservas del Banco Central y a sostener el equilibrio en la balanza comercial, dos variables sobre las que el Gobierno viene trabajando con especial atención dentro de su programa económico.<br><br>El anuncio de TGS se suma a una seguidilla de noticias de inversión que están redefiniendo el perfil productivo de Argentina. En pocos días, el país vio cómo Southern Energy cerraba el mayor contrato de exportación de GNL de su historia con Europa, Pampa Energía solicitaba el RIGI para un proyecto de US$4.500 millones en Rincón de Aranda, y ahora TGS presenta este megaproyecto ante el mundo financiero. La convergencia de estas inversiones pinta un cuadro donde Vaca Muerta deja de ser solo una promesa y empieza a consolidarse como el motor real de la economía argentina para los próximos años. El desafío del Gobierno será mantener las condiciones de estabilidad y seguridad jurídica que hacen posible que este tipo de proyectos se anuncien, y sobre todo, que se concreten.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
