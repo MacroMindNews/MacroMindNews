@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Paolo Rocca deja la conducción operativa de Tenaris: Gabriel Podskubka asume como nuevo CEO del gigante del acero","description":"El empresario más influyente de la industria argentina continuará como presidente del Grupo Techint mientras cede el mando ejecutivo de la empresa tubera líder del mundo a su sucesor de larga data.","image":["https://macromindnews.com.ar/img/paolo-rocca.jpg"],"datePublished":"2026-05-08T00:00:00-03:00","dateModified":"2026-05-08T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/paolo-rocca-deja-la-conduccion-operativa-de-tenaris-gabriel-podskubka-asume-como.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Paolo Rocca deja la conducción operativa de Tenaris: Gabriel Podskubka asume como nuevo CEO del gigante del acero</h1>
   <p class="art-excerpt">El empresario más influyente de la industria argentina continuará como presidente del Grupo Techint mientras cede el mando ejecutivo de la empresa tubera líder del mundo a su sucesor de larga data.</p>
   <div class="art-meta">8 de Mayo, 2026</div>
-  <img src="img/paolo-rocca.jpg" alt="Paolo Rocca deja la conducción operativa de Tenaris: Gabriel Podskubka asume como nuevo CEO del gigante del acero" onerror="this.style.background='#ddd';"/>
+  <img src="img/paolo-rocca.jpg" alt="Paolo Rocca deja la conducción operativa de Tenaris: Gabriel Podskubka asume como nuevo CEO del gigante del acero" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/paolo-rocca-deja-la-conduccion-operativa-de-tenaris-gabriel-podskubka-asume-como.html&text=Paolo%20Rocca%20deja%20la%20conducci%C3%B3n%20operativa%20de%20Tenaris%3A%20Gabriel%20Podskubka%20asume%20como%20nuevo%20CEO%20del%20gigante%20del%20acero" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Paolo Rocca dejará de ser el CEO de Tenaris, la empresa productora de tubos de acero sin costura controlada por el Grupo Techint que cotiza en las bolsas de Nueva York, Milán y Buenos Aires y es considerada la compañía industrial de origen argentino más relevante del mundo. En su lugar asumirá Gabriel Podskubka, ejecutivo de extensa trayectoria dentro del propio grupo, donde ocupó distintas posiciones de liderazgo operativo a lo largo de los últimos años. Rocca continuará ejerciendo como presidente del Grupo Techint, el holding familiar que controla Tenaris, Ternium, Tecpetrol y otras empresas del conglomerado, manteniendo así la conducción estratégica del grupo pero alejándose de la gestión cotidiana de la principal unidad de negocio.<br><br>La transición representa el final de una era. Paolo Rocca asumió la conducción de Tenaris en sus inicios y fue el arquitecto de su transformación desde una empresa de origen argentino hacia una corporación global con operaciones en más de 30 países, plantas en América, Europa, Asia y Medio Oriente, y una capitalización bursátil que la ubica entre las grandes compañías industriales a nivel mundial. Bajo su liderazgo, Tenaris se convirtió en el proveedor de referencia de tubos para la industria petrolera y gasífera global, con una posición especialmente fuerte en el segmento premium para perforaciones en yacimientos no convencionales como Vaca Muerta. La empresa factura más de US$10.000 millones anuales y emplea a decenas de miles de personas en todo el mundo.<br><br>Gabriel Podskubka es un ejecutivo formado dentro del propio ecosistema Techint, lo que sugiere que la transición apuntará a la continuidad estratégica más que a un cambio de rumbo. Su designación evita el riesgo de un giro abrupto en la cultura corporativa o en las prioridades de inversión del grupo en un momento en que Tenaris atraviesa una etapa de expansión en mercados clave como el norteamericano y el de Medio Oriente. Además, el cambio se produce en un contexto de alta demanda global de tubos para perforación, impulsada por el auge del petróleo y gas en Estados Unidos, Arabia Saudita y, crecientemente, en Argentina a través de Vaca Muerta, donde Tenaris tiene una posición dominante.<br><br>Para Argentina, el cambio en la cúpula de Tenaris no es un dato menor. El Grupo Techint es el mayor empleador industrial privado del país y uno de los actores más relevantes en la cadena de valor energética nacional. Rocca mantuvo históricamente una relación de diálogo con distintas administraciones, y su permanencia como presidente del grupo garantiza que esa interlocución continúe. El cambio en la conducción ejecutiva de Tenaris refleja una tendencia global en las grandes familias empresarias: a medida que los fundadores o líderes históricos avanzan en edad, comienzan a delegar la gestión operativa en ejecutivos profesionales mientras preservan el control estratégico desde posiciones de presidencia o directorio.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
