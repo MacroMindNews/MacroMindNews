@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Máxima tensión judicial en Brasil: investigan si Flávio Bolsonaro se fugó hacia Argentina en un vuelo privado desde Puerto Iguazú","description":"Investigan si Flávio Bolsonaro se fugó a la Argentina a través de un avión privado en Puerto Iguazú. La Justicia brasileña le prohibió salir del país tras perder el balotaje y le exigió la entrega de pasaportes.","image":["https://macromindnews.com.ar/img/flavio-bolsonaro-27-10-26.webp"],"datePublished":"2026-10-27T00:00:00-03:00","dateModified":"2026-10-27T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/maxima-tension-judicial-en-brasil-investigan-si-flavio-bolsonaro-se-fugo-hacia-argentina-en-un-vuelo-privado-desde-puerto-iguazu.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Máxima tensión judicial en Brasil: investigan si Flávio Bolsonaro se fugó hacia Argentina en un vuelo privado desde Puerto Iguazú</h1>
   <p class="art-excerpt">Investigan si Flávio Bolsonaro se fugó a la Argentina a través de un avión privado en Puerto Iguazú. La Justicia brasileña le prohibió salir del país tras perder el balotaje y le exigió la entrega de pasaportes.</p>
   <div class="art-meta">27 de Octubre, 2026</div>
-  <img src="img/flavio-bolsonaro-27-10-26.webp" alt="Máxima tensión judicial en Brasil: investigan si Flávio Bolsonaro se fugó hacia Argentina en un vuelo privado desde Puerto Iguazú" onerror="this.style.background='#ddd';"/>
+  <img src="img/flavio-bolsonaro-27-10-26.webp" alt="Máxima tensión judicial en Brasil: investigan si Flávio Bolsonaro se fugó hacia Argentina en un vuelo privado desde Puerto Iguazú" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/maxima-tension-judicial-en-brasil-investigan-si-flavio-bolsonaro-se-fugo-hacia-argentina-en-un-vuelo-privado-desde-puerto-iguazu.html&text=M%C3%A1xima%20tensi%C3%B3n%20judicial%20en%20Brasil%3A%20investigan%20si%20Fl%C3%A1vio%20Bolsonaro%20se%20fug%C3%B3%20hacia%20Argentina%20en%20un%20vuelo%20privado%20desde%20Puerto%20Iguaz%C3%BA" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Las autoridades de Brasil y los organismos de seguridad de la región activaron un alerta de investigación tras conocerse versiones periodísticas y judiciales que indican que el senador e hijo del expresidente, Flávio Bolsonaro, figuraba en la lista de pasajeros de una aeronave privada vinculada a un vuelo con destino o salida en la zona de la Triple Frontera. Las sospechas se centran en un posible intento de evasión del territorio brasileño a través de la ciudad argentina de Puerto Iguazú con la intención de eludir los requerimientos de la justicia federal de su país.<br><div><br></div><div>La controversia escaló este martes 27 de octubre de 2026, luego de que el Tribunal Supremo Federal (STF) aumentara la presión judicial sobre el dirigente tras la derrota sufrida en el balotaje presidencial frente a Luiz Inácio Lula da Silva.<br><img src="https://www.lanacion.com.ar/resizer/v2/el-avion-privado-en-la-mira-por-las-versiones-de-5MKRDM3DENCO7D6TDKBEYPEANA.jpeg?auth=79366dcc4a78dda764ff9a1df756deb68c4e2f120713434e3258eb6462eea526&amp;width=780&amp;height=1295&amp;quality=70&amp;smart=true" alt="Imagen" style="max-width:100%;margin:12px 0;display:block;"></div><div><br></div><div>Retenciones judiciales, pasaportes retenidos y causas abiertas</div><div>El escenario legal de Flávio Bolsonaro se precipitó tras los comicios del último fin de semana. Ante el temor fundado de una fuga hacia los Estados Unidos, el juez del STF Alexandre de Moraes impuso una prohibición estricta de salida del país y exigió la entrega inmediata de sus documentos de viaje. Sin embargo, el legislador —cuyo mandato en el Senado finaliza el próximo 31 de enero de 2027— incumplió la manda judicial y no entregó sus pasaportes, argumentando públicamente a través de sus redes sociales que se trata de una "persecución orientada a intimidarlo".</div><div><br></div><div>La ofensiva de los tribunales brasileños responde a dos expedientes de alto perfil en los que el senador está imputado por presuntos delitos de lavado de dinero, corrupción y tráfico de influencias. Pese a que su espacio político intentó inicialmente impugnar el resultado del balotaje que consagró a Lula, la falta de respaldo institucional aceleró las medidas cautelares sobre su persona.</div><div><br></div><div>Pista argentina y el comunicado del Ministerio de Seguridad</div><div>La hipótesis de la fuga tomó fuerza cuando fuentes en Brasil aseguraron que el nombre del dirigente opositor integraba el manifiesto de pasajeros de un avión privado detectado en la región fronteriza. La ruta investigada contempla un cruce terrestre o aéreo hacia la localidad misionera de Puerto Iguazú para abordar un vuelo internacional con escala previa en territorio argentino.</div><div><br></div><div>Ante consultas formales de distintos medios, altas fuentes del Ministerio de Seguridad de la Nación informaron que los registros migratorios y de control de fronteras no registran el ingreso formal de Flávio Bolsonaro al país, descartando por el momento su presencia física en suelo argentino, aunque las fuerzas de seguridad mantienen abiertos los protocolos de verificación ante la gravedad institucional del caso.</div></div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
