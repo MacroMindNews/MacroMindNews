@@ -91,6 +91,17 @@
       .drawer{top:54px;width:100%;left:0;border-left:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
       .drawer-sub{display:block;}
     }
+    /* MODAL SUSCRIPCIÓN */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+    .modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+    .modal-box input[type=email]{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+    .modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .modal-sub:hover{background:#222;}
+    .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+    .modal-close:hover{color:#fff;}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Kraken llega oficialmente a Argentina: registro ante la CNV, depósitos en pesos y tres aplicaciones distintas","description":"El exchange fundado en 2011 y con más de US$1.000 millones de volumen diario global desembarca con una estrategia de compliance total, posicionándose como el primer operador cripto de escala mundial con registro formal ante el regulador argentino.","image":["https://macromindnews.com.ar/img/kraken.jpg"],"datePublished":"2026-05-05T00:00:00-03:00","dateModified":"2026-05-05T00:00:00-03:00","author":[{"@type":"Organization","name":"MacroMind News","url":"https://macromindnews.com.ar"}],"publisher":{"@type":"Organization","name":"MacroMind News","logo":{"@type":"ImageObject","url":"https://macromindnews.com.ar/img/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://macromindnews.com.ar/kraken-llega-oficialmente-a-argentina-registro-ante-la-cnv-depositos-en-pesos-y-.html"}}</script>
 </head>
@@ -105,14 +116,14 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <a href="index.html" class="btn-sub">SUSCRIBIRME</a>
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
   <div class="drawer-inner">
-    <a href="index.html" class="drawer-sub">SUSCRIBIRME</a>
+    <span class="drawer-sub" id="openModal3">SUSCRIBIRME</span>
     <div class="drawer-group-title">Secciones</div>
     <div class="drawer-section">
       <a href="economia.html">Economía</a>
@@ -153,7 +164,7 @@
   <h1 class="art-title">Kraken llega oficialmente a Argentina: registro ante la CNV, depósitos en pesos y tres aplicaciones distintas</h1>
   <p class="art-excerpt">El exchange fundado en 2011 y con más de US$1.000 millones de volumen diario global desembarca con una estrategia de compliance total, posicionándose como el primer operador cripto de escala mundial con registro formal ante el regulador argentino.</p>
   <div class="art-meta">5 de Mayo, 2026</div>
-  <img src="img/kraken.jpg" alt="Kraken llega oficialmente a Argentina: registro ante la CNV, depósitos en pesos y tres aplicaciones distintas" onerror="this.style.background='#ddd';"/>
+  <img src="img/kraken.jpg" alt="Kraken llega oficialmente a Argentina: registro ante la CNV, depósitos en pesos y tres aplicaciones distintas" loading="lazy" onerror="this.style.background='#ddd';"/>
   <div class="share-bar">
     <span class="share-label">Compartir:</span>
     <a href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/kraken-llega-oficialmente-a-argentina-registro-ante-la-cnv-depositos-en-pesos-y-.html&text=Kraken%20llega%20oficialmente%20a%20Argentina%3A%20registro%20ante%20la%20CNV%2C%20dep%C3%B3sitos%20en%20pesos%20y%20tres%20aplicaciones%20distintas" target="_blank" class="share-btn x" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -164,6 +175,21 @@
   </div>
   <div class="art-body">Kraken, uno de los exchanges de criptomonedas más antiguos y robustos del mundo, inició operaciones oficiales en Argentina tras obtener su registro como Proveedor de Servicios de Activos Virtuales (PSAV) ante la Comisión Nacional de Valores. La plataforma, fundada en 2011, cuenta con más de 600 activos digitales disponibles y un volumen diario de trading que supera los US$1.000 millones a nivel global. A diferencia de otros exchanges que operan en el país de manera parcial o sin encuadramiento regulatorio, Kraken eligió un modelo de compliance total desde el primer día, alineado con su estrategia en cada mercado donde opera. La operación local es liderada por Sebastián Camiser como Head of Regional Growth para Argentina y LATAM hispanohablante.<br><br>El desembarco incluye tres aplicaciones diferenciadas para distintos perfiles de usuario. La primera es la plataforma principal de Kraken para compra y venta de criptomonedas, orientada al inversor minorista. La segunda es Kraken Pro, una plataforma de trading avanzado con herramientas de análisis, sistema de fidelidad por puntos y comisiones más bajas para operadores activos. La tercera es Krak, enfocada en pagos y gestión de activos digitales para empresas, aunque su integración completa está en proceso. Para fondear las cuentas en pesos, los usuarios tienen tres vías disponibles: transferencia bancaria a CBU recaudador desde una cuenta del mismo titular, con validación por CUIT. A futuro, la empresa analiza incorporar tarjeta de débito, cashback por compras y pagos mediante QR en comercios argentinos.<br><br>Argentina no es un mercado elegido al azar. El país lidera la adopción de criptomonedas per cápita en la región, con el 12,4% de la población utilizando activos digitales, y cuadruplicó su base de usuarios activos mensuales respecto al ciclo alcista de 2021. El fenómeno ya va más allá de la cobertura inflacionaria: los argentinos usan cripto para cobros del exterior, pagos internacionales, arbitraje cambiario y acceso a servicios globales. Kraken también habilitó cuentas para empresas, con servicios de custodia institucional y staking, y un esquema de atención diferencial para clientes de alto patrimonio bajo la modalidad Kraken VIP.<br><br>El ingreso de Kraken al mercado local se produce en un contexto donde el gobierno de Milei impulsó la regulación del sector cripto como parte de su agenda de apertura y modernización financiera. La CNV viene registrando activamente a exchanges internacionales como PSAV, creando un marco que da certeza jurídica a las plataformas y protección a los usuarios. Para el inversor argentino, la llegada de Kraken amplía el ecosistema disponible con un operador de primera línea mundial, seguridad de nivel institucional —autenticación de dos factores y almacenamiento en frío para la mayoría de los fondos— y acceso a más de 350 activos digitales con depósitos directos en pesos.</div>
 </main>
+<!-- MODAL SUSCRIPCIÓN -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
 <footer>
   <div class="ft">
     <div class="fb-brand">
@@ -205,6 +231,22 @@
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+const modalOv=document.getElementById('modalOv');
+function abrirModal(){modalOv.classList.add('open');document.getElementById('subEmail').focus();}
+const om=document.getElementById('openModal');
+if(om) om.addEventListener('click',abrirModal);
+const om3=document.getElementById('openModal3');
+if(om3) om3.addEventListener('click',()=>{hbtn.classList.remove('open');drawer.classList.remove('open');abrirModal();});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
 document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
 </script>
 
