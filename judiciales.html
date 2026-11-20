@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="MacroMind News — Judiciales: noticias y análisis independientes de Argentina."/>
+  <link rel="preconnect" href="https://firestore.googleapis.com"/>
+  <link rel="preconnect" href="https://www.gstatic.com"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <title>Judiciales | MacroMind News</title>
   <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/3827f054973822320463ef293bdf84fb/script.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8852528520558546" crossorigin="anonymous"></script>
@@ -143,7 +148,7 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
   </nav>
   <div class="header-right">
     <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
-    <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
+    <button class="hbtn" id="hbtn" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -191,12 +196,12 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 
 <div class="sec-wrap">
   <div class="sec-hdr"><h1>Judiciales</h1></div>
-  <div id="list-judiciales"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
+  <div id="list-judiciales" style="min-height:600px;"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
 </div>
 
 <div class="modal-ov" id="modalOv">
   <div class="modal-box">
-    <button class="modal-close" id="modalClose">×</button>
+    <button class="modal-close" id="modalClose" aria-label="Cerrar">×</button>
     <h2>MacroMind News</h2>
     <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
     <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
